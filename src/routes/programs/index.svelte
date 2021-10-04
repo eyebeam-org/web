@@ -4,7 +4,6 @@
 		const res = await fetch('/programs.json');
 		if (res.ok) {
 			const programs = await res.json();
-			console.log('programs', programs)
 			return {
 				props: { programs }
 			};

@@ -3,7 +3,6 @@
 		const res = await fetch('/people.json');
 		if (res.ok) {
 			const people = await res.json();
-			console.log('people', people)
 			return {
 				props: { people }
 			};
@@ -29,6 +28,6 @@
 
 <ul>
 	{#each people as person}
-		<li>{person.name}</li>
+		<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
 	{/each}
 </ul>
