@@ -1,5 +1,5 @@
 <script>
-    import { getStores, navigating, page, session } from '$app/stores';
+    import { navigating, page } from '$app/stores';
     $: console.log('navigating', $navigating)
     $: console.log($page)
 </script>
