@@ -2,7 +2,7 @@ import sanityClient from '@sanity/client'
 import blocksToHtml from '@sanity/block-content-to-html'
 import imageUrlBuilder from '@sanity/image-url'
 import getVideoId from "get-video-id";
-import has from 'lodash/has'
+import has from 'lodash/has.js'
 
 const tracer = x => {
     console.dir(x)
