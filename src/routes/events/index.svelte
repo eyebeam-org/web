@@ -27,6 +27,6 @@
 
 <ul>
 	{#each events as event}
-		<li>{event.title}</li>
+		<li><a href={'/events/' + event.slug.current} sveltekit:prefetch>{event.title}</a></li>
 	{/each}
 </ul>

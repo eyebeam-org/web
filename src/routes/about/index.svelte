@@ -27,6 +27,6 @@
 
 <ul>
 	{#each about as page}
-		<li>{page.title}</li>
+		<li><a href={'/about/' + page.slug.current} sveltekit:prefetch>{page.title}</a></li>
 	{/each}
 </ul>

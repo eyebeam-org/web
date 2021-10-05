@@ -23,14 +23,19 @@
 
 
 <svelte:head>
-	<title>PERSON</title>
+	<title>{person.name}</title>
 </svelte:head>
 
-<h1>PERSON: {person.name}</h1>
+<!-- NAME -->
+<h1>{person.name}</h1>
+
+<!-- MAIN IMAGE -->
 <img
 	alt={person.name}
 	src={urlFor(person.mainImage)
 	.quality(90)
 	.width(200)
 	.url()}/>
+
+<!-- BIO -->
 <div>{@html renderBlockText(person.bio.content)}</div>

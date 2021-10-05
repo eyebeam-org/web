@@ -27,6 +27,6 @@
 
 <ul>
 	{#each blog as post}
-		<li>{post.title}</li>
+		<li><a href={'/blog/' + post.slug.current} sveltekit:prefetch>{post.title}</a></li>
 	{/each}
 </ul>

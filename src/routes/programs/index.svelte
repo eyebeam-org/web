@@ -28,6 +28,6 @@
 
 <ul>
 	{#each programs as program}
-		<li>{program.title}</li>
+		<li><a href={'/programs/' + program.slug.current} sveltekit:prefetch>{program.title}</a></li>
 	{/each}
 </ul>

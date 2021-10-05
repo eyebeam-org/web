@@ -1,10 +1,7 @@
 import { loadData } from "$lib/sanity.js"
 
 // GET =>
-export const get = async (request) => {
+export const get = async () => {
 	const response = await loadData("*[_type == 'person']")
-	if (response.status === 404) {
-		return { body: 'ERROR' };
-	}
-	return { body: response }
+	return { body: response.status === 404 ? 'ERROR' : response };
 };
