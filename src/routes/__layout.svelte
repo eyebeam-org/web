@@ -8,3 +8,17 @@
 <main>
 	<slot />
 </main>
+
+<style lang="scss" global>
+	@import "../variables.scss";
+
+    body {
+        background: $white;
+		color: $black;
+		font-family: $SERIF_STACK;
+    }
+
+	a {
+		color: $black;
+	}
+</style>
