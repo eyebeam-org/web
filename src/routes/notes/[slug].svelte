@@ -36,7 +36,8 @@
 	alt={note.title}
 	src={urlFor(note.mainImage)
 	.quality(90)
-	.width(200)
+	.saturation(-100)
+	.width(400)
 	.url()}/>
 
 <!-- MAIN TEXT -->
@@ -49,3 +50,6 @@
 		<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
 	{/each}
 </ul>
+
+<!-- LAST UPDATED -->
+<div>Last Updated: {note._updatedAt}</div>

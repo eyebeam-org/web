@@ -125,6 +125,7 @@ const serializers = {
                 h('img', {
                     src: urlFor(props.node.asset)
                         .width(800)
+                        .saturation(-100)
                         .quality(90)
                         .auto('format')
                         .url()

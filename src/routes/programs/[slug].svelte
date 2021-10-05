@@ -36,16 +36,25 @@
 	alt={program.title}
 	src={urlFor(program.mainImage)
 	.quality(90)
-	.width(200)
+	.saturation(-100)
+	.width(400)
 	.url()}/>
 
 <!-- MAIN TEXT -->
-<div>{@html renderBlockText(program.content.content)}</div>
+{#if program.content && program.content.content && Array.isArray(program.content.content)}
+	<div>{@html renderBlockText(program.content.content)}</div>
+{/if}
+
 
 <!-- PEOPLE -->
-<h2>People</h2>
-<ul>
-	{#each program.people as person}
-		<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
-	{/each}
-</ul>
+{#if program.people && Array.isArray(program.people)}
+	<h2>People</h2>
+	<ul>
+		{#each program.people as person}
+			<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
+		{/each}
+	</ul>
+{/if}
+
+<!-- LAST UPDATED -->
+<div>Last Updated: {program._updatedAt}</div>

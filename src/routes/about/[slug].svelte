@@ -36,8 +36,12 @@
 	alt={aboutPage.title}
 	src={urlFor(aboutPage.mainImage)
 	.quality(90)
-	.width(200)
+	.saturation(-100)
+	.width(400)
 	.url()}/>
 
 <!-- MAIN TEXT -->
 <div>{@html renderBlockText(aboutPage.content.content)}</div>
+
+<!-- LAST UPDATED -->
+<div>Last Updated: {aboutPage._updatedAt}</div>

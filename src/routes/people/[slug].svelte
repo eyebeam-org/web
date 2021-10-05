@@ -34,8 +34,12 @@
 	alt={person.name}
 	src={urlFor(person.mainImage)
 	.quality(90)
-	.width(200)
+	.saturation(-100)
+	.width(400)
 	.url()}/>
 
 <!-- BIO -->
 <div>{@html renderBlockText(person.bio.content)}</div>
+
+<!-- LAST UPDATED -->
+<div>Last Updated: {person._updatedAt}</div>
