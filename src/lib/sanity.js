@@ -15,8 +15,8 @@ export const client = sanityClient({
     projectId: SANITY_ID,
     dataset: 'production',
     apiVersion: '2021-10-05', // use a UTC date string
-    token: 'sk7hE84eyTqaYfjl7wNO8vtAhxBFhXNzMRc1xbqcHhCX6lOCx0JFWalBhnGHl9WcM727aJYb5i9lSiyqiEwpns1Mg9ZQAEheuSpnnm7YUgYV86IKChxKkQJmWZb8PTt9b8a4vujzXLQ99xS0x2glhwf5NBILuI375hb32QmEi7Rpxm7RnzAC', // or leave blank to be anonymous user
-    useCdn: false // `false` if you want to ensure fresh data
+    // token: 'sk7hE84eyTqaYfjl7wNO8vtAhxBFhXNzMRc1xbqcHhCX6lOCx0JFWalBhnGHl9WcM727aJYb5i9lSiyqiEwpns1Mg9ZQAEheuSpnnm7YUgYV86IKChxKkQJmWZb8PTt9b8a4vujzXLQ99xS0x2glhwf5NBILuI375hb32QmEi7Rpxm7RnzAC', // or leave blank to be anonymous user
+    useCdn: true // `false` if you want to ensure fresh data
 })
 
 const h = blocksToHtml.h
