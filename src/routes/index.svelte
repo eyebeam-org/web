@@ -50,7 +50,7 @@
                         {#if activeStatement}
                             <div class='text'>{@html renderBlockText(activeStatement.content.content)}</div>
                             {#if activeStatement.person}
-                                <div class='person'>– {activeStatement.person.name}</div>
+                                <div class='person'>– <a href={'/people/' + activeStatement.person.slug.current} sveltekit:prefetch>{activeStatement.person.name}</a></div>
                             {/if}
                         {/if}
                         <div class='more' on:click={newStatement}/>
@@ -141,7 +141,12 @@
         float: left;
 
         .statement {
+            .text {
+                margin-top: 10px;
+            }
+
             .more {
+                margin-top: 10px;
                 width: 20px;
                 height: 20px;
                 background: $grey;
@@ -220,10 +225,8 @@
     }
 
 .tile {
-    cursor: pointer;
     padding: 15px;
     overflow: hidden;
-
 }
 
 a {
