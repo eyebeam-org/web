@@ -21,7 +21,7 @@
 
 
 <svelte:head>
-	<title>PEOPLE</title>
+	<title>eyebeam.org / people</title>
 </svelte:head>
 
 <h1>PEOPLE</h1>

@@ -3,7 +3,11 @@
     // $: console.log($page)
 </script>
 
-<h1>eyebeam.org</h1>
+<nav class='menubar'>
+    <div class='breadcrumb'>eyebeam.org</div>
+</nav>
+
+<!-- <h1>eyebeam.org</h1>
 <nav>
     <p><a href="/people" sveltekit:prefetch class:active={$page.path === '/people'}>People</a></p>
     <p><a href="/about" sveltekit:prefetch class:active={$page.path === '/about'}>About</a></p>
@@ -11,11 +15,22 @@
     <p><a href="/notes" sveltekit:prefetch class:active={$page.path === '/notes'}>Notes</a></p>
     <p><a href="/events" sveltekit:prefetch class:active={$page.path === '/events'}>Events</a></p>
     <p><a href="/blog" sveltekit:prefetch class:active={$page.path === '/blog'}>Blog</a></p>
-</nav>
+</nav> -->
 
-<style>
+<style lang="scss">
+	@import "../../variables.scss";
 
-    .active {
-        font-weight: bold;
+    .menubar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        background: $black;
+        color: $white;
+        font-size: $font-size-normal;
+        line-height: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 </style>

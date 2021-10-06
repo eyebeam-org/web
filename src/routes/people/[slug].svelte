@@ -23,7 +23,7 @@
 
 
 <svelte:head>
-	<title>{person.name}</title>
+	<title>eyebeam.org / people / {person.name}</title>
 </svelte:head>
 
 <!-- NAME -->
