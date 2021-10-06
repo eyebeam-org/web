@@ -14,7 +14,7 @@
 
     import { onMount } from "svelte"
     import { loadData, renderBlockText } from "$lib/sanity.js"
-    import sample from "lodash/sample"
+    import sample from "lodash/sample.js"
 
     let activeStatement = false
     let statements = []
