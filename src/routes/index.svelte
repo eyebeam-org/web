@@ -1,9 +1,10 @@
-<script context="module">
+<script>
     // # # # # # # # # # # # # #
     //
     //  EYEBEAM.ORG
     //
     // # # # # # # # # # # # # #
+    // __ GRAPHICS
     import Logo from '$lib/graphics/logo.svelte';
     import Newsletter from '$lib/graphics/newsletter.svelte';
     import Twitter from '$lib/graphics/twitter.svelte';
@@ -11,6 +12,28 @@
     import Youtube from '$lib/graphics/youtube.svelte';
     import Search from '$lib/graphics/search.svelte';
 
+    import { onMount } from "svelte"
+    import { loadData, renderBlockText } from "$lib/sanity.js"
+    import sample from "lodash/sample"
+
+    let activeStatement = false
+    let statements = []
+
+    const newStatement = () => {
+        while(true) {
+            let tempStatement = sample(statements)
+            if(tempStatement._id !== activeStatement._id) {
+                activeStatement = tempStatement
+                break
+            }
+        }
+    }
+
+   onMount(async () => {
+	    statements = await loadData("*[_type == 'statement']{..., person->{...}}")
+        newStatement()
+    })
+    
 </script>
 
 <svelte:head>
@@ -23,10 +46,15 @@
             <a href='https://open-eyebeam.netlify.app' class='tile open-eyebeam'></a>
             <div class='tile logo-and-statement'>
                 <div class='logo'><Logo/></div>
-                <div class='statement'>
-                    <div class='text'>....</div>
-                    <div class='more'>x</div>
-                </div>
+                    <div class='statement'>
+                        {#if activeStatement}
+                            <div class='text'>{@html renderBlockText(activeStatement.content.content)}</div>
+                            {#if activeStatement.person}
+                                <div class='person'>– {activeStatement.person.name}</div>
+                            {/if}
+                        {/if}
+                        <div class='more' on:click={newStatement}/>
+                    </div>
             </div>
         </div>
         <div class='column two'>
@@ -111,6 +139,18 @@
         width: 100%;
         border-right: $border-style;
         float: left;
+
+        .statement {
+            .more {
+                width: 20px;
+                height: 20px;
+                background: $grey;
+                cursor: pointer;
+                &:hover {
+                    background: $black;
+                }
+            }
+        }
     }
 
     .programs {
@@ -183,8 +223,17 @@
     cursor: pointer;
     padding: 15px;
     overflow: hidden;
+
+}
+
+a {
+    text-decoration: none;
     &:hover {
         background: $grey;
     }
+}
+
+:global(.text p) {
+    margin: 0;
 }
 </style>
