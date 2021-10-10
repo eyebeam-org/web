@@ -15,22 +15,23 @@
 </script>
 
 <script>
-
-		// # # # # # # # # # # # # #
+	// # # # # # # # # # # # # #
 	//
-	//  What is Eyebeam?
+	//  Single about page
 	//
 	// # # # # # # # # # # # # #
 
-	// __ GRAPHICS
-	import Logo from '$lib/graphics/logo.svelte';
-
+	// __ IMPORTS
 	import { renderBlockText, urlFor } from '$lib/sanity.js';
+
+	// __ COMPONENTS
+	import Sidebar from '$lib/sidebar/sidebar.svelte';
+	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
     // *** PROPS
 	export let aboutPage;
-    
-    console.log(aboutPage)
+
+	console.log(aboutPage)
 </script>
 
 
@@ -39,76 +40,49 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<div class="sidebar">
-	<!-- OPEN EYEBEAM -->
-	<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam" />
-	<!-- LOGO -->
-	<div class="tile logo">
-		<div><Logo /></div>
-	</div>
-</div>
+<Sidebar />
 
-
+<!-- MAIN CONTENT -->
 <div class="main-content">
-<!-- TITLE -->
-<h1>{aboutPage.title}</h1>
+	<div class="inner">
+		<!-- TITLE -->
+		<h1>{aboutPage.title}</h1>
 
-<!-- MAIN IMAGE -->
-<img
-	alt={aboutPage.title}
-	src={urlFor(aboutPage.mainImage)
-	.quality(90)
-	.saturation(-100)
-	.width(400)
-	.url()}/>
+		<!-- MAIN IMAGE -->
+		<img
+			class='main-image'
+			alt={aboutPage.title}
+			src={urlFor(aboutPage.mainImage)
+			.quality(90)
+			.saturation(-100)
+			.width(400)
+			.url()}/>
 
-<!-- MAIN TEXT -->
-<div>{@html renderBlockText(aboutPage.content.content)}</div>
+		<!-- MAIN TEXT -->
+		<div>{@html renderBlockText(aboutPage.content.content)}</div>
+	</div>
 
-<!-- LAST UPDATED -->
-<div>Last Updated: {aboutPage._updatedAt}</div>
+	<!-- BOTTOM BAR -->
+	<BottomBar updatedAt={aboutPage._updatedAt}/>
 </div>
 
 <style lang="scss">
 	@import '../../variables.scss';
 
-	$one-third: calc(100% / 3);
-	$two-third: calc((100% / 3) * 2);
-
-	.tile {
-		padding: 15px;
-		overflow: hidden;
-	}
-
-	.sidebar {
-		float: left;
-		width: 50%;
-		width: $one-third;
-		border: $border-style;
-		border-right: none;
-
-		.open-eyebeam {
-			height: 300px;
-			background: $grey;
-			width: 100%;
-			border-bottom: $border-style;
-			float: left;
-		}
-
-		.logo {
-			height: $one-third;
-			width: 100%;
-			float: left;
-		}
-	}
-
 	.main-content {
 		float: left;
 		width: 50%;
 		width: $two-third;
-		border: $border-style;
-		min-height: 100vh;
-		padding: 15px;
+
+		.inner {
+			border: $border-style;
+			padding: 15px;
+			min-height: 100vh;
+		}
+
+		.main-image {
+			width: 300px;
+		}
 	}
 
 	img {

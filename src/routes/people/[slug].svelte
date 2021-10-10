@@ -15,31 +15,78 @@
 </script>
 
 <script>
+	// # # # # # # # # # # # # #
+	//
+	//  Person
+	//
+	// # # # # # # # # # # # # #
+
+	// __ IMPORTS
 	import { renderBlockText, urlFor } from "$lib/sanity.js"
 
+	// __ COMPONENTS
+	import Sidebar from '$lib/sidebar/sidebar.svelte';
+	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+
+	// __ PROPS
 	export let person;
-    console.log(person)
 </script>
 
 
 <svelte:head>
-	<title>eyebeam.org / people / {person.name}</title>
+	<title>{person.name}</title>
 </svelte:head>
 
-<!-- NAME -->
-<h1>{person.name}</h1>
+<!-- SIDEBAR -->
+<Sidebar />
 
-<!-- MAIN IMAGE -->
-<img
-	alt={person.name}
-	src={urlFor(person.mainImage)
-	.quality(90)
-	.saturation(-100)
-	.width(400)
-	.url()}/>
+<div class="main-content">
+	<div class="inner">
 
-<!-- BIO -->
-<div>{@html renderBlockText(person.bio.content)}</div>
+		<!-- NAME -->
+		<h1>{person.name}</h1>
 
-<!-- LAST UPDATED -->
-<div>Last Updated: {person._updatedAt}</div>
+		<!-- MAIN IMAGE -->
+		<img
+			class='main-image'
+			alt={person.name}
+			src={urlFor(person.mainImage)
+			.quality(90)
+			.saturation(-100)
+			.width(400)
+			.url()}/>
+
+		<!-- BIO -->
+		<div>{@html renderBlockText(person.bio.content)}</div>
+	</div>
+
+	<!-- BOTTOM BAR -->
+	<BottomBar updatedAt={person._updatedAt}/>
+</div>
+
+<style lang="scss">
+	@import '../../variables.scss';
+
+
+	.main-content {
+		float: left;
+		width: 50%;
+		width: $two-third;
+
+		.inner {
+			border: $border-style;
+			padding: 15px;
+			min-height: 100vh;
+		}
+
+		.main-image {
+			width: 300px;
+		}
+	}
+
+	img {
+		float: right;
+	}
+
+</style>
+

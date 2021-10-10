@@ -1,21 +1,37 @@
 <script>
     import { navigating, page } from '$app/stores';
-    // $: console.log($page)
+    import Clock from '$lib/clock/clock.svelte';
+
+    let pathArray = []
+
+    $: {
+        console.log('Page change', $page)
+        pathArray = $page.path.split('/').filter(p => p)
+    }
+
+    $: console.log(pathArray)
+
 </script>
 
 <nav class='menubar'>
-    <div class='breadcrumb'>eyebeam.org</div>
+    <!-- BREADCRUMBS -->
+    <div class='breadcrumbs'>
+        <span class='arrow-down'>▼</span>
+        <a href='/'>eyebeam.org</a>
+        {#each pathArray as path, index}
+            <span class='divider'>/</span>
+            {#if index + 1 == pathArray.length}
+                <span>{path}</span>
+            {:else}
+                <a href={'/' + path}>{path}</a>
+            {/if}
+        {/each}
+    </div>
+    <!-- CLOCK -->
+    <div class='clock'>
+        <Clock/>
+    </div>
 </nav>
-
-<!-- <h1>eyebeam.org</h1>
-<nav>
-    <p><a href="/people" sveltekit:prefetch class:active={$page.path === '/people'}>People</a></p>
-    <p><a href="/about" sveltekit:prefetch class:active={$page.path === '/about'}>About</a></p>
-    <p><a href="/programs" sveltekit:prefetch class:active={$page.path === '/programs'}>Programs</a></p>
-    <p><a href="/notes" sveltekit:prefetch class:active={$page.path === '/notes'}>Notes</a></p>
-    <p><a href="/events" sveltekit:prefetch class:active={$page.path === '/events'}>Events</a></p>
-    <p><a href="/blog" sveltekit:prefetch class:active={$page.path === '/blog'}>Blog</a></p>
-</nav> -->
 
 <style lang="scss">
 	@import "../../variables.scss";
@@ -32,5 +48,27 @@
         line-height: 30px;
         padding-left: 15px;
         padding-right: 15px;
+
+        .breadcrumbs {
+            float: left;
+        }
+
+        .arrow-down {
+            font-size: $font-size-small;
+            margin-right: 5px;
+        }
+
+        .divider {
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+
+        a {
+            color: $white;
+        }
+
+        .clock {
+            float: right;
+        }
     }
 </style>

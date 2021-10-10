@@ -1,11 +1,10 @@
 // TYPOGRAPHY
 $SERIF_STACK: 'Literata', serif;
+$font-size-small: 10px;
 $font-size-normal: 12px;
-// $font-size-mid: 16px;
-// $font-size-small: 14px;
-// $font-size-large: 24px;
-// $line-height: 22px;
-
+$font-size-h1: 40px;
+$font-size-h2: 24px;
+$font-size-h3: 12px;
 
 // COLORS
 $black: rgb(34, 31, 32);
@@ -15,6 +14,8 @@ $grey: rgb(223, 221, 215);
 // MISC
 $border-style: 1px solid $black;
 $transition: cubic-bezier(0.23, 1, 0.32, 1);
+$one-third: calc(100% / 3);
+$two-third: calc((100% / 3) * 2);
 
 // RESPONSIVE
 $breakpoints: (

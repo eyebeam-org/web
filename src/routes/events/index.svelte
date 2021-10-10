@@ -15,18 +15,65 @@
 </script>
 
 <script>
+	// # # # # # # # # # # # # #
+	//
+	//  Events
+	//
+	// # # # # # # # # # # # # #
+
+	// __ COMPONENTS
+	import Sidebar from '$lib/sidebar/sidebar.svelte';
+	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+
+	// __ PROPS
 	export let events;
-    console.log(events)
 </script>
 
 <svelte:head>
-	<title>EVENTS</title>
+	<title>Events</title>
 </svelte:head>
 
-<h1>EVENTS</h1>
+<!-- SIDEBAR -->
+<Sidebar toc={events} title='People'/>
 
-<ul>
-	{#each events as event}
-		<li><a href={'/events/' + event.slug.current} sveltekit:prefetch>{event.title}</a></li>
-	{/each}
-</ul>
+<!-- MAIN CONTENT -->
+<div class="main-content">
+	<div class='inner'>
+
+		<h1>Events</h1>
+
+		<!-- LIST -->
+		<ul>
+			{#each events as event}
+				<li><a href={'/events/' + event.slug.current} sveltekit:prefetch>{event.title}</a></li>
+			{/each}
+		</ul>
+	</div>
+
+	<!-- BOTTOM BAR -->
+	<BottomBar/>
+</div>
+
+<style lang="scss">
+	@import '../../variables.scss';
+
+	.main-content {
+		float: left;
+		width: 50%;
+		width: $two-third;
+
+		.inner {
+			padding: 15px;
+			border: $border-style;
+			min-height: 100vh;
+		}
+	}
+
+	ul {
+		padding: 0;
+		li {
+			list-style: none;
+		}
+	}
+</style>
+

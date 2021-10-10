@@ -21,138 +21,118 @@
 	//
 	// # # # # # # # # # # # # #
 
-	// __ GRAPHICS
-	import Logo from '$lib/graphics/logo.svelte';
-
+	// __ IMPORTS
 	import { renderBlockText } from '$lib/sanity.js';
 
-	// *** PROPS
+	// __ COMPONENTS
+	import Sidebar from '$lib/sidebar/sidebar.svelte';
+	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+
+	// __ PROPS
 	export let about;
-	console.log(about);
 </script>
 
 <svelte:head>
-	<title>ABOUT</title>
+	<title>What is Eyebeam?</title>
 </svelte:head>
 
 <!-- SIDEBAR -->
-<div class="sidebar">
-	<!-- OPEN EYEBEAM -->
-	<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam" />
-	<!-- LOGO -->
-	<div class="tile logo">
-		<div><Logo /></div>
-	</div>
-	<!-- TOC -->
-	<div class="tile toc">
-		<ul>
-			{#each about as page}
-				<li><a href={'/about/' + page.slug.current} sveltekit:prefetch>{page.title}</a></li>
-			{/each}
-		</ul>
-	</div>
-</div>
+<Sidebar toc={about} title='What is Eyebeam?'/>
 
 <div class="main-content">
-	<div class="tile introduction">
-		<h1>What is Eyebeam?</h1>
+	<div class='inner'>
+		<div class="tile introduction">
+			<h1>What is Eyebeam?</h1>
+			<p>Eyebeam invests artists with resources, new skills, strategies, networks and community. Eyebeam works in a distributed format to unlock artist-led inventions around issues that confront us in 21st century life, such as: power, self-governance, technology, and democracy.</p>
+		</div>
+
+		{#each about as page}
+			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
+				<h2>{page.title}</h2>
+				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
+			</a>
+		{/each}
+
+		{#each about as page}
+			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
+				<h2>{page.title}</h2>
+				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
+			</a>
+		{/each}
+
+		{#each about as page}
+			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
+				<h2>{page.title}</h2>
+				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
+			</a>
+		{/each}
+
+		{#each about as page}
+			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
+				<h2>{page.title}</h2>
+				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
+			</a>
+		{/each}
+
+		{#each about as page}
+			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
+				<h2>{page.title}</h2>
+				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
+			</a>
+		{/each}
 	</div>
 
-	{#each about as page}
-		<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
-			<h2>{page.title}</h2>
-			<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
-		</a>
-	{/each}
-
-	{#each about as page}
-		<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
-			<h2>{page.title}</h2>
-			<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
-		</a>
-	{/each}
-
-	{#each about as page}
-		<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
-			<h2>{page.title}</h2>
-			<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
-		</a>
-	{/each}
-
-	{#each about as page}
-		<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
-			<h2>{page.title}</h2>
-			<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
-		</a>
-	{/each}
-
-	{#each about as page}
-		<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
-			<h2>{page.title}</h2>
-			<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
-		</a>
-	{/each}
+	<!-- BOTTOM BAR -->
+	<BottomBar/>
 </div>
 
 <style lang="scss">
 	@import '../../variables.scss';
-
-	$one-third: calc(100% / 3);
-	$two-third: calc((100% / 3) * 2);
 
 	.tile {
 		padding: 15px;
 		overflow: hidden;
 	}
 
-	.sidebar {
-		float: left;
-		width: 50%;
-		width: $one-third;
-		border: $border-style;
-		border-right: none;
-
-		.open-eyebeam {
-			height: 300px;
-			background: $grey;
-			width: 100%;
-			border-bottom: $border-style;
-			float: left;
-		}
-
-		.logo {
-			height: $one-third;
-			width: 100%;
-			border-bottom: $border-style;
-			float: left;
-		}
-
-		.toc {
-		}
-	}
-
 	.main-content {
 		float: left;
 		width: 50%;
 		width: $two-third;
-		border: $border-style;
-		min-height: 100vh;
+
+		.inner {
+			width: 100%;
+			border: $border-style;
+			min-height: 100vh;
+			display: inline-block;
+		}
 	}
 
 	.introduction {
 		border-bottom: $border-style;
+		min-height: 300px;
+
+		p {
+			font-style: italic;
+			font-size: $font-size-normal;
+		}
 	}
 
 	.nav-tile {
 		width: 50%;
-		height: 300px;
+		min-height: 300px;
 		border-bottom: $border-style;
 		border-right: $border-style;
 		display: block;
 		float: left;
+		text-decoration: none;
+		cursor: pointer;
 
 		&:nth-child(odd) {
 			border-right: none;
+		}
+
+		&:hover {
+			background: $grey;
 		}
 	}
 </style>

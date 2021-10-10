@@ -15,12 +15,21 @@
 </script>
 
 <script>
+	// # # # # # # # # # # # # #
+	//
+	//  Single event
+	//
+	// # # # # # # # # # # # # #
+
+	// __ IMPORTS
 	import { renderBlockText, urlFor } from "$lib/sanity.js"
 
-    // *** PROPS
-	export let event;
+	// __ COMPONENTS
+	import Sidebar from '$lib/sidebar/sidebar.svelte';
+	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
-    console.log(event)
+    // __ PROPS
+	export let event;
 </script>
 
 
@@ -28,33 +37,61 @@
 	<title>{event.title}</title>
 </svelte:head>
 
-<!-- TITLE -->
-<h1>{event.title}</h1>
+<!-- SIDEBAR -->
+<Sidebar location={event.location} title={event.title}/>
 
-<!-- MAIN IMAGE -->
-<img
-	alt={event.title}
-	src={urlFor(event.mainImage)
-	.quality(90)
-	.saturation(-100)
-	.width(400)
-	.url()}/>
+<div class="main-content">
+	<div class="inner">
+		<!-- MAIN IMAGE -->
+		<img
+			alt={event.title}
+			src={urlFor(event.mainImage)
+			.quality(90)
+			.saturation(-100)
+			.width(400)
+			.url()}/>
 
-<!-- LOCATION -->
-{#if event.location && event.location.content}
-    <div class='location'>Location: {@html renderBlockText(event.location.content)}</div>
-{/if}
+		<!-- TITLE -->
+		<h1>{event.title}</h1>
 
-<!-- MAIN TEXT -->
-<div>{@html renderBlockText(event.content.content)}</div>
+		<!-- MAIN TEXT -->
+		<div>{@html renderBlockText(event.content.content)}</div>
 
-<!-- PEOPLE -->
-<h2>People</h2>
-<ul>
-	{#each event.people as person}
-		<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
-	{/each}
-</ul>
+		<!-- PEOPLE -->
+		<h2>People</h2>
+		<ul>
+			{#each event.people as person}
+				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
+			{/each}
+		</ul>
 
-<!-- LAST UPDATED -->
-<div>Last Updated: {event._updatedAt}</div>
+	</div>
+
+	<!-- BOTTOM BAR -->
+	<BottomBar updatedAt={event._updatedAt}/>
+</div>
+
+<style lang="scss">
+	@import '../../variables.scss';
+
+	.main-content {
+		float: left;
+		width: 50%;
+		width: $two-third;
+
+		.inner {
+			border: $border-style;
+			padding: 15px;
+			min-height: 100vh;
+		}
+
+		.main-image {
+			width: 300px;
+		}
+	}
+
+	img {
+		float: right;
+	}
+
+</style>

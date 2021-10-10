@@ -4,6 +4,7 @@
     //  EYEBEAM.ORG
     //
     // # # # # # # # # # # # # #
+
     // __ GRAPHICS
     import Logo from '$lib/graphics/logo.svelte';
     import Newsletter from '$lib/graphics/newsletter.svelte';
@@ -11,29 +12,11 @@
     import Instagram from '$lib/graphics/instagram.svelte';
     import Youtube from '$lib/graphics/youtube.svelte';
     import Search from '$lib/graphics/search.svelte';
+    import HalfBeam from '$lib/graphics/half-beam.svelte';
 
-    import { onMount } from "svelte"
-    import { loadData, renderBlockText } from "$lib/sanity.js"
-    import sample from "lodash/sample.js"
-
-    let activeStatement = false
-    let statements = []
-
-    const newStatement = () => {
-        while(true) {
-            let tempStatement = sample(statements)
-            if(tempStatement._id !== activeStatement._id) {
-                activeStatement = tempStatement
-                break
-            }
-        }
-    }
-
-   onMount(async () => {
-	    statements = await loadData("*[_type == 'statement']{..., person->{...}}")
-        newStatement()
-    })
-    
+    // __ COMPONENTS
+    import Statements from '$lib/statements/statements.svelte';
+    import OpenEyebeam from '$lib/open-eyebeam/open-eyebeam.svelte';
 </script>
 
 <svelte:head>
@@ -43,35 +26,43 @@
 <div class='homepage-menu'>
     <div class='section one'>
         <div class='column one'>
-            <a href='https://open-eyebeam.netlify.app' class='tile open-eyebeam'></a>
+            <a href='https://open-eyebeam.netlify.app' class='tile open-eyebeam'>
+                <OpenEyebeam/>
+            </a>
             <div class='tile logo-and-statement'>
                 <div class='logo'><Logo/></div>
-                    <div class='statement'>
-                        {#if activeStatement}
-                            <div class='text'>{@html renderBlockText(activeStatement.content.content)}</div>
-                            {#if activeStatement.person}
-                                <div class='person'>– <a href={'/people/' + activeStatement.person.slug.current} sveltekit:prefetch>{activeStatement.person.name}</a></div>
-                            {/if}
-                        {/if}
-                        <div class='more' on:click={newStatement}/>
-                    </div>
+                <Statements/>
             </div>
         </div>
         <div class='column two'>
-            <a href='/programs' class='tile programs'>PROGRAMS</a>
+            <div class='tile programs'>
+                <a href='/programs' class='sub-tile header'>PROGRAMS</a>
+                <a href='/programs' class='sub-tile'>Test</a>
+                <a href='/programs' class='sub-tile'>Test</a>
+                <a href='/programs' class='sub-tile'>Test</a>
+                <a href='/programs' class='sub-tile'>Test</a>
+                <a href='/programs' class='sub-tile'>Test</a>
+            </div>
             <a href='/about' class='tile about'>What is eyebeam?</a>
             <a href='/people' class='tile people'>People</a>
         </div>
         <div class='tile search'><Search/> Search this website</div>
     </div>
     <div class='column three'>
-        <div class='tile change'>Eyebeam is changing...</div>
+        <div class='tile change'>Eyebeam is changing...<div><HalfBeam/></div></div>
         <div class='tile support'>Support Eyebeam</div>
         <div class='tile social newsletter'>Newsletter<div class='icon'><Newsletter/></div></div>
         <div class='tile social instagram'>Instagram<div class='icon'><Instagram/></div></div>
         <div class='tile social twitter'>Twitter<div class='icon'><Twitter/></div></div>
         <div class='tile social youtube'>Youtube<div class='icon'><Youtube/></div></div>
-        <a href='/events' class='tile events'>UPCOMING AND RECENT</a>
+        <div class='tile events'>
+            <a href='/events' class='sub-tile header'>UPCOMING AND RECENT</a>
+            <a href='/events' class='sub-tile'>Test</a>
+            <a href='/events' class='sub-tile'>Test</a>
+            <a href='/events' class='sub-tile'>Test</a>
+            <a href='/events' class='sub-tile'>Test</a>
+            <a href='/events' class='sub-tile'>Test</a>
+        </div>
     </div>
 </div>
 
@@ -131,6 +122,7 @@
         border-right: $border-style;
         border-bottom: $border-style;
         float: left;
+        position: relative;
     }
 
     .logo-and-statement {
@@ -160,11 +152,18 @@
 
     .programs {
         height: $two-third;
-        // background: cadetblue;
         width: 100%;
         border-right: $border-style;
         border-bottom: $border-style;
         float: left;
+        padding: 0 !important;
+
+        .sub-tile {
+            float: left;
+            width: 50%;
+            height: $one-third;
+            padding: 10px;
+        }
     }
 
     .about {
@@ -222,6 +221,14 @@
         width: 100%;
         // background: green;
         float: left;
+        padding: 0 !important;
+
+        .sub-tile {
+            float: left;
+            width: 50%;
+            height: $one-third;
+            padding: 10px;
+        }
     }
 
 .tile {
@@ -234,9 +241,5 @@ a {
     &:hover {
         background: $grey;
     }
-}
-
-:global(.text p) {
-    margin: 0;
 }
 </style>

@@ -15,19 +15,67 @@
 </script>
 
 <script>
+	// # # # # # # # # # # # # #
+	//
+	//  People
+	//
+	// # # # # # # # # # # # # #
+
+	// __ COMPONENTS
+	import Sidebar from '$lib/sidebar/sidebar.svelte';
+	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+
+	// __ PROPS
 	export let people;
-    console.log(people)
 </script>
 
 
 <svelte:head>
-	<title>eyebeam.org / people</title>
+	<title>People</title>
 </svelte:head>
 
-<h1>PEOPLE</h1>
+<!-- SIDEBAR -->
+<Sidebar title='People'/>
 
-<ul>
-	{#each people as person}
-		<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
-	{/each}
-</ul>
+<!-- MAIN CONTENT -->
+<div class="main-content">
+	<div class='inner'>
+
+		<h1>People</h1>
+
+		<!-- LIST -->
+		<ul>
+			{#each people as person}
+				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
+			{/each}
+		</ul>
+	</div>
+
+	<!-- BOTTOM BAR -->
+	<BottomBar/>
+</div>
+
+
+<style lang="scss">
+	@import '../../variables.scss';
+
+	.main-content {
+		float: left;
+		width: 50%;
+		width: $two-third;
+
+		.inner {
+			padding: 15px;
+			border: $border-style;
+			min-height: 100vh;
+		}
+	}
+
+	ul {
+		padding: 0;
+		li {
+			list-style: none;
+		}
+	}
+</style>
+

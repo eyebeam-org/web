@@ -31,6 +31,7 @@
     "@sanity/client": "^2.19.0",
     "@sanity/image-url": "^1.0.1",
     "@sveltejs/adapter-netlify": "^1.0.0-next.32",
+    "date-fns": "^2.25.0",
     "get-video-id": "^3.4.1",
     "lodash": "^4.17.21",
     "node-sass": "^6.0.1",
