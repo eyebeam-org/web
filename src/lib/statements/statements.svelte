@@ -8,7 +8,11 @@
     import { onMount } from "svelte"
     import { loadData, renderBlockText } from "$lib/sanity.js"
     import sample from "lodash/sample.js"
+    
+    // __ COMPONENTS
+    import PersonLink from "$lib/person-link/person-link.svelte"
 
+    // __ VARIABLES
     let activeStatement = false
     let statements = []
 
@@ -34,7 +38,7 @@
     {#if activeStatement}
         <div class='text'>{@html renderBlockText(activeStatement.content.content)}</div>
         {#if activeStatement.person}
-            <div class='person'>– <a href={'/people/' + activeStatement.person.slug.current} sveltekit:prefetch>{activeStatement.person.name}</a></div>
+            <div class='person'><PersonLink person={activeStatement.person}/></div>
         {/if}
     {/if}
     <div class='more' on:click={newStatement}/>

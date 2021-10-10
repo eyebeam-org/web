@@ -24,6 +24,7 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+	import PersonLink from "$lib/person-link/person-link.svelte"
 
 	// __ PROPS
 	export let people;
@@ -46,7 +47,7 @@
 		<!-- LIST -->
 		<ul>
 			{#each people as person}
-				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
+				<li><PersonLink {person}/></li>
 			{/each}
 		</ul>
 	</div>
@@ -75,6 +76,7 @@
 		padding: 0;
 		li {
 			list-style: none;
+			margin-bottom: 5px;
 		}
 	}
 </style>

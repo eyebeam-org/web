@@ -1,5 +1,10 @@
 <script>
-	import { navigating, page } from '$app/stores';
+	// # # # # # # # # # # # # #
+	//
+	//  Main layout
+	//
+	// # # # # # # # # # # # # #
+	import {page } from '$app/stores';
 	import Header from '$lib/header/header.svelte';
 	import Footer from '$lib/footer/footer.svelte';
 

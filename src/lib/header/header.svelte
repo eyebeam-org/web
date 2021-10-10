@@ -1,5 +1,11 @@
 <script>
-    import { navigating, page } from '$app/stores';
+    // # # # # # # # # # # # # #
+	//
+	// Header
+	//
+	// # # # # # # # # # # # # #
+
+    import { page } from '$app/stores';
     import Clock from '$lib/clock/clock.svelte';
 
     let pathArray = []
