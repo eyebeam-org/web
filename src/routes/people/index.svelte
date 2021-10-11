@@ -22,7 +22,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import groupBy from 'lodash/groupBy'
+	import groupBy from 'lodash/groupBy.js'
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
