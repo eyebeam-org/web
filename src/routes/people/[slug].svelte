@@ -22,8 +22,9 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText, urlFor } from "$lib/sanity.js"
+	import { loadData, renderBlockText, urlFor } from "$lib/sanity.js"
 	import has from 'lodash/has.js'
+	import { onMount } from 'svelte';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -31,6 +32,30 @@
 
 	// __ PROPS
 	export let person;
+
+	const connectedPosts = loadData("*[people[]._ref == $personId]", {personId: person._id})
+
+	const translatePostType = t => {
+        switch(t) {
+            case 'program':
+                return 'programs'
+            case 'person':
+                return 'people'
+            case 'blogPost': 
+                return 'blog'
+            case 'event': 
+                return 'events'
+            default:
+                return t
+        }
+    }
+
+	// onMount(async () => {
+	// 	console.log('person._id', person._id)
+	// 	connectedPosts = await loadData("*[people[]._ref == $personId]", {personId: person._id})
+	// 	// connectedPosts = await loadData("*[_type == 'blogPost']")
+    //     console.log('connectedPosts', connectedPosts)
+    // })
 </script>
 
 
@@ -87,9 +112,19 @@
 		{/if}
 
 		<!-- AT EYEBEAM -->
-		<div class='body-content website'>
-			<h3>At Eyebeam</h3>
-		</div>
+		{#await connectedPosts then connectedPosts}
+			{#if connectedPosts.length > 0}
+				<div class='body-content at-eyebeam'>
+					<h3>At Eyebeam</h3>
+					{#each connectedPosts as post}
+						<a href={'/' + translatePostType(post._type) +  '/' + post.slug.current} sveltekit:prefetch class='connected-post'>
+							<div class='type'>{post._type}</div>
+							<div class='title'>{post.title}</div>
+						</a>
+					{/each}
+				</div>
+			{/if}
+		{/await}
 	</div>
 
 	<!-- BOTTOM BAR -->
@@ -142,6 +177,21 @@
 
 	.quote {
 		font-style: italic;
+	}
+
+	.connected-post {
+		margin-bottom: 20px;
+		display: block;
+		text-decoration: none;
+
+		.type {
+			font-size: $font-size-normal;
+			text-transform: uppercase;
+		}
+
+		.title {
+			font-size: $font-size-h2;
+		}
 	}
 
 </style>
