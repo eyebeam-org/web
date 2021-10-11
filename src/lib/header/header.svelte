@@ -4,7 +4,7 @@
 	// Header
 	//
 	// # # # # # # # # # # # # #
-
+    // __ IMPORT
     import { page } from '$app/stores';
     import Clock from '$lib/clock/clock.svelte';
 
@@ -14,8 +14,6 @@
         console.log('Page change', $page)
         pathArray = $page.path.split('/').filter(p => p)
     }
-
-    $: console.log(pathArray)
 
 </script>
 

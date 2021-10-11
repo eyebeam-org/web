@@ -29,18 +29,20 @@
 </script>
 
 <a href={'/people/' + person.slug.current} bind:this={linkEl} sveltekit:prefetch>{person.name}</a>
-<div class='pop-up' bind:this={popEl}>
-<img
-    class='image'
-	alt={person.name}
-	src={urlFor(person.mainImage)
-	.quality(90)
-	.saturation(-100)
-	.width(60)
-    .height(60)
-	.url()}/>
 
-<div>{person.name}</div>
+<div class='pop-up' bind:this={popEl}>
+    <!-- NAME -->
+    <div class='name'>{person.name}</div>
+    <!-- IMAGE -->
+    <img
+        class='image'
+        alt={person.name}
+        src={urlFor(person.mainImage)
+        .quality(90)
+        .saturation(-100)
+        .width(60)
+        .height(60)
+        .url()}/>
 </div>
 
 <style lang="scss">
@@ -48,8 +50,14 @@
 
     .pop-up {
         display: none;
-        background: $grey;
+        background: $white;
         padding: 15px;
+        border: $border-style;
+
+        .name {
+            font-weight: bold;
+            margin-right: 10px;
+        }
     }
 
     a {

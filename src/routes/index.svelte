@@ -11,12 +11,19 @@
     import Twitter from '$lib/graphics/twitter.svelte';
     import Instagram from '$lib/graphics/instagram.svelte';
     import Youtube from '$lib/graphics/youtube.svelte';
-    import Search from '$lib/graphics/search.svelte';
+    import SearchIcon from '$lib/graphics/search.svelte';
     import HalfBeam from '$lib/graphics/half-beam.svelte';
 
     // __ COMPONENTS
     import Statements from '$lib/statements/statements.svelte';
     import OpenEyebeam from '$lib/open-eyebeam/open-eyebeam.svelte';
+    import Search from '$lib/search/search.svelte';
+
+    let searchActive = false
+
+    const toggleSearch = () => {
+        searchActive = !searchActive
+    } 
 </script>
 
 <svelte:head>
@@ -46,7 +53,7 @@
             <a href='/about' class='tile about'>What is eyebeam?</a>
             <a href='/people' class='tile people'>People</a>
         </div>
-        <div class='tile search'><Search/> Search this website</div>
+        <div class='tile search' on:click={toggleSearch}><SearchIcon/> Search this website</div>
     </div>
     <div class='column three'>
         <div class='tile change'>Eyebeam is changing...<div><HalfBeam/></div></div>
@@ -65,6 +72,10 @@
         </div>
     </div>
 </div>
+
+{#if searchActive}
+    <Search on:close={toggleSearch}/>
+{/if}
 
 <style lang="scss">
 	@import "../variables.scss";
@@ -113,6 +124,11 @@
         float: left;
         border-top: $border-style;
         border-right: $border-style;
+
+        &:hover {
+            background: $grey;
+            cursor: pointer;
+        }
     }
 
     .open-eyebeam {

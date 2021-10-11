@@ -32,7 +32,6 @@
 	export let program;
 </script>
 
-
 <svelte:head>
 	<title>{program.title}</title>
 </svelte:head>
@@ -60,7 +59,6 @@
 		{#if program.content && program.content.content && Array.isArray(program.content.content)}
 			<div>{@html renderBlockText(program.content.content)}</div>
 		{/if}
-
 
 		<!-- PEOPLE -->
 		{#if program.people && Array.isArray(program.people)}

@@ -11,12 +11,15 @@
 	import '../app.css';
 </script>
 
+<!-- HEADER -->
 <Header />
 
+<!-- MAIN -->
 <main>
 	<slot />
 </main>
 
+<!-- FOOTER -->
 {#if $page.path !== '/'}
 	<Footer />
 {/if}
@@ -63,7 +66,7 @@
 
 	h3 {
 		font-size: $font-size-h3;
-		font-weight: normal;
+		font-weight: bold;
 		margin: 0;
 	}
 </style>

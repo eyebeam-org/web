@@ -85,9 +85,10 @@
 		}
 
 		.logo {
-			height: $one-third;
+			min-height: 160px;
 			width: 100%;
 			float: left;
+
 
 			&.bordered {
 				border-bottom: $border-style;

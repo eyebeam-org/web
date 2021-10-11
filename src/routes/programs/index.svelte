@@ -47,7 +47,7 @@
 		<div class="tile introduction">
 			<h1>Programs</h1>
 		</div>
-
+		<!-- LIST PROGRAMS -->
 		{#each programs as program}
 			<a class="tile nav-tile" href={'/programs/' + program.slug.current} sveltekit:prefetch>
 				<h2>{program.title}</h2>
@@ -56,34 +56,6 @@
 				{/if}
 			</a>
 		{/each}
-
-		{#each programs as program}
-			<a class="tile nav-tile" href={'/programs/' + program.slug.current} sveltekit:prefetch>
-				<h2>{program.title}</h2>
-				{#if has(programs, 'introduction.content')}
-					<div class="introduction-text">{@html renderBlockText(program.introduction.content)}</div>
-				{/if}
-			</a>
-		{/each}
-
-		{#each programs as program}
-			<a class="tile nav-tile" href={'/programs/' + program.slug.current} sveltekit:prefetch>
-				<h2>{program.title}</h2>
-				{#if has(programs, 'introduction.content')}
-					<div class="introduction-text">{@html renderBlockText(program.introduction.content)}</div>
-				{/if}
-			</a>
-		{/each}
-
-		{#each programs as program}
-			<a class="tile nav-tile" href={'/programs/' + program.slug.current} sveltekit:prefetch>
-				<h2>{program.title}</h2>
-				{#if has(programs, 'introduction.content')}
-					<div class="introduction-text">{@html renderBlockText(program.introduction.content)}</div>
-				{/if}
-			</a>
-		{/each}
-
 	</div>
 
 	<!-- BOTTOM BAR -->
