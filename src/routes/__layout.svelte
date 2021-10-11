@@ -32,7 +32,14 @@
 		color: $black;
 		font-family: $SERIF_STACK;
 		font-size: $font-size-normal;
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
     }
+
+	* {
+		scroll-behavior: smooth;
+	}
 
 	a {
 		color: $black;

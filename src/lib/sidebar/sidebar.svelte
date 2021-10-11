@@ -33,7 +33,7 @@
 	</a>
 	<!-- LOGO -->
 	<div class="tile logo" class:bordered={toc.length > 0 || location || date}>
-		<div><Logo /></div>
+		<a href='/'><Logo /></a>
 		<Statements/>
 	</div>
 	<!-- EVENT -->
@@ -89,6 +89,9 @@
 			width: 100%;
 			float: left;
 
+			a {
+				display: block;
+			}
 
 			&.bordered {
 				border-bottom: $border-style;
