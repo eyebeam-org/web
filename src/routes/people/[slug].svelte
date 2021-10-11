@@ -23,6 +23,7 @@
 
 	// __ IMPORTS
 	import { renderBlockText, urlFor } from "$lib/sanity.js"
+	import has from 'lodash/has.js'
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -34,11 +35,11 @@
 
 
 <svelte:head>
-	<title>{person.name}</title>
+	<title>{person.title}</title>
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title={person.name}/>
+<Sidebar title={person.title}/>
 
 <div class="main-content">
 	<div class="inner">
@@ -46,7 +47,7 @@
 
 			<div class='column left'>
 				<!-- NAME -->
-				<h1>{person.name}</h1>
+				<h1>{person.title}</h1>
 				<!-- ROLES -->
 				<!-- QUOTE -->
 				{#if person.quote}
@@ -54,12 +55,12 @@
 				{/if}
 			</div>
 
+			<!-- MAIN IMAGE -->
 			{#if person.mainImage}
 				<div class='column right'>
-					<!-- MAIN IMAGE -->
 					<img
 						class='main-image'
-						alt={person.name}
+						alt={person.title}
 						src={urlFor(person.mainImage)
 						.quality(90)
 						.saturation(-100)
@@ -78,10 +79,12 @@
 		{/if}
 
 		<!-- BIO -->
-		<div class='body-content bio'>
-			<h3>Bio</h3>
-			{@html renderBlockText(person.bio.content)}
-		</div>
+		{#if has(person, 'bio.content')}
+			<div class='body-content bio'>
+				<h3>Bio</h3>
+				{@html renderBlockText(person.bio.content)}
+			</div>
+		{/if}
 
 		<!-- AT EYEBEAM -->
 		<div class='body-content website'>
@@ -135,6 +138,10 @@
 
 	img {
 		float: right;
+	}
+
+	.quote {
+		font-style: italic;
 	}
 
 </style>

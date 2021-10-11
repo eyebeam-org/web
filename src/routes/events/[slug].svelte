@@ -61,7 +61,7 @@
 		<h2>People</h2>
 		<ul>
 			{#each event.people as person}
-				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
+				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
 			{/each}
 		</ul>
 

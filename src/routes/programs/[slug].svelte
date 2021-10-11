@@ -44,13 +44,15 @@
 	<div class="inner">
 
 		<!-- MAIN IMAGE -->
-		<img
-			alt={program.title}
-			src={urlFor(program.mainImage)
-			.quality(90)
-			.saturation(-100)
-			.width(400)
-			.url()}/>
+		{#if program.mainImage}
+			<img
+				alt={program.title}
+				src={urlFor(program.mainImage)
+				.quality(90)
+				.saturation(-100)
+				.width(400)
+				.url()}/>
+		{/if}
 
 		<!-- TITLE -->
 		<h1>{program.title}</h1>
@@ -65,7 +67,7 @@
 			<h2>People</h2>
 			<ul>
 				{#each program.people as person}
-					<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.name}</a></li>
+					<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
 				{/each}
 			</ul>
 		{/if}

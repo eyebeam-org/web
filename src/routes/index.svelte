@@ -212,6 +212,7 @@
 
         .icon {
             margin-top: 5px;
+            margin-left: 1px;
         }
     }
 

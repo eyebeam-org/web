@@ -18,7 +18,7 @@
     let popEl = {}
 
     onMount(async () => {
-        if(person.name) {
+        if(person.title) {
             createPopper(linkEl, popEl, {
                 placement: 'bottom',
             });
@@ -28,21 +28,23 @@
     $: console.log(person)
 </script>
 
-<a href={'/people/' + person.slug.current} bind:this={linkEl} sveltekit:prefetch>{person.name}</a>
+<a href={'/people/' + person.slug.current} bind:this={linkEl} sveltekit:prefetch>{person.title}</a>
 
 <div class='pop-up' bind:this={popEl}>
     <!-- NAME -->
-    <div class='name'>{person.name}</div>
+    <div class='name'>{person.title}</div>
     <!-- IMAGE -->
-    <img
-        class='image'
-        alt={person.name}
-        src={urlFor(person.mainImage)
-        .quality(90)
-        .saturation(-100)
-        .width(60)
-        .height(60)
-        .url()}/>
+    {#if person.mainImage}
+        <img
+            class='image'
+            alt={person.title}
+            src={urlFor(person.mainImage)
+            .quality(90)
+            .saturation(-100)
+            .width(60)
+            .height(60)
+            .url()}/>
+    {/if}
 </div>
 
 <style lang="scss">

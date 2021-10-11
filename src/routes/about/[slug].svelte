@@ -49,14 +49,16 @@
 		<h1>{aboutPage.title}</h1>
 
 		<!-- MAIN IMAGE -->
-		<img
-			class='main-image'
-			alt={aboutPage.title}
-			src={urlFor(aboutPage.mainImage)
-			.quality(90)
-			.saturation(-100)
-			.width(400)
-			.url()}/>
+		{#if aboutPage.mainImage}
+			<img
+				class='main-image'
+				alt={aboutPage.title}
+				src={urlFor(aboutPage.mainImage)
+				.quality(90)
+				.saturation(-100)
+				.width(400)
+				.url()}/>
+		{/if}
 
 		<!-- MAIN TEXT -->
 		<div>{@html renderBlockText(aboutPage.content.content)}</div>
