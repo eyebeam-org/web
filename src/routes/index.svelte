@@ -20,6 +20,9 @@
     import Search from '$lib/search/search.svelte';
 
     let searchActive = false
+    const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/'
+    const TWITTER_URL = 'https://twitter.com/eyebeamnyc'
+    const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg'
 
     const toggleSearch = () => {
         searchActive = !searchActive
@@ -59,9 +62,9 @@
         <div class='tile change'>Eyebeam is changing...<div><HalfBeam/></div></div>
         <div class='tile support'>Support Eyebeam</div>
         <div class='tile social newsletter'>Newsletter<div class='icon'><Newsletter/></div></div>
-        <div class='tile social instagram'>Instagram<div class='icon'><Instagram/></div></div>
-        <div class='tile social twitter'>Twitter<div class='icon'><Twitter/></div></div>
-        <div class='tile social youtube'>Youtube<div class='icon'><Youtube/></div></div>
+        <a href={INSTAGRAM_URL} target=_blank class='tile social instagram'>Instagram<div class='icon'><Instagram/></div></a>
+        <a href={TWITTER_URL} target=_blank class='tile social twitter'>Twitter<div class='icon'><Twitter/></div></a>
+        <a href={YOUTUBE_URL} target=_blank class='tile social youtube'>Youtube<div class='icon'><Youtube/></div></a>
         <div class='tile events'>
             <a href='/events' class='sub-tile header'>UPCOMING AND RECENT</a>
             <a href='/events' class='sub-tile'>Test</a>
