@@ -43,6 +43,10 @@
                 return 'people'
             case 'blogPost': 
                 return 'blog'
+			case 'project': 
+                return 'projects'
+			case 'note': 
+                return 'notes'
             case 'event': 
                 return 'events'
             default:
@@ -117,9 +121,22 @@
 				<div class='body-content at-eyebeam'>
 					<h3>At Eyebeam</h3>
 					{#each connectedPosts as post}
-						<a href={'/' + translatePostType(post._type) +  '/' + post.slug.current} sveltekit:prefetch class='connected-post'>
-							<div class='type'>{post._type}</div>
-							<div class='title'>{post.title}</div>
+						<a  class='connected-post' href={'/' + translatePostType(post._type) +  '/' + post.slug.current} sveltekit:prefetch>
+							<div class='image'>
+								{#if post.mainImage}
+									<img
+										alt={post.title}
+										src={urlFor(post.mainImage)
+										.quality(90)
+										.saturation(-100)
+										.width(400)
+										.url()}/>
+								{/if}
+							</div>
+							<div class='text'>
+								<span class='type'>{post._type}</span>
+								<span class='title'>{post.title}</span>
+							</div>
 						</a>
 					{/each}
 				</div>
@@ -143,6 +160,8 @@
 		.inner {
 			border: $border-style;
 			min-height: 100vh;
+			display: inline-block;
+			min-width: 100%;
 
 			.header {
 				border-bottom: $border-style;
@@ -183,14 +202,42 @@
 		margin-bottom: 20px;
 		display: block;
 		text-decoration: none;
+		width: calc(50% - 8px);
+		float: left;
+		overflow: hidden;
+
+		&:nth-child(even) {
+			margin-right: 15px;
+		}
 
 		.type {
 			font-size: $font-size-normal;
 			text-transform: uppercase;
+			margin-right: 20px;
+			font-weight: bold;
 		}
 
 		.title {
-			font-size: $font-size-h2;
+			font-size: $font-size-normal;
+		}
+
+		.image {
+			border: $border-style;
+			min-height: 200px;
+			// margin-bottom: 10px;
+			display: inline-block;
+			width: 100%;
+
+			img {
+				max-width: 100%;
+			}
+
+		}
+	}
+
+	.at-eyebeam {
+		h3 {
+			margin-bottom: 20px;
 		}
 	}
 

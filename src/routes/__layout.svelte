@@ -37,9 +37,9 @@
 		overflow-x: hidden;
     }
 
-	* {
-		scroll-behavior: smooth;
-	}
+	// * {
+	// 	scroll-behavior: smooth;
+	// }
 
 	a {
 		color: $black;
@@ -63,17 +63,34 @@
 		font-size: $font-size-h1;
 		font-weight: normal;
 		margin: 0;
+		line-height: 1.1em;
 	}
 
 	h2 {
 		font-size: $font-size-h2;
 		font-weight: normal;
 		margin: 0;
+		line-height: 1.1em;
 	}
 
 	h3 {
 		font-size: $font-size-h3;
 		font-weight: bold;
 		margin: 0;
+		line-height: 1.1em;
+	}
+
+	figure {
+		margin-right: 0;
+		margin-left: 0;
+		margin-top: 1em;
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	figcaption {
+		font-style: italic;
 	}
 </style>

@@ -1,10 +1,10 @@
 <script context="module">
 	export const load = async ({ page, fetch, session, stuff }) => {
-		const res = await fetch(`/notes/${page.params.slug}.json`);
+		const res = await fetch(`/projects/${page.params.slug}.json`);
 		if (res.ok) {
-			const note = await res.json();
+			const project = await res.json();
 			return {
-				props: { note }
+				props: { project }
 			};
 		}
 		const { message } = await res.json();
@@ -17,7 +17,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single note
+	//  Single project
 	//
 	// # # # # # # # # # # # # #
 
@@ -29,24 +29,24 @@
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
     // __ PROPS
-	export let note;
+	export let project;
 </script>
 
+
 <svelte:head>
-	<title>{note.title}</title>
+	<title>{project.title}</title>
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title={note.title}/>
+<Sidebar title={project.title}/>
 
 <div class="main-content">
 	<div class="inner">
-
 		<!-- MAIN IMAGE -->
-		{#if note.mainImage}
+		{#if project.mainImage}
 			<img
-				alt={note.title}
-				src={urlFor(note.mainImage)
+				alt={project.title}
+				src={urlFor(project.mainImage)
 				.quality(90)
 				.saturation(-100)
 				.width(400)
@@ -54,15 +54,15 @@
 		{/if}
 
 		<!-- TITLE -->
-		<h1>{note.title}</h1>
+		<h1>{project.title}</h1>
 
 		<!-- MAIN TEXT -->
-		<div>{@html renderBlockText(note.content.content)}</div>
+		<div>{@html renderBlockText(project.content.content)}</div>
 
 		<!-- PEOPLE -->
 		<h2>People</h2>
 		<ul>
-			{#each note.people as person}
+			{#each project.people as person}
 				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
 			{/each}
 		</ul>
@@ -70,7 +70,7 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={note._updatedAt}/>
+	<BottomBar updatedAt={project._updatedAt}/>
 </div>
 
 <style lang="scss">

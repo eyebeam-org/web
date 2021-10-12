@@ -23,6 +23,7 @@
 
 	// __ IMPORTS
 	import { renderBlockText, urlFor } from "$lib/sanity.js"
+	import has from 'lodash/has.js'
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -31,7 +32,6 @@
     // __ PROPS
 	export let event;
 </script>
-
 
 <svelte:head>
 	<title>{event.title}</title>
@@ -43,27 +43,48 @@
 <div class="main-content">
 	<div class="inner">
 		<!-- MAIN IMAGE -->
-		<img
-			alt={event.title}
-			src={urlFor(event.mainImage)
-			.quality(90)
-			.saturation(-100)
-			.width(400)
-			.url()}/>
+		{#if event.mainImage}
+			<img
+				alt={event.title}
+				src={urlFor(event.mainImage)
+				.quality(90)
+				.saturation(-100)
+				.width(400)
+				.url()}/>
+		{/if}	
 
 		<!-- TITLE -->
 		<h1>{event.title}</h1>
 
 		<!-- MAIN TEXT -->
-		<div>{@html renderBlockText(event.content.content)}</div>
+		{#if has(event, 'content.content')}
+			<div class='body-content'>
+				{@html renderBlockText(event.content.content)}
+			</div>
+		{/if}
 
 		<!-- PEOPLE -->
-		<h2>People</h2>
-		<ul>
+		<div class='body-content people'>
+			<h3>People</h3>
 			{#each event.people as person}
-				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
+				<a class='people-link' href={'/people/' + person.slug.current} sveltekit:prefetch>
+					<div class='image'>
+						{#if person.mainImage}
+							<img
+								alt={person.title}
+								src={urlFor(person.mainImage)
+								.quality(90)
+								.saturation(-100)
+								.width(400)
+								.url()}/>
+						{/if}
+					</div>
+					<div class='text'>
+						<span class='title'>{person.title}</span>
+					</div>
+				</a>
 			{/each}
-		</ul>
+		</div>
 
 	</div>
 
@@ -83,6 +104,12 @@
 			border: $border-style;
 			padding: 15px;
 			min-height: 100vh;
+			display: inline-block;
+			min-width: 100%;
+
+			.body-content {
+				padding: 15px;
+			}
 		}
 
 		.main-image {
@@ -92,6 +119,41 @@
 
 	img {
 		float: right;
+	}
+
+	.people {
+		h3 {
+			margin-bottom: 20px;
+		}
+	}
+
+	.people-link {
+		margin-bottom: 20px;
+		display: block;
+		text-decoration: none;
+		width: calc(50% - 8px);
+		float: left;
+		overflow: hidden;
+
+		&:nth-child(even) {
+			margin-right: 15px;
+		}
+
+		.title {
+			font-size: $font-size-normal;
+		}
+
+		.image {
+			border: $border-style;
+			min-height: 200px;
+			display: inline-block;
+			width: 100%;
+
+			img {
+				max-width: 100%;
+			}
+
+		}
 	}
 
 </style>

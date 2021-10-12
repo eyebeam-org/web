@@ -1,10 +1,10 @@
 <script context="module">
 	export const load = async ({ fetch }) => {
-		const res = await fetch('/notes.json');
+		const res = await fetch('/projects.json');
 		if (res.ok) {
-			const notes = await res.json();
+			const projects = await res.json();
 			return {
-				props: { notes }
+				props: { projects }
 			};
 		}
 		const { message } = await res.json();
@@ -17,7 +17,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Notes
+	//  projects
 	//
 	// # # # # # # # # # # # # #
 
@@ -26,26 +26,26 @@
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
 	// __ PROPS
-	export let notes;
+	export let projects;
 </script>
 
 <svelte:head>
-	<title>Notes</title>
+	<title>projects</title>
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar toc={notes} title='Notes'/>
+<Sidebar toc={projects} title='People'/>
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class='inner'>
 
-		<h1>Notes</h1>
+		<h1>Projects</h1>
 
 		<!-- LIST -->
 		<ul>
-			{#each notes as note}
-				<li><a href={'/notes/' + note.slug.current} sveltekit:prefetch>{note.title}</a></li>
+			{#each projects as project}
+				<li><a href={'/projects/' + project.slug.current} sveltekit:prefetch>{project.title}</a></li>
 			{/each}
 		</ul>
 	</div>
