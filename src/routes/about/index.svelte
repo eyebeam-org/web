@@ -52,34 +52,6 @@
 				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
 			</a>
 		{/each}
-
-		{#each about as page}
-			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
-				<h2>{page.title}</h2>
-				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
-			</a>
-		{/each}
-
-		{#each about as page}
-			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
-				<h2>{page.title}</h2>
-				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
-			</a>
-		{/each}
-
-		{#each about as page}
-			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
-				<h2>{page.title}</h2>
-				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
-			</a>
-		{/each}
-
-		{#each about as page}
-			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
-				<h2>{page.title}</h2>
-				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
-			</a>
-		{/each}
 	</div>
 
 	<!-- BOTTOM BAR -->

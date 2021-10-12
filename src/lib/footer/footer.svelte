@@ -20,7 +20,7 @@
     const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg'
 
 	// __ VARIABLES
-	let contact = loadData("*[_id == 'contact'][0]")
+	const contact = loadData("*[_id == 'contact'][0]")
 
 </script>
 
