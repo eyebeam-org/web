@@ -33,7 +33,8 @@
 	// __ PROPS
 	export let person;
 
-	const connectedPosts = loadData("*[people[]._ref == $personId]", {personId: person._id})
+	// *[$id in people[]._ref]
+	const connectedPosts = loadData("*[$personId in people[]._ref]", {personId: person._id})
 
 	const translatePostType = t => {
         switch(t) {
