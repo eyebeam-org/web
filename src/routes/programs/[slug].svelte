@@ -25,6 +25,7 @@
 	import { onDestroy } from 'svelte';
 	import { renderBlockText, urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
+	import has from 'lodash/has.js';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -32,9 +33,11 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+	import PersonLink from "$lib/person-link/person-link.svelte"
 
 	// __ PROPS
 	export let program;
+	console.log('program', program)
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(program, 'slug.current', ''), title: program.title });
@@ -54,31 +57,76 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
+
+		<!-- HEADER -->
+		<div class='header'>
+			<!-- TITLE -->
+			<h1>{program.title}</h1>
+			<!-- INTRODUCTION -->
+			{#if has(program, 'introduction.content', [])}
+				<div>{@html renderBlockText(program.introduction.content)}</div>
+			{/if}
+		</div>
+
+		<!-- APPLICATION BANNER -->
+		{#if program.applicationsOpen}
+			<div class='application-banner'>
+				Apply now
+			</div>
+		{/if}
+
 		<!-- MAIN IMAGE -->
 		{#if program.mainImage}
-			<img
-				alt={program.title}
-				src={urlFor(program.mainImage).quality(90).saturation(-100).width(400).url()}
-			/>
+			<div class='image-container'>
+				<img
+					alt={program.title}
+					src={urlFor(program.mainImage).quality(90).saturation(-100).width(900).url()}
+				/>
+			</div>
 		{/if}
-
-		<!-- TITLE -->
-		<h1>{program.title}</h1>
 
 		<!-- MAIN TEXT -->
-		{#if program.content && program.content.content && Array.isArray(program.content.content)}
-			<div>{@html renderBlockText(program.content.content)}</div>
+		{#if has(program, 'content.content', [])}
+			<div class='main-text'>
+				{@html renderBlockText(program.content.content)}
+			</div>
 		{/if}
 
-		<!-- PEOPLE -->
-		{#if program.people && Array.isArray(program.people)}
-			<h2>People</h2>
+		<!-- STORIES -->
+		<div class='stories'>
+			<h3>Stories</h3>
+		</div>
+
+		<!-- FAQ -->
+		<div class='faq'>
+			<h3>FAQ</h3>
+		</div>
+
+		<!-- SUPPORT -->
+		<div class='support'>
+			<h3>Support</h3>
+		</div>
+
+		<!-- CURRENT FELLOWS -->
+		<div class='fellows'>
+			<h3>Current Fellows</h3>
 			<ul>
 				{#each program.people as person}
-					<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
+					<li><PersonLink {person}/></li>
 				{/each}
 			</ul>
-		{/if}
+		</div>
+
+		<!-- PAST FELLOWS -->
+		<div class='fellows'>
+			<h3>Past Fellows</h3>
+		</div>
+
+		<!-- ADVISORS -->
+		<div class='fellows'>
+			<h3>Advisors</h3>
+		</div>
+	
 	</div>
 
 	<!-- BOTTOM BAR -->
@@ -95,7 +143,6 @@
 
 		.inner {
 			border: $border-style;
-			padding: 15px;
 			min-height: 100vh;
 		}
 
@@ -106,5 +153,80 @@
 
 	img {
 		float: right;
+	}
+
+	.application-banner {
+		width: 100%;
+		background: $black;
+		min-height: 160px;
+		padding: 15px;
+		color: $white;
+	}
+
+	.header {
+		border-bottom: $border-style;
+		display: inline-block;
+		width: 100%;
+		padding: 15px;
+		min-height: 300px;
+	}
+
+	.image-container {
+		display: inline-block;
+		width: 100%;
+		min-height: 400px;
+		padding-bottom: 20px;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.main-text {
+		border-top: $border-style;
+		display: inline-block;
+		width: 100%;
+		padding: 15px;
+		min-height: 300px;
+	}
+
+	.stories {
+		border-top: $border-style;
+		display: inline-block;
+		width: 100%;
+		padding: 15px;
+		min-height: 300px;
+	}
+
+	.faq {
+		border-top: $border-style;
+		display: inline-block;
+		width: 100%;
+		padding: 15px;
+		min-height: 300px;
+	}
+
+	.support {
+		border-top: $border-style;
+		display: inline-block;
+		width: 100%;
+		padding: 15px;
+		min-height: 300px;
+	}
+
+	.fellows {
+		border-top: $border-style;
+		display: inline-block;
+		width: 100%;
+		padding: 15px;
+		min-height: 300px;
+	}
+	
+	ul {
+		padding: 0;
+		li {
+			list-style: none;
+			margin-bottom: 5px;
+		}
 	}
 </style>

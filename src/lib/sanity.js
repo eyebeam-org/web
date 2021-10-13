@@ -15,7 +15,7 @@ export const client = sanityClient({
     projectId: SANITY_ID,
     dataset: 'production',
     apiVersion: '2021-10-05', // use a UTC date string
-    useCdn: true // `false` if you want to ensure fresh data
+    useCdn: false // `false` if you want to ensure fresh data
 })
 
 const h = blocksToHtml.h

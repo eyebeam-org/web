@@ -12,6 +12,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { loadData, renderBlockText } from '$lib/sanity.js';
 	import { postTypeToName, postTypeToCategory } from '$lib/global.js';
+	import get from 'lodash/get.js'
 
 	// __ GRAPHICS
 	import X from '$lib/graphics/x.svelte';
@@ -64,7 +65,7 @@
 	<div class="result-container">
 		{#each searchResults as result}
 			<a
-				href={'/' + postTypeToCategory[result._type] + '/' + result.slug.current}
+				href={'/' + postTypeToCategory[result._type] + '/' + get(result, 'slug.current', '')}
 				sveltekit:prefetch
 				class="result"
 			>
