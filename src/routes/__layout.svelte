@@ -37,10 +37,6 @@
 		overflow-x: hidden;
     }
 
-	// * {
-	// 	scroll-behavior: smooth;
-	// }
-
 	a {
 		color: $black;
 	}

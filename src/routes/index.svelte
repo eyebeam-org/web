@@ -5,6 +5,11 @@
     //
     // # # # # # # # # # # # # #
 
+    // __ IMPORTS
+    import get from 'lodash/get.js'
+    import { loadData } from '$lib/sanity.js';
+    import { distanceToDate } from '$lib/global.js';
+
     // __ GRAPHICS
     import Logo from '$lib/graphics/logo.svelte';
     import Newsletter from '$lib/graphics/newsletter.svelte';
@@ -23,10 +28,13 @@
     const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/'
     const TWITTER_URL = 'https://twitter.com/eyebeamnyc'
     const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg'
+	
+    const programs = loadData('*[_type == "program"]');
+    const events = loadData('*[_type == "event"]{..., people[]->{...}}');
 
     const toggleSearch = () => {
         searchActive = !searchActive
-    } 
+    }
 </script>
 
 <svelte:head>
@@ -47,11 +55,13 @@
         <div class='column two'>
             <div class='tile programs'>
                 <a href='/programs' class='sub-tile header'>PROGRAMS</a>
-                <a href='/programs' class='sub-tile'>Test</a>
-                <a href='/programs' class='sub-tile'>Test</a>
-                <a href='/programs' class='sub-tile'>Test</a>
-                <a href='/programs' class='sub-tile'>Test</a>
-                <a href='/programs' class='sub-tile'>Test</a>
+                {#await programs then programs}
+                    {#each programs as program}
+                        <a href={'/programs/' + get(program, 'slug.current', '')} class='sub-tile'>
+                            <div class='title'>{program.title}</div>
+                        </a>
+                    {/each}
+                {/await}
             </div>
             <a href='/about' class='tile about'>What is eyebeam?</a>
             <a href='/people' class='tile people'>People</a>
@@ -67,11 +77,16 @@
         <a href={YOUTUBE_URL} target=_blank class='tile social youtube'>Youtube<div class='icon'><Youtube/></div></a>
         <div class='tile events'>
             <a href='/events' class='sub-tile header'>UPCOMING AND RECENT</a>
-            <a href='/events' class='sub-tile'>Test</a>
-            <a href='/events' class='sub-tile'>Test</a>
-            <a href='/events' class='sub-tile'>Test</a>
-            <a href='/events' class='sub-tile'>Test</a>
-            <a href='/events' class='sub-tile'>Test</a>
+            {#await events then events}
+                {#each events as event}
+                    <a href={'/events/' + get(event, 'slug.current', '')} class='sub-tile'>
+                        {#if event.startDate}
+                            <div class='time'>{distanceToDate(event.startDate)}</div>
+                        {/if}
+                        <div class='title'>{event.title}</div>
+                    </a>
+                {/each}
+            {/await}
         </div>
     </div>
 </div>
@@ -176,13 +191,6 @@
         border-bottom: $border-style;
         float: left;
         padding: 0 !important;
-
-        .sub-tile {
-            float: left;
-            width: 50%;
-            height: $one-third;
-            padding: 10px;
-        }
     }
 
     .about {
@@ -242,13 +250,6 @@
         // background: green;
         float: left;
         padding: 0 !important;
-
-        .sub-tile {
-            float: left;
-            width: 50%;
-            height: $one-third;
-            padding: 10px;
-        }
     }
 
 .tile {
@@ -258,8 +259,29 @@
 
 a {
     text-decoration: none;
+
     &:hover {
         background: $grey;
+    }
+
+    &:active {
+        background: $black;
+        color: $white;
+    }
+}
+
+.sub-tile {
+    float: left;
+    width: 50%;
+    height: $one-third;
+    padding: 10px;
+
+    .time {
+        margin-bottom: 5px;
+    }
+
+    .title {
+        // font-weight: bold;
     }
 }
 </style>

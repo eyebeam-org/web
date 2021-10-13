@@ -40,7 +40,7 @@ export const categoryToName = {
 // ____
 // ____ Name maps
 // ___
-import { format, parseISO } from "date-fns"
+import { format, parseISO, formatDistanceToNow, isFuture } from "date-fns"
 
 export const dotFormatDate = date => {
       try {
@@ -61,4 +61,21 @@ export const longFormatDate = date => {
         console.dir(err)
     }
 }
+
+export const distanceToDate = date => {
+    try {
+      if(date) {
+        const parsedDate = parseISO(date)
+          if(isFuture(parsedDate)) {
+            return 'On ' +  format(parsedDate, "MMMM d")
+          }
+          return formatDistanceToNow(parsedDate) + ' ago'
+      }
+      return ''
+  } catch (err) {
+      console.dir(err)
+  }
+}
+
+
 

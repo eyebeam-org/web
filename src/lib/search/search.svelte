@@ -29,7 +29,7 @@
 
 	const submitSearch = async () => {
 		searchResults = await loadData(
-			'*[[title, name, pt::text(content.content), pt::text(introduction.content)] match $searchTerm]{...}',
+			'*[!(_type in ["statement"]) && [title, name, pt::text(content.content), pt::text(introduction.content)] match $searchTerm]{...}',
 			{ searchTerm: searchTerm }
 		);
 		console.log(searchResults);

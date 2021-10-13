@@ -32,10 +32,17 @@
 	// __ PROPS
 	export let people;
 
-	// __ VAVRIABLES
+	// __ VARIABLES
 	const ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 	let groupedPeople = groupBy(people, p => p.lastName.charAt(0));
 	console.log(groupedPeople)
+
+	const scrollToSection = alpha => {
+		const el = document.querySelector("#" + alpha);
+		el.scrollIntoView({ behavior: 'smooth'});
+		history.replaceState(null, null, '#' + alpha);
+	}
+
 </script>
 
 <svelte:head>
@@ -52,7 +59,7 @@
 		<!-- ALPHABETICAL NAVIGATION -->
 		<div class='alphabetical-navigation'>
 			{#each ALPHABET as alpha}
-				<a class='item' href={'#' + alpha}>{alpha}</a>
+				<div class='item' on:click={() => { scrollToSection(alpha) }}>{alpha}</div>
 			{/each}
 		</div>
 
@@ -116,6 +123,7 @@
 				border-right: $border-style;
 				border-left: $border-style;
 				text-decoration: none;
+				cursor: pointer;
 
 				&:first-child {
 					border-top: $border-style;
