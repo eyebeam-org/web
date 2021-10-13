@@ -1,78 +1,72 @@
 <script>
-    // # # # # # # # # # # # # #
+	// # # # # # # # # # # # # #
 	//
 	// Header
 	//
 	// # # # # # # # # # # # # #
-    // __ IMPORT
-    import { page } from '$app/stores';
-    import Clock from '$lib/clock/clock.svelte';
-
-    let pathArray = []
-
-    $: {
-        console.log('Page change', $page)
-        pathArray = $page.path.split('/').filter(p => p)
-    }
-
+	// __ IMPORT
+	import Clock from '$lib/clock/clock.svelte';
+	import { currentCategory, currentPage } from '$lib/stores.js';
 </script>
 
-<nav class='menubar'>
-    <!-- BREADCRUMBS -->
-    <div class='breadcrumbs'>
-        <span class='arrow-down'>▼</span>
-        <a href='/'>eyebeam.org</a>
-        {#each pathArray as path, index}
-            <span class='divider'>/</span>
-            {#if index + 1 == pathArray.length}
-                <span>{path}</span>
-            {:else}
-                <a href={'/' + path}>{path}</a>
-            {/if}
-        {/each}
-    </div>
-    <!-- CLOCK -->
-    <div class='clock'>
-        <Clock/>
-    </div>
+<nav class="menubar">
+	<!-- BREADCRUMBS -->
+	<div class="breadcrumbs">
+		<span class="arrow-down">▼</span>
+		<a href="/">eyebeam.org</a>
+		<!-- CATEGORY -->
+		{#if $currentCategory}
+			<span class="divider">/</span>
+			<a href={'/' + $currentCategory.slug}>{$currentCategory.name}</a>
+			<!-- PAGE -->
+			{#if $currentPage}
+				<span class="divider">/</span>
+				<span>{$currentPage.title}</span>
+			{/if}
+		{/if}
+	</div>
+	<!-- CLOCK -->
+	<div class="clock">
+		<Clock />
+	</div>
 </nav>
 
 <style lang="scss">
-	@import "../../variables.scss";
+	@import '../../variables.scss';
 
-    .menubar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 30px;
-        background: $black;
-        color: $white;
-        font-size: $font-size-normal;
-        line-height: 30px;
-        padding-left: 15px;
-        padding-right: 15px;
+	.menubar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30px;
+		background: $black;
+		color: $white;
+		font-size: $font-size-normal;
+		line-height: 30px;
+		padding-left: 15px;
+		padding-right: 15px;
 
-        .breadcrumbs {
-            float: left;
-        }
+		.breadcrumbs {
+			float: left;
+		}
 
-        .arrow-down {
-            font-size: $font-size-small;
-            margin-right: 5px;
-        }
+		.arrow-down {
+			font-size: $font-size-small;
+			margin-right: 5px;
+		}
 
-        .divider {
-            margin-right: 5px;
-            margin-left: 5px;
-        }
+		.divider {
+			margin-right: 5px;
+			margin-left: 5px;
+		}
 
-        a {
-            color: $white;
-        }
+		a {
+			color: $white;
+		}
 
-        .clock {
-            float: right;
-        }
-    }
+		.clock {
+			float: right;
+		}
+	}
 </style>

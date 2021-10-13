@@ -22,14 +22,26 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText, urlFor } from "$lib/sanity.js"
+	import { onDestroy } from 'svelte';
+	import { renderBlockText, urlFor } from '$lib/sanity.js';
+	import get from 'lodash/get.js';
+
+	// __ STORES
+	import { currentPage } from '$lib/stores.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
-    // __ PROPS
+	// __ PROPS
 	export let note;
+
+	// __ Set currentPage
+	currentPage.set({ slug: get(note, 'slug.current', ''), title: note.title });
+
+	onDestroy(() => {
+		currentPage.set(null);
+	});
 </script>
 
 <svelte:head>
@@ -37,20 +49,16 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title={note.title}/>
+<Sidebar title={note.title} />
 
 <div class="main-content">
 	<div class="inner">
-
 		<!-- MAIN IMAGE -->
 		{#if note.mainImage}
 			<img
 				alt={note.title}
-				src={urlFor(note.mainImage)
-				.quality(90)
-				.saturation(-100)
-				.width(400)
-				.url()}/>
+				src={urlFor(note.mainImage).quality(90).saturation(-100).width(400).url()}
+			/>
 		{/if}
 
 		<!-- TITLE -->
@@ -66,11 +74,10 @@
 				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
 			{/each}
 		</ul>
-
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={note._updatedAt}/>
+	<BottomBar updatedAt={note._updatedAt} />
 </div>
 
 <style lang="scss">
@@ -95,5 +102,4 @@
 	img {
 		float: right;
 	}
-
 </style>

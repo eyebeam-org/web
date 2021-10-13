@@ -22,23 +22,34 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText, urlFor } from "$lib/sanity.js"
+	import { onDestroy } from 'svelte';
+	import { renderBlockText, urlFor } from '$lib/sanity.js';
+	import get from 'lodash/get.js';
+
+	// __ STORES
+	import { currentPage } from '$lib/stores.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
-    // __ PROPS
+	// __ PROPS
 	export let project;
-</script>
 
+	// __ Set currentPage
+	currentPage.set({ slug: get(project, 'slug.current', ''), title: project.title });
+
+	onDestroy(() => {
+		currentPage.set(null);
+	});
+</script>
 
 <svelte:head>
 	<title>{project.title}</title>
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title={project.title}/>
+<Sidebar title={project.title} />
 
 <div class="main-content">
 	<div class="inner">
@@ -46,11 +57,8 @@
 		{#if project.mainImage}
 			<img
 				alt={project.title}
-				src={urlFor(project.mainImage)
-				.quality(90)
-				.saturation(-100)
-				.width(400)
-				.url()}/>
+				src={urlFor(project.mainImage).quality(90).saturation(-100).width(400).url()}
+			/>
 		{/if}
 
 		<!-- TITLE -->
@@ -66,11 +74,10 @@
 				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
 			{/each}
 		</ul>
-
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={project._updatedAt}/>
+	<BottomBar updatedAt={project._updatedAt} />
 </div>
 
 <style lang="scss">
@@ -95,5 +102,4 @@
 	img {
 		float: right;
 	}
-
 </style>

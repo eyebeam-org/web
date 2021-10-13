@@ -22,15 +22,27 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText, urlFor } from "$lib/sanity.js"
-	import has from 'lodash/has.js'
+	import { onDestroy } from 'svelte';
+	import { renderBlockText, urlFor } from '$lib/sanity.js';
+	import has from 'lodash/has.js';
+	import get from 'lodash/get.js';
+
+	// __ STORES
+	import { currentPage } from '$lib/stores.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
-    // __ PROPS
+	// __ PROPS
 	export let event;
+
+	// __ Set currentPage
+	currentPage.set({ slug: get(event, 'slug.current', ''), title: event.title });
+
+	onDestroy(() => {
+		currentPage.set(null);
+	});
 </script>
 
 <svelte:head>
@@ -38,7 +50,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar location={event.location} title={event.title}/>
+<Sidebar location={event.location} title={event.title} />
 
 <div class="main-content">
 	<div class="inner">
@@ -46,50 +58,43 @@
 		{#if event.mainImage}
 			<img
 				alt={event.title}
-				src={urlFor(event.mainImage)
-				.quality(90)
-				.saturation(-100)
-				.width(400)
-				.url()}/>
-		{/if}	
+				src={urlFor(event.mainImage).quality(90).saturation(-100).width(400).url()}
+			/>
+		{/if}
 
 		<!-- TITLE -->
 		<h1>{event.title}</h1>
 
 		<!-- MAIN TEXT -->
 		{#if has(event, 'content.content')}
-			<div class='body-content'>
+			<div class="body-content">
 				{@html renderBlockText(event.content.content)}
 			</div>
 		{/if}
 
 		<!-- PEOPLE -->
-		<div class='body-content people'>
+		<div class="body-content people">
 			<h3>People</h3>
 			{#each event.people as person}
-				<a class='people-link' href={'/people/' + person.slug.current} sveltekit:prefetch>
-					<div class='image'>
+				<a class="people-link" href={'/people/' + person.slug.current} sveltekit:prefetch>
+					<div class="image">
 						{#if person.mainImage}
 							<img
 								alt={person.title}
-								src={urlFor(person.mainImage)
-								.quality(90)
-								.saturation(-100)
-								.width(400)
-								.url()}/>
+								src={urlFor(person.mainImage).quality(90).saturation(-100).width(400).url()}
+							/>
 						{/if}
 					</div>
-					<div class='text'>
-						<span class='title'>{person.title}</span>
+					<div class="text">
+						<span class="title">{person.title}</span>
 					</div>
 				</a>
 			{/each}
 		</div>
-
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={event._updatedAt}/>
+	<BottomBar updatedAt={event._updatedAt} />
 </div>
 
 <style lang="scss">
@@ -152,8 +157,6 @@
 			img {
 				max-width: 100%;
 			}
-
 		}
 	}
-
 </style>

@@ -15,14 +15,19 @@
 </script>
 
 <script>
-	import { renderBlockText, urlFor } from "$lib/sanity.js"
+	// # # # # # # # # # # # # #
+	//
+	//  Single blog page
+	//
+	// # # # # # # # # # # # # #
 
-    // *** PROPS
+	import { renderBlockText, urlFor } from '$lib/sanity.js';
+
+	// *** PROPS
 	export let post;
-    
-    console.log(post)
-</script>
 
+	console.log(post);
+</script>
 
 <svelte:head>
 	<title>{post.title}</title>
@@ -32,13 +37,7 @@
 <h1>{post.title}</h1>
 
 <!-- MAIN IMAGE -->
-<img
-	alt={post.title}
-	src={urlFor(post.mainImage)
-	.quality(90)
-	.saturation(-100)
-	.width(400)
-	.url()}/>
+<img alt={post.title} src={urlFor(post.mainImage).quality(90).saturation(-100).width(400).url()} />
 
 <!-- MAIN TEXT -->
 <div>{@html renderBlockText(post.content.content)}</div>

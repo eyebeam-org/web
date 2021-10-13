@@ -20,15 +20,16 @@
 	//  Everything
 	//
 	// # # # # # # # # # # # # #
-	
+
 	// __ IMPORTS
-    import { renderBlockText } from "$lib/sanity.js"
-	import { format, parseISO } from "date-fns"
+	import { renderBlockText } from '$lib/sanity.js';
+	import { longFormatDate } from '$lib/global.js';
+	import { postTypeToName } from '$lib/global.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
-	import PersonLink from "$lib/person-link/person-link.svelte"
+	import PersonLink from '$lib/person-link/person-link.svelte';
 
 	// __ PROPS
 	export let everything;
@@ -42,23 +43,11 @@
 		'Notes',
 		'Videos',
 		'Goals'
-	]
-	let activeFilter = 'Everything'
-	let filteredPosts = everything
+	];
+	let activeFilter = 'Everything';
+	let filteredPosts = everything;
 
-	$:console.log(activeFilter)
-
-	const formattedDate = date => {
-		console.log('date', date)
-  		try {
-			if(date) {
-				return format(parseISO(date), "d MMMM, yyyy")
-			}
-		} catch (err) {
-			console.dir(err)
-		}
-	}
-
+	$: console.log(activeFilter);
 </script>
 
 <svelte:head>
@@ -66,30 +55,36 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar/>
+<Sidebar />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
-	<div class='inner'>
-		<div class='header'>
+	<div class="inner">
+		<div class="header">
 			<h1>Explore everything on our website right now</h1>
-			<div class='filters'>
+			<div class="filters">
 				{#each FILTERS as filter}
-					<div class='filter' 
-						class:active={activeFilter == filter} 
-						on:click={() => {activeFilter = filter}}>{filter}</div>
+					<div
+						class="filter"
+						class:active={activeFilter == filter}
+						on:click={() => {
+							activeFilter = filter;
+						}}
+					>
+						{filter}
+					</div>
 				{/each}
 			</div>
 		</div>
 		{#each filteredPosts as post}
-			<a href='' class='single-post'>
-				<div class='type'>{post._type}</div>
+			<a href="" class="single-post">
+				<div class="type">{postTypeToName[post._type]}</div>
 				<!-- TEXT -->
 				<h2>{post.title}</h2>
 				<!-- <div class='text'>{@html renderBlockText(post.content.content)}</div> -->
 				<!-- DATE -->
 				<!-- {#if post.date}
-					<div class='date'>{formattedDate(post.date)}</div>
+					<div class='date'>{longFormatDate(post.date)}</div>
 				{/if} -->
 				<!-- PERSON -->
 				<!-- {#if post.person}
@@ -100,9 +95,8 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar/>
+	<BottomBar />
 </div>
-
 
 <style lang="scss">
 	@import '../../variables.scss';
@@ -164,4 +158,3 @@
 		}
 	}
 </style>
-

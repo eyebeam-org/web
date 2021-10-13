@@ -22,14 +22,26 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText, urlFor } from "$lib/sanity.js"
+	import { onDestroy } from 'svelte';
+	import { renderBlockText, urlFor } from '$lib/sanity.js';
+	import get from 'lodash/get.js';
+
+	// __ STORES
+	import { currentPage } from '$lib/stores.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
-    // __ PROPS
+	// __ PROPS
 	export let program;
+
+	// __ Set currentPage
+	currentPage.set({ slug: get(program, 'slug.current', ''), title: program.title });
+
+	onDestroy(() => {
+		currentPage.set(null);
+	});
 </script>
 
 <svelte:head>
@@ -42,16 +54,12 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
-
 		<!-- MAIN IMAGE -->
 		{#if program.mainImage}
 			<img
 				alt={program.title}
-				src={urlFor(program.mainImage)
-				.quality(90)
-				.saturation(-100)
-				.width(400)
-				.url()}/>
+				src={urlFor(program.mainImage).quality(90).saturation(-100).width(400).url()}
+			/>
 		{/if}
 
 		<!-- TITLE -->
@@ -74,7 +82,7 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={program._updatedAt}/>
+	<BottomBar updatedAt={program._updatedAt} />
 </div>
 
 <style lang="scss">
@@ -99,5 +107,4 @@
 	img {
 		float: right;
 	}
-
 </style>

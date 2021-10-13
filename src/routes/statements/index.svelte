@@ -20,33 +20,21 @@
 	//  All statements
 	//
 	// # # # # # # # # # # # # #
-	
+
 	// __ IMPORTS
-    import { renderBlockText } from "$lib/sanity.js"
-	import { format, parseISO } from "date-fns"
+	import { renderBlockText } from '$lib/sanity.js';
+	import { longFormatDate } from '$lib/global.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
-	import PersonLink from "$lib/person-link/person-link.svelte"
+	import PersonLink from '$lib/person-link/person-link.svelte';
 
 	// __ GRAPHICS
 	import BigBeam from '$lib/graphics/big-beam.svelte';
 
 	// __ PROPS
 	export let statements;
-
-	const formattedDate = date => {
-		console.log('date', date)
-  		try {
-			if(date) {
-				return format(parseISO(date), "d MMMM, yyyy")
-			}
-		} catch (err) {
-			console.dir(err)
-		}
-	}
-
 </script>
 
 <svelte:head>
@@ -54,21 +42,21 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar/>
+<Sidebar />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
-	<div class='inner'>
-		<div class='header'>
-			<BigBeam/>
+	<div class="inner">
+		<div class="header">
+			<BigBeam />
 		</div>
 		{#each statements as statement}
-			<div class='single-statement'>
+			<div class="single-statement">
 				<!-- TEXT -->
-				<div class='text'>{@html renderBlockText(statement.content.content)}</div>
+				<div class="text">{@html renderBlockText(statement.content.content)}</div>
 				<!-- DATE -->
 				{#if statement.date}
-					<div class='date'>{formattedDate(statement.date)}</div>
+					<div class="date">{longFormatDate(statement.date)}</div>
 				{/if}
 				<!-- PERSON -->
 				<!-- {#if statement.person}
@@ -79,9 +67,8 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar/>
+	<BottomBar />
 </div>
-
 
 <style lang="scss">
 	@import '../../variables.scss';
@@ -121,4 +108,3 @@
 		font-size: $font-size-h2;
 	}
 </style>
-

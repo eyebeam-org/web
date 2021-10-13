@@ -22,9 +22,14 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { loadData, renderBlockText, urlFor } from "$lib/sanity.js"
-	import has from 'lodash/has.js'
-	import { onMount } from 'svelte';
+	import { onDestroy } from 'svelte';
+	import { loadData, renderBlockText, urlFor } from '$lib/sanity.js';
+	import has from 'lodash/has.js';
+	import get from 'lodash/get.js';
+	import { postTypeToName, postTypeToCategory } from '$lib/global.js';
+
+	// __ STORES
+	import { currentPage } from '$lib/stores.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -34,83 +39,59 @@
 	export let person;
 
 	// *[$id in people[]._ref]
-	const connectedPosts = loadData("*[$personId in people[]._ref]", {personId: person._id})
+	const connectedPosts = loadData('*[$personId in people[]._ref]', { personId: person._id });
 
-	const translatePostType = t => {
-        switch(t) {
-            case 'program':
-                return 'programs'
-            case 'person':
-                return 'people'
-            case 'blogPost': 
-                return 'blog'
-			case 'project': 
-                return 'projects'
-			case 'note': 
-                return 'notes'
-            case 'event': 
-                return 'events'
-            default:
-                return t
-        }
-    }
+	// __ Set currentPage
+	currentPage.set({ slug: get(person, 'slug.current', ''), title: person.title });
 
-	// onMount(async () => {
-	// 	console.log('person._id', person._id)
-	// 	connectedPosts = await loadData("*[people[]._ref == $personId]", {personId: person._id})
-	// 	// connectedPosts = await loadData("*[_type == 'blogPost']")
-    //     console.log('connectedPosts', connectedPosts)
-    // })
+	onDestroy(() => {
+		currentPage.set(null);
+	});
 </script>
-
 
 <svelte:head>
 	<title>{person.title}</title>
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title={person.title}/>
+<Sidebar title={person.title} />
 
 <div class="main-content">
 	<div class="inner">
-		<div class='header'>
-
-			<div class='column left'>
+		<div class="header">
+			<div class="column left">
 				<!-- NAME -->
 				<h1>{person.title}</h1>
 				<!-- ROLES -->
 				<!-- QUOTE -->
 				{#if person.quote}
-					<div class='quote'>{person.quote}</div>
+					<div class="quote">{person.quote}</div>
 				{/if}
 			</div>
 
 			<!-- MAIN IMAGE -->
 			{#if person.mainImage}
-				<div class='column right'>
+				<div class="column right">
 					<img
-						class='main-image'
+						class="main-image"
 						alt={person.title}
-						src={urlFor(person.mainImage)
-						.quality(90)
-						.saturation(-100)
-						.width(400)
-						.url()}/>
+						src={urlFor(person.mainImage).quality(90).saturation(-100).width(400).url()}
+					/>
 				</div>
 			{/if}
 		</div>
 
 		<!-- WEBSITE -->
 		{#if person.website}
-			<div class='body-content website'>
+			<div class="body-content website">
 				<h3>Website</h3>
-				<a href={person.website} target=_blank>{person.website}</a>
+				<a href={person.website} target="_blank">{person.website}</a>
 			</div>
 		{/if}
 
 		<!-- BIO -->
 		{#if has(person, 'bio.content')}
-			<div class='body-content bio'>
+			<div class="body-content bio">
 				<h3>Bio</h3>
 				{@html renderBlockText(person.bio.content)}
 			</div>
@@ -119,24 +100,25 @@
 		<!-- AT EYEBEAM -->
 		{#await connectedPosts then connectedPosts}
 			{#if connectedPosts.length > 0}
-				<div class='body-content at-eyebeam'>
+				<div class="body-content at-eyebeam">
 					<h3>At Eyebeam</h3>
 					{#each connectedPosts as post}
-						<a  class='connected-post' href={'/' + translatePostType(post._type) +  '/' + post.slug.current} sveltekit:prefetch>
-							<div class='image'>
+						<a
+							class="connected-post"
+							href={'/' + postTypeToCategory[post._type] + '/' + post.slug.current}
+							sveltekit:prefetch
+						>
+							<div class="image">
 								{#if post.mainImage}
 									<img
 										alt={post.title}
-										src={urlFor(post.mainImage)
-										.quality(90)
-										.saturation(-100)
-										.width(400)
-										.url()}/>
+										src={urlFor(post.mainImage).quality(90).saturation(-100).width(400).url()}
+									/>
 								{/if}
 							</div>
-							<div class='text'>
-								<span class='type'>{post._type}</span>
-								<span class='title'>{post.title}</span>
+							<div class="text">
+								<span class="type">{postTypeToName[post._type]}</span>
+								<span class="title">{post.title}</span>
 							</div>
 						</a>
 					{/each}
@@ -146,12 +128,11 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={person._updatedAt}/>
+	<BottomBar updatedAt={person._updatedAt} />
 </div>
 
 <style lang="scss">
 	@import '../../variables.scss';
-
 
 	.main-content {
 		float: left;
@@ -176,7 +157,7 @@
 						float: left;
 					}
 					&.right {
-						float: right
+						float: right;
 					}
 				}
 			}
@@ -232,7 +213,6 @@
 			img {
 				max-width: 100%;
 			}
-
 		}
 	}
 
@@ -241,6 +221,4 @@
 			margin-bottom: 20px;
 		}
 	}
-
 </style>
-
