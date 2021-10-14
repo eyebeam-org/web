@@ -51,7 +51,7 @@
 		{#each programs as program}
 			<a class="tile nav-tile" href={'/programs/' + program.slug.current} sveltekit:prefetch>
 				<h2>{program.title}</h2>
-				{#if has(programs, 'introduction.content')}
+				{#if has(program, 'introduction.content')}
 					<div class="introduction-text">{@html renderBlockText(program.introduction.content)}</div>
 				{/if}
 			</a>

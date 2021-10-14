@@ -59,6 +59,9 @@
                     {#each programs as program}
                         <a href={'/programs/' + get(program, 'slug.current', '')} class='sub-tile'>
                             <div class='title'>{program.title}</div>
+                            {#if program.applicationsOpen}
+                                <div class='circle'/>
+                            {/if}
                         </a>
                     {/each}
                 {/await}
@@ -283,5 +286,21 @@ a {
     .title {
         // font-weight: bold;
     }
+
+    .circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: $grey;
+    margin-top: 5px;
 }
+
+    &:hover {
+        .circle {
+            background: $black;
+        }
+    }
+}
+
+
 </style>
