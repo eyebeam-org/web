@@ -107,10 +107,15 @@
 		<!-- MAIN IMAGE -->
 		{#if program.mainImage}
 			<div class='image-container'>
+				<!-- IMAGE -->
 				<img
 					alt={program.title}
 					src={urlFor(program.mainImage).quality(90).saturation(-100).width(900).url()}
 				/>
+				<!-- CAPTION -->
+				{#if has(program, 'mainImage.caption.content')}
+					<figcaption>{@html renderBlockText(program.mainImage.caption.content)}</figcaption>
+				{/if}
 			</div>
 		{/if}
 
@@ -148,6 +153,7 @@
 		<!-- SUPPORT -->
 		{#if has(program, 'supportText.content', [])}
 			<div class='support'>
+				<h3>Support</h3>
 				{@html renderBlockText(program.supportText.content)}
 			</div>
 		{/if}
@@ -209,10 +215,6 @@
 		.main-image {
 			width: 300px;
 		}
-	}
-
-	img {
-		float: right;
 	}
 
 	.application-banner {
@@ -293,10 +295,13 @@
 		display: inline-block;
 		width: 100%;
 		min-height: 400px;
-		padding-bottom: 20px;
 
 		img {
 			width: 100%;
+		}
+
+		figcaption {
+			margin: 15px;
 		}
 	}
 
