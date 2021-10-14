@@ -39,7 +39,7 @@
 	export let person;
 
 	// *[$id in people[]._ref]
-	const connectedPosts = loadData('*[$personId in people[]._ref]', { personId: person._id });
+	const connectedPosts = loadData('*[$personId in people[]._ref || $personId in advisors[]._ref || $personId in fellows[]._ref]', { personId: person._id });
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(person, 'slug.current', ''), title: person.title });
