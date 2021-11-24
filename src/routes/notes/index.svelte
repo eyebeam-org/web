@@ -34,12 +34,11 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar toc={notes} title='Notes'/>
+<Sidebar toc={notes} title="Notes" />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
-	<div class='inner'>
-
+	<div class="inner">
 		<h1>Notes</h1>
 
 		<!-- LIST -->
@@ -51,7 +50,7 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar/>
+	<BottomBar />
 </div>
 
 <style lang="scss">
@@ -76,4 +75,3 @@
 		}
 	}
 </style>
-

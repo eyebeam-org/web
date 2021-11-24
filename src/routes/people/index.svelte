@@ -22,27 +22,53 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import groupBy from 'lodash/groupBy.js'
+	import groupBy from 'lodash/groupBy.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
-	import PersonLink from "$lib/person-link/person-link.svelte"
+	import PersonLink from '$lib/person-link/person-link.svelte';
 
 	// __ PROPS
 	export let people;
 
 	// __ VARIABLES
-	const ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-	let groupedPeople = groupBy(people, p => p.lastName.charAt(0));
-	console.log(groupedPeople)
+	const ALPHABET = [
+		'A',
+		'B',
+		'C',
+		'D',
+		'E',
+		'F',
+		'G',
+		'H',
+		'I',
+		'J',
+		'K',
+		'L',
+		'M',
+		'N',
+		'O',
+		'P',
+		'Q',
+		'R',
+		'S',
+		'T',
+		'U',
+		'V',
+		'W',
+		'X',
+		'Y',
+		'Z'
+	];
+	let groupedPeople = groupBy(people, (p) => p.lastName.charAt(0));
+	console.log(groupedPeople);
 
-	const scrollToSection = alpha => {
-		const el = document.querySelector("#" + alpha);
-		el.scrollIntoView({ behavior: 'smooth'});
+	const scrollToSection = (alpha) => {
+		const el = document.querySelector('#' + alpha);
+		el.scrollIntoView({ behavior: 'smooth' });
 		history.replaceState(null, null, '#' + alpha);
-	}
-
+	};
 </script>
 
 <svelte:head>
@@ -50,49 +76,52 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title='People'/>
+<Sidebar title="People" />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
-	<div class='inner'>
-
+	<div class="inner">
 		<!-- ALPHABETICAL NAVIGATION -->
-		<div class='alphabetical-navigation'>
+		<div class="alphabetical-navigation">
 			{#each ALPHABET as alpha}
-				<div class='item' on:click={() => { scrollToSection(alpha) }}>{alpha}</div>
+				<div
+					class="item"
+					on:click={() => {
+						scrollToSection(alpha);
+					}}
+				>
+					{alpha}
+				</div>
 			{/each}
 		</div>
 
 		<!-- HEADER -->
-		<div class='header'>
+		<div class="header">
 			<h1>People</h1>
-			<div class='filters'>
-				<div class='filter alphabetical active'>A-Z</div>
-				<div class='filter chronological'>Year</div>
+			<div class="filters">
+				<div class="filter alphabetical active">A-Z</div>
+				<div class="filter chronological">Year</div>
 			</div>
 		</div>
-		
+
 		<!-- LIST -->
 		{#each ALPHABET as alpha}
-			<div class='sub-section' id={alpha}>
+			<div class="sub-section" id={alpha}>
 				<h2>{alpha}</h2>
 				{#if groupedPeople[alpha]}
 					<ul>
 						{#each groupedPeople[alpha] as person}
-							<li><PersonLink {person}/></li>
+							<li><PersonLink {person} /></li>
 						{/each}
 					</ul>
 				{/if}
 			</div>
 		{/each}
-
-
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar/>
+	<BottomBar />
 </div>
-
 
 <style lang="scss">
 	@import '../../variables.scss';
@@ -184,4 +213,3 @@
 		}
 	}
 </style>
-

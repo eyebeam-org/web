@@ -34,11 +34,11 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
-	import PersonLink from "$lib/person-link/person-link.svelte"
+	import PersonLink from '$lib/person-link/person-link.svelte';
 
 	// __ PROPS
 	export let program;
-	console.log('program', program)
+	console.log('program', program);
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(program, 'slug.current', ''), title: program.title });
@@ -58,9 +58,8 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
-
 		<!-- HEADER -->
-		<div class='header'>
+		<div class="header">
 			<!-- TITLE -->
 			<h1>{program.title}</h1>
 			<!-- INTRODUCTION -->
@@ -71,17 +70,17 @@
 
 		<!-- APPLICATION BANNER -->
 		{#if program.applicationsOpen}
-			<div class='application-banner'>
-				<div class='column first'>
+			<div class="application-banner">
+				<div class="column first">
 					<!-- HEADER -->
-					<div class='top'>
-						<div class='col first'>
-							<div class='circle'/>
+					<div class="top">
+						<div class="col first">
+							<div class="circle" />
 						</div>
-						<div class='col second'>
-							<div class='headline'>APPLICATIONS ARE OPEN</div>
+						<div class="col second">
+							<div class="headline">APPLICATIONS ARE OPEN</div>
 							{#if program.applicationEndDate}
-								<div class='date'>
+								<div class="date">
 									Due by {longFormatDate(program.applicationEndDate)}
 								</div>
 							{/if}
@@ -90,23 +89,22 @@
 
 					<!-- TEXT -->
 					{#if has(program, 'applicationText.content', [])}
-						<div class='text'>
+						<div class="text">
 							{@html renderBlockText(program.applicationText.content)}
 						</div>
 					{/if}
 				</div>
 
-				<div class='column second'>
+				<div class="column second">
 					<!-- BUTTON -->
-					<div class='apply-now'>Apply Now</div>	
+					<div class="apply-now">Apply Now</div>
 				</div>
-
 			</div>
 		{/if}
 
 		<!-- MAIN IMAGE -->
 		{#if program.mainImage}
-			<div class='image-container'>
+			<div class="image-container">
 				<!-- IMAGE -->
 				<img
 					alt={program.title}
@@ -121,26 +119,26 @@
 
 		<!-- MAIN TEXT -->
 		{#if has(program, 'content.content', [])}
-			<div class='main-text'>
+			<div class="main-text">
 				{@html renderBlockText(program.content.content)}
 			</div>
 		{/if}
 
 		<!-- STORIES -->
-		<div class='stories'>
+		<div class="stories">
 			<h3>Stories</h3>
 		</div>
 
 		<!-- FAQ -->
 		{#if program.faq && Array.isArray(program.faq)}
-			<div class='faq'>
+			<div class="faq">
 				<h3>FAQ</h3>
-				<div class='faq-inner'>
+				<div class="faq-inner">
 					{#each program.faq as item}
-						<div class='faq-item'>
-							<div class='question'>{item.question}</div>
+						<div class="faq-item">
+							<div class="question">{item.question}</div>
 							{#if has(item, 'answer.content', [])}
-								<div class='answer'>
+								<div class="answer">
 									{@html renderBlockText(item.answer.content)}
 								</div>
 							{/if}
@@ -152,7 +150,7 @@
 
 		<!-- SUPPORT -->
 		{#if has(program, 'supportText.content', [])}
-			<div class='support'>
+			<div class="support">
 				<h3>Support</h3>
 				{@html renderBlockText(program.supportText.content)}
 			</div>
@@ -160,16 +158,15 @@
 
 		<!-- CURRENT FELLOWS -->
 		{#if program.fellows && Array.isArray(program.fellows)}
-			<div class='fellows'>
+			<div class="fellows">
 				<h3>Current Fellows</h3>
 				<ul>
 					{#each program.fellows as person}
-						<li><PersonLink {person}/></li>
+						<li><PersonLink {person} /></li>
 					{/each}
 				</ul>
 			</div>
 		{/if}
-
 
 		<!-- PAST FELLOWS -->
 		<!-- <div class='fellows'>
@@ -183,16 +180,15 @@
 
 		<!-- ADVISORS -->
 		{#if program.advisors && Array.isArray(program.advisors)}
-			<div class='fellows'>
+			<div class="fellows">
 				<h3>Advisors</h3>
 				<ul>
 					{#each program.advisors as person}
-						<li><PersonLink {person}/></li>
+						<li><PersonLink {person} /></li>
 					{/each}
 				</ul>
 			</div>
 		{/if}
-	
 	</div>
 
 	<!-- BOTTOM BAR -->
@@ -229,14 +225,14 @@
 			height: 100%;
 
 			&.first {
-				width: 80%; 
+				width: 80%;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
 			}
 
 			&.second {
-				width: 20%; 
+				width: 20%;
 			}
 		}
 
@@ -344,7 +340,7 @@
 		padding: 15px;
 		min-height: 300px;
 	}
-	
+
 	ul {
 		padding: 0;
 		li {
@@ -361,5 +357,4 @@
 			}
 		}
 	}
-
 </style>

@@ -1,4 +1,3 @@
-
 <script context="module">
 	export const load = async ({ fetch }) => {
 		const res = await fetch('/programs.json');
@@ -24,7 +23,7 @@
 
 	// __ IMPORTS
 	import { renderBlockText } from '$lib/sanity.js';
-	import has from 'lodash/has.js'
+	import has from 'lodash/has.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -39,11 +38,11 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar toc={programs} title='Programs'/>
+<Sidebar toc={programs} title="Programs" />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
-	<div class='inner'>
+	<div class="inner">
 		<div class="tile introduction">
 			<h1>Programs</h1>
 		</div>
@@ -59,7 +58,7 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar/>
+	<BottomBar />
 </div>
 
 <style lang="scss">

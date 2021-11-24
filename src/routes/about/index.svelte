@@ -37,13 +37,18 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar toc={about} title='What is Eyebeam?'/>
+<Sidebar toc={about} title="What is Eyebeam?" />
 
 <div class="main-content">
-	<div class='inner'>
+	<div class="inner">
 		<div class="tile introduction">
 			<h1>What is Eyebeam?</h1>
-			<p>Eyebeam invests artists with resources, new skills, strategies, networks and community. Eyebeam works in a distributed format to unlock artist-led inventions around issues that confront us in 21st century life, such as: power, self-governance, technology, and democracy.</p>
+			<p>
+				Eyebeam invests artists with resources, new skills, strategies, networks and community.
+				Eyebeam works in a distributed format to unlock artist-led inventions around issues that
+				confront us in 21st century life, such as: power, self-governance, technology, and
+				democracy.
+			</p>
 		</div>
 
 		{#each about as page}
@@ -55,7 +60,7 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar/>
+	<BottomBar />
 </div>
 
 <style lang="scss">

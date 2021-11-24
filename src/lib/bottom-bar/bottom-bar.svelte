@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Last updated
+	//  Bottom bar
 	//
 	// # # # # # # # # # # # # #
 

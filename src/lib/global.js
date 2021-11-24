@@ -43,8 +43,8 @@ export const categoryToName = {
 import { format, parseISO, formatDistanceToNow, isFuture } from "date-fns"
 
 export const dotFormatDate = date => {
-      try {
-        if(date) {
+    try {
+        if (date) {
             return format(parseISO(date), "dd.MM.yyyy")
         }
     } catch (err) {
@@ -53,8 +53,8 @@ export const dotFormatDate = date => {
 }
 
 export const longFormatDate = date => {
-      try {
-        if(date) {
+    try {
+        if (date) {
             return format(parseISO(date), "d MMMM, yyyy")
         }
     } catch (err) {
@@ -64,17 +64,17 @@ export const longFormatDate = date => {
 
 export const distanceToDate = date => {
     try {
-      if(date) {
-        const parsedDate = parseISO(date)
-          if(isFuture(parsedDate)) {
-            return 'On ' +  format(parsedDate, "MMMM d")
-          }
-          return formatDistanceToNow(parsedDate) + ' ago'
-      }
-      return ''
-  } catch (err) {
-      console.dir(err)
-  }
+        if (date) {
+            const parsedDate = parseISO(date)
+            if (isFuture(parsedDate)) {
+                return 'On ' + format(parsedDate, "MMMM d")
+            }
+            return formatDistanceToNow(parsedDate) + ' ago'
+        }
+        return ''
+    } catch (err) {
+        console.dir(err)
+    }
 }
 
 
