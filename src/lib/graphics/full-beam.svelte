@@ -23,10 +23,10 @@
 	@import '../../variables.scss';
 
 	svg {
-		height: 10px;
+		width: 100%;
 		path {
 			fill: none;
-			stroke: $black;
+			stroke: $white;
 			stroke-width: 0.75;
 			stroke-miterlimit: 10;
 		}

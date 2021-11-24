@@ -12,7 +12,7 @@
 
 	// __ STORES
 	import { page } from '$app/stores';
-	import { loaded } from '$lib/stores.js';
+	import { loaded, trayOpen } from '$lib/stores.js';
 
 	setTimeout(() => {
 		loaded.set(true);
@@ -28,7 +28,7 @@
 <Header />
 
 <!-- MAIN -->
-<main>
+<main class:open={$trayOpen}>
 	<slot />
 </main>
 
@@ -63,6 +63,11 @@
 		padding-top: 80px;
 		margin-left: 60px;
 		margin-right: 60px;
+		transition: transform 0.3s ease-out;
+
+		&.open {
+			transform: translateY(170px);
+		}
 	}
 
 	p {
