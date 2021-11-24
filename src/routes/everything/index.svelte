@@ -55,7 +55,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar />
+<!-- <Sidebar /> -->
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
@@ -103,8 +103,9 @@
 
 	.main-content {
 		float: left;
-		width: 50%;
-		width: $two-third;
+		// width: 50%;
+		// width: $two-third;
+		width: 100%;
 
 		.inner {
 			border: $border-style;

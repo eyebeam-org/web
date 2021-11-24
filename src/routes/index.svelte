@@ -72,11 +72,11 @@
 		<div class="tile search" on:click={toggleSearch}><SearchIcon /> Search this website</div>
 	</div>
 	<div class="column three">
-		<div class="tile change">
+		<a href="/eyebeam-is-changing" class="tile change">
 			Eyebeam is changing...
 			<div><HalfBeam /></div>
-		</div>
-		<div class="tile support">Support Eyebeam</div>
+		</a>
+		<a href="/support" class="tile support">Support Eyebeam</a>
 		<div class="tile social newsletter">
 			Newsletter
 			<div class="icon"><Newsletter /></div>
