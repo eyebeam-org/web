@@ -4,30 +4,35 @@
 	// Header
 	//
 	// # # # # # # # # # # # # #
+
 	// __ IMPORT
 	import Clock from '$lib/clock/clock.svelte';
-	import { currentCategory, currentPage } from '$lib/stores.js';
+
+	// __ STORES
+	import { currentCategory, currentPage, loaded } from '$lib/stores.js';
 </script>
 
 <nav class="menubar">
-	<!-- BREADCRUMBS -->
-	<div class="breadcrumbs">
-		<span class="arrow-down">▼</span>
-		<a href="/">eyebeam.org</a>
-		<!-- CATEGORY -->
-		{#if $currentCategory}
-			<span class="divider">/</span>
-			<a href={'/' + $currentCategory.slug}>{$currentCategory.name}</a>
-			<!-- PAGE -->
-			{#if $currentPage}
+	<div class="inner-text" class:loaded={$loaded}>
+		<!-- BREADCRUMBS -->
+		<div class="breadcrumbs">
+			<span class="arrow-down">▼</span>
+			<a href="/">eyebeam.org</a>
+			<!-- CATEGORY -->
+			{#if $currentCategory}
 				<span class="divider">/</span>
-				<span>{$currentPage.title}</span>
+				<a href={'/' + $currentCategory.slug}>{$currentCategory.name}</a>
+				<!-- PAGE -->
+				{#if $currentPage}
+					<span class="divider">/</span>
+					<span>{$currentPage.title}</span>
+				{/if}
 			{/if}
-		{/if}
-	</div>
-	<!-- CLOCK -->
-	<div class="clock">
-		<Clock />
+		</div>
+		<!-- CLOCK -->
+		<div class="clock">
+			<Clock />
+		</div>
 	</div>
 </nav>
 
@@ -46,6 +51,16 @@
 		line-height: 30px;
 		padding-left: 15px;
 		padding-right: 15px;
+		z-index: 100;
+		overflow: hidden;
+
+		.inner-text {
+			opacity: 0;
+
+			&.loaded {
+				opacity: 1;
+			}
+		}
 
 		.breadcrumbs {
 			float: left;

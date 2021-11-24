@@ -4,10 +4,25 @@
 	//  Main layout
 	//
 	// # # # # # # # # # # # # #
-	import { page } from '$app/stores';
+
+	// __ IMPORT
 	import Header from '$lib/header/header.svelte';
 	import Footer from '$lib/footer/footer.svelte';
+	import Loading from '$lib/loading/loading.svelte';
+
+	// __ STORES
+	import { page } from '$app/stores';
+	import { loaded } from '$lib/stores.js';
+
+	setTimeout(() => {
+		loaded.set(true);
+	}, 1000);
 </script>
+
+<!-- LOADING -->
+{#if !$loaded}
+	<Loading />
+{/if}
 
 <!-- HEADER -->
 <Header />

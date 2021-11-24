@@ -4,6 +4,7 @@ import { categoryToName } from '$lib/global.js';
 
 // WRITABLE
 export const currentPage = writable(null)
+export const loaded = writable(false)
 export const currentCategory = derived(
     page,
     $page => {
