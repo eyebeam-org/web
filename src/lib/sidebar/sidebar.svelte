@@ -4,7 +4,7 @@
 	//  Sidebar
 	//
 	// # # # # # # # # # # # # #
-	
+
 	// __ IMPORTS
 	import { renderBlockText } from '$lib/sanity.js';
 
@@ -15,26 +15,26 @@
 	import Statements from '$lib/statements/statements.svelte';
 	import OpenEyebeam from '$lib/open-eyebeam/open-eyebeam.svelte';
 
-    // __ STORES
-    import { page } from '$app/stores';
+	// __ STORES
+	import { page } from '$app/stores';
 
 	// __ PROPS
 	export let toc = [];
-    export let title = ''
-	export let location = ''
-	export let date = false
+	export let title = '';
+	export let location = '';
+	export let date = false;
 </script>
 
 <!-- SIDEBAR -->
 <div class="sidebar">
 	<!-- OPEN EYEBEAM -->
 	<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam">
-		<OpenEyebeam/>
+		<OpenEyebeam />
 	</a>
 	<!-- LOGO -->
 	<div class="tile logo" class:bordered={toc.length > 0 || location || date}>
-		<a href='/'><Logo /></a>
-		<Statements/>
+		<a href="/" class="wordmark"><Logo /></a>
+		<Statements />
 	</div>
 	<!-- EVENT -->
 	{#if location || date}
@@ -42,22 +42,25 @@
 			<p>{title}</p>
 			<!-- LOCATION -->
 			{#if location && location.content}
-				<div class='location'><strong>Location:</strong>{@html renderBlockText(location.content)}</div>
+				<div class="location">
+					<strong>Location:</strong>{@html renderBlockText(location.content)}
+				</div>
 			{/if}
 		</div>
-    {/if}
+	{/if}
 	<!-- TOC -->
-    {#if toc.length > 0}
-        <div class="tile toc">
-            <p>{title}</p>
-            <ul>
-                {#each toc as item}
-                    <li><a href={$page.path + '/' + item.slug.current} sveltekit:prefetch>{item.title}</a></li>
-                {/each}
-            </ul>
-        </div>
-    {/if}
-
+	{#if toc.length > 0}
+		<div class="tile toc">
+			<p>{title}</p>
+			<ul>
+				{#each toc as item}
+					<li>
+						<a href={$page.path + '/' + item.slug.current} sveltekit:prefetch>{item.title}</a>
+					</li>
+				{/each}
+			</ul>
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -96,10 +99,13 @@
 			&.bordered {
 				border-bottom: $border-style;
 			}
+
+			.wordmark {
+				width: 200px;
+			}
 		}
 
 		.toc {
 		}
 	}
-
 </style>

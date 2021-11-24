@@ -4,7 +4,7 @@
 	//  Main layout
 	//
 	// # # # # # # # # # # # # #
-	import {page } from '$app/stores';
+	import { page } from '$app/stores';
 	import Header from '$lib/header/header.svelte';
 	import Footer from '$lib/footer/footer.svelte';
 
@@ -25,17 +25,18 @@
 {/if}
 
 <style lang="scss" global>
-	@import "../variables.scss";
+	@import '../variables.scss';
 
-    body, html {
-        background: $white;
+	body,
+	html {
+		background: $white;
 		color: $black;
 		font-family: $SERIF_STACK;
 		font-size: $font-size-normal;
 		margin: 0;
 		padding: 0;
 		overflow-x: hidden;
-    }
+	}
 
 	a {
 		color: $black;

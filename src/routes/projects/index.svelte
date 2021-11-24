@@ -34,24 +34,25 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar toc={projects} title='People'/>
+<Sidebar toc={projects} title="People" />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
-	<div class='inner'>
-
+	<div class="inner">
 		<h1>Projects</h1>
 
 		<!-- LIST -->
 		<ul>
 			{#each projects as project}
-				<li><a href={'/projects/' + project.slug.current} sveltekit:prefetch>{project.title}</a></li>
+				<li>
+					<a href={'/projects/' + project.slug.current} sveltekit:prefetch>{project.title}</a>
+				</li>
 			{/each}
 		</ul>
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar/>
+	<BottomBar />
 </div>
 
 <style lang="scss">
@@ -76,4 +77,3 @@
 		}
 	}
 </style>
-
