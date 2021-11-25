@@ -54,10 +54,14 @@
 		</div>
 		<div class="column two">
 			<div class="tile programs">
-				<a href="/programs" class="sub-tile header">PROGRAMS</a>
+				<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
 				{#await programs then programs}
 					{#each programs as program}
-						<a href={'/programs/' + get(program, 'slug.current', '')} class="sub-tile">
+						<a
+							href={'/programs/' + get(program, 'slug.current', '')}
+							class="sub-tile"
+							sveltekit:prefetch
+						>
 							<div class="title">{program.title}</div>
 							{#if program.applicationsOpen}
 								<div class="circle" />
@@ -66,21 +70,21 @@
 					{/each}
 				{/await}
 			</div>
-			<a href="/about" class="tile about">What is eyebeam?</a>
-			<a href="/people" class="tile people">People</a>
+			<a href="/about" class="tile about" sveltekit:prefetch>What is eyebeam?</a>
+			<a href="/people" class="tile people" sveltekit:prefetch>People</a>
 		</div>
 		<div class="tile search" on:click={toggleSearch}><SearchIcon /> Search this website</div>
 	</div>
 	<div class="column three">
-		<a href="/eyebeam-is-changing" class="tile change">
+		<a href="/eyebeam-is-changing" class="tile change" sveltekit:prefetch>
 			Eyebeam is changing...
 			<div><HalfBeam /></div>
 		</a>
-		<a href="/support" class="tile support">Support Eyebeam</a>
-		<div class="tile social newsletter">
+		<a href="/support" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
+		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
 			Newsletter
 			<div class="icon"><Newsletter /></div>
-		</div>
+		</a>
 		<a href={INSTAGRAM_URL} target="_blank" class="tile social instagram"
 			>Instagram
 			<div class="icon"><Instagram /></div></a
@@ -94,10 +98,10 @@
 			<div class="icon"><Youtube /></div></a
 		>
 		<div class="tile events">
-			<a href="/events" class="sub-tile header">UPCOMING AND RECENT</a>
+			<a href="/events" class="sub-tile header" sveltekit:prefetch>UPCOMING AND RECENT</a>
 			{#await events then events}
 				{#each events as event}
-					<a href={'/events/' + get(event, 'slug.current', '')} class="sub-tile">
+					<a href={'/events/' + get(event, 'slug.current', '')} class="sub-tile" sveltekit:prefetch>
 						{#if event.startDate}
 							<div class="time">{distanceToDate(event.startDate)}</div>
 						{/if}
