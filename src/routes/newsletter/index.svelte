@@ -1,3 +1,19 @@
+<script context="module">
+	export const load = async ({ fetch }) => {
+		const res = await fetch('/newsletter.json');
+		if (res.ok) {
+			const newsletterPage = await res.json();
+			return {
+				props: { newsletterPage }
+			};
+		}
+		const { message } = await res.json();
+		return {
+			error: new Error(message)
+		};
+	};
+</script>
+
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -13,6 +29,10 @@
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
+	// __ PROPS
+	export let newsletterPage;
+	console.log(newsletterPage);
+
 	let emailAddress = '';
 	const subscribe = () => {
 		console.log(emailAddress);
@@ -21,7 +41,7 @@
 </script>
 
 <svelte:head>
-	<title>Our Newsletter</title>
+	<title>{newsletterPage.title}</title>
 </svelte:head>
 
 <!-- SIDEBAR -->
@@ -31,10 +51,14 @@
 <div class="main-content">
 	<div class="inner">
 		<!-- TITLE -->
-		<h1>Our Newsletter</h1>
+		<h1>{newsletterPage.title}</h1>
 
 		<!-- MAIN TEXT -->
-		<div class="body-content">Lorem ipsum etc....</div>
+		{#if has(newsletterPage, 'content.content')}
+			<div class="body-content">
+				{@html renderBlockText(newsletterPage.content.content)}
+			</div>
+		{/if}
 
 		<!-- FORM -->
 		<form>
@@ -45,7 +69,7 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar />
+	<BottomBar updatedAt={newsletterPage._updatedAt} />
 </div>
 
 <style lang="scss">
