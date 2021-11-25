@@ -188,6 +188,10 @@
 		border-right: $border-style;
 		float: left;
 
+		.logo {
+			width: 200px;
+		}
+
 		.statement {
 			.text {
 				margin-top: 10px;

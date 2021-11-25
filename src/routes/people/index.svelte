@@ -33,6 +33,7 @@
 	export let people;
 
 	// __ VARIABLES
+	const START_YEAR = 1997;
 	const ALPHABET = [
 		'A',
 		'B',
@@ -61,7 +62,7 @@
 		'Y',
 		'Z'
 	];
-	let groupedPeople = groupBy(people, (p) => p.lastName.charAt(0));
+	const groupedPeople = groupBy(people, (p) => p.lastName.charAt(0));
 	console.log(groupedPeople);
 
 	const scrollToSection = (alpha) => {
@@ -98,9 +99,24 @@
 		<!-- HEADER -->
 		<div class="header">
 			<h1>People</h1>
-			<div class="filters">
-				<div class="filter alphabetical active">A-Z</div>
-				<div class="filter chronological">Year</div>
+			<!-- ORDER -->
+			<div class="order">
+				<div class="order-header">Order by</div>
+				<div class="order-options">
+					<div class="order-option alphabetical active">A-Z</div>
+					<div class="order-option chronological">Year</div>
+				</div>
+			</div>
+			<!-- FILTER -->
+			<div class="filter">
+				<div class="filter-header">Show</div>
+				<div class="filter-options">
+					<div class="filter-option active">Everyone</div>
+					<div class="filter-option">Artist</div>
+					<div class="filter-option">Staff</div>
+					<div class="filter-option">Board</div>
+					<div class="filter-option">Advisory Committee</div>
+				</div>
 			</div>
 		</div>
 
@@ -173,18 +189,44 @@
 				padding: 15px;
 				padding-bottom: 40px;
 
-				.filters {
+				.order {
 					margin-top: 15px;
-					display: inline-block;
+					width: 100%;
 
-					.filter {
-						float: left;
-						padding: 5px;
-						margin-right: 5px;
-						border: $border-style;
+					.order-options {
+						display: flex;
 
-						&.active {
-							background: $grey;
+						.order-option {
+							padding: 5px;
+							margin-right: 5px;
+							border: $border-style;
+							user-select: none;
+							cursor: pointer;
+
+							&.active {
+								background: $grey;
+							}
+						}
+					}
+				}
+
+				.filter {
+					margin-top: 15px;
+					width: 100%;
+
+					.filter-options {
+						display: flex;
+
+						.filter-option {
+							padding: 5px;
+							margin-right: 5px;
+							border: $border-style;
+							user-select: none;
+							cursor: pointer;
+
+							&.active {
+								background: $grey;
+							}
 						}
 					}
 				}
