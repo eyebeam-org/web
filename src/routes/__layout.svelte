@@ -108,4 +108,12 @@
 	figcaption {
 		font-style: italic;
 	}
+
+	.introduction {
+		.description {
+			p {
+				font-size: $font-size-medium;
+			}
+		}
+	}
 </style>

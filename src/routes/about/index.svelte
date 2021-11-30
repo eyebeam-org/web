@@ -24,6 +24,9 @@
 	// __ IMPORTS
 	import { renderBlockText } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
+	import get from 'lodash/get.js';
+
+	import keyBy from 'lodash/keyBy.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -32,6 +35,9 @@
 	// __ PROPS
 	export let about;
 	console.log('about', about);
+	const aboutMap = keyBy(about, '_id');
+
+	console.log('aboutMap', aboutMap);
 
 	const ORDER = [
 		'our-mission-and-values',
@@ -45,6 +51,49 @@
 		'media-kit',
 		'contact'
 	];
+
+	const toc = [
+		{
+			link: '/about/our-mission-and-values',
+			title: 'Our Mission and Values'
+		},
+		{
+			link: '/about/our-history',
+			title: 'Our History'
+		},
+		{
+			link: '/about/staff-and-board',
+			title: 'Staff & Board'
+		},
+		{
+			link: '/about/artists',
+			title: 'Artists'
+		},
+		{
+			link: '/about/support-eyebeam',
+			title: 'Support'
+		},
+		{
+			link: '/about/get-involved',
+			title: 'Get involved'
+		},
+		{
+			link: '/about/press-and-news',
+			title: 'Press & News'
+		},
+		{
+			link: '/about/our-operating-documents',
+			title: 'Our Operating Documents'
+		},
+		{
+			link: '/about/media-kit',
+			title: 'Media Kit'
+		},
+		{
+			link: '/about/contact',
+			title: 'Contact'
+		}
+	];
 </script>
 
 <svelte:head>
@@ -52,14 +101,45 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar toc={about.subSections} title="What is Eyebeam?" />
+<Sidebar {toc} title={aboutMap['what-is-eyebeam'].title} />
 
 <div class="main-content">
 	<div class="inner">
-		{#each about as page}
-			<a class="tile nav-tile" href={'/about/'} sveltekit:prefetch>
-				<h2>{page.title}</h2>
-			</a>
+		<div class="tile introduction">
+			<!-- TITLE -->
+			<h1>{aboutMap['what-is-eyebeam'].title}</h1>
+			<!-- INTRODUCTION -->
+			{#if has(aboutMap['what-is-eyebeam'], 'introduction.content')}
+				<div class="description">
+					{@html renderBlockText(aboutMap['what-is-eyebeam'].introduction.content)}
+				</div>
+			{/if}
+		</div>
+
+		{#each ORDER as section}
+			{#if section == 'press-and-news'}
+				<div class="tile full-tile press-and-news">
+					<h2>{aboutMap['press-and-news'].title}</h2>
+					<a href="/about/press-and-news" class="see-all">See all Press & News</a>
+				</div>
+			{:else if section == 'contact'}
+				<div class="tile full-tile contact">
+					<h2>Contact</h2>
+				</div>
+			{:else}
+				<a
+					class="tile nav-tile {section}"
+					href={'/about/' + aboutMap[section]._id}
+					sveltekit:prefetch
+				>
+					<h2>{aboutMap[section].title}</h2>
+					{#if has(aboutMap[section], 'introduction.content')}
+						<div class="description">
+							{@html renderBlockText(aboutMap[section].introduction.content)}
+						</div>
+					{/if}
+				</a>
+			{/if}
 		{/each}
 	</div>
 
@@ -94,7 +174,7 @@
 
 		p {
 			font-style: italic;
-			font-size: $font-size-normal;
+			font-size: $font-size-medium;
 		}
 	}
 
@@ -107,13 +187,49 @@
 		float: left;
 		text-decoration: none;
 		cursor: pointer;
-
-		&:nth-child(odd) {
-			border-right: none;
-		}
+		padding-right: 40px;
 
 		&:hover {
 			background: $grey;
+		}
+
+		&.our-history,
+		&.artists,
+		&.get-involved,
+		&.media-kit {
+			border-right: none;
+		}
+	}
+
+	.full-tile {
+		width: 100%;
+		min-height: 300px;
+		border-bottom: $border-style;
+		display: block;
+		float: left;
+		text-decoration: none;
+
+		&.contact {
+			border-bottom: none;
+		}
+	}
+
+	.press-and-news {
+		position: relative;
+		.see-all {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 40px;
+			width: 100%;
+			border-top: $border-style;
+			text-align: center;
+			line-height: 40px;
+			text-decoration: none;
+
+			&:hover {
+				background: $grey;
+			}
 		}
 	}
 </style>

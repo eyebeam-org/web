@@ -55,7 +55,7 @@
 			<ul>
 				{#each toc as item}
 					<li>
-						<a href={$page.path + '/' + item.slug.current} sveltekit:prefetch>{item.title}</a>
+						<a href={item.link} sveltekit:prefetch>{item.title}</a>
 					</li>
 				{/each}
 			</ul>
@@ -106,6 +106,9 @@
 		}
 
 		.toc {
+			a {
+				text-decoration: none;
+			}
 		}
 	}
 </style>
