@@ -23,6 +23,7 @@
 
 	// __ IMPORTS
 	import { renderBlockText } from '$lib/sanity.js';
+	import has from 'lodash/has.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -30,6 +31,20 @@
 
 	// __ PROPS
 	export let about;
+	console.log('about', about);
+
+	const ORDER = [
+		'our-mission-and-values',
+		'our-history',
+		'staff-and-board',
+		'artists',
+		'support-eyebeam',
+		'get-involved',
+		'press-and-news',
+		'our-operating-documents',
+		'media-kit',
+		'contact'
+	];
 </script>
 
 <svelte:head>
@@ -37,24 +52,13 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar toc={about} title="What is Eyebeam?" />
+<Sidebar toc={about.subSections} title="What is Eyebeam?" />
 
 <div class="main-content">
 	<div class="inner">
-		<div class="tile introduction">
-			<h1>What is Eyebeam?</h1>
-			<p>
-				Eyebeam invests artists with resources, new skills, strategies, networks and community.
-				Eyebeam works in a distributed format to unlock artist-led inventions around issues that
-				confront us in 21st century life, such as: power, self-governance, technology, and
-				democracy.
-			</p>
-		</div>
-
 		{#each about as page}
-			<a class="tile nav-tile" href={'/about/' + page.slug.current} sveltekit:prefetch>
+			<a class="tile nav-tile" href={'/about/'} sveltekit:prefetch>
 				<h2>{page.title}</h2>
-				<div class="introduction-text">{@html renderBlockText(page.introduction.content)}</div>
 			</a>
 		{/each}
 	</div>

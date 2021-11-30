@@ -25,6 +25,7 @@
 	import { renderBlockText } from '$lib/sanity.js';
 	import { longFormatDate } from '$lib/global.js';
 	import { postTypeToName } from '$lib/global.js';
+	import has from 'lodash/has.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -33,6 +34,7 @@
 
 	// __ PROPS
 	export let everything;
+	console.log(everything);
 
 	const FILTERS = [
 		'Everything',
@@ -45,13 +47,13 @@
 		'Goals'
 	];
 	let activeFilter = 'Everything';
-	let filteredPosts = everything;
+	let filteredPosts = everything.posts;
 
 	$: console.log(activeFilter);
 </script>
 
 <svelte:head>
-	<title>Everything</title>
+	<title>{everything.page.title}</title>
 </svelte:head>
 
 <!-- SIDEBAR -->
@@ -61,7 +63,13 @@
 <div class="main-content">
 	<div class="inner">
 		<div class="header">
-			<h1>Explore everything on our website right now</h1>
+			<h1>{everything.page.title}</h1>
+			<!-- BIO -->
+			{#if has(everything, 'page.content.content')}
+				<div class="body-content bio">
+					{@html renderBlockText(everything.page.content.content)}
+				</div>
+			{/if}
 			<div class="filters">
 				{#each FILTERS as filter}
 					<div
