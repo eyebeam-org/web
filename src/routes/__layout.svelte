@@ -116,4 +116,14 @@
 			}
 		}
 	}
+
+	.block-text {
+		p,
+		h2,
+		h3 {
+			margin-bottom: $vertical-space;
+			padding-right: $small-margin;
+			padding-left: $small-margin;
+		}
+	}
 </style>

@@ -26,7 +26,7 @@
 		path {
 			fill: none;
 			stroke: $black;
-			stroke-width: 1px;
+			stroke-width: 2.5px;
 			stroke-miterlimit: 10;
 		}
 	}

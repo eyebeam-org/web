@@ -13,7 +13,7 @@
 	import ArrowUp from '$lib/graphics/arrow-up.svelte';
 
 	// __ PROPS
-	export let updatedAt = '';
+	export let updatedAt = false;
 
 	const backToTop = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -21,9 +21,11 @@
 </script>
 
 <div class="bottom-bar">
-	<div class="last-updated">
-		<span class="icon"><HalfBeam /></span> Last updated: {dotFormatDate(updatedAt)}
-	</div>
+	{#if updatedAt}
+		<div class="last-updated">
+			<span class="icon"><HalfBeam /></span> Last updated: {dotFormatDate(updatedAt)}
+		</div>
+	{/if}
 	<div class="back-to-top" on:click={backToTop}>
 		Back to top <span class="icon"><ArrowUp /></span>
 	</div>

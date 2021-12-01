@@ -1271,10 +1271,10 @@ get-stdin@^4.0.1:
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
   integrity sha1-uWjGsKBDhDJJAui/Gl3zJXmkUP4=
 
-get-video-id@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/get-video-id/-/get-video-id-3.4.1.tgz#ea4e03288e4be6f89fac7516f23717c558203bc8"
-  integrity sha512-2MkfbzofPQ7YsW0mrShmGEvnGrNzjXzAwJEePYwoi1dDqTpghHDMq5+T61Stmez8X4I+I8phT+unuttw/AB36w==
+get-video-id@^3.4.3:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/get-video-id/-/get-video-id-3.4.3.tgz#e8ffb0d8eaa47ba665071e220eb5a32a4edbab9c"
+  integrity sha512-8nMAfLWOtloLCHknItYFK81cMEjBS+nMY1ukUMligbvaOiQRyLGVNt0fkSAl5Pz5cpCL+KAJAjyjSUXldGLH5w==
 
 getpass@^0.1.1:
   version "0.1.7"

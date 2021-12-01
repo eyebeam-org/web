@@ -3,8 +3,8 @@ $SERIF_STACK: 'Literata', serif;
 $font-size-small: 10px;
 $font-size-normal: 12px;
 $font-size-medium: 18px;
-$font-size-h1: 40px;
-$font-size-h2: 24px;
+$font-size-h1: 48px;
+$font-size-h2: 32px;
 $font-size-h3: 12px;
 
 // COLORS
@@ -19,6 +19,10 @@ $border-style-inverted: 1px solid $white;
 $transition: cubic-bezier(0.23, 1, 0.32, 1);
 $one-third: calc(100% / 3);
 $two-third: calc((100% / 3) * 2);
+
+// SPACING
+$small-margin: 20px;
+$vertical-space: 20px;
 
 // RESPONSIVE
 $breakpoints: (
