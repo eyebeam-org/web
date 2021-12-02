@@ -127,7 +127,6 @@
 		border: $border-style;
 		width: 100%;
 		height: 600px;
-		font-size: $font-size-normal;
 	}
 
 	.section {

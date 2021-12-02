@@ -45,7 +45,7 @@
 		background: $white;
 		color: $black;
 		font-family: $SERIF_STACK;
-		font-size: $font-size-normal;
+		font-size: $font-size-small;
 		margin: 0;
 		padding: 0;
 		overflow-x: hidden;
@@ -70,10 +70,6 @@
 		}
 	}
 
-	p {
-		font-size: $font-size-normal;
-	}
-
 	h1 {
 		font-size: $font-size-h1;
 		font-weight: normal;
@@ -89,7 +85,7 @@
 	}
 
 	h3 {
-		font-size: $font-size-h3;
+		font-size: $font-size-body;
 		font-weight: bold;
 		margin: 0;
 		line-height: 1.1em;
@@ -124,6 +120,10 @@
 			margin-bottom: $vertical-space;
 			padding-right: $small-margin;
 			padding-left: $small-margin;
+		}
+
+		p {
+			font-size: $font-size-body;
 		}
 	}
 </style>

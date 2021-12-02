@@ -100,12 +100,14 @@
 				display: flex;
 				width: 100%;
 				justify-content: space-between;
+
 				h1 {
 					margin-left: $small-margin;
 					margin-right: $small-margin;
 					// float: left;
 					margin-bottom: 160px;
 				}
+
 				.main-image {
 					width: 300px;
 					margin-right: $small-margin;

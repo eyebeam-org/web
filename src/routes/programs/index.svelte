@@ -88,7 +88,7 @@
 
 		p {
 			font-style: italic;
-			font-size: $font-size-normal;
+			font-size: $font-size-body;
 		}
 	}
 

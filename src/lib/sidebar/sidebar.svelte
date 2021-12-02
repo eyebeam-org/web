@@ -77,6 +77,7 @@
 		width: $one-third;
 		border: $border-style;
 		border-right: none;
+		font-size: $font-size-small;
 
 		.open-eyebeam {
 			height: 300px;

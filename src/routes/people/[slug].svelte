@@ -196,14 +196,14 @@
 		}
 
 		.type {
-			font-size: $font-size-normal;
+			font-size: $font-size-body;
 			text-transform: uppercase;
 			margin-right: 20px;
 			font-weight: bold;
 		}
 
 		.title {
-			font-size: $font-size-normal;
+			font-size: $font-size-body;
 		}
 
 		.image {

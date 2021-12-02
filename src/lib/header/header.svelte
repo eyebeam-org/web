@@ -79,6 +79,7 @@
 		height: 200px;
 		transition: transform 0.3s ease-out;
 		transform: translateY(-170px);
+		font-size: $font-size-small;
 
 		&.open {
 			transform: translateY(0);
@@ -89,7 +90,6 @@
 			height: 30px;
 			background: $black;
 			color: $white;
-			font-size: $font-size-normal;
 			line-height: 30px;
 			padding-left: 15px;
 			padding-right: 15px;
@@ -108,7 +108,6 @@
 			}
 
 			.arrow-down {
-				font-size: $font-size-small;
 				margin-right: 5px;
 			}
 

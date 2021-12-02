@@ -60,6 +60,5 @@
 	:global(.logoblock-text p) {
 		padding-left: 0;
 		padding-right: 0;
-		font-size: $font-size-medium;
 	}
 </style>

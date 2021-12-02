@@ -54,6 +54,8 @@
 	@import '../../variables.scss';
 
 	.statement {
+		font-size: $font-size-small;
+
 		.text {
 			margin-top: 10px;
 			font-style: italic;

@@ -145,7 +145,7 @@
 		}
 
 		.title {
-			font-size: $font-size-normal;
+			font-size: $font-size-body;
 		}
 
 		.image {

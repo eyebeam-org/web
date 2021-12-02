@@ -98,7 +98,7 @@
 			right: 45px;
 			cursor: pointer;
 			padding: 15px;
-			font-size: $font-size-normal;
+			font-size: $font-size-small;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -131,7 +131,7 @@
 				text-decoration: none;
 
 				.type {
-					font-size: $font-size-normal;
+					font-size: $font-size-body;
 					text-transform: uppercase;
 				}
 
