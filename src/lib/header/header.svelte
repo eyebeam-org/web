@@ -24,9 +24,9 @@
 	<!-- {#if $trayOpen} -->
 	<div class="settings">
 		<div class="settings-bar" on:click={toggleTray}>
-			<!-- <div class="tray-toggle" on:click={toggleTray}> -->
-			<!-- <FullBeam /> -->
-			<!-- </div> -->
+			<div class="tray-toggle" on:click={toggleTray}>
+				<FullBeam black={true} />
+			</div>
 			Settings
 		</div>
 		<div class="settings-content">
@@ -79,9 +79,9 @@
 		left: 0;
 		width: 100%;
 		z-index: 100;
-		height: 200px;
+		height: 340px;
 		transition: transform 0.3s ease-out;
-		transform: translateY(-170px);
+		transform: translateY(-240px);
 		font-size: $font-size-extra-small;
 
 		&.open {
@@ -141,25 +141,29 @@
 		}
 
 		.settings {
-			height: 170px;
+			height: 240px;
 			background: $grey;
 
 			.settings-bar {
 				height: $HEADER_HEIGHT;
 				line-height: $HEADER_HEIGHT;
-				padding-left: 15px;
-				padding-right: 15px;
+				padding-left: 5px;
+				padding-right: 10px;
 				cursor: pointer;
 				border-bottom: $border-style;
+				color: $black;
+				width: 100%;
 
 				.tray-toggle {
-					width: 12px;
-					height: 30px;
+					width: 18px;
+					height: $HEADER_HEIGHT;
 					display: flex;
+					margin-right: 8px;
 					justify-content: center;
 					align-items: center;
 					margin-left: 8px;
 					cursor: pointer;
+					float: left;
 				}
 			}
 

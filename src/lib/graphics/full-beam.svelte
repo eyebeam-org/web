@@ -1,4 +1,15 @@
+<script>
+	// # # # # # # # # # # # # #
+	//
+	//  FULL BEAM
+	//
+	// # # # # # # # # # # # # #
+
+	export let black = false;
+</script>
+
 <svg
+	class:black
 	version="1.1"
 	id="Layer_1"
 	xmlns="http://www.w3.org/2000/svg"
@@ -29,6 +40,12 @@
 			stroke: $white;
 			stroke-width: 0.75;
 			stroke-miterlimit: 10;
+		}
+
+		&.black {
+			path {
+				stroke: $black;
+			}
 		}
 	}
 </style>

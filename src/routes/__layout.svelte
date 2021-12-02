@@ -65,7 +65,7 @@
 		transition: transform 0.3s ease-out;
 
 		&.open {
-			transform: translateY(170px);
+			transform: translateY(240px);
 		}
 	}
 
@@ -73,21 +73,21 @@
 		font-size: $font-size-h1;
 		font-weight: normal;
 		margin: 0;
-		line-height: 1.1em;
+		line-height: 1.2em;
 	}
 
 	h2 {
 		font-size: $font-size-h2;
 		font-weight: normal;
 		margin: 0;
-		line-height: 1.1em;
+		line-height: 1.2em;
 	}
 
 	h3 {
 		font-size: $font-size-body;
 		font-weight: bold;
 		margin: 0;
-		line-height: 1.1em;
+		line-height: 1.2em;
 	}
 
 	figure {
@@ -98,10 +98,6 @@
 		img {
 			max-width: 100%;
 		}
-	}
-
-	figcaption {
-		font-style: italic;
 	}
 
 	.introduction {
@@ -123,6 +119,18 @@
 
 		p {
 			font-size: $font-size-body;
+		}
+	}
+
+	figcaption {
+		font-style: italic;
+		font-size: $font-size-small;
+
+		p {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			padding-top: 0 !important;
+			margin-top: 0 !important;
 		}
 	}
 </style>

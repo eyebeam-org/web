@@ -32,7 +32,7 @@
 		<OpenEyebeam />
 	</a>
 	<!-- LOGO -->
-	<div class="tile logo" class:bordered={toc.length > 0 || location || date}>
+	<div class="tile logo" class:bordered={title || toc.length > 0 || location || date}>
 		<a href="/" class="wordmark"><Logo /></a>
 		<Statements />
 	</div>
@@ -49,9 +49,9 @@
 		</div>
 	{/if}
 	<!-- TOC -->
-	{#if toc.length > 0}
-		<div class="tile toc">
-			<p>{title}</p>
+	<div class="tile toc">
+		<p>{title}</p>
+		{#if toc.length > 0}
 			<ul>
 				{#each toc as item}
 					<li>
@@ -59,8 +59,8 @@
 					</li>
 				{/each}
 			</ul>
-		</div>
-	{/if}
+		{/if}
+	</div>
 </div>
 
 <style lang="scss">
@@ -80,7 +80,7 @@
 		font-size: $font-size-small;
 
 		.open-eyebeam {
-			height: 300px;
+			height: $HEADER_HEIGHT;
 			background: $grey;
 			width: 100%;
 			border-bottom: $border-style;
@@ -89,7 +89,7 @@
 		}
 
 		.logo {
-			min-height: 160px;
+			min-height: 220px;
 			width: 100%;
 			float: left;
 
@@ -102,11 +102,14 @@
 			}
 
 			.wordmark {
-				width: 200px;
+				width: $LOGO_WIDTH;
+				margin-bottom: $extra-small-margin;
 			}
 		}
 
 		.toc {
+			padding-top: 0;
+
 			a {
 				text-decoration: none;
 			}

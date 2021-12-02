@@ -17,7 +17,7 @@
 	@import '../../variables.scss';
 
 	svg {
-		height: 10px;
+		height: 12px;
 		path,
 		line {
 			fill: none;

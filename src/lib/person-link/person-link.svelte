@@ -25,6 +25,8 @@
 		});
 	};
 
+	const renderNewLines = (t) => t.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
 	if (personId) {
 		loadData('*[_id == "' + personId + '"][0]').then((p) => {
 			console.log(p);
@@ -42,7 +44,7 @@
 
 {#if person}
 	<a href={'/people/' + person.slug.current} bind:this={linkEl} sveltekit:prefetch>
-		{overrideText ? overrideText : person.title}
+		{@html overrideText ? renderNewLines(overrideText) : person.title}
 	</a>
 
 	<div class="pop-up" bind:this={popEl}>

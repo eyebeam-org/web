@@ -37,7 +37,7 @@
 
 	// *** PROPS
 	export let page;
-	console.log(page);
+	console.log(page.introduction.content);
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(page, 'slug.current', ''), title: page.title });
@@ -52,7 +52,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar />
+<Sidebar title={page.title} />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
@@ -63,11 +63,18 @@
 
 			<!-- MAIN IMAGE -->
 			{#if page.mainImage}
-				<img
-					class="main-image"
-					alt={page.title}
-					src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
-				/>
+				<figure class="image-container">
+					<img
+						class="main-image"
+						alt={page.title}
+						src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
+					/>
+					{#if has(page, 'mainImage.caption.content')}
+						<figcaption>
+							<Blocks blocks={page.mainImage.caption.content} />
+						</figcaption>
+					{/if}
+				</figure>
 			{/if}
 		</div>
 
@@ -93,26 +100,30 @@
 			border: $border-style;
 			min-height: 100vh;
 			display: inline-block;
-			padding-top: $small-margin;
+			// padding-top: $small-margin;
 			padding-bottom: $small-margin;
 
 			.header {
 				display: flex;
 				width: 100%;
 				justify-content: space-between;
+				height: $HEADER_HEIGHT;
 
 				h1 {
 					margin-left: $small-margin;
 					margin-right: $small-margin;
-					// float: left;
 					margin-bottom: 160px;
 				}
 
-				.main-image {
-					width: 300px;
+				.image-container {
+					max-width: 50%;
+					max-height: 100%;
 					margin-right: $small-margin;
-					border: $border-style;
-					// float: right;
+					img {
+						border: $border-style;
+						max-height: 100%;
+						max-width: 100%;
+					}
 				}
 			}
 		}

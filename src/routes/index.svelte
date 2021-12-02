@@ -64,7 +64,10 @@
 						>
 							<div class="title">{program.title}</div>
 							{#if program.applicationsOpen}
-								<div class="circle" />
+								<div class="application-container">
+									<div class="circle" />
+									<span class="applications-open">Applications open</span>
+								</div>
 							{/if}
 						</a>
 					{/each}
@@ -98,7 +101,7 @@
 			<div class="icon"><Youtube /></div></a
 		>
 		<div class="tile events">
-			<div class="sub-tile header" sveltekit:prefetch>UPCOMING & RECENT</div>
+			<div class="sub-tile header">UPCOMING & RECENT</div>
 			{#await events then events}
 				{#each events as event}
 					<a href={'/events/' + get(event, 'slug.current', '')} class="sub-tile" sveltekit:prefetch>
@@ -170,6 +173,10 @@
 			background: $grey;
 			cursor: pointer;
 		}
+
+		&:active {
+			background: $black;
+		}
 	}
 
 	.open-eyebeam {
@@ -191,7 +198,7 @@
 
 		.logo {
 			width: 220px;
-			margin-bottom: $small-margin;
+			margin-bottom: $extra-small-margin;
 		}
 	}
 
@@ -308,17 +315,33 @@
 			// font-weight: bold;
 		}
 
-		.circle {
-			width: 15px;
-			height: 15px;
-			border-radius: 50%;
-			background: $grey;
-			margin-top: 5px;
+		.application-container {
+			display: flex;
+			align-items: center;
+
+			.circle {
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: $grey;
+				margin-top: 10px;
+			}
+
+			.applications-open {
+				margin-left: 10px;
+				font-size: $font-size-extra-small;
+				opacity: 0;
+				position: relative;
+				top: 4px;
+			}
 		}
 
 		&:hover {
 			.circle {
 				background: $black;
+			}
+			.applications-open {
+				opacity: 1;
 			}
 		}
 	}

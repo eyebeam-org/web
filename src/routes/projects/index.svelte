@@ -30,7 +30,7 @@
 </script>
 
 <svelte:head>
-	<title>projects</title>
+	<title>Projects</title>
 </svelte:head>
 
 <!-- SIDEBAR -->

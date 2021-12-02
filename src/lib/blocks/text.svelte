@@ -14,6 +14,8 @@
 	// *** PROPS
 	export let b = {};
 	console.log('text b', b);
+
+	const renderNewLines = (t) => t.replace(/(?:\r\n|\r|\n)/g, '<br>');
 </script>
 
 {#if b.style == 'h2'}
@@ -36,14 +38,16 @@
 	<p>
 		{#each b.children as c}
 			{#if !c.marks || c.marks.length === 0}
-				{@html c.text}
+				{@html renderNewLines(c.text)}
 			{:else if c.marks.includes('em')}
-				<em>{@html c.text}</em>
+				<em>{@html renderNewLines(c.text)}</em>
 			{:else if c.marks.includes('strong')}
-				<strong>{@html c.text}</strong>
+				<strong>{@html renderNewLines(c.text)}</strong>
 			{:else}
 				{#if b.markDefs.find((m) => m._key === c.marks[0])._type === 'link'}
-					<a href={b.markDefs.find((m) => m._key === c.marks[0]).href}>{@html c.text}</a>
+					<a href={b.markDefs.find((m) => m._key === c.marks[0]).href}
+						>{@html renderNewLines(c.text)}</a
+					>
 				{/if}
 				{#if b.markDefs.find((m) => m._key === c.marks[0])._type === 'person'}
 					<PersonLink

@@ -41,11 +41,12 @@
 		width: 100%;
 		display: inline-block;
 		padding: 15px;
+		height: 50px;
 
 		.last-updated {
 			float: left;
 			.icon {
-				margin-right: 5px;
+				margin-right: 10px;
 			}
 		}
 

@@ -97,7 +97,7 @@
 </script>
 
 <svelte:head>
-	<title>What is Eyebeam?</title>
+	<title>{aboutMap['what-is-eyebeam'].title}</title>
 </svelte:head>
 
 <!-- SIDEBAR -->
@@ -125,6 +125,14 @@
 			{:else if section == 'contact'}
 				<div class="tile full-tile contact">
 					<h2>Contact</h2>
+					<div class="bottom-container">
+						<div class="column">{aboutMap['contact'].address}</div>
+						<div class="column">
+							{aboutMap['contact'].phoneNumber}<br /><a href={'mailto:' + aboutMap['contact'].email}
+								>{aboutMap['contact'].email}</a
+							>
+						</div>
+					</div>
 				</div>
 			{:else}
 				<a
@@ -151,7 +159,7 @@
 	@import '../../variables.scss';
 
 	.tile {
-		padding: 15px;
+		padding: $extra-small-margin;
 		overflow: hidden;
 	}
 
@@ -170,7 +178,9 @@
 
 	.introduction {
 		border-bottom: $border-style;
-		min-height: 300px;
+		min-height: $HEADER_HEIGHT;
+		padding-top: 0;
+		padding-right: 30px;
 
 		p {
 			font-style: italic;
@@ -180,7 +190,7 @@
 
 	.nav-tile {
 		width: 50%;
-		min-height: 300px;
+		min-height: $HEADER_HEIGHT;
 		border-bottom: $border-style;
 		border-right: $border-style;
 		display: block;
@@ -193,6 +203,11 @@
 			background: $grey;
 		}
 
+		&:active {
+			background: $black;
+			color: $white;
+		}
+
 		&.our-history,
 		&.artists,
 		&.get-involved,
@@ -203,7 +218,7 @@
 
 	.full-tile {
 		width: 100%;
-		min-height: 300px;
+		min-height: $HEADER_HEIGHT;
 		border-bottom: $border-style;
 		display: block;
 		float: left;
@@ -211,20 +226,36 @@
 
 		&.contact {
 			border-bottom: none;
+			min-height: unset;
+			height: $HEADER_HEIGHT / 2;
+			position: relative;
+
+			.bottom-container {
+				position: absolute;
+				bottom: 15px;
+				left: 15px;
+				width: 100%;
+
+				.column {
+					width: 25%;
+					float: left;
+				}
+			}
 		}
 	}
 
 	.press-and-news {
 		position: relative;
+
 		.see-all {
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			height: 40px;
+			height: 50px;
 			width: 100%;
 			border-top: $border-style;
 			text-align: center;
-			line-height: 40px;
+			line-height: 50px;
 			text-decoration: none;
 
 			&:hover {

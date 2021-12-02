@@ -30,6 +30,10 @@
 	@import '../../variables.scss';
 
 	.columns {
+		h2 {
+			padding-top: $small-margin;
+			padding-bottom: $small-margin;
+		}
 		.inner {
 			width: 100%;
 			column-count: 2;

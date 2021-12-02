@@ -62,7 +62,7 @@
 	@import '../../variables.scss';
 
 	footer {
-		margin-top: 80px;
+		margin-top: 152px;
 		margin-bottom: 40px;
 		float: left;
 		width: 100%;
@@ -71,7 +71,7 @@
 		flex-direction: column;
 
 		.line {
-			margin-bottom: 5px;
+			margin-bottom: 10px;
 
 			a {
 				text-decoration: none;
@@ -79,12 +79,12 @@
 
 			.beams {
 				margin-bottom: 10px;
-				width: 260px;
+				width: 340px;
 			}
 
 			.wordmark {
 				margin-bottom: 10px;
-				width: 260px;
+				width: 340px;
 
 				svg {
 					width: 100%;
