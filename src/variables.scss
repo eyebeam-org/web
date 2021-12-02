@@ -1,6 +1,7 @@
 // TYPOGRAPHY
 $SERIF_STACK: 'Literata', serif;
-$SCALE_FACTOR: 0.9;
+// $SCALE_FACTOR: 0.9;
+$SCALE_FACTOR: 1;
 $font-size-extra-small: 12px * $SCALE_FACTOR;
 $font-size-small: 14px * $SCALE_FACTOR;
 $font-size-body: 16px * $SCALE_FACTOR;
@@ -30,6 +31,7 @@ $one-third: calc(100% / 3);
 $two-third: calc((100% / 3) * 2);
 
 // SPACING
+$extra-small-margin: 15px;
 $small-margin: 20px;
 $vertical-space: 20px;
 

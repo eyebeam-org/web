@@ -78,7 +78,7 @@
 	<div class="column three">
 		<a href="/eyebeam-is-changing" class="tile change" sveltekit:prefetch>
 			Eyebeam is changing...
-			<div><HalfBeam /></div>
+			<div class="half-beam"><HalfBeam /></div>
 		</a>
 		<a href="/support" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
 		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
@@ -98,7 +98,7 @@
 			<div class="icon"><Youtube /></div></a
 		>
 		<div class="tile events">
-			<a href="/events" class="sub-tile header" sveltekit:prefetch>UPCOMING AND RECENT</a>
+			<div class="sub-tile header" sveltekit:prefetch>UPCOMING & RECENT</div>
 			{#await events then events}
 				{#each events as event}
 					<a href={'/events/' + get(event, 'slug.current', '')} class="sub-tile" sveltekit:prefetch>
@@ -127,6 +127,8 @@
 		border: $border-style;
 		width: 100%;
 		height: 600px;
+		height: calc(100vh - 130px);
+		margin-bottom: 50px;
 	}
 
 	.section {
@@ -188,24 +190,8 @@
 		float: left;
 
 		.logo {
-			width: 200px;
-		}
-
-		.statement {
-			.text {
-				margin-top: 10px;
-			}
-
-			.more {
-				margin-top: 10px;
-				width: 20px;
-				height: 20px;
-				background: $grey;
-				cursor: pointer;
-				&:hover {
-					background: $black;
-				}
-			}
+			width: 220px;
+			margin-bottom: $small-margin;
 		}
 	}
 
@@ -253,16 +239,20 @@
 	}
 
 	.change {
-		height: calc(50% - 100px);
+		height: calc(40% - 100px);
 		width: 50%;
 		// background: olive;
 		float: left;
 		border-right: $border-style;
 		border-bottom: $border-style;
+
+		.half-beam {
+			margin-top: 10px;
+		}
 	}
 
 	.support {
-		height: calc(50% - 100px);
+		height: calc(40% - 100px);
 		width: 50%;
 		// background: aqua;
 		float: left;
@@ -270,7 +260,7 @@
 	}
 
 	.events {
-		height: 50%;
+		height: 60%;
 		width: 100%;
 		// background: green;
 		float: left;
@@ -278,8 +268,9 @@
 	}
 
 	.tile {
-		padding: 15px;
+		padding: $extra-small-margin;
 		overflow: hidden;
+		user-select: none;
 	}
 
 	a {
@@ -299,10 +290,18 @@
 		float: left;
 		width: 50%;
 		height: $one-third;
-		padding: 10px;
+		padding: $extra-small-margin;
+		overflow: hidden;
+
+		&.header {
+			// font-variant: small-caps;
+			font-size: $font-size-extra-small;
+			letter-spacing: 0.5px;
+		}
 
 		.time {
 			margin-bottom: 5px;
+			font-size: $font-size-extra-small;
 		}
 
 		.title {

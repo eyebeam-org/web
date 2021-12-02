@@ -57,17 +57,16 @@
 		font-size: $font-size-small;
 
 		.text {
-			margin-top: 10px;
 			font-style: italic;
 		}
 
 		.button-container {
-			margin-top: 10px;
+			margin-top: $extra-small-margin;
 		}
 
 		.more {
-			width: 20px;
-			height: 20px;
+			width: 18px;
+			height: 18px;
 			background: $grey;
 			cursor: pointer;
 			float: left;

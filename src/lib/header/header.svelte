@@ -10,6 +10,7 @@
 
 	// __ GRAPHICS
 	import FullBeam from '$lib/graphics/full-beam.svelte';
+	import TriangleDown from '$lib/graphics/triangle-down.svelte';
 
 	// __ STORES
 	import { currentCategory, currentPage, loaded, trayOpen } from '$lib/stores.js';
@@ -42,7 +43,7 @@
 		<div class="inner-text" class:loaded={$loaded}>
 			<!-- BREADCRUMBS -->
 			<div class="breadcrumbs">
-				<span class="arrow-down">▼</span>
+				<span class="arrow-down"><TriangleDown /></span>
 				<a href="/">eyebeam.org</a>
 				<!-- CATEGORY -->
 				{#if $currentCategory}
@@ -70,6 +71,8 @@
 <style lang="scss">
 	@import '../../variables.scss';
 
+	$HEADER_HEIGHT: 30px;
+
 	header {
 		position: absolute;
 		top: 0;
@@ -79,7 +82,7 @@
 		height: 200px;
 		transition: transform 0.3s ease-out;
 		transform: translateY(-170px);
-		font-size: $font-size-small;
+		font-size: $font-size-extra-small;
 
 		&.open {
 			transform: translateY(0);
@@ -87,12 +90,12 @@
 
 		.menubar {
 			width: 100%;
-			height: 30px;
+			height: $HEADER_HEIGHT;
 			background: $black;
 			color: $white;
-			line-height: 30px;
+			line-height: $HEADER_HEIGHT;
 			padding-left: 15px;
-			padding-right: 15px;
+			padding-right: 10px;
 			overflow: hidden;
 
 			.inner-text {
@@ -118,6 +121,7 @@
 
 			a {
 				color: $white;
+				text-decoration: none;
 			}
 
 			.clock {
@@ -126,13 +130,12 @@
 
 			.tray-toggle {
 				float: right;
-				// background: red;
-				width: 12px;
-				height: 30px;
+				width: 18px;
+				height: $HEADER_HEIGHT;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				margin-left: 8px;
+				margin-left: 12px;
 				cursor: pointer;
 			}
 		}
@@ -142,8 +145,8 @@
 			background: $grey;
 
 			.settings-bar {
-				height: 30px;
-				line-height: 30px;
+				height: $HEADER_HEIGHT;
+				line-height: $HEADER_HEIGHT;
 				padding-left: 15px;
 				padding-right: 15px;
 				cursor: pointer;

@@ -19,7 +19,7 @@
 	@import '../../variables.scss';
 
 	svg {
-		height: 10px;
+		width: 24px;
 		path {
 			fill: none;
 			stroke: $black;

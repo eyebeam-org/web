@@ -48,7 +48,7 @@
 	@import '../../variables.scss';
 
 	.clock {
-		font-size: $font-size-small;
+		font-size: $font-size-extra-small;
 		color: $white;
 
 		a {
