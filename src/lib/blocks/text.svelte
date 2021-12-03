@@ -11,6 +11,9 @@
 	// __ COMPONENTS
 	import PersonLink from '$lib/person-link/person-link.svelte';
 
+	// __ GRAPHICS
+	import ExternalLink from '$lib/graphics/external-link.svelte';
+
 	// *** PROPS
 	export let b = {};
 	console.log('text b', b);
@@ -46,7 +49,7 @@
 			{:else}
 				{#if b.markDefs.find((m) => m._key === c.marks[0])._type === 'link'}
 					<a href={b.markDefs.find((m) => m._key === c.marks[0]).href}
-						>{@html renderNewLines(c.text)}</a
+						>{@html renderNewLines(c.text)} <ExternalLink /></a
 					>
 				{/if}
 				{#if b.markDefs.find((m) => m._key === c.marks[0])._type === 'person'}

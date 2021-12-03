@@ -28,24 +28,14 @@
 	import has from 'lodash/has.js';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
-	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
+	import Blocks from '$lib/blocks/blocks.svelte';
 
 	// __ PROPS
 	export let everything;
 	console.log(everything);
 
-	const FILTERS = [
-		'Everything',
-		'Programs',
-		'Events',
-		'Projects',
-		'Press',
-		'Notes',
-		'Videos',
-		'Goals'
-	];
+	const FILTERS = ['Everything', 'Programs', 'Events', 'Projects', 'Press', 'Notes', 'Videos'];
 	let activeFilter = 'Everything';
 	let filteredPosts = everything.posts;
 
@@ -56,9 +46,6 @@
 	<title>{everything.page.title}</title>
 </svelte:head>
 
-<!-- SIDEBAR -->
-<!-- <Sidebar /> -->
-
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
@@ -66,8 +53,8 @@
 			<h1>{everything.page.title}</h1>
 			<!-- BIO -->
 			{#if has(everything, 'page.content.content')}
-				<div class="body-content bio">
-					{@html renderBlockText(everything.page.content.content)}
+				<div class="body-content description">
+					<Blocks blocks={everything.page.content.content} />
 				</div>
 			{/if}
 			<div class="filters">
@@ -88,7 +75,7 @@
 			<a href="" class="single-post">
 				<div class="type">{postTypeToName[post._type]}</div>
 				<!-- TEXT -->
-				<h2>{post.title}</h2>
+				<div class="title">{post.title}</div>
 				<!-- <div class='text'>{@html renderBlockText(post.content.content)}</div> -->
 				<!-- DATE -->
 				<!-- {#if post.date}
@@ -101,9 +88,6 @@
 			</a>
 		{/each}
 	</div>
-
-	<!-- BOTTOM BAR -->
-	<BottomBar />
 </div>
 
 <style lang="scss">
@@ -111,8 +95,6 @@
 
 	.main-content {
 		float: left;
-		// width: 50%;
-		// width: $two-third;
 		width: 100%;
 
 		.inner {
@@ -120,9 +102,43 @@
 			min-height: 100vh;
 
 			.header {
-				height: 300px;
+				width: 100%;
+				display: inline-block;
 				border-bottom: $border-style;
 				padding: 15px;
+
+				.description {
+					width: 800px;
+					max-width: 90%;
+					margin-left: auto;
+					margin-right: auto;
+					margin-top: 40px;
+					margin-bottom: $small-margin;
+				}
+
+				.filters {
+					margin-top: 80px;
+
+					.filter {
+						padding: 8px 12px;
+						border: $border-style;
+						margin-right: 5px;
+						float: left;
+						user-select: none;
+						cursor: pointer;
+						font-size: $font-size-extra-small;
+
+						&:hover {
+							background: $black;
+							color: $white;
+						}
+
+						&.active {
+							background: $black;
+							color: $white;
+						}
+					}
+				}
 			}
 
 			.single-post {
@@ -131,39 +147,15 @@
 				text-decoration: none;
 				display: block;
 
+				font-size: $font-size-small;
+
 				.text {
-					font-size: $font-size-h2;
 				}
 
 				.date {
 					margin-top: 5px;
 				}
 			}
-		}
-	}
-
-	:global(.single-post .text p) {
-		font-size: $font-size-h2;
-	}
-
-	.filters {
-		margin-top: 20px;
-	}
-
-	.filter {
-		padding: 5px;
-		border: $border-style;
-		margin-right: 5px;
-		float: left;
-		user-select: none;
-		cursor: pointer;
-
-		&:hover {
-			background: $grey;
-		}
-
-		&.active {
-			background: $grey;
 		}
 	}
 </style>

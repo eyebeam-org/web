@@ -28,6 +28,7 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+	import Blocks from '$lib/blocks/blocks.svelte';
 
 	// __ PROPS
 	export let eyebeamIsChanging;
@@ -44,15 +45,16 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
-		<!-- TITLE -->
-		<h1>{eyebeamIsChanging.title}</h1>
-
-		<!-- MAIN TEXT -->
-		{#if has(eyebeamIsChanging, 'content.content')}
-			<div class="body-content">
-				{@html renderBlockText(eyebeamIsChanging.content.content)}
-			</div>
-		{/if}
+		<div class="block-text">
+			<!-- TITLE -->
+			<h1>{eyebeamIsChanging.title}</h1>
+			<!-- MAIN TEXT -->
+			{#if has(eyebeamIsChanging, 'content.content')}
+				<div class="body-content">
+					<Blocks blocks={eyebeamIsChanging.content.content} />
+				</div>
+			{/if}
+		</div>
 	</div>
 
 	<!-- BOTTOM BAR -->
@@ -68,9 +70,12 @@
 		width: $two-third;
 
 		.inner {
-			padding: 15px;
 			border: $border-style;
 			min-height: 100vh;
+
+			h1 {
+				padding: $small-margin;
+			}
 		}
 	}
 

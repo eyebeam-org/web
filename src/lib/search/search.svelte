@@ -90,11 +90,10 @@
 		font-size: $font-size-h2;
 		padding-left: 60px;
 		padding-right: 60px;
-		padding-top: 30px;
 
 		.close {
 			position: absolute;
-			top: 45px;
+			top: 100px;
 			right: 45px;
 			cursor: pointer;
 			padding: 15px;
@@ -104,12 +103,12 @@
 			align-items: center;
 
 			.text {
-				margin-right: 5px;
+				margin-right: 15px;
 			}
 		}
 
 		.input-container {
-			margin-top: 30px;
+			margin-top: 110px;
 
 			input {
 				margin-top: 20px;
@@ -119,7 +118,9 @@
 				border: $border-style;
 				font-size: $font-size-h2;
 				padding: 10px;
+				padding-bottom: 15px;
 				font-family: $SERIF_STACK;
+				height: 100px;
 			}
 		}
 

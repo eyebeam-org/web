@@ -6,6 +6,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
+	import truncate from 'lodash/truncate.js';
 	import get from 'lodash/get.js';
 	import { loadData } from '$lib/sanity.js';
 	import { distanceToDate } from '$lib/global.js';
@@ -23,6 +24,7 @@
 	import Statements from '$lib/statements/statements.svelte';
 	import OpenEyebeam from '$lib/open-eyebeam/open-eyebeam.svelte';
 	import Search from '$lib/search/search.svelte';
+	import PersonLink from '$lib/person-link/person-link.svelte';
 
 	let searchActive = false;
 	const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
@@ -108,7 +110,14 @@
 						{#if event.startDate}
 							<div class="time">{distanceToDate(event.startDate)}</div>
 						{/if}
-						<div class="title">{event.title}</div>
+						<div class="title">{truncate(event.title, { length: 64 })}</div>
+						{#if event.people && event.people.length > 0}
+							<div class="event-people">
+								{#each event.people as person}
+									<PersonLink {person} />
+								{/each}
+							</div>
+						{/if}
 					</a>
 				{/each}
 			{/await}
@@ -312,7 +321,7 @@
 		}
 
 		.title {
-			// font-weight: bold;
+			margin-bottom: 5px;
 		}
 
 		.application-container {

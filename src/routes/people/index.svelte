@@ -29,6 +29,9 @@
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
 
+	// __ GRAPHICS
+	import ArrowDown from '$lib/graphics/arrow-down.svelte';
+
 	// __ PROPS
 	export let people;
 
@@ -77,7 +80,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title="People" />
+<Sidebar />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
@@ -103,8 +106,10 @@
 			<div class="order">
 				<div class="order-header">Order by</div>
 				<div class="order-options">
-					<div class="order-option alphabetical active">A-Z</div>
-					<div class="order-option chronological">Year</div>
+					<div class="order-option alphabetical active">
+						A-Z <span class="icon"><ArrowDown /></span>
+					</div>
+					<div class="order-option chronological">Year <span class="icon"><ArrowDown /></span></div>
 				</div>
 			</div>
 			<!-- FILTER -->
@@ -123,7 +128,7 @@
 		<!-- LIST -->
 		{#each ALPHABET as alpha}
 			<div class="sub-section" id={alpha}>
-				<h2>{alpha}</h2>
+				<h2 class="supersized">{alpha}</h2>
 				{#if groupedPeople[alpha]}
 					<ul>
 						{#each groupedPeople[alpha] as person}
@@ -154,16 +159,16 @@
 			position: absolute;
 			top: 80px;
 			right: 60px;
-			width: 50px;
+			width: 40px;
 			user-select: none;
 			// border: $border-style;
 
 			.item {
-				height: 50px;
-				line-height: 50px;
+				height: 40px;
+				line-height: 40px;
 				text-align: center;
 				display: block;
-				width: 50px;
+				width: 40px;
 				border-bottom: $border-style;
 				border-right: $border-style;
 				border-left: $border-style;
@@ -186,25 +191,42 @@
 
 			.header {
 				border-bottom: $border-style;
-				padding: 15px;
+				padding-left: 15px;
+				padding-right: 15px;
 				padding-bottom: 40px;
 
 				.order {
 					margin-top: 15px;
 					width: 100%;
 
+					.order-header {
+						font-style: italic;
+						font-size: $font-size-extra-small;
+						margin-bottom: 5px;
+					}
+
 					.order-options {
 						display: flex;
 
 						.order-option {
-							padding: 5px;
-							margin-right: 5px;
+							padding: 8px 12px;
+							margin-right: 8px;
 							border: $border-style;
 							user-select: none;
 							cursor: pointer;
+							font-size: $font-size-extra-small;
+							background: $grey;
+
+							.icon {
+								margin-left: 8px;
+							}
 
 							&.active {
-								background: $grey;
+								background: $white;
+							}
+
+							&:hover {
+								background: $white;
 							}
 						}
 					}
@@ -214,18 +236,30 @@
 					margin-top: 15px;
 					width: 100%;
 
+					.filter-header {
+						font-style: italic;
+						font-size: $font-size-extra-small;
+						margin-bottom: 5px;
+					}
+
 					.filter-options {
 						display: flex;
 
 						.filter-option {
-							padding: 5px;
-							margin-right: 5px;
+							padding: 8px 12px;
+							margin-right: 8px;
 							border: $border-style;
 							user-select: none;
 							cursor: pointer;
+							font-size: $font-size-extra-small;
+							background: $grey;
 
 							&.active {
-								background: $grey;
+								background: $white;
+							}
+
+							&:hover {
+								background: $white;
 							}
 						}
 					}
@@ -252,6 +286,11 @@
 		li {
 			list-style: none;
 			margin-bottom: 5px;
+			font-size: $font-size-body;
 		}
+	}
+
+	.supersized {
+		font-size: $font-size-h1;
 	}
 </style>

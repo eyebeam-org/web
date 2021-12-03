@@ -23,10 +23,13 @@
 
 	// __ IMPORTS
 	import { onDestroy } from 'svelte';
-	import { loadData, renderBlockText, urlFor } from '$lib/sanity.js';
+	import { loadData, urlFor } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import get from 'lodash/get.js';
 	import { postTypeToName, postTypeToCategory } from '$lib/global.js';
+
+	// __ GRAPHICS
+	import ExternalLink from '$lib/graphics/external-link.svelte';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -34,6 +37,7 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+	import Blocks from '$lib/blocks/blocks.svelte';
 
 	// __ PROPS
 	export let person;
@@ -65,7 +69,12 @@
 			<div class="column left">
 				<!-- NAME -->
 				<h1>{person.title}</h1>
-				<!-- ROLES -->
+				<!-- BADGES -->
+				{#if person.role}
+					<div class="badges">
+						<div class="badge">{person.role}</div>
+					</div>
+				{/if}
 				<!-- QUOTE -->
 				{#if person.quote}
 					<div class="quote">{person.quote}</div>
@@ -75,36 +84,45 @@
 			<!-- MAIN IMAGE -->
 			{#if person.mainImage}
 				<div class="column right">
-					<img
-						class="main-image"
-						alt={person.title}
-						src={urlFor(person.mainImage).quality(90).saturation(-100).width(400).url()}
-					/>
+					<figure class="image-container">
+						<img
+							class="main-image"
+							alt={person.title}
+							src={urlFor(person.mainImage).quality(90).saturation(-100).width(400).url()}
+						/>
+						{#if has(person, 'mainImage.caption.content')}
+							<figcaption>
+								<Blocks blocks={person.mainImage.caption.content} />
+							</figcaption>
+						{/if}
+					</figure>
 				</div>
 			{/if}
 		</div>
 
-		<!-- WEBSITE -->
-		{#if person.website}
-			<div class="body-content website">
-				<h3>Website</h3>
-				<a href={person.website} target="_blank">{person.website}</a>
-			</div>
-		{/if}
+		<div class="block-text info">
+			<!-- WEBSITE -->
+			{#if person.website}
+				<div class="website" id="website">
+					<h3>Website</h3>
+					<p><a href={person.website} target="_blank">{person.website} <ExternalLink /></a></p>
+				</div>
+			{/if}
 
-		<!-- BIO -->
-		{#if has(person, 'bio.content')}
-			<div class="body-content bio">
-				<h3>Bio</h3>
-				{@html renderBlockText(person.bio.content)}
-			</div>
-		{/if}
+			<!-- BIO -->
+			{#if has(person, 'bio.content')}
+				<div class="bio" id="bio">
+					<h3>Bio</h3>
+					<Blocks blocks={person.bio.content} />
+				</div>
+			{/if}
+		</div>
 
 		<!-- AT EYEBEAM -->
 		{#await connectedPosts then connectedPosts}
 			{#if connectedPosts.length > 0}
-				<div class="body-content at-eyebeam">
-					<h3>At Eyebeam</h3>
+				<div class="at-eyebeam" id="at-eyebeam">
+					<h2>At Eyebeam</h2>
 					{#each connectedPosts as post}
 						<a
 							class="connected-post"
@@ -117,6 +135,8 @@
 										alt={post.title}
 										src={urlFor(post.mainImage).quality(90).saturation(-100).width(400).url()}
 									/>
+								{:else}
+									<div class="big-title">{post.title}</div>
 								{/if}
 							</div>
 							<div class="text">
@@ -150,11 +170,15 @@
 
 			.header {
 				border-bottom: $border-style;
-				padding: 15px;
-				display: inline-block;
+				padding-left: 15px;
+				padding-right: 15px;
 				width: 100%;
+				height: $HEADER_HEIGHT;
+				display: flex;
+				justify-content: space-between;
 
 				.column {
+					max-width: 50%;
 					&.left {
 						padding-right: 15px;
 						float: left;
@@ -175,53 +199,100 @@
 		}
 	}
 
-	img {
-		float: right;
-	}
-
 	.quote {
 		font-style: italic;
+		font-size: $font-size-body;
 	}
 
 	.connected-post {
 		margin-bottom: 20px;
 		display: block;
 		text-decoration: none;
-		width: calc(50% - 8px);
+		width: calc(50% - 10px);
 		float: left;
 		overflow: hidden;
+		font-size: $font-size-small;
 
 		&:nth-child(even) {
-			margin-right: 15px;
-		}
-
-		.type {
-			font-size: $font-size-body;
-			text-transform: uppercase;
 			margin-right: 20px;
-			font-weight: bold;
 		}
 
-		.title {
-			font-size: $font-size-body;
+		.text {
+			margin-top: 5px;
+
+			.type {
+				font-size: $font-size-extra-small;
+				letter-spacing: 0.5px;
+				text-transform: uppercase;
+				margin-right: 20px;
+			}
+
+			.title {
+			}
 		}
 
 		.image {
 			border: $border-style;
 			min-height: 200px;
-			// margin-bottom: 10px;
-			display: inline-block;
+			max-height: 300px;
 			width: 100%;
+			line-height: 0;
+			overflow: hidden;
 
 			img {
-				max-width: 100%;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.big-title {
+				font-size: $font-size-h2;
+				width: 100%;
+				padding: 40px $small-margin;
+				min-height: 200px;
 			}
 		}
 	}
 
 	.at-eyebeam {
-		h3 {
-			margin-bottom: 20px;
+		padding: $small-margin;
+		border-top: $border-style;
+		h2 {
+			margin-bottom: $small-margin;
+		}
+	}
+
+	.image-container {
+		img {
+			display: block;
+			border: $border-style;
+		}
+
+		figcaption {
+			display: block;
+
+			margin-top: 10px;
+		}
+	}
+
+	.badges {
+		margin-top: $small-margin;
+		margin-bottom: $small-margin;
+		.badge {
+			padding: 8px 12px;
+			background: $black;
+			color: $white;
+			text-transform: capitalize;
+			font-size: $font-size-extra-small;
+			display: inline-block;
+		}
+	}
+
+	.info {
+		padding-top: $small-margin;
+
+		.website {
+			margin-bottom: $vertical-space;
 		}
 	}
 </style>
