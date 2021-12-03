@@ -26,6 +26,7 @@
 	import { renderBlockText, urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
 	import has from 'lodash/has.js';
+	import MediaQuery from 'svelte-media-query';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -52,7 +53,13 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title={page.title} />
+<MediaQuery query="(min-width: 900px)" let:matches>
+	{#if matches}
+		<Sidebar title={page.title} />
+	{/if}
+</MediaQuery>
+
+<!-- SIDEBAR -->
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
@@ -93,8 +100,11 @@
 
 	.main-content {
 		float: left;
-		width: 50%;
 		width: $two-third;
+
+		@include screen-size('small') {
+			width: 100%;
+		}
 
 		.block-text {
 			border: $border-style;

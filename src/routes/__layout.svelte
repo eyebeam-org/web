@@ -9,6 +9,7 @@
 	import Header from '$lib/header/header.svelte';
 	import Footer from '$lib/footer/footer.svelte';
 	import Loading from '$lib/loading/loading.svelte';
+	import MediaQuery from 'svelte-media-query';
 
 	// __ STORES
 	import { page } from '$app/stores';
@@ -25,7 +26,13 @@
 {/if}
 
 <!-- HEADER -->
-<Header />
+<MediaQuery query="(max-width: 900px)" let:matches>
+	{#if matches}
+		PHONE HEADER
+	{:else}
+		<Header />
+	{/if}
+</MediaQuery>
 
 <!-- MAIN -->
 <main class:open={$trayOpen}>
@@ -33,9 +40,13 @@
 </main>
 
 <!-- FOOTER -->
-{#if $page.path !== '/'}
-	<Footer />
-{/if}
+<MediaQuery query="(max-width: 900px)" let:matches>
+	{#if matches}
+		PHONE FOOTER
+	{:else if $page.path !== '/'}
+		<Footer />
+	{/if}
+</MediaQuery>
 
 <style lang="scss" global>
 	@import '../variables.scss';
@@ -66,6 +77,11 @@
 
 		&.open {
 			transform: translateY(240px);
+		}
+
+		@include screen-size('small') {
+			margin-left: 15px;
+			margin-right: 15px;
 		}
 	}
 

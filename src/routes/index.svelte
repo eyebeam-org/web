@@ -10,6 +10,7 @@
 	import get from 'lodash/get.js';
 	import { loadData } from '$lib/sanity.js';
 	import { distanceToDate } from '$lib/global.js';
+	import MediaQuery from 'svelte-media-query';
 
 	// __ GRAPHICS
 	import Logo from '$lib/graphics/logo.svelte';
@@ -45,15 +46,19 @@
 
 <div class="homepage-menu">
 	<div class="section one">
-		<div class="column one">
-			<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam">
-				<OpenEyebeam />
-			</a>
-			<div class="tile logo-and-statement">
-				<div class="logo"><Logo /></div>
-				<Statements />
-			</div>
-		</div>
+		<MediaQuery query="(min-width: 900px)" let:matches>
+			{#if matches}
+				<div class="column one">
+					<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam">
+						<OpenEyebeam />
+					</a>
+					<div class="tile logo-and-statement">
+						<div class="logo"><Logo /></div>
+						<Statements />
+					</div>
+				</div>
+			{/if}
+		</MediaQuery>
 		<div class="column two">
 			<div class="tile programs">
 				<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
@@ -110,7 +115,7 @@
 						{#if event.startDate}
 							<div class="time">{distanceToDate(event.startDate)}</div>
 						{/if}
-						<div class="title">{truncate(event.title, { length: 64 })}</div>
+						<div class="title">{truncate(event.title, { length: 48 })}</div>
 						{#if event.people && event.people.length > 0}
 							<div class="event-people">
 								{#each event.people as person}
@@ -138,15 +143,24 @@
 	.homepage-menu {
 		border: $border-style;
 		width: 100%;
-		height: 600px;
 		height: calc(100vh - 130px);
 		margin-bottom: 50px;
+
+		@include screen-size('small') {
+			height: auto;
+			display: inline-block;
+		}
 	}
 
 	.section {
 		float: left;
 		height: 100%;
 		width: $two-third;
+
+		@include screen-size('small') {
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	.column {
@@ -155,18 +169,33 @@
 			width: 50%;
 			// background: yellow;
 			height: calc(100% - 100px);
+
+			@include screen-size('small') {
+				width: 100%;
+				height: auto;
+			}
 		}
 
 		&.two {
 			width: 50%;
 			// background: red;
 			height: calc(100% - 100px);
+
+			@include screen-size('small') {
+				width: 100%;
+				height: auto;
+			}
 		}
 
 		&.three {
 			width: $one-third;
 			// background: blue;
 			height: 100%;
+
+			@include screen-size('small') {
+				width: 100%;
+				height: auto;
+			}
 		}
 	}
 
@@ -185,6 +214,11 @@
 
 		&:active {
 			background: $black;
+		}
+
+		@include screen-size('small') {
+			border-right: unset;
+			border-bottom: $border-style;
 		}
 	}
 
@@ -218,14 +252,21 @@
 		border-bottom: $border-style;
 		float: left;
 		padding: 0 !important;
+
+		@include screen-size('small') {
+			border-right: unset;
+		}
 	}
 
 	.about {
 		height: $one-third;
 		width: 50%;
 		float: left;
-		// background: orange;
 		border-right: $border-style;
+
+		@include screen-size('small') {
+			height: 170px;
+		}
 	}
 
 	.people {
@@ -233,7 +274,11 @@
 		width: 50%;
 		float: left;
 		border-right: $border-style;
-		// background: magenta;
+
+		@include screen-size('small') {
+			height: 170px;
+			border-right: unset;
+		}
 	}
 
 	.social {
@@ -244,8 +289,19 @@
 		border-right: $border-style;
 		border-bottom: $border-style;
 
+		@include screen-size('small') {
+			width: 50%;
+			height: 85px;
+		}
+
 		&.youtube {
 			border-right: none;
+		}
+
+		&.instagram {
+			@include screen-size('small') {
+				border-right: none;
+			}
 		}
 
 		.icon {
@@ -265,6 +321,10 @@
 		.half-beam {
 			margin-top: 10px;
 		}
+
+		@include screen-size('small') {
+			height: 170px;
+		}
 	}
 
 	.support {
@@ -273,6 +333,10 @@
 		// background: aqua;
 		float: left;
 		border-bottom: $border-style;
+
+		@include screen-size('small') {
+			height: 170px;
+		}
 	}
 
 	.events {
@@ -281,6 +345,8 @@
 		// background: green;
 		float: left;
 		padding: 0 !important;
+
+		width: 50%;
 	}
 
 	.tile {
@@ -308,6 +374,10 @@
 		height: $one-third;
 		padding: $extra-small-margin;
 		overflow: hidden;
+
+		@include screen-size('small') {
+			width: 100%;
+		}
 
 		&.header {
 			// font-variant: small-caps;

@@ -25,8 +25,8 @@
 	import { renderBlockText } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import get from 'lodash/get.js';
-
 	import keyBy from 'lodash/keyBy.js';
+	import MediaQuery from 'svelte-media-query';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -101,7 +101,11 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar {toc} title={aboutMap['what-is-eyebeam'].title} />
+<MediaQuery query="(min-width: 900px)" let:matches>
+	{#if matches}
+		<Sidebar {toc} title={aboutMap['what-is-eyebeam'].title} />
+	{/if}
+</MediaQuery>
 
 <div class="main-content">
 	<div class="inner">
@@ -165,8 +169,11 @@
 
 	.main-content {
 		float: left;
-		width: 50%;
 		width: $two-third;
+
+		@include screen-size('small') {
+			width: 100%;
+		}
 
 		.inner {
 			width: 100%;

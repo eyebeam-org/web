@@ -83,7 +83,7 @@
 			min-height: 100vh;
 
 			.header {
-				height: 300px;
+				height: $HEADER_HEIGHT;
 				border-bottom: $border-style;
 				display: flex;
 				justify-content: center;
