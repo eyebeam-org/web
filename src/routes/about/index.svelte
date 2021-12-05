@@ -26,7 +26,6 @@
 	import has from 'lodash/has.js';
 	import get from 'lodash/get.js';
 	import keyBy from 'lodash/keyBy.js';
-	import MediaQuery from 'svelte-media-query';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -101,11 +100,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<MediaQuery query="(min-width: 900px)" let:matches>
-	{#if matches}
-		<Sidebar {toc} title={aboutMap['what-is-eyebeam'].title} />
-	{/if}
-</MediaQuery>
+<Sidebar {toc} title={aboutMap['what-is-eyebeam'].title} />
 
 <div class="main-content">
 	<div class="inner">

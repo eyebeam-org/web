@@ -23,10 +23,9 @@
 
 	// __ IMPORTS
 	import { onDestroy } from 'svelte';
-	import { urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
 	import has from 'lodash/has.js';
-	import MediaQuery from 'svelte-media-query';
+	import { longFormatDate } from '$lib/global';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -35,9 +34,14 @@
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
+	import PersonLink from '$lib/person-link/person-link.svelte';
+
+	// __ GRAPHICS
+	import ExternalLink from '$lib/graphics/external-link.svelte';
 
 	// *** PROPS
 	export let page;
+	console.log(page);
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(page, 'slug.current', ''), title: page.title });
@@ -52,11 +56,8 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<MediaQuery query="(min-width: 900px)" let:matches>
-	{#if matches}
-		<Sidebar title={page.title} />
-	{/if}
-</MediaQuery>
+
+<Sidebar title={page.title} />
 
 <!-- SIDEBAR -->
 
@@ -66,28 +67,39 @@
 		<!-- <div class="header"> -->
 		<!-- TITLE -->
 		<h1>{page.title}</h1>
-
-		<!-- MAIN IMAGE -->
-		<!-- {#if page.mainImage}
-				<figure class="image-container">
-					<img
-						class="main-image"
-						alt={page.title}
-						src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
-					/>
-					{#if has(page, 'mainImage.caption.content')}
-						<figcaption>
-							<Blocks blocks={page.mainImage.caption.content} />
-						</figcaption>
-					{/if}
-				</figure>
-			{/if}
-		</div> -->
-
+		<!-- SOURCE -->
+		{#if page.source}
+			<div class="published-by">Published by {page.source}</div>
+		{/if}
+		<!-- DATE -->
+		<div class="date">{longFormatDate(page._createdAt)}</div>
+		<!-- AUTHOR -->
+		{#if page.author}
+			<div class="author">Author</div>
+		{/if}
+		<!-- PEOPLE -->
+		{#if page.people && page.people.length > 0}
+			<div class="including">
+				Including:
+				{#each page.people as person}
+					<PersonLink {person} />
+				{/each}
+			</div>
+		{/if}
+		<!-- PDF DOWNLOAD -->
+		{#if page.pdfFile}
+			<a href="" class="button download-pdf">Download as PDF</a>
+		{/if}
+		<!-- ORIGINAL LINK -->
+		{#if page.externalLink}
+			<a href={page.externalLink} class="button read-original" target="_blank"
+				>Read original article on {page.source} <ExternalLink /></a
+			>
+		{/if}
 		<!-- MAIN TEXT -->
-		<!-- {#if has(page, 'content.content')}
+		{#if has(page, 'content.content')}
 			<Blocks blocks={page.content.content} />
-		{/if} -->
+		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->
@@ -113,29 +125,37 @@
 			padding-bottom: $small-margin;
 			width: 100%;
 
-			.header {
-				display: flex;
-				width: 100%;
-				justify-content: space-between;
-				height: $HEADER_HEIGHT;
-
-				h1 {
-					margin-left: $small-margin;
-					margin-right: $small-margin;
-					margin-bottom: 160px;
-				}
-
-				.image-container {
-					max-width: 50%;
-					max-height: 100%;
-					margin-right: $small-margin;
-					img {
-						border: $border-style;
-						max-height: 100%;
-						max-width: 100%;
-					}
-				}
+			h1 {
+				padding: $small-margin;
 			}
+		}
+	}
+
+	.published-by,
+	.date,
+	.author,
+	.including {
+		font-style: italic;
+		margin-left: $small-margin;
+		font-size: $font-size-body;
+	}
+
+	.including {
+		margin-top: $small-margin;
+		margin-bottom: $small-margin;
+	}
+
+	.button {
+		padding: $small-margin;
+		background: $grey;
+		display: inline-block;
+		font-size: $font-size-small;
+		margin-left: $small-margin;
+		text-decoration: none;
+
+		&:hover {
+			background: $black;
+			color: $white;
 		}
 	}
 </style>

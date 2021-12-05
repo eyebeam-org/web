@@ -10,7 +10,9 @@ export const postTypeToCategory = {
     aboutPage: 'about',
     project: 'projects',
     note: 'notes',
-    video: 'videos'
+    video: 'videos',
+    press: 'press-and-news',
+    news: 'press-and-news'
 }
 
 export const postTypeToName = {
@@ -21,7 +23,9 @@ export const postTypeToName = {
     aboutPage: 'About',
     project: 'Project',
     note: 'Note',
-    video: 'Video'
+    video: 'Video',
+    press: 'Press',
+    news: 'News'
 }
 
 export const categoryToName = {
@@ -34,7 +38,9 @@ export const categoryToName = {
     notes: 'Notes',
     videos: 'Videos',
     statements: 'Statements',
-    everything: 'Everything'
+    everything: 'Everything',
+    press: 'Press',
+    news: 'News'
 }
 
 // ____
@@ -65,7 +71,7 @@ export const longFormatDate = date => {
 export const shortFormatDate = date => {
     try {
         if (date) {
-            return format(parseISO(date), "MMMM, yyyy")
+            return format(parseISO(date), "MMMM yyyy")
         }
     } catch (err) {
         console.dir(err)

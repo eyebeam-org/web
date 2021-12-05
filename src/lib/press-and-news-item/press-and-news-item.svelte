@@ -30,6 +30,7 @@
 	.press-and-news-item {
 		width: 25%;
 		text-decoration: none;
+		padding: $small-margin;
 
 		.date {
 			font-size: $font-size-extra-small;
@@ -44,6 +45,10 @@
 			font-size: $font-size-extra-small;
 			letter-spacing: 1px;
 			margin-top: $small-margin;
+		}
+
+		&:hover {
+			background: $grey;
 		}
 	}
 </style>

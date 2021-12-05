@@ -2,6 +2,13 @@ import { loadData } from "$lib/sanity.js"
 
 // GET =>
 export const get = async (request) => {
-	const response = await loadData("*[_type == 'press' || _type == 'news']")
+	const news = await loadData("*[_type == 'news']")
+	const press = await loadData("*[_type == 'press']")
+	const page = await loadData("*[_id == 'press-and-news'][0]")
+	const response = {
+		news: news,
+		press: press,
+		page: page
+	}
 	return { body: response.status === 404 ? 'ERROR' : response };
 };

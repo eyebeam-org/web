@@ -10,7 +10,6 @@
 	import get from 'lodash/get.js';
 	import { loadData } from '$lib/sanity.js';
 	import { distanceToDate } from '$lib/global.js';
-	import MediaQuery from 'svelte-media-query';
 
 	// __ GRAPHICS
 	import Logo from '$lib/graphics/logo.svelte';
@@ -46,19 +45,15 @@
 
 <div class="homepage-menu">
 	<div class="section one">
-		<MediaQuery query="(min-width: 900px)" let:matches>
-			{#if matches}
-				<div class="column one">
-					<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam">
-						<OpenEyebeam />
-					</a>
-					<div class="tile logo-and-statement">
-						<div class="logo"><Logo /></div>
-						<Statements />
-					</div>
-				</div>
-			{/if}
-		</MediaQuery>
+		<div class="column one">
+			<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam">
+				<OpenEyebeam />
+			</a>
+			<div class="tile logo-and-statement">
+				<div class="logo"><Logo /></div>
+				<Statements />
+			</div>
+		</div>
 		<div class="column two">
 			<div class="tile programs">
 				<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
@@ -171,8 +166,7 @@
 			height: calc(100% - 100px);
 
 			@include screen-size('small') {
-				width: 100%;
-				height: auto;
+				display: none;
 			}
 		}
 

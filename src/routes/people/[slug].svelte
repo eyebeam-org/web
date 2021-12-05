@@ -248,8 +248,9 @@
 			.big-title {
 				font-size: $font-size-h2;
 				width: 100%;
-				padding: 40px $small-margin;
+				padding: $small-margin;
 				min-height: 200px;
+				line-height: 1.2em;
 			}
 		}
 	}
