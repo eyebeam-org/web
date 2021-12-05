@@ -1,3 +1,19 @@
+<script context="module">
+	export const load = async ({ fetch }) => {
+		const res = await fetch('/index.json');
+		if (res.ok) {
+			const posts = await res.json();
+			return {
+				props: { posts }
+			};
+		}
+		const { message } = await res.json();
+		return {
+			error: new Error(message)
+		};
+	};
+</script>
+
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -8,7 +24,6 @@
 	// __ IMPORTS
 	import truncate from 'lodash/truncate.js';
 	import get from 'lodash/get.js';
-	import { loadData } from '$lib/sanity.js';
 	import { distanceToDate } from '$lib/global.js';
 
 	// __ GRAPHICS
@@ -31,8 +46,8 @@
 	const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
 	const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
 
-	const programs = loadData('*[_type == "program"]');
-	const events = loadData('*[_type == "event"]{..., people[]->{...}}');
+	export let posts = {};
+	console.log('INDEX', posts);
 
 	const toggleSearch = () => {
 		searchActive = !searchActive;
@@ -57,23 +72,21 @@
 		<div class="column two">
 			<div class="tile programs">
 				<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
-				{#await programs then programs}
-					{#each programs as program}
-						<a
-							href={'/programs/' + get(program, 'slug.current', '')}
-							class="sub-tile"
-							sveltekit:prefetch
-						>
-							<div class="title">{program.title}</div>
-							{#if program.applicationsOpen}
-								<div class="application-container">
-									<div class="circle" />
-									<span class="applications-open">Applications open</span>
-								</div>
-							{/if}
-						</a>
-					{/each}
-				{/await}
+				{#each posts.programs as program}
+					<a
+						href={'/programs/' + get(program, 'slug.current', '')}
+						class="sub-tile"
+						sveltekit:prefetch
+					>
+						<div class="title">{program.title}</div>
+						{#if program.applicationsOpen}
+							<div class="application-container">
+								<div class="circle" />
+								<span class="applications-open">Applications open</span>
+							</div>
+						{/if}
+					</a>
+				{/each}
 			</div>
 			<a href="/about" class="tile about" sveltekit:prefetch>What is eyebeam?</a>
 			<a href="/people" class="tile people" sveltekit:prefetch>People</a>
@@ -104,23 +117,21 @@
 		>
 		<div class="tile events">
 			<div class="sub-tile header">UPCOMING & RECENT</div>
-			{#await events then events}
-				{#each events as event}
-					<a href={'/events/' + get(event, 'slug.current', '')} class="sub-tile" sveltekit:prefetch>
-						{#if event.startDate}
-							<div class="time">{distanceToDate(event.startDate)}</div>
-						{/if}
-						<div class="title">{truncate(event.title, { length: 48 })}</div>
-						{#if event.people && event.people.length > 0}
-							<div class="event-people">
-								{#each event.people as person}
-									<PersonLink {person} />
-								{/each}
-							</div>
-						{/if}
-					</a>
-				{/each}
-			{/await}
+			{#each posts.events as event}
+				<a href={'/events/' + get(event, 'slug.current', '')} class="sub-tile" sveltekit:prefetch>
+					{#if event.startDate}
+						<div class="time">{distanceToDate(event.startDate)}</div>
+					{/if}
+					<div class="title">{truncate(event.title, { length: 48 })}</div>
+					{#if event.people && event.people.length > 0}
+						<div class="event-people">
+							{#each event.people as person}
+								<PersonLink {person} />
+							{/each}
+						</div>
+					{/if}
+				</a>
+			{/each}
 		</div>
 	</div>
 </div>
