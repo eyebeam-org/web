@@ -22,7 +22,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText, urlFor } from '$lib/sanity.js';
+	import { renderBlockText } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 
 	// __ COMPONENTS
@@ -83,7 +83,12 @@
 		.inner {
 			padding: 15px;
 			border: $border-style;
-			min-height: 100vh;
+			min-height: $SIDEBAR_HEIGHT;
+			padding-top: 0;
+
+			h1 {
+				margin-bottom: 120px;
+			}
 		}
 	}
 
@@ -95,27 +100,32 @@
 	}
 
 	.body-content {
-		margin-bottom: 40px;
+		margin-bottom: 80px;
 	}
 
 	form {
-		width: 100%;
+		width: calc(100% - 120px);
+		margin-right: 60px;
+		margin-left: 60px;
 
 		label {
 			width: 100%;
 			margin-bottom: 10px;
 			display: block;
+			font-size: $font-size-extra-small;
 		}
 
 		input {
 			margin-bottom: 20px;
 			width: 100%;
-			height: 60px;
+			height: 70px;
 			font-family: inherit;
 
 			&.email {
 				border: $border-style;
 				border-radius: 0;
+				background: $white;
+				padding-left: $small-margin;
 			}
 
 			&.subscribe {
@@ -123,6 +133,8 @@
 				background: $black;
 				color: $white;
 				cursor: pointer;
+				font-size: $font-size-extra-small;
+				letter-spacing: 1px;
 			}
 		}
 	}

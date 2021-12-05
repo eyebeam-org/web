@@ -49,18 +49,20 @@
 		</div>
 	{/if}
 	<!-- TOC -->
-	<div class="tile toc">
-		<p>{title}</p>
-		{#if toc.length > 0}
-			<ul>
-				{#each toc as item}
-					<li>
-						<a href={item.link} sveltekit:prefetch>{item.title}</a>
-					</li>
-				{/each}
-			</ul>
-		{/if}
-	</div>
+	{#if title || toc.length > 0}
+		<div class="tile toc">
+			<p>{title}</p>
+			{#if toc.length > 0}
+				<ul>
+					{#each toc as item}
+						<li>
+							<a href={item.link} sveltekit:prefetch>{item.title}</a>
+						</li>
+					{/each}
+				</ul>
+			{/if}
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
