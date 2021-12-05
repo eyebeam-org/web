@@ -120,7 +120,7 @@
 					margin-top: 80px;
 
 					.filter {
-						padding: 8px 12px;
+						padding: $button-padding;
 						border: $border-style;
 						margin-right: 5px;
 						float: left;

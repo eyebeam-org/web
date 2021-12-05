@@ -209,7 +209,7 @@
 						display: flex;
 
 						.order-option {
-							padding: 8px 12px;
+							padding: $button-padding;
 							margin-right: 8px;
 							border: $border-style;
 							user-select: none;
@@ -246,7 +246,7 @@
 						display: flex;
 
 						.filter-option {
-							padding: 8px 12px;
+							padding: $button-padding;
 							margin-right: 8px;
 							border: $border-style;
 							user-select: none;

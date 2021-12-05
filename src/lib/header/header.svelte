@@ -7,6 +7,7 @@
 
 	// __ IMPORT
 	import Clock from '$lib/clock/clock.svelte';
+	import { loadData } from '$lib/sanity.js';
 
 	// __ GRAPHICS
 	import FullBeam from '$lib/graphics/full-beam.svelte';
@@ -14,6 +15,8 @@
 
 	// __ STORES
 	import { currentCategory, currentPage, loaded, trayOpen } from '$lib/stores.js';
+
+	const cities = loadData('*[_id == "cities"][0]');
 
 	const toggleTray = () => {
 		trayOpen.set(!$trayOpen);
@@ -35,7 +38,13 @@
 				<div class="section-header">INVERSION</div>
 			</div>
 			<div class="section text">TEXT</div>
-			<div class="section city">CITY</div>
+			<div class="section city">
+				{#await cities then cities}
+					{#each cities.cities as city}
+						<div class="city-button">{city.name}</div>
+					{/each}
+				{/await}
+			</div>
 		</div>
 	</div>
 	<!-- {/if} -->
@@ -173,6 +182,8 @@
 				padding-right: 15px;
 
 				.section {
+					padding-top: $small-margin;
+
 					.section-header {
 					}
 
@@ -187,6 +198,18 @@
 					}
 				}
 			}
+		}
+	}
+
+	.city-button {
+		padding: $button-padding;
+		display: inline-block;
+		border-top: $border-style;
+		border-right: $border-style;
+		border-bottom: $border-style;
+
+		&:first-child {
+			border-left: $border-style;
 		}
 	}
 </style>

@@ -287,7 +287,7 @@
 		margin-top: $small-margin;
 		margin-bottom: $small-margin;
 		.badge {
-			padding: 8px 12px;
+			padding: $button-padding;
 			background: $black;
 			color: $white;
 			text-transform: capitalize;
