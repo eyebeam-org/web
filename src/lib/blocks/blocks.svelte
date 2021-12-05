@@ -14,6 +14,7 @@
 	import Divider from '$lib/blocks/divider.svelte';
 	import Columns from '$lib/blocks/columns.svelte';
 	import DonationWidget from '$lib/blocks/donationWidget.svelte';
+	import ApplicationButton from '$lib/blocks/applicationButton.svelte';
 
 	// *** PROPS
 	export let blocks = [];
@@ -44,5 +45,8 @@
 	{/if}
 	{#if b._type == 'donationWidget'}
 		<DonationWidget {b} />
+	{/if}
+	{#if b._type == 'applicationButton'}
+		<ApplicationButton {b} />
 	{/if}
 {/each}

@@ -62,6 +62,16 @@ export const longFormatDate = date => {
     }
 }
 
+export const shortFormatDate = date => {
+    try {
+        if (date) {
+            return format(parseISO(date), "MMMM, yyyy")
+        }
+    } catch (err) {
+        console.dir(err)
+    }
+}
+
 export const distanceToDate = date => {
     try {
         if (date) {

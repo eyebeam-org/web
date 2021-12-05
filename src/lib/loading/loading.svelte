@@ -41,6 +41,7 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 10;
+		opacity: 1;
 
 		.logo {
 			.beams {

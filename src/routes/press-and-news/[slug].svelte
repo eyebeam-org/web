@@ -1,6 +1,6 @@
 <script context="module">
 	export const load = async ({ page, fetch, session, stuff }) => {
-		const res = await fetch(`/about/${page.params.slug}.json`);
+		const res = await fetch(`/press-and-news/${page.params.slug}.json`);
 		if (res.ok) {
 			const page = await res.json();
 			return {
@@ -17,13 +17,13 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single about page
+	//  Single Press & News page
 	//
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
 	import { onDestroy } from 'svelte';
-	import { renderBlockText, urlFor } from '$lib/sanity.js';
+	import { urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
 	import has from 'lodash/has.js';
 	import MediaQuery from 'svelte-media-query';
@@ -38,7 +38,6 @@
 
 	// *** PROPS
 	export let page;
-	console.log(page.introduction.content);
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(page, 'slug.current', ''), title: page.title });
@@ -64,12 +63,12 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="block-text">
-		<div class="header">
-			<!-- TITLE -->
-			<h1>{page.title}</h1>
+		<!-- <div class="header"> -->
+		<!-- TITLE -->
+		<h1>{page.title}</h1>
 
-			<!-- MAIN IMAGE -->
-			{#if page.mainImage}
+		<!-- MAIN IMAGE -->
+		<!-- {#if page.mainImage}
 				<figure class="image-container">
 					<img
 						class="main-image"
@@ -83,12 +82,12 @@
 					{/if}
 				</figure>
 			{/if}
-		</div>
+		</div> -->
 
 		<!-- MAIN TEXT -->
-		{#if has(page, 'content.content')}
+		<!-- {#if has(page, 'content.content')}
 			<Blocks blocks={page.content.content} />
-		{/if}
+		{/if} -->
 	</div>
 
 	<!-- BOTTOM BAR -->

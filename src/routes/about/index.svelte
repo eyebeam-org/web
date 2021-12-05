@@ -22,7 +22,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText } from '$lib/sanity.js';
+	import { renderBlockText, loadData } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import get from 'lodash/get.js';
 	import keyBy from 'lodash/keyBy.js';
@@ -31,13 +31,13 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+	import PressAndNewsItem from '$lib/press-and-news-item/press-and-news-item.svelte';
 
 	// __ PROPS
 	export let about;
-	console.log('about', about);
 	const aboutMap = keyBy(about, '_id');
 
-	console.log('aboutMap', aboutMap);
+	const pressAndNews = loadData('*[_type == "press" || _type == "news" ][0..3]');
 
 	const ORDER = [
 		'our-mission-and-values',
@@ -124,7 +124,14 @@
 			{#if section == 'press-and-news'}
 				<div class="tile full-tile press-and-news">
 					<h2>{aboutMap['press-and-news'].title}</h2>
-					<a href="/about/press-and-news" class="see-all">See all Press & News</a>
+					<div class="press-and-news-listing">
+						{#await pressAndNews then pressAndNews}
+							{#each pressAndNews as post}
+								<PressAndNewsItem {post} />
+							{/each}
+						{/await}
+					</div>
+					<a href="/press-and-news" class="see-all">See all Press & News</a>
 				</div>
 			{:else if section == 'contact'}
 				<div class="tile full-tile contact">
@@ -253,6 +260,12 @@
 
 	.press-and-news {
 		position: relative;
+
+		.press-and-news-listing {
+			width: 100%;
+			display: flex;
+			margin-top: 45px;
+		}
 
 		.see-all {
 			position: absolute;

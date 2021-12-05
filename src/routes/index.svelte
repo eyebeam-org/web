@@ -90,7 +90,7 @@
 			Eyebeam is changing...
 			<div class="half-beam"><HalfBeam /></div>
 		</a>
-		<a href="/support" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
+		<a href="/about/support-eyebeam" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
 		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
 			Newsletter
 			<div class="icon"><Newsletter /></div>
@@ -345,8 +345,6 @@
 		// background: green;
 		float: left;
 		padding: 0 !important;
-
-		width: 50%;
 	}
 
 	.tile {

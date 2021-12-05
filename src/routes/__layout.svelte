@@ -15,15 +15,16 @@
 	import { page } from '$app/stores';
 	import { loaded, trayOpen } from '$lib/stores.js';
 
-	setTimeout(() => {
-		loaded.set(true);
-	}, 1000);
+	// setTimeout(() => {
+	loaded.set(true);
+	// document.getElementById('main').classList.remove('hidden');
+	// }, 1000);
 </script>
 
-<!-- LOADING -->
+<!-- LOADING
 {#if !$loaded}
 	<Loading />
-{/if}
+{/if} -->
 
 <!-- HEADER -->
 <MediaQuery query="(max-width: 900px)" let:matches>
@@ -35,7 +36,7 @@
 </MediaQuery>
 
 <!-- MAIN -->
-<main class:open={$trayOpen}>
+<main id="main" class:open={$trayOpen}>
 	<slot />
 </main>
 
@@ -77,6 +78,10 @@
 
 		&.open {
 			transform: translateY(240px);
+		}
+
+		&.hidden {
+			opacity: 0;
 		}
 
 		@include screen-size('small') {
