@@ -29,6 +29,7 @@
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PressAndNewsItem from '$lib/press-and-news-item/press-and-news-item.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
+	import SeeAlso from '$lib/see-also/see-also.svelte';
 
 	// __ PROPS
 	export let posts;
@@ -77,6 +78,8 @@
 				<Blocks blocks={posts.page.pressContact.content} />
 			{/if}
 		</div>
+
+		<SeeAlso />
 	</div>
 
 	<!-- BOTTOM BAR -->

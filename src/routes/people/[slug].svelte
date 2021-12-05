@@ -41,6 +41,7 @@
 
 	// __ PROPS
 	export let person;
+	console.log('person', person);
 
 	// *[$id in people[]._ref]
 	const connectedPosts = loadData(
@@ -70,11 +71,17 @@
 				<!-- NAME -->
 				<h1>{person.title}</h1>
 				<!-- BADGES -->
-				{#if person.role}
-					<div class="badges">
+				<div class="badges">
+					{#if person.role}
 						<div class="badge">{person.role}</div>
-					</div>
-				{/if}
+					{/if}
+					{#if person.groupTags}
+						{#each person.groupTags as tag}
+							<div class="badge">{tag.label}</div>
+						{/each}
+					{/if}
+				</div>
+
 				<!-- QUOTE -->
 				{#if person.quote}
 					<div class="quote">{person.quote}</div>

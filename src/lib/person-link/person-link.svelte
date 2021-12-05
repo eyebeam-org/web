@@ -50,6 +50,19 @@
 	<div class="pop-up" bind:this={popEl}>
 		<!-- NAME -->
 		<div class="name">{person.title}</div>
+
+		<!-- BADGES -->
+		<div class="badges">
+			{#if person.role}
+				<div class="badge">{person.role}</div>
+			{/if}
+			{#if person.groupTags}
+				{#each person.groupTags as tag}
+					<div class="badge">{tag.label}</div>
+				{/each}
+			{/if}
+		</div>
+
 		<!-- IMAGE -->
 		{#if person.mainImage}
 			<img

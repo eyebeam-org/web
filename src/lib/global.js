@@ -61,7 +61,7 @@ export const dotFormatDate = date => {
 export const longFormatDate = date => {
     try {
         if (date) {
-            return format(parseISO(date), "d MMMM, yyyy")
+            return format(parseISO(date), "MMMM d, yyyy")
         }
     } catch (err) {
         console.dir(err)

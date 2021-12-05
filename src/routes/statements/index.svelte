@@ -54,14 +54,14 @@
 			<div class="single-statement">
 				<!-- TEXT -->
 				<div class="text">{@html renderBlockText(statement.content.content)}</div>
+				<!-- PERSON -->
+				{#if statement.person}
+					<div class="person"><PersonLink person={statement.person} /></div>
+				{/if}
 				<!-- DATE -->
 				{#if statement.date}
 					<div class="date">{longFormatDate(statement.date)}</div>
 				{/if}
-				<!-- PERSON -->
-				<!-- {#if statement.person}
-					<div class='person'><PersonLink person={statement.person}/></div>
-				{/if} -->
 			</div>
 		{/each}
 	</div>
@@ -92,13 +92,21 @@
 
 			.single-statement {
 				padding: 15px;
+				margin-bottom: $small-margin;
 
 				.text {
 					font-size: $font-size-h2;
+					line-height: 1.2em;
+				}
+
+				.person {
+					font-size: $font-size-body;
+					margin-top: 10px;
 				}
 
 				.date {
-					margin-top: 5px;
+					font-size: $font-size-body;
+					margin-top: 10px;
 				}
 			}
 		}

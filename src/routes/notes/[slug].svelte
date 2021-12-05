@@ -25,6 +25,8 @@
 	import { onDestroy } from 'svelte';
 	import { renderBlockText, urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
+	import has from 'lodash/has.js';
+	import { longFormatDate } from '$lib/global';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -32,6 +34,9 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+	import Blocks from '$lib/blocks/blocks.svelte';
+	import PersonLink from '$lib/person-link/person-link.svelte';
+	import SeeAlso from '$lib/see-also/see-also.svelte';
 
 	// __ PROPS
 	export let note;
@@ -53,27 +58,37 @@
 
 <div class="main-content">
 	<div class="inner">
-		<!-- MAIN IMAGE -->
-		{#if note.mainImage}
-			<img
-				alt={note.title}
-				src={urlFor(note.mainImage).quality(90).saturation(-100).width(400).url()}
-			/>
-		{/if}
-
-		<!-- TITLE -->
-		<h1>{note.title}</h1>
+		<div class="header">
+			<!-- TITLE -->
+			<h1>{note.title}</h1>
+			<!-- DATE -->
+			<div class="date">
+				{longFormatDate(note._createdAt)}
+			</div>
+			<!-- AUTHOR(S) -->
+			{#if note.people && note.people.length > 0}
+				<div class="authors">
+					by {#each note.people as person}
+						<PersonLink {person} />
+					{/each}
+				</div>
+			{/if}
+			<!-- INTRODUCTION -->
+			{#if has(note, 'introduction.content')}
+				<div class="introduction">
+					<Blocks blocks={note.introduction.content} />
+				</div>
+			{/if}
+		</div>
 
 		<!-- MAIN TEXT -->
-		<div>{@html renderBlockText(note.content.content)}</div>
+		{#if has(note, 'content.content')}
+			<div class="block-text">
+				<Blocks blocks={note.content.content} />
+			</div>
+		{/if}
 
-		<!-- PEOPLE -->
-		<h2>People</h2>
-		<ul>
-			{#each note.people as person}
-				<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
-			{/each}
-		</ul>
+		<SeeAlso />
 	</div>
 
 	<!-- BOTTOM BAR -->
@@ -88,9 +103,27 @@
 		width: 50%;
 		width: $two-third;
 
+		.header {
+			height: $HEADER_HEIGHT;
+			border-bottom: $border-style;
+			padding: 15px;
+			font-size: $font-size-body;
+
+			h1 {
+				margin-bottom: $small-margin;
+			}
+
+			.date {
+				margin-bottom: $small-margin;
+			}
+
+			.authors {
+				margin-bottom: $small-margin;
+			}
+		}
+
 		.inner {
 			border: $border-style;
-			padding: 15px;
 			min-height: 100vh;
 		}
 

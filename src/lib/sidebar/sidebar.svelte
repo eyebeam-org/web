@@ -18,6 +18,8 @@
 	// __ STORES
 	import { page } from '$app/stores';
 
+	console.log('$page', $page);
+
 	// __ PROPS
 	export let toc = [];
 	export let title = '';
@@ -34,20 +36,10 @@
 	<!-- LOGO -->
 	<div class="tile logo" class:bordered={title || toc.length > 0 || location || date}>
 		<a href="/" class="wordmark"><Logo /></a>
-		<Statements />
+		{#if $page.path !== '/statements'}
+			<Statements />
+		{/if}
 	</div>
-	<!-- EVENT -->
-	{#if location || date}
-		<div class="tile event">
-			<p>{title}</p>
-			<!-- LOCATION -->
-			{#if location && location.content}
-				<div class="location">
-					<strong>Location:</strong>{@html renderBlockText(location.content)}
-				</div>
-			{/if}
-		</div>
-	{/if}
 	<!-- TOC -->
 	{#if title || toc.length > 0}
 		<div class="tile toc">
