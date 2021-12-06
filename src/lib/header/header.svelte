@@ -8,6 +8,10 @@
 	// __ IMPORT
 	import Clock from '$lib/clock/clock.svelte';
 	import { loadData } from '$lib/sanity.js';
+	import has from 'lodash/has.js';
+
+	// __ COMPONENTS
+	import Blocks from '$lib/blocks/blocks.svelte';
 
 	// __ GRAPHICS
 	import FullBeam from '$lib/graphics/full-beam.svelte';
@@ -17,6 +21,10 @@
 	import { currentCategory, currentPage, loaded, trayOpen } from '$lib/stores.js';
 
 	const cities = loadData('*[_id == "cities"][0]');
+
+	cities.then((c) => {
+		console.log('c', c);
+	});
 
 	const toggleTray = () => {
 		trayOpen.set(!$trayOpen);
@@ -40,9 +48,16 @@
 			<div class="section text">TEXT</div>
 			<div class="section city">
 				{#await cities then cities}
-					{#each cities.cities as city}
-						<div class="city-button">{city.name}</div>
-					{/each}
+					<div class="city-switches">
+						{#each cities.cities as city}
+							<div class="city-button">{city.name}</div>
+						{/each}
+					</div>
+					<div class="city-text">
+						{#if has(cities, 'content.content', [])}
+							<div><Blocks blocks={cities.content.content} /></div>
+						{/if}
+					</div>
 				{/await}
 			</div>
 		</div>
