@@ -23,7 +23,7 @@
 	class:cover={b.coverAndCrop}
 >
 	<img
-		src={urlFor(b.asset).quality(90).saturation(-100).width(400).url()}
+		src={urlFor(b.asset).quality(90).saturation(-100).width(1000).url()}
 		alt={b.alt ? b.alt : ''}
 	/>
 	{#if has(b, 'caption.content')}
@@ -52,22 +52,48 @@
 
 		&.full {
 			float: unset;
+			margin-left: 0;
+			margin-right: 0;
+			margin-top: 0;
+			border: unset;
 
 			img {
 				display: block;
 				margin-left: auto;
 				margin-right: auto;
 			}
+
+			figcaption {
+				padding: $small-margin;
+				border-top: $border-style;
+				border-bottom: $border-style;
+
+				p {
+					margin: 0;
+					padding: 0;
+				}
+			}
 		}
 
 		&.cover {
-			height: 400px;
 			float: unset;
 
 			img {
 				width: 100%;
-				height: 100%;
+				height: 600px;
 				object-fit: cover;
+				object-position: center;
+			}
+
+			figcaption {
+				padding: $small-margin;
+				border-top: $border-style;
+				border-bottom: $border-style;
+
+				p {
+					margin: 0;
+					padding: 0;
+				}
 			}
 		}
 	}

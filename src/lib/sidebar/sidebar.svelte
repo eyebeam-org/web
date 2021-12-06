@@ -83,7 +83,7 @@
 		}
 
 		.logo {
-			min-height: 220px;
+			height: 220px;
 			width: 100%;
 			float: left;
 

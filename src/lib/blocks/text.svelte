@@ -5,9 +5,6 @@
 	//
 	// # # # # # # # # # # # # #
 
-	// __ IMPORTS
-	import { renderBlockText } from '$lib/sanity.js';
-
 	// __ COMPONENTS
 	import PersonLink from '$lib/person-link/person-link.svelte';
 
@@ -21,44 +18,46 @@
 	const renderNewLines = (t) => t.replace(/(?:\r\n|\r|\n)/g, '<br>');
 </script>
 
-{#if b.style == 'h2'}
-	<h2>
-		{#each b.children as c}
-			{#if !c.marks || c.marks.length === 0}
+{#if b.children && b.children.length > 0}
+	{#if b.style == 'h2'}
+		<h2>
+			{#each b.children as c}
+				{#if !c.marks || c.marks.length === 0}
+					{c.text}
+				{:else}
+					<strong>{c.text}</strong>
+				{/if}
+			{/each}
+		</h2>
+	{:else if b.style == 'h3'}
+		<h3>
+			{#each b.children as c}
 				{c.text}
-			{:else}
-				<strong>{c.text}</strong>
-			{/if}
-		{/each}
-	</h2>
-{:else if b.style == 'h3'}
-	<h3>
-		{#each b.children as c}
-			{c.text}
-		{/each}
-	</h3>
-{:else}
-	<p>
-		{#each b.children as c}
-			{#if !c.marks || c.marks.length === 0}
-				{@html renderNewLines(c.text)}
-			{:else if c.marks.includes('em')}
-				<em>{@html renderNewLines(c.text)}</em>
-			{:else if c.marks.includes('strong')}
-				<strong>{@html renderNewLines(c.text)}</strong>
-			{:else}
-				{#if b.markDefs.find((m) => m._key === c.marks[0])._type === 'link'}
-					<a href={b.markDefs.find((m) => m._key === c.marks[0]).href}
-						>{@html renderNewLines(c.text)} <ExternalLink /></a
-					>
+			{/each}
+		</h3>
+	{:else}
+		<p>
+			{#each b.children as c}
+				{#if !c.marks || c.marks.length === 0}
+					{@html renderNewLines(c.text)}
+				{:else if c.marks.includes('em')}
+					<em>{@html renderNewLines(c.text)}</em>
+				{:else if c.marks.includes('strong')}
+					<strong>{@html renderNewLines(c.text)}</strong>
+				{:else}
+					{#if b.markDefs.find((m) => m._key === c.marks[0])._type === 'link'}
+						<a href={b.markDefs.find((m) => m._key === c.marks[0]).href}
+							>{@html renderNewLines(c.text)} <ExternalLink /></a
+						>
+					{/if}
+					{#if b.markDefs.find((m) => m._key === c.marks[0])._type === 'person'}
+						<PersonLink
+							overrideText={c.text}
+							personId={b.markDefs.find((m) => m._key === c.marks[0]).link._ref}
+						/>
+					{/if}
 				{/if}
-				{#if b.markDefs.find((m) => m._key === c.marks[0])._type === 'person'}
-					<PersonLink
-						overrideText={c.text}
-						personId={b.markDefs.find((m) => m._key === c.marks[0]).link._ref}
-					/>
-				{/if}
-			{/if}
-		{/each}
-	</p>
+			{/each}
+		</p>
+	{/if}
 {/if}

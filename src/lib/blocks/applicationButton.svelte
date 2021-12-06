@@ -122,7 +122,7 @@
 		width: 100%;
 		background: $black;
 		height: 220px;
-		padding: 15px;
+		padding: $small-margin;
 		color: $white;
 		display: flex;
 
@@ -153,8 +153,8 @@
 		}
 
 		.circle {
-			width: 15px;
-			height: 15px;
+			width: 20px;
+			height: 20px;
 			background: $white;
 			border-radius: 50%;
 			float: left;
@@ -172,6 +172,7 @@
 
 		.text {
 			padding-right: 40px;
+			font-size: $font-size-body;
 		}
 
 		.apply-now {
@@ -184,6 +185,7 @@
 			user-select: none;
 			color: $white;
 			text-decoration: none;
+			font-size: $font-size-body;
 
 			&:hover {
 				background: $white;
