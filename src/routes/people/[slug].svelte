@@ -259,6 +259,10 @@
 				min-height: 200px;
 				line-height: 1.2em;
 			}
+
+			&:hover {
+				background: $grey;
+			}
 		}
 	}
 
@@ -278,7 +282,6 @@
 
 		figcaption {
 			display: block;
-
 			margin-top: 10px;
 		}
 	}

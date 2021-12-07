@@ -10,7 +10,7 @@ export const postTypeToCategory = {
     aboutPage: 'about',
     project: 'projects',
     note: 'notes',
-    video: 'videos',
+    videoPost: 'videos',
     press: 'press-and-news',
     news: 'press-and-news'
 }
@@ -23,7 +23,7 @@ export const postTypeToName = {
     aboutPage: 'About',
     project: 'Project',
     note: 'Note',
-    video: 'Video',
+    videoPost: 'Video',
     press: 'Press',
     news: 'News'
 }

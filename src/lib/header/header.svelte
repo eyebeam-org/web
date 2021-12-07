@@ -18,12 +18,23 @@
 	import TriangleDown from '$lib/graphics/triangle-down.svelte';
 
 	// __ STORES
-	import { currentCategory, currentPage, loaded, trayOpen } from '$lib/stores.js';
+	import {
+		currentCategory,
+		currentPage,
+		loaded,
+		trayOpen,
+		activeCity,
+		theme,
+		inversion
+	} from '$lib/stores.js';
 
 	const cities = loadData('*[_id == "cities"][0]');
 
 	cities.then((c) => {
 		console.log('c', c);
+		if (c.cities && c.cities[0]) {
+			activeCity.set(c.cities[0]);
+		}
 	});
 
 	const toggleTray = () => {
@@ -32,25 +43,73 @@
 </script>
 
 <header class:open={$trayOpen}>
-	<!-- {#if $trayOpen} -->
 	<div class="settings">
+		<!-- SETTINGS BAR -->
 		<div class="settings-bar" on:click={toggleTray}>
 			<div class="tray-toggle" on:click={toggleTray}>
 				<FullBeam black={true} />
 			</div>
 			Settings
 		</div>
+		<!-- SETTINGS CONTENT -->
 		<div class="settings-content">
-			<div class="section mode">
-				<div class="section-header">MODE</div>
-				<div class="section-header">INVERSION</div>
+			<!-- THEME & INVERSION -->
+			<div class="section theme">
+				<div class="inner-section column">
+					<div class="section-header">Theme</div>
+					<div class="theme-switches">
+						<div
+							class="theme-button"
+							class:active={$theme === 'ink'}
+							on:click={() => {
+								theme.set('ink');
+							}}
+						>
+							E-ink
+						</div>
+						<div
+							class="theme-button"
+							class:active={$theme === 'rgb'}
+							on:click={() => {
+								theme.set('rgb');
+							}}
+						>
+							RGB
+						</div>
+					</div>
+					{#if $theme === 'ink'}
+						<div class="section-header">Inversion</div>
+						<div class="inversion-switches">
+							<div
+								class="inversion-button"
+								class:active={$inversion}
+								on:click={() => {
+									inversion.set(!$inversion);
+								}}
+							/>
+						</div>
+					{/if}
+				</div>
 			</div>
-			<div class="section text">TEXT</div>
+			<!-- TEXT -->
+			<div class="section text">
+				<div class="section-header">Text</div>
+			</div>
+			<!-- CITY -->
 			<div class="section city">
+				<div class="section-header">City</div>
 				{#await cities then cities}
 					<div class="city-switches">
 						{#each cities.cities as city}
-							<div class="city-button">{city.name}</div>
+							<div
+								class="city-button"
+								class:active={$activeCity._key === city._key}
+								on:click={() => {
+									activeCity.set(city);
+								}}
+							>
+								{city.name}
+							</div>
 						{/each}
 					</div>
 					<div class="city-text">
@@ -62,7 +121,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- {/if} -->
 	<nav class="menubar">
 		<div class="inner-text" class:loaded={$loaded}>
 			<!-- BREADCRUMBS -->
@@ -200,9 +258,10 @@
 					padding-top: $small-margin;
 
 					.section-header {
+						margin-bottom: 10px;
 					}
 
-					&.mode {
+					&.theme {
 						width: 20%;
 					}
 					&.text {
@@ -222,9 +281,68 @@
 		border-top: $border-style;
 		border-right: $border-style;
 		border-bottom: $border-style;
+		user-select: none;
+		cursor: pointer;
 
 		&:first-child {
 			border-left: $border-style;
+		}
+
+		&.active {
+			background: $black;
+			color: $white;
+		}
+
+		&:hover {
+			background: $black;
+			color: $white;
+		}
+	}
+
+	.theme-switches {
+		margin-bottom: $small-margin;
+	}
+
+	.theme-button {
+		padding: $button-padding;
+		display: inline-block;
+		border-top: $border-style;
+		border-right: $border-style;
+		border-bottom: $border-style;
+		user-select: none;
+		cursor: pointer;
+
+		&:first-child {
+			border-left: $border-style;
+		}
+
+		&.active {
+			background: $black;
+			color: $white;
+		}
+
+		&:hover {
+			background: $black;
+			color: $white;
+		}
+	}
+
+	.inversion-button {
+		width: 35px;
+		height: 35px;
+		border: $border-style;
+		display: inline-block;
+		border-radius: 50%;
+		user-select: none;
+		cursor: pointer;
+		background: transparent;
+
+		&:hover {
+			background: $black;
+		}
+
+		&.active {
+			background: $black;
 		}
 	}
 </style>

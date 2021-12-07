@@ -6,6 +6,9 @@ import { categoryToName } from '$lib/global.js';
 export const currentPage = writable(null)
 export const loaded = writable(false)
 export const trayOpen = writable(false)
+export const theme = writable('ink')
+export const inversion = writable(false)
+export const activeCity = writable({})
 export const currentCategory = derived(
     page,
     $page => {

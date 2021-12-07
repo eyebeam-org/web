@@ -4,6 +4,10 @@
 	//  CLOCK
 	//
 	// # # # # # # # # # # # # #
+
+	// __ STORES
+	import { activeCity } from '$lib/stores.js';
+
 	const API_KEY = 'a9b67d6b5ed093b28c410750ef6a70cd';
 
 	let newYorkTime;
@@ -41,7 +45,9 @@
 </script>
 
 <div class="clock">
-	<span>It’s {newYorkTime} and {currentWeather['nyc'].description} in New York City</span>
+	{#if $activeCity.name}
+		<span>It’s {newYorkTime} and {currentWeather['nyc'].description} in {$activeCity.name}</span>
+	{/if}
 </div>
 
 <style lang="scss">

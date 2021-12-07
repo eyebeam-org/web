@@ -48,29 +48,34 @@
 	</a>
 
 	<div class="pop-up" bind:this={popEl}>
-		<!-- NAME -->
-		<div class="name">{person.title}</div>
+		<!-- FIRST COLUMN -->
+		<div class="column first">
+			<!-- NAME -->
+			<div class="name">{person.title}</div>
 
-		<!-- BADGES -->
-		<div class="badges">
-			{#if person.role}
-				<div class="badge">{person.role}</div>
-			{/if}
-			{#if person.groupTags}
-				{#each person.groupTags as tag}
-					<div class="badge">{tag.label}</div>
-				{/each}
+			<!-- BADGES -->
+			<div class="badges">
+				{#if person.role}
+					<div class="badge">{person.role}</div>
+				{/if}
+				{#if person.groupTags}
+					{#each person.groupTags as tag}
+						<div class="badge">{tag.label}</div>
+					{/each}
+				{/if}
+			</div>
+		</div>
+		<!-- SECOND COLUMN -->
+		<div class="column second">
+			<!-- IMAGE -->
+			{#if person.mainImage}
+				<img
+					class="image"
+					alt={person.title}
+					src={urlFor(person.mainImage).quality(90).saturation(-100).width(100).height(100).url()}
+				/>
 			{/if}
 		</div>
-
-		<!-- IMAGE -->
-		{#if person.mainImage}
-			<img
-				class="image"
-				alt={person.title}
-				src={urlFor(person.mainImage).quality(90).saturation(-100).width(60).height(60).url()}
-			/>
-		{/if}
 	</div>
 {/if}
 
@@ -80,7 +85,7 @@
 	.pop-up {
 		display: none;
 		background: $white;
-		padding: 15px;
+		padding: 10px;
 		border: $border-style;
 		z-index: 1000;
 
@@ -99,6 +104,12 @@
 			& + .pop-up {
 				display: flex;
 			}
+		}
+	}
+
+	.column {
+		&.first {
+			padding-right: 10px;
 		}
 	}
 </style>
