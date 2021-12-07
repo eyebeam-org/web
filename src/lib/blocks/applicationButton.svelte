@@ -15,7 +15,6 @@
 
 	// *** PROPS
 	export let b = {};
-	console.log(b);
 </script>
 
 {#if b.size == 'large'}

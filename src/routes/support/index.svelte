@@ -31,7 +31,6 @@
 
 	// __ PROPS
 	export let supportPage;
-	console.log(supportPage);
 </script>
 
 <svelte:head>

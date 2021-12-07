@@ -31,7 +31,6 @@
 	const cities = loadData('*[_id == "cities"][0]');
 
 	cities.then((c) => {
-		console.log('c', c);
 		if (c.cities && c.cities[0]) {
 			activeCity.set(c.cities[0]);
 		}

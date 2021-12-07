@@ -47,7 +47,6 @@
 	const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
 
 	export let posts = {};
-	console.log('INDEX', posts);
 
 	const toggleSearch = () => {
 		searchActive = !searchActive;

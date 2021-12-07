@@ -20,7 +20,6 @@
 
 	// *** PROPS
 	export let blocks = [];
-	console.log('blocks', blocks);
 </script>
 
 {#each blocks as b}

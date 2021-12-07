@@ -18,8 +18,6 @@
 	// __ STORES
 	import { page } from '$app/stores';
 
-	console.log('$page', $page);
-
 	// __ PROPS
 	export let toc = [];
 	export let title = '';

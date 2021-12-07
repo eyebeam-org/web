@@ -41,7 +41,6 @@
 
 	// __ PROPS
 	export let person;
-	console.log('person', person);
 
 	// *[$id in people[]._ref]
 	const connectedPosts = loadData(

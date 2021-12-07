@@ -37,7 +37,6 @@
 
 	// *** PROPS
 	export let page;
-	console.log(page.introduction.content);
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(page, 'slug.current', ''), title: page.title });

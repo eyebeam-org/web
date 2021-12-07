@@ -66,7 +66,6 @@
 		'Z'
 	];
 	const groupedPeople = groupBy(people, (p) => p.lastName.charAt(0));
-	console.log(groupedPeople);
 
 	const scrollToSection = (alpha) => {
 		const el = document.querySelector('#' + alpha);

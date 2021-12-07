@@ -29,7 +29,6 @@
 
 	if (personId) {
 		loadData('*[_id == "' + personId + '"][0]').then((p) => {
-			console.log(p);
 			person = p;
 			setTimeout(initPopper, 1000);
 		});

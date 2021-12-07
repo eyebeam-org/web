@@ -13,7 +13,6 @@
 
 	// *** PROPS
 	export let b = {};
-	console.log('faq', b);
 </script>
 
 <div class="faq">

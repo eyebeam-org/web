@@ -33,8 +33,6 @@
 
 	// __ PROPS
 	export let posts;
-
-	console.log('posts', posts);
 </script>
 
 <svelte:head>

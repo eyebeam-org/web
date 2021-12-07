@@ -14,12 +14,11 @@
 
 	// *** PROPS
 	export let b = {};
-	console.log('video b', b);
 
 	const videoPost = loadData('*[_id == $id][0]', { id: b.videoPost._ref });
-	videoPost.then((v) => {
-		console.log('v', v);
-	});
+	// videoPost.then((v) => {
+	// 	console.log('v', v);
+	// });
 </script>
 
 {#await videoPost then videoPost}

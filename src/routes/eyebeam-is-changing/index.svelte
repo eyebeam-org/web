@@ -32,7 +32,6 @@
 
 	// __ PROPS
 	export let eyebeamIsChanging;
-	console.log(eyebeamIsChanging);
 </script>
 
 <svelte:head>

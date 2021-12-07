@@ -16,7 +16,6 @@
 
 <script>
 	export let blog;
-	console.log(blog);
 </script>
 
 <svelte:head>

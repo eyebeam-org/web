@@ -39,7 +39,6 @@
 
 	// __ PROPS
 	export let program;
-	console.log('program', program);
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(program, 'slug.current', ''), title: program.title });

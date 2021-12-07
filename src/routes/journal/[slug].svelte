@@ -25,8 +25,6 @@
 
 	// *** PROPS
 	export let post;
-
-	console.log(post);
 </script>
 
 <svelte:head>
