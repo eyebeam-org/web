@@ -16,6 +16,7 @@
 	import DonationWidget from '$lib/blocks/donationWidget.svelte';
 	import ApplicationButton from '$lib/blocks/applicationButton.svelte';
 	import Faq from '$lib/blocks/faq.svelte';
+	import Video from '$lib/blocks/video.svelte';
 
 	// *** PROPS
 	export let blocks = [];
@@ -52,5 +53,8 @@
 	{/if}
 	{#if b._type == 'faq'}
 		<Faq {b} />
+	{/if}
+	{#if b._type == 'videoBlock'}
+		<Video {b} />
 	{/if}
 {/each}
