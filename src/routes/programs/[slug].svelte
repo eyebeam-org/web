@@ -23,10 +23,9 @@
 
 	// __ IMPORTS
 	import { onDestroy } from 'svelte';
-	import { renderBlockText, urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
 	import has from 'lodash/has.js';
-	import { longFormatDate } from '$lib/global';
+	import {} from '$lib/global';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -34,8 +33,8 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
-	import PersonLink from '$lib/person-link/person-link.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
+	import SeeAlso from '$lib/see-also/see-also.svelte';
 
 	// __ PROPS
 	export let program;
@@ -73,6 +72,11 @@
 			<div class="block-text">
 				<Blocks blocks={program.content.content} />
 			</div>
+		{/if}
+
+		<!-- SEE ALSO -->
+		{#if program.internalLinks || program.externalLinks}
+			<SeeAlso externalLinks={program.externalLinks} internalLinks={program.internalLinks} />
 		{/if}
 	</div>
 

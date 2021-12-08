@@ -107,7 +107,9 @@
 		</div>
 
 		<!-- SEE ALSO -->
-		<SeeAlso />
+		{#if event.internalLinks || event.externalLinks}
+			<SeeAlso externalLinks={event.externalLinks} internalLinks={event.internalLinks} />
+		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->

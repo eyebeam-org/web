@@ -1,6 +1,7 @@
 <script context="module">
 	export const load = async ({ page, fetch, session, stuff }) => {
 		const res = await fetch(`/projects/${page.params.slug}.json`);
+		console.log('ASFASDF', res);
 		if (res.ok) {
 			const project = await res.json();
 			return {
@@ -38,6 +39,7 @@
 
 	// __ PROPS
 	export let project;
+	console.log('project', project);
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(project, 'slug.current', ''), title: project.title });
@@ -85,29 +87,33 @@
 		</div>
 
 		<!-- PEOPLE -->
-		<div class="people">
-			<h2>People</h2>
-			<div class="people-inner">
-				{#each project.people as person}
-					<a class="people-link" href={'/people/' + person.slug.current} sveltekit:prefetch>
-						<div class="image">
-							{#if person.mainImage}
-								<img
-									alt={person.title}
-									src={urlFor(person.mainImage).quality(90).saturation(-100).width(400).url()}
-								/>
-							{/if}
-						</div>
-						<div class="text">
-							<span class="title">{person.title}</span>
-						</div>
-					</a>
-				{/each}
+		{#if project.people && project.people.length > 0}
+			<div class="people">
+				<h2>People</h2>
+				<div class="people-inner">
+					{#each project.people as person}
+						<a class="people-link" href={'/people/' + person.slug.current} sveltekit:prefetch>
+							<div class="image">
+								{#if person.mainImage}
+									<img
+										alt={person.title}
+										src={urlFor(person.mainImage).quality(90).saturation(-100).width(400).url()}
+									/>
+								{/if}
+							</div>
+							<div class="text">
+								<span class="title">{person.title}</span>
+							</div>
+						</a>
+					{/each}
+				</div>
 			</div>
-		</div>
+		{/if}
 
 		<!-- SEE ALSO -->
-		<SeeAlso />
+		{#if project.internalLinks || project.externalLinks}
+			<SeeAlso externalLinks={project.externalLinks} internalLinks={project.internalLinks} />
+		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->

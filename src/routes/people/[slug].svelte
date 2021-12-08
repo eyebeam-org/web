@@ -38,6 +38,7 @@
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
+	import SeeAlso from '$lib/see-also/see-also.svelte';
 
 	// __ PROPS
 	export let person;
@@ -154,6 +155,11 @@
 				</div>
 			{/if}
 		{/await}
+
+		<!-- SEE ALSO -->
+		{#if person.internalLinks || person.externalLinks}
+			<SeeAlso externalLinks={person.externalLinks} internalLinks={person.internalLinks} />
+		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->

@@ -28,6 +28,7 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+	import SeeAlso from '$lib/see-also/see-also.svelte';
 
 	// __ PROPS
 	export let supportPage;
@@ -51,6 +52,14 @@
 			<div class="body-content">
 				{@html renderBlockText(supportPage.content.content)}
 			</div>
+		{/if}
+
+		<!-- SEE ALSO -->
+		{#if supportPage.internalLinks || supportPage.externalLinks}
+			<SeeAlso
+				externalLinks={supportPage.externalLinks}
+				internalLinks={supportPage.internalLinks}
+			/>
 		{/if}
 	</div>
 

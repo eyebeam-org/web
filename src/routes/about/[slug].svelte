@@ -34,6 +34,7 @@
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
+	import SeeAlso from '$lib/see-also/see-also.svelte';
 
 	// *** PROPS
 	export let page;
@@ -82,6 +83,11 @@
 		<!-- MAIN TEXT -->
 		{#if has(page, 'content.content')}
 			<Blocks blocks={page.content.content} />
+		{/if}
+
+		<!-- SEE ALSO -->
+		{#if page.internalLinks || page.externalLinks}
+			<SeeAlso externalLinks={page.externalLinks} internalLinks={page.internalLinks} />
 		{/if}
 	</div>
 

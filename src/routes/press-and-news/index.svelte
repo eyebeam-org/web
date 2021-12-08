@@ -23,6 +23,7 @@
 
 	// __ IMPORTS
 	import has from 'lodash/has.js';
+	import get from 'lodash/get.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -77,7 +78,10 @@
 			{/if}
 		</div>
 
-		<SeeAlso />
+		<!-- SEE ALSO -->
+		{#if posts.page.internalLinks || posts.page.externalLinks}
+			<SeeAlso externalLinks={posts.page.externalLinks} internalLinks={posts.page.internalLinks} />
+		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->

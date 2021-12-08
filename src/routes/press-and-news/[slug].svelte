@@ -35,6 +35,7 @@
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
+	import SeeAlso from '$lib/see-also/see-also.svelte';
 
 	// __ GRAPHICS
 	import ExternalLink from '$lib/graphics/external-link.svelte';
@@ -98,6 +99,11 @@
 		<!-- MAIN TEXT -->
 		{#if has(page, 'content.content')}
 			<Blocks blocks={page.content.content} />
+		{/if}
+
+		<!-- SEE ALSO -->
+		{#if page.internalLinks || page.externalLinks}
+			<SeeAlso externalLinks={page.externalLinks} internalLinks={page.internalLinks} />
 		{/if}
 	</div>
 

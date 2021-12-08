@@ -88,7 +88,10 @@
 			</div>
 		{/if}
 
-		<SeeAlso />
+		<!-- SEE ALSO -->
+		{#if note.internalLinks || note.externalLinks}
+			<SeeAlso externalLinks={note.externalLinks} internalLinks={note.internalLinks} />
+		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->

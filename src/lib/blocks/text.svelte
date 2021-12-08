@@ -13,7 +13,6 @@
 
 	// *** PROPS
 	export let b = {};
-	console.log('text b', b);
 
 	const renderNewLines = (t) => t.replace(/(?:\r\n|\r|\n)/g, '<br>');
 </script>

@@ -4,7 +4,7 @@ import { loadData } from "$lib/sanity.js"
 export const get = async (request) => {
 	const news = await loadData("*[_type == 'news']")
 	const press = await loadData("*[_type == 'press']")
-	const page = await loadData("*[_id == 'press-and-news'][0]")
+	const page = await loadData("*[_id == 'press-and-news']{..., internalLinks[]->{...}}[0]")
 	const response = {
 		news: news,
 		press: press,

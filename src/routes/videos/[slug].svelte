@@ -23,7 +23,6 @@
 
 	// __ IMPORTS
 	import { onDestroy } from 'svelte';
-	import { renderBlockText, urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
 	import has from 'lodash/has.js';
 	import { longFormatDate } from '$lib/global';
@@ -82,7 +81,10 @@
 			</div>
 		{/if}
 
-		<SeeAlso />
+		<!-- SEE ALSO -->
+		{#if video.internalLinks || video.externalLinks}
+			<SeeAlso externalLinks={video.externalLinks} internalLinks={video.internalLinks} />
+		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->
