@@ -157,7 +157,7 @@
 
 	ul {
 		list-style: none;
-		margin-left: 0;
+		margin-left: 10px;
 		padding-left: 0;
 
 		li {

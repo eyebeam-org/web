@@ -7,6 +7,7 @@
 
 	// __ IMPORTS
 	import has from 'lodash/has.js';
+	import slugify from 'slugify';
 
 	// __ BLOCKS
 	import Blocks from '$lib/blocks/blocks.svelte';
@@ -17,7 +18,13 @@
 
 <div class="columns">
 	{#if b.title}
-		<h2>{b.title}</h2>
+		<h2
+			id={slugify(b.title, {
+				lower: true
+			})}
+		>
+			{b.title}
+		</h2>
 	{/if}
 	{#if has(b, 'columnContent.content')}
 		<div class="inner">

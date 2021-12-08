@@ -27,6 +27,7 @@
 	import { urlFor } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import get from 'lodash/get.js';
+	import { parseToc } from '$lib/global.js';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -39,7 +40,9 @@
 
 	// __ PROPS
 	export let project;
-	console.log('project', project);
+
+	let toc = parseToc(get(project, 'content.content'));
+	toc.push({ title: 'People', link: '#people' });
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(project, 'slug.current', ''), title: project.title });
@@ -54,7 +57,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar location={project.location} title={project.title} />
+<Sidebar {toc} title={project.title} />
 
 <div class="main-content">
 	<div class="inner">
@@ -88,7 +91,7 @@
 
 		<!-- PEOPLE -->
 		{#if project.people && project.people.length > 0}
-			<div class="people">
+			<div class="people" id="people">
 				<h2>People</h2>
 				<div class="people-inner">
 					{#each project.people as person}

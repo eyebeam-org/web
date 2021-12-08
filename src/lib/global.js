@@ -1,3 +1,5 @@
+import slugify from 'slugify';
+
 // ____
 // ____ Name maps
 // ___
@@ -51,7 +53,7 @@ export const roleToRoleName = {
 }
 
 // ____
-// ____ Name maps
+// ____ Date
 // ___
 import { format, parseISO, formatDistanceToNow, isFuture } from "date-fns"
 
@@ -104,5 +106,38 @@ export const getCurrentYear = () => {
     return Number(format(new Date(), "yyyy"))
 }
 
+// ____
+// ____ ***
+// ___
 
+
+export const parseToc = (text) => {
+    console.log(text);
+    let headers = text.filter((b) => b.style == 'h2' || b._type == 'columnsBlock' || b._type == 'faq');
+    console.log(headers);
+
+    let tempToc = headers.map((b) => {
+        if (b._type == 'columnsBlock' || b._type == 'faq') {
+            return {
+                title: b.title,
+                link:
+                    '#' +
+                    slugify(b.title, {
+                        lower: true
+                    })
+            };
+        } else {
+            return {
+                title: b.children[0].text,
+                link:
+                    '#' +
+                    slugify(b.children[0].text, {
+                        lower: true
+                    })
+            };
+        }
+    });
+
+    return tempToc;
+};
 

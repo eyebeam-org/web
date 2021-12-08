@@ -6,7 +6,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import has from 'lodash/has.js';
+	import slugify from 'slugify';
 
 	// __ COMPONENTS
 	import QA from '$lib/qa/qa.svelte';
@@ -16,7 +16,13 @@
 </script>
 
 <div class="faq">
-	<h2>{b.title}</h2>
+	<h2
+		id={slugify(b.title, {
+			lower: true
+		})}
+	>
+		{b.title}
+	</h2>
 	<div class="faq-inner">
 		{#each b.questionAnswer as item}
 			<QA {item} />

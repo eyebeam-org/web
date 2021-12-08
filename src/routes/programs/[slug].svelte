@@ -25,7 +25,7 @@
 	import { onDestroy } from 'svelte';
 	import get from 'lodash/get.js';
 	import has from 'lodash/has.js';
-	import {} from '$lib/global';
+	import { parseToc } from '$lib/global.js';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -38,6 +38,8 @@
 
 	// __ PROPS
 	export let program;
+
+	const toc = parseToc(get(program, 'content.content'));
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(program, 'slug.current', ''), title: program.title });
@@ -52,7 +54,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar />
+<Sidebar title={program.title} {toc} />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">

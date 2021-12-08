@@ -23,10 +23,10 @@
 
 	// __ IMPORTS
 	import { onDestroy } from 'svelte';
-	import { renderBlockText, urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
 	import has from 'lodash/has.js';
 	import { longFormatDate } from '$lib/global';
+	import { parseToc } from '$lib/global.js';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -40,6 +40,7 @@
 
 	// __ PROPS
 	export let note;
+	let toc = parseToc(get(note, 'content.content'));
 
 	// __ Set currentPage
 	currentPage.set({ slug: get(note, 'slug.current', ''), title: note.title });
@@ -54,7 +55,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title={note.title} />
+<Sidebar title={note.title} {toc} />
 
 <div class="main-content">
 	<div class="inner">
