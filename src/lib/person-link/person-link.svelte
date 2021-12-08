@@ -9,6 +9,7 @@
 	import { createPopper } from '@popperjs/core';
 	import { onMount } from 'svelte';
 	import { loadData, renderBlockText, urlFor } from '$lib/sanity.js';
+	import { roleToRoleName } from '$lib/global.js';
 
 	// __ PROPS
 	export let person = false;
@@ -55,7 +56,7 @@
 			<!-- BADGES -->
 			<div class="badges">
 				{#if person.role}
-					<div class="badge">{person.role}</div>
+					<div class="badge">{roleToRoleName[person.role]}</div>
 				{/if}
 				{#if person.groupTags}
 					{#each person.groupTags as tag}

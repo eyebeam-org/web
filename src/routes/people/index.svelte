@@ -24,6 +24,8 @@
 	// __ IMPORTS
 	import groupBy from 'lodash/groupBy.js';
 
+	import { getCurrentYear } from '$lib/global.js';
+
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
@@ -34,9 +36,11 @@
 
 	// __ PROPS
 	export let people;
+	console.log('people', people);
 
 	// __ VARIABLES
 	const START_YEAR = 1997;
+	const CURRENT_YEAR = getCurrentYear();
 	const ALPHABET = [
 		'A',
 		'B',
@@ -65,13 +69,59 @@
 		'Y',
 		'Z'
 	];
-	const groupedPeople = groupBy(people, (p) => p.lastName.charAt(0));
+	const FILTER_OPTIONS = [
+		{
+			label: 'Everyone',
+			value: 'everyone'
+		},
+		{
+			label: 'Artists',
+			value: 'artist'
+		},
+		{
+			label: 'Staff',
+			value: 'staff'
+		},
+		{
+			label: 'Board',
+			value: 'board'
+		},
+		{
+			label: 'Advisory Committee',
+			value: 'advisoryCommittee'
+		}
+	];
+	let YEAR_LIST = [];
+
+	for (let i = START_YEAR; i <= CURRENT_YEAR; i++) {
+		YEAR_LIST.push(i);
+	}
+	console.log(YEAR_LIST);
+
+	let filteredPeople = [];
+	let groupedPeopleAlpha = {};
+	let groupedPeopleChrono = {};
+
+	console.log(getCurrentYear());
+
+	let activeFilter = 'everyone';
+	let order = 'alphabetical';
 
 	const scrollToSection = (alpha) => {
 		const el = document.querySelector('#' + alpha);
 		el.scrollIntoView({ behavior: 'smooth' });
 		history.replaceState(null, null, '#' + alpha);
 	};
+
+	$: {
+		if (activeFilter === 'everyone') {
+			filteredPeople = people;
+		} else {
+			filteredPeople = people.filter((p) => p.role === activeFilter);
+		}
+		groupedPeopleAlpha = groupBy(filteredPeople, (p) => p.lastName.charAt(0));
+		groupedPeopleChrono = groupBy(filteredPeople, (p) => p.firstEngagement);
+	}
 </script>
 
 <svelte:head>
@@ -84,19 +134,36 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
-		<!-- ALPHABETICAL NAVIGATION -->
-		<div class="alphabetical-navigation">
-			{#each ALPHABET as alpha}
-				<div
-					class="item"
-					on:click={() => {
-						scrollToSection(alpha);
-					}}
-				>
-					{alpha}
-				</div>
-			{/each}
-		</div>
+		{#if order == 'alphabetical'}
+			<!-- ALPHABETICAL NAVIGATION -->
+			<div class="alphabetical-navigation">
+				{#each ALPHABET as alpha}
+					<div
+						class="item"
+						on:click={() => {
+							scrollToSection(alpha);
+						}}
+					>
+						{alpha}
+					</div>
+				{/each}
+			</div>
+		{/if}
+		{#if order == 'chronological'}
+			<!-- CHRONOLOGICAL NAVIGATION -->
+			<div class="alphabetical-navigation">
+				{#each YEAR_LIST as year}
+					<div
+						class="item"
+						on:click={() => {
+							scrollToSection('year' + year);
+						}}
+					>
+						{year}
+					</div>
+				{/each}
+			</div>
+		{/if}
 
 		<!-- HEADER -->
 		<div class="header">
@@ -105,38 +172,74 @@
 			<div class="order">
 				<div class="order-header">Order by</div>
 				<div class="order-options">
-					<div class="order-option alphabetical active">
+					<div
+						class="order-option alphabetical"
+						class:active={order === 'alphabetical'}
+						on:click={() => {
+							order = 'alphabetical';
+						}}
+					>
 						A-Z <span class="icon"><ArrowDown /></span>
 					</div>
-					<div class="order-option chronological">Year <span class="icon"><ArrowDown /></span></div>
+					<div
+						class="order-option chronological"
+						class:active={order === 'chronological'}
+						on:click={() => {
+							order = 'chronological';
+						}}
+					>
+						Year <span class="icon"><ArrowDown /></span>
+					</div>
 				</div>
 			</div>
 			<!-- FILTER -->
 			<div class="filter">
 				<div class="filter-header">Show</div>
 				<div class="filter-options">
-					<div class="filter-option active">Everyone</div>
-					<div class="filter-option">Artist</div>
-					<div class="filter-option">Staff</div>
-					<div class="filter-option">Board</div>
-					<div class="filter-option">Advisory Committee</div>
+					{#each FILTER_OPTIONS as option}
+						<div
+							class="filter-option"
+							class:active={activeFilter === option.value}
+							on:click={() => {
+								activeFilter = option.value;
+							}}
+						>
+							{option.label}
+						</div>
+					{/each}
 				</div>
 			</div>
 		</div>
 
 		<!-- LIST -->
-		{#each ALPHABET as alpha}
-			<div class="sub-section" id={alpha}>
-				<h2 class="supersized">{alpha}</h2>
-				{#if groupedPeople[alpha]}
-					<ul>
-						{#each groupedPeople[alpha] as person}
-							<li><PersonLink {person} /></li>
-						{/each}
-					</ul>
-				{/if}
-			</div>
-		{/each}
+		{#if order == 'alphabetical'}
+			{#each ALPHABET as alpha}
+				<div class="sub-section" id={alpha}>
+					<h2 class="supersized">{alpha}</h2>
+					{#if groupedPeopleAlpha[alpha]}
+						<ul>
+							{#each groupedPeopleAlpha[alpha] as person}
+								<li><PersonLink {person} /></li>
+							{/each}
+						</ul>
+					{/if}
+				</div>
+			{/each}
+		{/if}
+		{#if order == 'chronological'}
+			{#each YEAR_LIST as year}
+				<div class="sub-section" id={'year' + year}>
+					<h2 class="supersized">{year}</h2>
+					{#if groupedPeopleChrono[year]}
+						<ul>
+							{#each groupedPeopleChrono[year] as person}
+								<li><PersonLink {person} /></li>
+							{/each}
+						</ul>
+					{/if}
+				</div>
+			{/each}
+		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->

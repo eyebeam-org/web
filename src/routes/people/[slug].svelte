@@ -26,7 +26,7 @@
 	import { loadData, urlFor } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import get from 'lodash/get.js';
-	import { postTypeToName, postTypeToCategory } from '$lib/global.js';
+	import { postTypeToName, postTypeToCategory, roleToRoleName } from '$lib/global.js';
 
 	// __ GRAPHICS
 	import ExternalLink from '$lib/graphics/external-link.svelte';
@@ -73,7 +73,7 @@
 				<!-- BADGES -->
 				<div class="badges">
 					{#if person.role}
-						<div class="badge">{person.role}</div>
+						<div class="badge">{roleToRoleName[person.role]}</div>
 					{/if}
 					{#if person.groupTags}
 						{#each person.groupTags as tag}

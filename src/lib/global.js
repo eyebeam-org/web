@@ -43,6 +43,13 @@ export const categoryToName = {
     news: 'News'
 }
 
+export const roleToRoleName = {
+    artist: 'Artist',
+    staff: 'Staff',
+    board: 'Board',
+    advisoryCommittee: 'Advisory Committee'
+}
+
 // ____
 // ____ Name maps
 // ___
@@ -91,6 +98,10 @@ export const distanceToDate = date => {
     } catch (err) {
         console.dir(err)
     }
+}
+
+export const getCurrentYear = () => {
+    return Number(format(new Date(), "yyyy"))
 }
 
 
