@@ -33,7 +33,6 @@
 
 	// __ PROPS
 	export let everything;
-	console.log(everything);
 
 	const FILTERS = [
 		{
