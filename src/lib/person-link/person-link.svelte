@@ -8,8 +8,9 @@
 	//  __ IMPORTS
 	import { createPopper } from '@popperjs/core';
 	import { onMount } from 'svelte';
-	import { loadData, renderBlockText, urlFor } from '$lib/sanity.js';
+	import { loadData, urlFor } from '$lib/sanity.js';
 	import { roleToRoleName } from '$lib/global.js';
+	import get from 'lodash/get.js';
 
 	// __ PROPS
 	export let person = false;
@@ -43,7 +44,7 @@
 </script>
 
 {#if person}
-	<a href={'/people/' + person.slug.current} bind:this={linkEl} sveltekit:prefetch>
+	<a href={'/people/' + get(person, 'slug.current')} bind:this={linkEl} sveltekit:prefetch>
 		{@html overrideText ? renderNewLines(overrideText) : person.title}
 	</a>
 

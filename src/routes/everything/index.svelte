@@ -22,10 +22,10 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText } from '$lib/sanity.js';
 	import { longFormatDate } from '$lib/global.js';
-	import { postTypeToName } from '$lib/global.js';
+	import { postTypeToName, postTypeToCategory } from '$lib/global.js';
 	import has from 'lodash/has.js';
+	import get from 'lodash/get.js';
 
 	// __ COMPONENTS
 	import PersonLink from '$lib/person-link/person-link.svelte';
@@ -33,12 +33,52 @@
 
 	// __ PROPS
 	export let everything;
+	console.log(everything);
 
-	const FILTERS = ['Everything', 'Programs', 'Events', 'Projects', 'Press', 'Notes', 'Videos'];
-	let activeFilter = 'Everything';
-	let filteredPosts = everything.posts;
+	const FILTERS = [
+		{
+			label: 'Everything',
+			value: 'everything'
+		},
+		{
+			label: 'Programs',
+			value: 'program'
+		},
+		{
+			label: 'Events',
+			value: 'event'
+		},
+		{
+			label: 'Notes',
+			value: 'note'
+		},
+		{
+			label: 'Projects',
+			value: 'project'
+		},
+		{
+			label: 'Videos',
+			value: 'videoPost'
+		},
+		{
+			label: 'Press',
+			value: 'press'
+		},
+		{
+			label: 'News',
+			value: 'news'
+		}
+	];
+	let activeFilter = 'everything';
+	let filteredPosts = [];
 
-	$: console.log(activeFilter);
+	$: {
+		if (activeFilter === 'everything') {
+			filteredPosts = everything.posts;
+		} else {
+			filteredPosts = everything.posts.filter((p) => p._type === activeFilter);
+		}
+	}
 </script>
 
 <svelte:head>
@@ -60,27 +100,38 @@
 				{#each FILTERS as filter}
 					<div
 						class="filter"
-						class:active={activeFilter == filter}
+						class:active={activeFilter == filter.value}
 						on:click={() => {
-							activeFilter = filter;
+							activeFilter = filter.value;
 						}}
 					>
-						{filter}
+						{filter.label}
 					</div>
 				{/each}
 			</div>
 		</div>
 		{#each filteredPosts as post}
-			<a href="" class="single-post">
-				<div class="type">{postTypeToName[post._type]}</div>
-				<!-- TEXT -->
+			<a
+				href={'/' + postTypeToCategory[post._type] + '/' + get(post, 'slug.current')}
+				class="single-post"
+			>
+				<div class="top">
+					<!-- TYPE -->
+					<div class="type">{postTypeToName[post._type]}</div>
+					<!-- DATE -->
+					<div class="date">{longFormatDate(post._createdAt)}</div>
+				</div>
+				<!-- TITLE -->
 				<div class="title">{post.title}</div>
-				<!-- <div class='text'>{@html renderBlockText(post.content.content)}</div> -->
-				<!-- DATE -->
-				<!-- {#if post.date}
-					<div class='date'>{longFormatDate(post.date)}</div>
-				{/if} -->
-				<!-- PERSON -->
+				<!-- PEOPLE -->
+				{#if post.people && post.people.length > 0}
+					<div class="people">
+						Including
+						{#each post.people as person}
+							<PersonLink {person} />
+						{/each}
+					</div>
+				{/if}
 				<!-- {#if post.person}
 					<div class='person'><PersonLink person={post.person}/></div>
 				{/if} -->
@@ -117,6 +168,8 @@
 
 				.filters {
 					margin-top: 80px;
+					display: inline-block;
+					margin-bottom: 10px;
 
 					.filter {
 						padding: $button-padding;
@@ -145,14 +198,40 @@
 				border-bottom: $border-style;
 				text-decoration: none;
 				display: block;
-
 				font-size: $font-size-small;
 
-				.text {
+				&:last-child {
+					border-bottom: unset;
 				}
 
-				.date {
-					margin-top: 5px;
+				&:hover {
+					background: $grey;
+					cursor: pointer;
+				}
+
+				.top {
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
+
+					.type {
+						font-size: $font-size-extra-small;
+						text-transform: uppercase;
+						letter-spacing: 0.5px;
+					}
+
+					.date {
+						float: right;
+						margin-top: 5px;
+					}
+				}
+
+				.title {
+					margin-bottom: 5px;
+				}
+
+				.people {
+					font-style: italic;
 				}
 			}
 		}

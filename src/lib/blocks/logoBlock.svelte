@@ -35,6 +35,7 @@
 		width: calc(100% - 40px);
 		// padding: 15px;
 		border-bottom: $border-style;
+		font-size: $font-size-body;
 
 		.top-row {
 			display: flex;
