@@ -5,6 +5,8 @@
 	//
 	// # # # # # # # # # # # # #
 
+	import slugify from 'slugify';
+
 	// __ COMPONENTS
 	import PersonLink from '$lib/person-link/person-link.svelte';
 
@@ -19,7 +21,11 @@
 
 {#if b.children && b.children.length > 0}
 	{#if b.style == 'h2'}
-		<h2>
+		<h2
+			id={slugify(b.children[0].text, {
+				lower: true
+			})}
+		>
 			{#each b.children as c}
 				{#if !c.marks || c.marks.length === 0}
 					{c.text}

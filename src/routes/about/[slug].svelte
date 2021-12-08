@@ -26,6 +26,7 @@
 	import { renderBlockText, urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
 	import has from 'lodash/has.js';
+	import slugify from 'slugify';
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
@@ -42,6 +43,27 @@
 	// __ Set currentPage
 	currentPage.set({ slug: get(page, 'slug.current', ''), title: page.title });
 
+	const parseToc = (text) => {
+		console.log(text);
+		let h2 = text.filter((t) => t.style == 'h2');
+		console.log(h2);
+
+		let tempToc = h2.map((b) => {
+			return {
+				title: b.children[0].text,
+				link:
+					'#' +
+					slugify(b.children[0].text, {
+						lower: true
+					})
+			};
+		});
+
+		return tempToc;
+	};
+
+	let toc = parseToc(get(page, 'content.content'));
+
 	onDestroy(() => {
 		currentPage.set(null);
 	});
@@ -52,7 +74,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar title={page.title} />
+<Sidebar {toc} title={page.title} />
 
 <!-- SIDEBAR -->
 
