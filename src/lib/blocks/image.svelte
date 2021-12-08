@@ -41,13 +41,12 @@
 		margin-right: 20px;
 		float: left;
 		border: $border-style;
-
-		&.left {
-			float: left;
-		}
+		float: left;
+		max-width: 50%;
 
 		&.right {
 			float: right;
+			max-width: 50%;
 		}
 
 		&.full {
@@ -56,6 +55,8 @@
 			margin-right: 0;
 			margin-top: 0;
 			border: unset;
+			max-width: unset;
+			width: 100%;
 
 			img {
 				display: block;
