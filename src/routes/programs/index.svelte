@@ -25,6 +25,7 @@
 	import { renderBlockText } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import { longFormatDate } from '$lib/global';
+	import get from 'lodash/get.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -32,6 +33,10 @@
 
 	// __ PROPS
 	export let programs;
+
+	const toc = programs.map((p) => {
+		return { title: p.title, link: '/programs/' + get(p, 'slug.current', '') };
+	});
 </script>
 
 <svelte:head>
@@ -39,7 +44,7 @@
 </svelte:head>
 
 <!-- SIDEBAR -->
-<Sidebar toc={programs} title="Programs" />
+<Sidebar {toc} title="Programs" />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
@@ -48,16 +53,13 @@
 			<!-- TITLE -->
 			<h1>Programs</h1>
 			<!-- INTRODUCTION -->
-			<!-- {#if has(aboutMap['what-is-eyebeam'], 'introduction.content')} -->
 			<div class="description">
 				<p>
 					Programs are the primary way Eyebeam enacts it’s mission. Lorem ipsum dolor sit amet,
 					consectetur adipiscing elit. Curabitur tempor nulla nulla, sit amet efficitur justo
 					vestibulum nec. Donec eget condimentum tortor
 				</p>
-				<!-- {@html renderBlockText(aboutMap['what-is-eyebeam'].introduction.content)} -->
 			</div>
-			<!-- {/if} -->
 		</div>
 		<!-- LIST PROGRAMS -->
 		{#each programs as program}

@@ -73,11 +73,11 @@
 				<!-- BADGES -->
 				<div class="badges">
 					{#if person.role}
-						<div class="badge">{roleToRoleName[person.role]}</div>
+						<a href="/people" class="badge">{roleToRoleName[person.role]}</a>
 					{/if}
 					{#if person.groupTags}
 						{#each person.groupTags as tag}
-							<div class="badge">{tag.label}</div>
+							<a href="/people" class="badge">{tag.label}</a>
 						{/each}
 					{/if}
 				</div>
@@ -294,7 +294,9 @@
 	.badges {
 		margin-top: $small-margin;
 		margin-bottom: $small-margin;
+
 		.badge {
+			text-decoration: none;
 			padding: $button-padding;
 			background: $black;
 			color: $white;

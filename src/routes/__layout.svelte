@@ -154,4 +154,19 @@
 			margin-top: 0 !important;
 		}
 	}
+
+	ul {
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+
+		li {
+			padding-left: 1em;
+			text-indent: -1em;
+			&:before {
+				content: '•';
+				padding-right: 5px;
+			}
+		}
+	}
 </style>
