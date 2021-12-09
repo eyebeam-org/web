@@ -5,48 +5,56 @@
 	//
 	// # # # # # # # # # # # # #
 
+	import has from 'lodash/has.js';
+
 	// __ STORES
 	import { activeCity } from '$lib/stores.js';
 
 	const API_KEY = 'a9b67d6b5ed093b28c410750ef6a70cd';
 
-	let newYorkTime;
+	let currentTime;
 	let currentWeather = {
-		nyc: {
-			description: '',
-			temperature: ''
-		}
+		description: '',
+		temperature: 0
 	};
 
 	const updateTime = () => {
 		let d = new Date();
-		newYorkTime = new Intl.DateTimeFormat('en-US', {
-			timeZone: 'America/New_York',
-			hour: 'numeric',
-			minute: 'numeric'
-		}).format(d);
+		if ($activeCity.timezone) {
+			currentTime = new Intl.DateTimeFormat('en-US', {
+				timeZone: $activeCity.timezone,
+				hour: 'numeric',
+				minute: 'numeric'
+			}).format(d);
+		}
 	};
 
 	setInterval(updateTime, 10000);
 	updateTime();
 
-	const updateWeather = () => {
+	const updateWeather = (city, country) => {
+		console.log(city + ' ' + country);
 		// NEW YORK
-		fetch('https://api.openweathermap.org/data/2.5/weather?q=new york&appid=' + API_KEY)
+		fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + API_KEY)
 			.then((response) => response.json())
 			.then((data) => {
-				// console.log(data)
-				currentWeather['nyc'].description = data.weather[0].description;
-				currentWeather['nyc'].temperature = Math.round(((data.main.temp - 273.15) * 9) / 5 + 32);
+				console.log(data);
+				if (has(data, 'weather[0].description')) {
+					currentWeather.description = data.weather[0].description;
+					currentWeather.temperature = Math.round(((data.main.temp - 273.15) * 9) / 5 + 32);
+				}
 			});
 	};
 
-	updateWeather();
+	$: {
+		updateWeather($activeCity.name);
+		updateTime();
+	}
 </script>
 
 <div class="clock">
 	{#if $activeCity.name}
-		<span>It’s {newYorkTime} and {currentWeather['nyc'].description} in {$activeCity.name}</span>
+		<span>It’s {currentTime} and {currentWeather.description} in {$activeCity.name}</span>
 	{/if}
 </div>
 
