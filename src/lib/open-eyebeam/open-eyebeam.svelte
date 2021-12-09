@@ -9,21 +9,31 @@
 	import TriangleRight from '$lib/graphics/triangle-right.svelte';
 </script>
 
-<div class="link"><span class="arrow"><TriangleRight /></span> open.eyebeam.org</div>
+<a href="https://open-eyebeam.netlify.app" class="open-eyebeam">
+	<div class="link"><span class="arrow"><TriangleRight /></span> open.eyebeam.org</div>
+</a>
 
 <style lang="scss">
 	@import '../../variables.scss';
 
-	.link {
-		position: absolute;
-		bottom: $small-margin;
-		left: $extra-small-margin;
-		font-size: $font-size-extra-small;
+	.open-eyebeam {
+		padding: $extra-small-margin;
+		width: 100%;
+		height: 100%;
+		text-decoration: none;
+		display: block;
 
-		.arrow {
-			margin-right: 6px;
-			position: relative;
-			top: 2px;
+		.link {
+			position: absolute;
+			bottom: $small-margin;
+			left: $extra-small-margin;
+			font-size: $font-size-extra-small;
+
+			.arrow {
+				margin-right: 6px;
+				position: relative;
+				top: 2px;
+			}
 		}
 	}
 </style>

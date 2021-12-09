@@ -11,7 +11,6 @@
 
 	// __ COMPONENTS
 	import Blocks from '$lib/blocks/blocks.svelte';
-	import { backIn } from 'svelte/easing';
 
 	// *** PROPS
 	export let b = {};

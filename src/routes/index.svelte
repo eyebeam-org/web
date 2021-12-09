@@ -40,12 +40,14 @@
 	import OpenEyebeam from '$lib/open-eyebeam/open-eyebeam.svelte';
 	import Search from '$lib/search/search.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
+	import Sticker from '$lib/sticker/sticker.svelte';
 
 	let searchActive = false;
 	const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
 	const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
 	const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
 
+	// __ PROPS
 	export let posts = {};
 
 	const toggleSearch = () => {
@@ -60,9 +62,13 @@
 <div class="homepage-menu">
 	<div class="section one">
 		<div class="column one">
-			<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam">
-				<OpenEyebeam />
-			</a>
+			<div class="tile open-eyebeam">
+				{#if get(posts, 'stickers.stickerLeft.enabled', false)}
+					<Sticker sticker={posts.stickers.stickerLeft} />
+				{:else}
+					<OpenEyebeam />
+				{/if}
+			</div>
 			<div class="tile logo-and-statement">
 				<div class="logo"><Logo /></div>
 				<Statements />
@@ -93,11 +99,24 @@
 		<div class="tile search" on:click={toggleSearch}><SearchIcon /> Search this website</div>
 	</div>
 	<div class="column three">
-		<a href="/eyebeam-is-changing" class="tile change" sveltekit:prefetch>
-			Eyebeam is changing...
-			<div class="half-beam"><HalfBeam /></div>
-		</a>
-		<a href="/about/support-eyebeam" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
+		{#if get(posts, 'stickers.stickerRight.enabled', false)}
+			{#if get(posts, 'stickers.stickerRight.fullWidth', false) == false}
+				<div class="tile half-sticker">
+					<Sticker sticker={posts.stickers.stickerRight} small={true} />
+				</div>
+				<a href="/about/support-eyebeam" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
+			{:else}
+				<div class="tile full-sticker">
+					<Sticker sticker={posts.stickers.stickerRight} small={true} />
+				</div>
+			{/if}
+		{:else}
+			<a href="/eyebeam-is-changing" class="tile change" sveltekit:prefetch>
+				Eyebeam is changing...
+				<div class="half-beam"><HalfBeam /></div>
+			</a>
+			<a href="/about/support-eyebeam" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
+		{/if}
 		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
 			Newsletter
 			<div class="icon"><Newsletter /></div>
@@ -226,16 +245,6 @@
 		}
 	}
 
-	.open-eyebeam {
-		height: $two-third;
-		background: $grey;
-		width: 100%;
-		border-right: $border-style;
-		border-bottom: $border-style;
-		float: left;
-		position: relative;
-	}
-
 	.logo-and-statement {
 		height: $one-third;
 		// background: purple;
@@ -355,6 +364,40 @@
 		padding: $extra-small-margin;
 		overflow: hidden;
 		user-select: none;
+	}
+
+	.open-eyebeam {
+		height: $two-third;
+		background: $grey;
+		width: 100%;
+		border-right: $border-style;
+		border-bottom: $border-style;
+		float: left;
+		position: relative;
+		padding: 0;
+	}
+
+	.half-sticker {
+		padding: 0;
+		height: calc(40% - 100px);
+		width: 50%;
+		float: left;
+		border-bottom: $border-style;
+		border-right: $border-style;
+		@include screen-size('small') {
+			height: 170px;
+		}
+	}
+
+	.full-sticker {
+		padding: 0;
+		height: calc(40% - 100px);
+		width: 100%;
+		float: left;
+		border-bottom: $border-style;
+		@include screen-size('small') {
+			height: 170px;
+		}
 	}
 
 	a {
