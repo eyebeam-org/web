@@ -36,7 +36,7 @@
 	let emailAddress = '';
 	const subscribe = () => {
 		console.log(emailAddress);
-		window.alert('todo: subscribe');
+		// window.alert('todo: subscribe');
 	};
 </script>
 
@@ -60,10 +60,35 @@
 			</div>
 		{/if}
 
+		<!-- <form
+			action="https://eyebeam.us4.list-manage.com/subscribe?u=c72c271895f3f76b36105229c"
+			method="get"
+			id="subscribe"
+			class=""
+		>
+			<p>Enter your e-mail to stay up to date on all of our programs</p>
+			<div class="response-loading">Please wait...</div>
+			<div class="response-success">Thanks for subscribing!</div>
+			<div class="response-error">That didn’t work for some reason.</div>
+			<input type="hidden" name="u" value="c72c271895f3f76b36105229c" />
+			<input type="hidden" name="id" value="bb4e74c232" />
+			<label for="MERGE1"><input type="text" name="MERGE1" placeholder="First Name" /></label>
+			<label for="MERGE2"><input type="text" name="MERGE2" placeholder="Last Name" /></label>
+			<label for="MERGE0"><input type="email" name="MERGE0" placeholder="Email" /></label>
+			<input type="submit" value="Subscribe" />
+		</form> -->
+
 		<!-- FORM -->
-		<form>
+		<form
+			action="https://eyebeam.us4.list-manage.com/subscribe?u=c72c271895f3f76b36105229c"
+			method="get"
+			id="subscribe"
+			class=""
+		>
+			<input type="hidden" name="u" value="c72c271895f3f76b36105229c" />
+			<input type="hidden" name="id" value="bb4e74c232" />
 			<label for="email">Your email</label>
-			<input type="email" class="email" bind:value={emailAddress} />
+			<input type="email" name="MERGE0" class="email" bind:value={emailAddress} />
 			<input type="submit" class="subscribe" value="SUBSCRIBE" on:click={subscribe} />
 		</form>
 	</div>
