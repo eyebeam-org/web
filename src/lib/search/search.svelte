@@ -22,7 +22,7 @@
 	let inputEl = {};
 	let searchResults = [];
 	let searchTerm = '';
-	$: console.log(searchTerm);
+	// $: console.log(searchTerm);
 
 	const close = () => {
 		dispatch('close');
@@ -90,6 +90,13 @@
 		font-size: $font-size-h2;
 		padding-left: 60px;
 		padding-right: 60px;
+		overflow-y: auto;
+
+		@include screen-size('small') {
+			padding-left: $small-margin;
+			padding-right: $small-margin;
+			font-size: $font-size-medium;
+		}
 
 		.close {
 			position: absolute;
@@ -105,10 +112,19 @@
 			.text {
 				margin-right: 15px;
 			}
+
+			@include screen-size('small') {
+				top: 20px;
+				right: 20px;
+			}
 		}
 
 		.input-container {
 			margin-top: 110px;
+
+			@include screen-size('small') {
+				margin-top: 80px;
+			}
 
 			input {
 				margin-top: 20px;
@@ -121,6 +137,11 @@
 				padding-bottom: 15px;
 				font-family: $SERIF_STACK;
 				height: 100px;
+
+				@include screen-size('small') {
+					font-size: $font-size-medium;
+					height: 80px;
+				}
 			}
 		}
 

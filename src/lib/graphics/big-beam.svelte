@@ -1,4 +1,15 @@
+<script>
+	// # # # # # # # # # # # # #
+	//
+	//  BIG BEAM
+	//
+	// # # # # # # # # # # # # #
+
+	export let flipped = false;
+</script>
+
 <svg
+	class:flipped
 	version="1.1"
 	id="Layer_1"
 	xmlns="http://www.w3.org/2000/svg"
@@ -28,6 +39,10 @@
 			stroke: $black;
 			stroke-width: 1px;
 			stroke-miterlimit: 10;
+		}
+
+		&.flipped {
+			transform: rotate(180deg);
 		}
 	}
 </style>
