@@ -36,6 +36,7 @@
     "get-video-id": "^3.4.3",
     "lodash": "^4.17.21",
     "node-sass": "^7.0.0",
-    "slugify": "^1.6.4"
+    "slugify": "^1.6.4",
+    "stream": "^0.0.2"
   }
 }
