@@ -8,8 +8,9 @@
 	// __ IMPORT
 	import Header from '$lib/header/header.svelte';
 	import Footer from '$lib/footer/footer.svelte';
+	import PhoneHeader from '$lib/phone/header/header.svelte';
+	import PhoneFooter from '$lib/phone/footer/footer.svelte';
 	import Loading from '$lib/loading/loading.svelte';
-	import MediaQuery from 'svelte-media-query';
 
 	// __ STORES
 	import { page } from '$app/stores';
@@ -27,13 +28,9 @@
 {/if} -->
 
 <!-- HEADER -->
-<MediaQuery query="(max-width: 900px)" let:matches>
-	{#if matches}
-		PHONE HEADER
-	{:else}
-		<Header />
-	{/if}
-</MediaQuery>
+<Header />
+<!-- PHONE HEADER -->
+<PhoneHeader />
 
 <!-- MAIN -->
 <main id="main" class:open={$trayOpen}>
@@ -41,13 +38,11 @@
 </main>
 
 <!-- FOOTER -->
-<MediaQuery query="(max-width: 900px)" let:matches>
-	{#if matches}
-		PHONE FOOTER
-	{:else if $page.path !== '/'}
-		<Footer />
-	{/if}
-</MediaQuery>
+{#if $page.path !== '/'}
+	<Footer />
+{/if}
+<!-- PHONE FOOTER -->
+<PhoneFooter />
 
 <style lang="scss" global>
 	@import '../variables.scss';
@@ -87,6 +82,7 @@
 		@include screen-size('small') {
 			margin-left: 15px;
 			margin-right: 15px;
+			padding-top: 0;
 		}
 	}
 

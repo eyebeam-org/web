@@ -45,14 +45,14 @@
 
 		<div class="column second">
 			<!-- BUTTON -->
-			<a href={b.url} class="apply-now">{b.shortText}</a>
+			<a href={b.url} target="_blank" class="apply-now">{b.shortText}</a>
 		</div>
 	</div>
 {:else}
 	<!-- SMALL -->
 	<div class="application-button-small">
 		<div class="application-button-inner">
-			<a href={b.url} class="button">
+			<a href={b.url} target="_blank" class="button">
 				{#if b.applicationEndDate}
 					<div class="circle" />
 				{/if}

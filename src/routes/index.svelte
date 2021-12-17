@@ -42,7 +42,6 @@
 	import PersonLink from '$lib/person-link/person-link.svelte';
 	import Sticker from '$lib/sticker/sticker.svelte';
 
-	let searchActive = false;
 	const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
 	const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
 	const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
@@ -50,6 +49,7 @@
 	// __ PROPS
 	export let posts = {};
 
+	let searchActive = false;
 	const toggleSearch = () => {
 		searchActive = !searchActive;
 	};
@@ -173,6 +173,7 @@
 		@include screen-size('small') {
 			height: auto;
 			display: inline-block;
+			margin-bottom: unset;
 		}
 	}
 
@@ -240,8 +241,9 @@
 		}
 
 		@include screen-size('small') {
-			border-right: unset;
-			border-bottom: $border-style;
+			// border-right: unset;
+			// border-bottom: $border-style;
+			display: none;
 		}
 	}
 
@@ -268,6 +270,7 @@
 
 		@include screen-size('small') {
 			border-right: unset;
+			padding-top: $small-margin;
 		}
 	}
 
@@ -336,6 +339,7 @@
 		}
 
 		@include screen-size('small') {
+			border-top: $border-style;
 			height: 170px;
 		}
 	}
@@ -348,6 +352,7 @@
 		border-bottom: $border-style;
 
 		@include screen-size('small') {
+			border-top: $border-style;
 			height: 170px;
 		}
 	}
@@ -364,6 +369,10 @@
 		padding: $extra-small-margin;
 		overflow: hidden;
 		user-select: none;
+
+		@include screen-size('small') {
+			font-size: $font-size-body;
+		}
 	}
 
 	.open-eyebeam {
@@ -422,12 +431,24 @@
 
 		@include screen-size('small') {
 			width: 100%;
+			padding-top: 8px;
+			padding-bottom: 8px;
+			font-size: $font-size-small;
+		}
+
+		&:last-child {
+			@include screen-size('small') {
+				padding-bottom: $small-margin;
+			}
 		}
 
 		&.header {
 			// font-variant: small-caps;
 			font-size: $font-size-extra-small;
 			letter-spacing: 0.5px;
+			@include screen-size('small') {
+				padding-top: $small-margin;
+			}
 		}
 
 		.time {
@@ -442,6 +463,10 @@
 		.application-container {
 			display: flex;
 			align-items: center;
+
+			@include screen-size('small') {
+				display: none;
+			}
 
 			.circle {
 				width: 20px;

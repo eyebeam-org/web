@@ -112,32 +112,33 @@ export const getCurrentYear = () => {
 
 
 export const parseToc = (text) => {
-    console.log(text);
-    let headers = text.filter((b) => b.style == 'h2' || b._type == 'columnsBlock' || b._type == 'faq');
-    console.log(headers);
+    let tempToc = []
+    if (text && Array.isArray(text)) {
+        let headers = text.filter((b) => b.style == 'h2' || b._type == 'columnsBlock' || b._type == 'faq');
+        // console.log(headers);
 
-    let tempToc = headers.map((b) => {
-        if (b._type == 'columnsBlock' || b._type == 'faq') {
-            return {
-                title: b.title,
-                link:
-                    '#' +
-                    slugify(b.title, {
-                        lower: true
-                    })
-            };
-        } else {
-            return {
-                title: b.children[0].text,
-                link:
-                    '#' +
-                    slugify(b.children[0].text, {
-                        lower: true
-                    })
-            };
-        }
-    });
-
+        tempToc = headers.map((b) => {
+            if (b._type == 'columnsBlock' || b._type == 'faq') {
+                return {
+                    title: b.title,
+                    link:
+                        '#' +
+                        slugify(b.title, {
+                            lower: true
+                        })
+                };
+            } else {
+                return {
+                    title: b.children[0].text,
+                    link:
+                        '#' +
+                        slugify(b.children[0].text, {
+                            lower: true
+                        })
+                };
+            }
+        });
+    }
     return tempToc;
 };
 

@@ -165,6 +165,10 @@
 		transform: translateY(-240px);
 		font-size: $font-size-extra-small;
 
+		@include screen-size('small') {
+			display: none;
+		}
+
 		&.open {
 			transform: translateY(0);
 		}

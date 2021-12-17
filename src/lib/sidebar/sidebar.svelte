@@ -71,6 +71,10 @@
 		border-right: none;
 		font-size: $font-size-small;
 
+		@include screen-size('small') {
+			display: none;
+		}
+
 		.open-eyebeam {
 			height: $HEADER_HEIGHT;
 			background: $grey;

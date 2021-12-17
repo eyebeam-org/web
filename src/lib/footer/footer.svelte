@@ -70,6 +70,10 @@
 		align-items: center;
 		flex-direction: column;
 
+		@include screen-size('small') {
+			display: none;
+		}
+
 		.line {
 			margin-bottom: 10px;
 

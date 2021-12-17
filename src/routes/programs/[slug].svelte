@@ -91,8 +91,11 @@
 
 	.main-content {
 		float: left;
-		width: 50%;
 		width: $two-third;
+
+		@include screen-size('small') {
+			width: 100%;
+		}
 
 		.inner {
 			border: $border-style;
