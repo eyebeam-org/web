@@ -250,6 +250,11 @@
 		width: 100%;
 		padding: $small-margin;
 
+		@include screen-size('small') {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
 		h2 {
 			margin-bottom: $small-margin;
 			padding-left: 0;
@@ -267,6 +272,10 @@
 				width: calc(50% - 8px);
 				overflow: hidden;
 				float: left;
+
+				@include screen-size('small') {
+					width: 100%;
+				}
 
 				&:nth-child(odd) {
 					margin-right: 15px;

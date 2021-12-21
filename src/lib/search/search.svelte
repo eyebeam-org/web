@@ -55,7 +55,8 @@
 			bind:this={inputEl}
 			bind:value={searchTerm}
 			on:keyup={(e) => {
-				if (e.code === 'Enter') {
+				window.alert(e.code);
+				if (e.code === 'Enter' || e.keyCode === 13) {
 					submitSearch();
 				}
 			}}
