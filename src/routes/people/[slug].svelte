@@ -171,14 +171,21 @@
 
 	.main-content {
 		float: left;
-		width: 50%;
 		width: $two-third;
+		@include screen-size('small') {
+			width: 100%;
+		}
 
 		.inner {
 			border: $border-style;
 			min-height: 100vh;
 			display: inline-block;
 			min-width: 100%;
+
+			@include screen-size('small') {
+				border: unset;
+				min-height: unset;
+			}
 
 			.header {
 				border-bottom: $border-style;
@@ -189,14 +196,22 @@
 				display: flex;
 				justify-content: space-between;
 
+				@include screen-size('small') {
+					flex-wrap: wrap;
+					height: auto;
+					padding-left: 0;
+					padding-right: 0;
+				}
+
 				.column {
 					max-width: 50%;
 					&.left {
 						padding-right: 15px;
-						float: left;
 					}
-					&.right {
-						float: right;
+
+					@include screen-size('small') {
+						max-width: unset;
+						width: 100%;
 					}
 				}
 			}
@@ -224,6 +239,11 @@
 		float: left;
 		overflow: hidden;
 		font-size: $font-size-small;
+
+		@include screen-size('small') {
+			width: 100%;
+			margin-bottom: $large-margin;
+		}
 
 		&:nth-child(even) {
 			margin-right: 20px;
@@ -274,6 +294,11 @@
 	.at-eyebeam {
 		padding: $small-margin;
 		border-top: $border-style;
+		@include screen-size('small') {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
 		h2 {
 			margin-bottom: $small-margin;
 		}
@@ -308,6 +333,11 @@
 
 	.info {
 		padding: $small-margin;
+
+		@include screen-size('small') {
+			padding-left: 0;
+			padding-right: 0;
+		}
 
 		.website {
 			margin-bottom: $vertical-space;
