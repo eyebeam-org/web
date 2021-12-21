@@ -23,9 +23,7 @@
 
 	// __ IMPORTS
 	import { onDestroy } from 'svelte';
-	import { urlFor } from '$lib/sanity.js';
 	import get from 'lodash/get.js';
-	import has from 'lodash/has.js';
 	import { parseToc } from '$lib/global.js';
 
 	// __ STORES
@@ -33,9 +31,7 @@
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
-	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
-	import Blocks from '$lib/blocks/blocks.svelte';
-	import SeeAlso from '$lib/see-also/see-also.svelte';
+	import MainContent from '$lib/main-content/main-content.svelte';
 
 	// *** PROPS
 	export let page;
@@ -56,90 +52,5 @@
 
 <!-- SIDEBAR -->
 <Sidebar {toc} title={page.title} />
-
-<!-- SIDEBAR -->
-
 <!-- MAIN CONTENT -->
-<div class="main-content">
-	<div class="block-text">
-		<div class="header">
-			<!-- TITLE -->
-			<h1>{page.title}</h1>
-
-			<!-- MAIN IMAGE -->
-			{#if page.mainImage}
-				<figure class="image-container">
-					<img
-						class="main-image"
-						alt={page.title}
-						src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
-					/>
-					{#if has(page, 'mainImage.caption.content')}
-						<figcaption>
-							<Blocks blocks={page.mainImage.caption.content} />
-						</figcaption>
-					{/if}
-				</figure>
-			{/if}
-		</div>
-
-		<!-- MAIN TEXT -->
-		{#if has(page, 'content.content')}
-			<Blocks blocks={page.content.content} />
-		{/if}
-
-		<!-- SEE ALSO -->
-		{#if page.internalLinks || page.externalLinks}
-			<SeeAlso externalLinks={page.externalLinks} internalLinks={page.internalLinks} />
-		{/if}
-	</div>
-
-	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={page._updatedAt} />
-</div>
-
-<style lang="scss">
-	@import '../../variables.scss';
-
-	.main-content {
-		float: left;
-		width: $two-third;
-
-		@include screen-size('small') {
-			width: 100%;
-		}
-
-		.block-text {
-			border: $border-style;
-			min-height: 100vh;
-			display: inline-block;
-			// padding-top: $small-margin;
-			padding-bottom: $small-margin;
-			width: 100%;
-
-			.header {
-				display: flex;
-				width: 100%;
-				justify-content: space-between;
-				height: $HEADER_HEIGHT;
-
-				h1 {
-					margin-left: $small-margin;
-					margin-right: $small-margin;
-					margin-bottom: 160px;
-				}
-
-				.image-container {
-					max-width: 50%;
-					max-height: 100%;
-					margin-right: $small-margin;
-					img {
-						border: $border-style;
-						max-height: 100%;
-						max-width: 100%;
-					}
-				}
-			}
-		}
-	}
-</style>
+<MainContent {page} />

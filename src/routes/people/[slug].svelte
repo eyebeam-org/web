@@ -245,13 +245,13 @@
 
 		.image {
 			border: $border-style;
-			min-height: 200px;
 			max-height: 300px;
 			width: 100%;
 			line-height: 0;
 			overflow: hidden;
 
 			img {
+				min-height: 200px;
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
@@ -307,7 +307,7 @@
 	}
 
 	.info {
-		padding-top: $small-margin;
+		padding: $small-margin;
 
 		.website {
 			margin-bottom: $vertical-space;

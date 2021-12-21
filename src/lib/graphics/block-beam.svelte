@@ -22,7 +22,8 @@
 	@import '../../variables.scss';
 
 	svg {
-		height: 90%;
+		// height: 90%;
+		// background: green;
 		path {
 			fill: none;
 			stroke: $black;

@@ -43,6 +43,10 @@
 		padding: 15px;
 		height: 50px;
 
+		@include screen-size('small') {
+			display: none;
+		}
+
 		.last-updated {
 			float: left;
 			.icon {

@@ -86,7 +86,7 @@
 	.pop-up {
 		display: none;
 		background: $white;
-		padding: 10px;
+		padding: $small-margin;
 		border: $border-style;
 		z-index: 1000;
 

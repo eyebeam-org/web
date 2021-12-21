@@ -32,6 +32,7 @@
 	.logo-block {
 		margin-left: $small-margin;
 		margin-right: $small-margin;
+		margin-bottom: $small-margin;
 		width: calc(100% - 40px);
 		// padding: 15px;
 		border-bottom: $border-style;
@@ -43,7 +44,12 @@
 			.beam {
 				width: 160px;
 				position: relative;
-				top: 7px;
+				top: 0;
+				left: 1px;
+				// background: red;
+				padding: 0;
+				line-height: 0;
+				display: inline-block;
 			}
 
 			.line {
@@ -58,8 +64,10 @@
 		}
 	}
 
-	:global(.logoblock-text p) {
+	:global(.article .logoblock-text p) {
 		padding-left: 0;
 		padding-right: 0;
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 </style>

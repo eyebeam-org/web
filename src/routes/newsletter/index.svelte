@@ -56,7 +56,7 @@
 		<!-- MAIN TEXT -->
 		{#if has(newsletterPage, 'content.content')}
 			<div class="body-content">
-				{@html renderBlockText(newsletterPage.content.content)}
+				<Blocks blocks={newsletterPage.content.content} />
 			</div>
 		{/if}
 

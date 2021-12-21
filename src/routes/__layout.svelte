@@ -125,13 +125,18 @@
 		}
 	}
 
-	.block-text {
+	.article {
 		p,
 		h2,
 		h3 {
 			margin-bottom: $vertical-space;
 			padding-right: $small-margin;
 			padding-left: $small-margin;
+
+			@include screen-size('small') {
+				padding-right: 0;
+				padding-left: 0;
+			}
 		}
 
 		p {
