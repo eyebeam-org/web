@@ -228,6 +228,7 @@
 		.settings {
 			height: 240px;
 			background: $grey;
+			overflow: hidden;
 
 			.settings-bar {
 				height: $HEADER_HEIGHT;

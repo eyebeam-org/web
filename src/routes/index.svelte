@@ -169,11 +169,21 @@
 		width: 100%;
 		height: calc(100vh - 130px);
 		margin-bottom: 50px;
+		margin-left: auto;
+		margin-right: auto;
+
+		min-width: 900px;
+		min-height: 520px;
+
+		max-width: 1400px;
+		max-height: 900px;
 
 		@include screen-size('small') {
 			height: auto;
 			display: inline-block;
 			margin-bottom: unset;
+			min-height: unset;
+			min-width: unset;
 		}
 	}
 

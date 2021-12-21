@@ -23,7 +23,6 @@
 
 	// __ IMPORTS
 	import groupBy from 'lodash/groupBy.js';
-
 	import { getCurrentYear } from '$lib/global.js';
 
 	// __ COMPONENTS
