@@ -98,14 +98,21 @@
 
 	.main-content {
 		float: left;
-		width: 50%;
 		width: $two-third;
+
+		@include screen-size('small') {
+			width: 100%;
+		}
 
 		.inner {
 			width: 100%;
 			min-height: 100vh;
 			border: $border-style;
 			display: inline-block;
+
+			@include screen-size('small') {
+				border: unset;
+			}
 		}
 	}
 
@@ -113,11 +120,21 @@
 		border-bottom: $border-style;
 		min-height: $HEADER_HEIGHT;
 		padding-top: 0;
-		padding-right: 30px;
+		padding-right: $large-margin;
+
+		@include screen-size('small') {
+			border-bottom: unset;
+			min-height: unset;
+			padding: unset;
+		}
 
 		p {
 			font-style: italic;
 			font-size: $font-size-medium;
+
+			@include screen-size('small') {
+				font-size: $font-size-small;
+			}
 		}
 	}
 
@@ -147,6 +164,26 @@
 		&:active {
 			background: $black;
 			color: $white;
+		}
+
+		@include screen-size('small') {
+			width: 100%;
+			border-left: $border-style;
+			border-right: $border-style;
+			border-bottom: $border-style;
+			min-height: 33vh;
+
+			&:nth-child(odd) {
+				border-right: $border-style;
+			}
+
+			&:nth-last-child(1) {
+				border-bottom: $border-style;
+			}
+
+			&:first-of-type {
+				border-top: $border-style;
+			}
 		}
 	}
 

@@ -251,8 +251,11 @@
 
 	.main-content {
 		float: left;
-		width: 50%;
 		width: $two-third;
+
+		@include screen-size('small') {
+			width: 100%;
+		}
 
 		.alphabetical-navigation {
 			background: $white;
@@ -264,6 +267,10 @@
 			width: 40px;
 			user-select: none;
 			// border: $border-style;
+
+			@include screen-size('small') {
+				display: none;
+			}
 
 			.item {
 				height: 40px;
@@ -347,6 +354,10 @@
 					.filter-options {
 						display: flex;
 
+						@include screen-size('small') {
+							flex-wrap: wrap;
+						}
+
 						.filter-option {
 							padding: $button-padding;
 							margin-right: 8px;
@@ -355,6 +366,7 @@
 							cursor: pointer;
 							font-size: $font-size-extra-small;
 							background: $grey;
+							margin-bottom: 8px;
 
 							&.active {
 								background: $white;

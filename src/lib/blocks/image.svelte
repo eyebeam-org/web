@@ -84,6 +84,10 @@
 				height: 600px;
 				object-fit: cover;
 				object-position: center;
+
+				@include screen-size('small') {
+					height: 300px;
+				}
 			}
 
 			figcaption {
@@ -91,11 +95,22 @@
 				border-top: $border-style;
 				border-bottom: $border-style;
 
+				@include screen-size('small') {
+					padding-left: 0;
+					padding-right: 0;
+				}
+
 				p {
 					margin: 0;
 					padding: 0;
 				}
 			}
 		}
+	}
+
+	:global(.article figcaption p) {
+		margin-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
 	}
 </style>

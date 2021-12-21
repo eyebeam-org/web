@@ -56,13 +56,17 @@
 				{#if b.applicationEndDate}
 					<div class="circle" />
 				{/if}
-				<span class="applications-text">{b.shortText}</span>
-			</a>
-			{#if b.applicationEndDate}
-				<div class="date">
-					Applications Due by {longFormatDate(b.applicationEndDate)}
+				<div class="applications-text">
+					<div class="short-text">
+						{b.shortText}
+					</div>
+					{#if b.applicationEndDate}
+						<div class="date">
+							Applications Due by {longFormatDate(b.applicationEndDate)}
+						</div>
+					{/if}
 				</div>
-			{/if}
+			</a>
 		</div>
 	</div>
 {/if}
@@ -171,6 +175,10 @@
 		.text {
 			padding-right: 40px;
 			font-size: $font-size-body;
+
+			@include screen-size('small') {
+				display: none;
+			}
 		}
 
 		.apply-now {
@@ -190,5 +198,11 @@
 				color: $black;
 			}
 		}
+	}
+
+	:global(.article .application-button-large .text p) {
+		margin-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
 	}
 </style>

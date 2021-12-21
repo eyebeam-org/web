@@ -28,9 +28,12 @@
 	@import '../../variables.scss';
 
 	.press-and-news-item {
-		width: 25%;
 		text-decoration: none;
 		padding: $small-margin;
+
+		@include screen-size('small') {
+			width: 50%;
+		}
 
 		.date {
 			font-size: $font-size-extra-small;

@@ -83,6 +83,8 @@
 			margin-left: 15px;
 			margin-right: 15px;
 			padding-top: 0;
+			display: inline-block;
+			width: calc(100vw - 30px);
 		}
 	}
 
@@ -91,6 +93,10 @@
 		font-weight: normal;
 		margin: 0;
 		line-height: 1.2em;
+
+		@include screen-size('small') {
+			font-size: $font-size-h2;
+		}
 	}
 
 	h2 {
@@ -117,25 +123,17 @@
 		}
 	}
 
-	.introduction {
-		.description {
-			p {
-				font-size: $font-size-medium;
-			}
-		}
-	}
-
 	.article {
 		p,
 		h2,
 		h3 {
+			@include text-margins;
 			margin-bottom: $vertical-space;
-			padding-right: $small-margin;
-			padding-left: $small-margin;
 
 			@include screen-size('small') {
 				padding-right: 0;
 				padding-left: 0;
+				@include phone-margins;
 			}
 		}
 

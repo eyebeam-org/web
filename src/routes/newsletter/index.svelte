@@ -22,10 +22,10 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 
 	// __ COMPONENTS
+	import Blocks from '$lib/blocks/blocks.svelte';
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 
@@ -102,8 +102,11 @@
 
 	.main-content {
 		float: left;
-		width: 50%;
 		width: $two-third;
+
+		@include screen-size('small') {
+			width: 100%;
+		}
 
 		.inner {
 			padding: 15px;
@@ -113,6 +116,15 @@
 
 			h1 {
 				margin-bottom: 120px;
+			}
+
+			@include screen-size('small') {
+				border: unset;
+				padding: 0;
+
+				h1 {
+					margin-bottom: $large-margin;
+				}
 			}
 		}
 	}
@@ -126,12 +138,22 @@
 
 	.body-content {
 		margin-bottom: 80px;
+
+		@include screen-size('small') {
+			margin-bottom: $large-margin;
+		}
 	}
 
 	form {
 		width: calc(100% - 120px);
 		margin-right: 60px;
 		margin-left: 60px;
+
+		@include screen-size('small') {
+			width: 100%;
+			margin-right: 0;
+			margin-left: 0;
+		}
 
 		label {
 			width: 100%;

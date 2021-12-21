@@ -32,7 +32,7 @@
 			<Logo />
 		</div>
 		<!-- TAGLINE -->
-		<div class="line tagline">{contact.tagline}</div>
+		<div class="line tagline">{contact.tagline}<span class="black-box" /></div>
 	</footer>
 {/await}
 
@@ -57,6 +57,13 @@
 			font-style: italic;
 			line-height: 1.1em;
 			width: 100%;
+		}
+
+		.black-box {
+			height: 20px;
+			width: 20px;
+			background: black;
+			display: inline-block;
 		}
 
 		display: none;

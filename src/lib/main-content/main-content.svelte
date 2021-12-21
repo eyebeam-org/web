@@ -82,7 +82,7 @@
 
 		<!-- EVENT SPECIFIC -->
 		{#if page._type === 'event'}
-			DATES ETCCC
+			<div class="event-info">TODO:EVENT INFO</div>
 		{/if}
 
 		<!-- PRESS & NEWS SPECIFIC -->
@@ -174,8 +174,6 @@
 		border: $border-style;
 		min-height: 100vh;
 		display: inline-block;
-		// padding-top: $small-margin;
-		// padding-bottom: $small-margin;
 		width: 100%;
 
 		@include screen-size('small') {
@@ -192,8 +190,7 @@
 			}
 
 			h1 {
-				margin-left: $small-margin;
-				margin-right: $small-margin;
+				@include text-margins();
 				margin-bottom: 160px;
 				line-height: 1.1em;
 				@include screen-size('small') {
@@ -202,14 +199,12 @@
 			}
 
 			.date {
-				margin-left: $small-margin;
-				margin-right: $small-margin;
+				@include text-margins();
 				margin-bottom: $small-margin;
 			}
 
 			.authors {
-				margin-left: $small-margin;
-				margin-right: $small-margin;
+				@include text-margins();
 				margin-bottom: $small-margin;
 			}
 
@@ -222,13 +217,21 @@
 					max-height: 100%;
 					max-width: 100%;
 				}
+
+				@include screen-size('small') {
+					width: 100%;
+				}
 			}
 
 			&.boxed {
 				display: block;
-				// justify-content: space-between;
 				height: $HEADER_HEIGHT;
 				border-bottom: $border-style;
+
+				@include screen-size('small') {
+					height: auto;
+					padding-bottom: $large-margin;
+				}
 
 				h1 {
 					margin-bottom: $small-margin;
@@ -302,7 +305,7 @@
 	.author,
 	.including {
 		font-style: italic;
-		margin-left: $small-margin;
+		@include text-margins();
 		font-size: $font-size-body;
 	}
 

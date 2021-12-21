@@ -36,8 +36,13 @@
 	.faq {
 		display: inline-block;
 		width: 100%;
-		padding: 15px;
+		padding: $small-margin;
 		margin-bottom: 40px;
+
+		@include screen-size('small') {
+			padding-left: 0;
+			padding-right: 0;
+		}
 
 		.faq-inner {
 			margin-top: 1em;

@@ -37,7 +37,19 @@ $button-padding: 8px 12px;
 // SPACING
 $extra-small-margin: 15px;
 $small-margin: 20px;
+$large-margin: 40px;
 $vertical-space: 20px;
+
+@mixin text-margins {
+  margin-left: $small-margin;
+  margin-right: $large-margin;
+}
+
+@mixin phone-margins {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 
 // RESPONSIVE
 $breakpoints: (
