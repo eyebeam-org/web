@@ -39,6 +39,11 @@
 		padding: $small-margin;
 		margin-bottom: 40px;
 
+		h2 {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
 		@include screen-size('small') {
 			padding-left: 0;
 			padding-right: 0;

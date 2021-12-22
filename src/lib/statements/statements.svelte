@@ -71,7 +71,7 @@
 			cursor: pointer;
 			float: left;
 			&:hover {
-				background: $black;
+				background: var(--foreground-color);
 			}
 		}
 

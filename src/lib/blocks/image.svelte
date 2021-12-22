@@ -40,7 +40,7 @@
 		margin-left: 20px;
 		margin-right: 20px;
 		float: left;
-		border: $border-style;
+		border: 1px solid var(--foreground-color);
 		float: left;
 		max-width: 50%;
 
@@ -66,8 +66,8 @@
 
 			figcaption {
 				padding: $small-margin;
-				border-top: $border-style;
-				border-bottom: $border-style;
+				border-top: 1px solid var(--foreground-color);
+				border-bottom: 1px solid var(--foreground-color);
 
 				p {
 					margin: 0;
@@ -92,8 +92,8 @@
 
 			figcaption {
 				padding: $small-margin;
-				border-top: $border-style;
-				border-bottom: $border-style;
+				border-top: 1px solid var(--foreground-color);
+				border-bottom: 1px solid var(--foreground-color);
 
 				@include screen-size('small') {
 					padding-left: 0;

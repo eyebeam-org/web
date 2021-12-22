@@ -18,7 +18,7 @@
 		margin-top: $small-margin;
 		margin-bottom: $small-margin;
 		height: 1px;
-		border-top: $border-style;
+		border-top: 1px solid var(--foreground-color);
 		width: 100%;
 	}
 </style>

@@ -35,9 +35,9 @@
 	@import '../../variables.scss';
 
 	.bottom-bar {
-		border-left: $border-style;
-		border-right: $border-style;
-		border-bottom: $border-style;
+		border-left: 1px solid var(--foreground-color);
+		border-right: 1px solid var(--foreground-color);
+		border-bottom: 1px solid var(--foreground-color);
 		width: 100%;
 		display: inline-block;
 		padding: 15px;

@@ -11,7 +11,7 @@
 >
 	<path
 		class="st1"
-		stroke='#000000'
+		stroke="#000000"
 		d="M0,8.8h6.8 M16.8,4.4l-5.9,3.3L16.8,4.4z M13.6,1.2l-3.4,5.7L13.6,1.2z M18,8.8h-6.9H18z M1.2,4.4l5.9,3.3L1.2,4.4z M4.4,1.2l3.4,5.7L4.4,1.2z M9,0v6.6V0z"
 	/>
 </svg>
@@ -23,7 +23,7 @@
 		width: 24px;
 		path {
 			fill: none;
-			stroke: $black;
+			stroke: var(--foreground-color);
 			stroke-width: 0.75;
 			stroke-miterlimit: 10;
 		}

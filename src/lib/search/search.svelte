@@ -131,7 +131,7 @@
 				width: 100%;
 				background: transparent;
 				outline: none;
-				border: $border-style;
+				border: 1px solid var(--foreground-color);
 				font-size: $font-size-h2;
 				padding: 10px;
 				padding-bottom: 15px;

@@ -177,7 +177,7 @@
 		}
 
 		.inner {
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 			min-height: 100vh;
 			display: inline-block;
 			min-width: 100%;
@@ -188,7 +188,7 @@
 			}
 
 			.header {
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 				padding-left: 15px;
 				padding-right: 15px;
 				width: 100%;
@@ -264,7 +264,7 @@
 		}
 
 		.image {
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 			max-height: 300px;
 			width: 100%;
 			line-height: 0;
@@ -293,7 +293,7 @@
 
 	.at-eyebeam {
 		padding: $small-margin;
-		border-top: $border-style;
+		border-top: 1px solid var(--foreground-color);
 		@include screen-size('small') {
 			padding-left: 0;
 			padding-right: 0;
@@ -307,7 +307,7 @@
 	.image-container {
 		img {
 			display: block;
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 		}
 
 		figcaption {
@@ -323,7 +323,7 @@
 		.badge {
 			text-decoration: none;
 			padding: $button-padding;
-			background: $black;
+			background: var(--foreground-color);
 			color: $white;
 			text-transform: capitalize;
 			font-size: $font-size-extra-small;

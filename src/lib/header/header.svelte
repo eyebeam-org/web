@@ -15,7 +15,7 @@
 
 	// __ GRAPHICS
 	import FullBeam from '$lib/graphics/full-beam.svelte';
-	import TriangleDown from '$lib/graphics/triangle-down.svelte';
+	import ArrowDown from '$lib/graphics/arrow-down.svelte';
 
 	// __ STORES
 	import {
@@ -124,7 +124,7 @@
 		<div class="inner-text" class:loaded={$loaded}>
 			<!-- BREADCRUMBS -->
 			<div class="breadcrumbs">
-				<span class="arrow-down"><TriangleDown /></span>
+				<span class="arrow-down"><ArrowDown /></span>
 				<a href="/">eyebeam.org</a>
 				<!-- CATEGORY -->
 				{#if $currentCategory}
@@ -161,7 +161,7 @@
 		width: 100%;
 		z-index: 100;
 		height: 340px;
-		transition: transform 0.3s ease-out;
+		transition: transform 0.5s $transition;
 		transform: translateY(-240px);
 		font-size: $font-size-extra-small;
 
@@ -176,8 +176,8 @@
 		.menubar {
 			width: 100%;
 			height: $HEADER_HEIGHT;
-			background: $black;
-			color: $white;
+			background: var(--foreground-color);
+			color: var(--background-color);
 			line-height: $HEADER_HEIGHT;
 			padding-left: 15px;
 			padding-right: 10px;
@@ -205,7 +205,7 @@
 			}
 
 			a {
-				color: $white;
+				color: var(--background-color);
 				text-decoration: none;
 			}
 
@@ -228,6 +228,7 @@
 		.settings {
 			height: 240px;
 			background: $grey;
+			color: $black;
 			overflow: hidden;
 
 			.settings-bar {
@@ -236,7 +237,7 @@
 				padding-left: 5px;
 				padding-right: 10px;
 				cursor: pointer;
-				border-bottom: $border-style;
+				border-bottom: 1px solid $black;
 				color: $black;
 				width: 100%;
 
@@ -282,14 +283,14 @@
 	.city-button {
 		padding: $button-padding;
 		display: inline-block;
-		border-top: $border-style;
-		border-right: $border-style;
-		border-bottom: $border-style;
+		border-top: 1px solid $black;
+		border-right: 1px solid $black;
+		border-bottom: 1px solid $black;
 		user-select: none;
 		cursor: pointer;
 
 		&:first-child {
-			border-left: $border-style;
+			border-left: 1px solid $black;
 		}
 
 		&.active {
@@ -310,14 +311,14 @@
 	.theme-button {
 		padding: $button-padding;
 		display: inline-block;
-		border-top: $border-style;
-		border-right: $border-style;
-		border-bottom: $border-style;
+		border-top: 1px solid $black;
+		border-right: 1px solid $black;
+		border-bottom: 1px solid $black;
 		user-select: none;
 		cursor: pointer;
 
 		&:first-child {
-			border-left: $border-style;
+			border-left: 1px solid $black;
 		}
 
 		&.active {
@@ -334,7 +335,7 @@
 	.inversion-button {
 		width: 35px;
 		height: 35px;
-		border: $border-style;
+		border: 1px solid $black;
 		display: inline-block;
 		border-radius: 50%;
 		user-select: none;

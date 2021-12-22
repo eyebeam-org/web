@@ -107,7 +107,7 @@
 		.inner {
 			width: 100%;
 			min-height: 100vh;
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 			display: inline-block;
 
 			@include screen-size('small') {
@@ -117,7 +117,7 @@
 	}
 
 	.introduction {
-		border-bottom: $border-style;
+		border-bottom: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
 		padding-top: 0;
 		padding-right: $large-margin;
@@ -141,8 +141,8 @@
 	.nav-tile {
 		width: 50%;
 		min-height: $HEADER_HEIGHT;
-		border-bottom: $border-style;
-		border-right: $border-style;
+		border-bottom: 1px solid var(--foreground-color);
+		border-right: 1px solid var(--foreground-color);
 		display: block;
 		float: left;
 		text-decoration: none;
@@ -162,27 +162,27 @@
 		}
 
 		&:active {
-			background: $black;
+			background: var(--foreground-color);
 			color: $white;
 		}
 
 		@include screen-size('small') {
 			width: 100%;
-			border-left: $border-style;
-			border-right: $border-style;
-			border-bottom: $border-style;
+			border-left: 1px solid var(--foreground-color);
+			border-right: 1px solid var(--foreground-color);
+			border-bottom: 1px solid var(--foreground-color);
 			min-height: 33vh;
 
 			&:nth-child(odd) {
-				border-right: $border-style;
+				border-right: 1px solid var(--foreground-color);
 			}
 
 			&:nth-last-child(1) {
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 			}
 
 			&:first-of-type {
-				border-top: $border-style;
+				border-top: 1px solid var(--foreground-color);
 			}
 		}
 	}
@@ -197,7 +197,7 @@
 			width: 20px;
 			height: 20px;
 			border-radius: 50%;
-			background: $black;
+			background: var(--foreground-color);
 			margin-top: 10px;
 		}
 

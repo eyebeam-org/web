@@ -28,6 +28,7 @@
 			bottom: $small-margin;
 			left: $extra-small-margin;
 			font-size: $font-size-extra-small;
+			color: $black;
 
 			.arrow {
 				margin-right: 6px;

@@ -110,7 +110,7 @@
 
 		.inner {
 			padding: 15px;
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 			min-height: $SIDEBAR_HEIGHT;
 			padding-top: 0;
 
@@ -169,7 +169,7 @@
 			font-family: inherit;
 
 			&.email {
-				border: $border-style;
+				border: 1px solid var(--foreground-color);
 				border-radius: 0;
 				background: $white;
 				padding-left: $small-margin;
@@ -177,7 +177,7 @@
 
 			&.subscribe {
 				border: 0;
-				background: $black;
+				background: var(--foreground-color);
 				color: $white;
 				cursor: pointer;
 				font-size: $font-size-extra-small;

@@ -9,7 +9,7 @@
 	svg {
 		path {
 			fill: none;
-			stroke: $black;
+			stroke: var(--foreground-color);
 			stroke-width: 1px;
 			stroke-miterlimit: 10;
 		}

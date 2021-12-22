@@ -35,7 +35,7 @@
 	svg {
 		width: 100%;
 		path {
-			fill: $black;
+			fill: var(--foreground-color);
 		}
 	}
 </style>

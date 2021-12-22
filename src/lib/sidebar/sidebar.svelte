@@ -67,7 +67,7 @@
 		float: left;
 		width: 50%;
 		width: $one-third;
-		border: $border-style;
+		border: 1px solid var(--foreground-color);
 		border-right: none;
 		font-size: $font-size-small;
 
@@ -79,7 +79,7 @@
 			height: $HEADER_HEIGHT;
 			background: $grey;
 			width: 100%;
-			border-bottom: $border-style;
+			border-bottom: 1px solid var(--foreground-color);
 			float: left;
 			position: relative;
 		}
@@ -94,7 +94,7 @@
 			}
 
 			&.bordered {
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 			}
 
 			.wordmark {

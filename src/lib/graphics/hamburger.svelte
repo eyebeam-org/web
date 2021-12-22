@@ -9,7 +9,7 @@
 
 	svg {
 		path {
-			stroke: $black;
+			stroke: var(--foreground-color);
 			stroke-width: 1px;
 		}
 	}

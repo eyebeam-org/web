@@ -63,10 +63,10 @@
 
 	.clock {
 		font-size: $font-size-extra-small;
-		color: $white;
+		color: var(--background-color);
 
 		a {
-			color: $white;
+			color: var(--background-color);
 			text-decoration: none;
 		}
 	}

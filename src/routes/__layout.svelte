@@ -6,6 +6,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORT
+	import { onMount } from 'svelte';
 	import Header from '$lib/header/header.svelte';
 	import Footer from '$lib/footer/footer.svelte';
 	import PhoneHeader from '$lib/phone/header/header.svelte';
@@ -14,7 +15,29 @@
 
 	// __ STORES
 	import { page } from '$app/stores';
-	import { loaded, trayOpen } from '$lib/stores.js';
+	import { loaded, trayOpen, inversion } from '$lib/stores.js';
+
+	let root = {};
+
+	const BLACK = 'rgb(34, 31, 32)';
+	const WHITE = 'rgb(245, 244, 238)';
+	const GREY = 'rgb(224, 222, 215)';
+
+	$: if (root.style) {
+		if ($inversion) {
+			console.log('DARKMODE');
+			root.style.setProperty('--background-color', BLACK);
+			root.style.setProperty('--foreground-color', WHITE);
+		} else {
+			console.log('LIGHT MODE');
+			root.style.setProperty('--background-color', WHITE);
+			root.style.setProperty('--foreground-color', BLACK);
+		}
+	}
+
+	onMount(async () => {
+		root = document.documentElement;
+	});
 
 	// setTimeout(() => {
 	loaded.set(true);
@@ -33,7 +56,7 @@
 <PhoneHeader />
 
 <!-- MAIN -->
-<main id="main" class:open={$trayOpen}>
+<main id="main" class:open={$trayOpen} class:inversion={$inversion}>
 	<slot />
 </main>
 
@@ -47,29 +70,36 @@
 <style lang="scss" global>
 	@import '../variables.scss';
 
+	:root {
+		--background-color: rgb(245, 244, 238);
+		--foreground-color: rgb(34, 31, 32);
+		-–font-stack: 'Literata', serif;
+	}
+
 	body,
 	html {
-		background: $white;
-		color: $black;
-		font-family: $SERIF_STACK;
+		background: var(--background-color);
+		color: var(--foreground-color);
+		font-family: var(--font-stack);
 		font-size: $font-size-small;
 		margin: 0;
 		padding: 0;
 	}
 
 	a {
-		color: $black;
+		color: var(--foreground-color);
 	}
 
 	* {
 		box-sizing: border-box;
+		transition: color 0.3s $transition, background-color 0.3s $transition;
 	}
 
 	main {
 		padding-top: 80px;
 		margin-left: 60px;
 		margin-right: 60px;
-		transition: transform 0.3s ease-out;
+		transition: transform 0.5s $transition;
 
 		&.open {
 			transform: translateY(240px);

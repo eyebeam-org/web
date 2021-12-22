@@ -9,8 +9,8 @@
 
 	svg {
 		path {
-			stroke: $black;
-			fill: $black;
+			stroke: var(--foreground-color);
+			fill: var(--foreground-color);
 		}
 	}
 </style>

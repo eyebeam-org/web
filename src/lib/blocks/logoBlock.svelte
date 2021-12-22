@@ -35,7 +35,7 @@
 		margin-bottom: $small-margin;
 		width: calc(100% - 40px);
 		// padding: 15px;
-		border-bottom: $border-style;
+		border-bottom: 1px solid var(--foreground-color);
 		font-size: $font-size-body;
 
 		.top-row {
@@ -53,7 +53,7 @@
 			}
 
 			.line {
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 				width: 100%;
 			}
 		}

@@ -96,7 +96,7 @@
 		margin-bottom: $small-margin;
 
 		.search-bar {
-			background: $black;
+			background: var(--foreground-color);
 			padding-top: 8px;
 			padding-bottom: 8px;
 			text-align: center;
@@ -118,8 +118,8 @@
 		}
 
 		.menu-toggle {
-			border-bottom: $border-style;
-			border-top: $border-style;
+			border-bottom: 1px solid var(--foreground-color);
+			border-top: 1px solid var(--foreground-color);
 			margin: $small-margin;
 			font-size: $font-size-medium;
 			display: flex;
@@ -130,7 +130,7 @@
 		}
 
 		.menu {
-			border-bottom: $border-style;
+			border-bottom: 1px solid var(--foreground-color);
 			margin: $small-margin;
 			margin-top: 0;
 			font-size: $font-size-medium;

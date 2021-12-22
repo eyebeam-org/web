@@ -101,7 +101,7 @@
 
 		.inner {
 			width: 100%;
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 			min-height: 100vh;
 			display: inline-block;
 			padding: $small-margin;
@@ -117,8 +117,8 @@
 	.load-more {
 		height: 50px;
 		width: 100%;
-		border-top: $border-style;
-		border-bottom: $border-style;
+		border-top: 1px solid var(--foreground-color);
+		border-bottom: 1px solid var(--foreground-color);
 		text-align: center;
 		line-height: 50px;
 		text-decoration: none;

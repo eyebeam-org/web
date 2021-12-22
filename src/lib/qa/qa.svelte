@@ -57,7 +57,7 @@
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
-			border-bottom: $border-style;
+			border-bottom: 1px solid var(--foreground-color);
 			cursor: pointer;
 
 			.text {
@@ -75,7 +75,7 @@
 		}
 
 		.answer {
-			border-bottom: $border-style;
+			border-bottom: 1px solid var(--foreground-color);
 		}
 	}
 </style>

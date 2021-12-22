@@ -53,7 +53,7 @@
 		background: $grey;
 		padding: $small-margin;
 		font-size: $font-size-body;
-		border-top: $border-style;
+		border-top: 1px solid var(--foreground-color);
 	}
 
 	ul {

@@ -26,7 +26,7 @@
 		// background: green;
 		path {
 			fill: none;
-			stroke: $black;
+			stroke: var(--foreground-color);
 			stroke-width: 2.5px;
 			stroke-miterlimit: 10;
 		}

@@ -165,7 +165,7 @@
 	$two-third: calc((100% / 3) * 2);
 
 	.homepage-menu {
-		border: $border-style;
+		border: 1px solid var(--foreground-color);
 		width: 100%;
 		height: calc(100vh - 130px);
 		margin-bottom: 50px;
@@ -238,8 +238,8 @@
 		width: 100%;
 		// background: pink;
 		float: left;
-		border-top: $border-style;
-		border-right: $border-style;
+		border-top: 1px solid var(--foreground-color);
+		border-right: 1px solid var(--foreground-color);
 
 		&:hover {
 			background: $grey;
@@ -247,12 +247,12 @@
 		}
 
 		&:active {
-			background: $black;
+			background: var(--foreground-color);
 		}
 
 		@include screen-size('small') {
 			// border-right: unset;
-			// border-bottom: $border-style;
+			// border-bottom: 1px solid var(--foreground-color);
 			display: none;
 		}
 	}
@@ -261,7 +261,7 @@
 		height: $one-third;
 		// background: purple;
 		width: 100%;
-		border-right: $border-style;
+		border-right: 1px solid var(--foreground-color);
 		float: left;
 
 		.logo {
@@ -273,8 +273,8 @@
 	.programs {
 		height: $two-third;
 		width: 100%;
-		border-right: $border-style;
-		border-bottom: $border-style;
+		border-right: 1px solid var(--foreground-color);
+		border-bottom: 1px solid var(--foreground-color);
 		float: left;
 		padding: 0 !important;
 
@@ -288,7 +288,7 @@
 		height: $one-third;
 		width: 50%;
 		float: left;
-		border-right: $border-style;
+		border-right: 1px solid var(--foreground-color);
 
 		@include screen-size('small') {
 			height: 170px;
@@ -299,7 +299,7 @@
 		height: $one-third;
 		width: 50%;
 		float: left;
-		border-right: $border-style;
+		border-right: 1px solid var(--foreground-color);
 
 		@include screen-size('small') {
 			height: 170px;
@@ -312,8 +312,8 @@
 		height: 100px;
 		// background: salmon;
 		float: left;
-		border-right: $border-style;
-		border-bottom: $border-style;
+		border-right: 1px solid var(--foreground-color);
+		border-bottom: 1px solid var(--foreground-color);
 
 		@include screen-size('small') {
 			width: 50%;
@@ -341,15 +341,15 @@
 		width: 50%;
 		// background: olive;
 		float: left;
-		border-right: $border-style;
-		border-bottom: $border-style;
+		border-right: 1px solid var(--foreground-color);
+		border-bottom: 1px solid var(--foreground-color);
 
 		.half-beam {
 			margin-top: 10px;
 		}
 
 		@include screen-size('small') {
-			border-top: $border-style;
+			border-top: 1px solid var(--foreground-color);
 			height: 170px;
 		}
 	}
@@ -359,10 +359,10 @@
 		width: 50%;
 		// background: aqua;
 		float: left;
-		border-bottom: $border-style;
+		border-bottom: 1px solid var(--foreground-color);
 
 		@include screen-size('small') {
-			border-top: $border-style;
+			border-top: 1px solid var(--foreground-color);
 			height: 170px;
 		}
 	}
@@ -389,8 +389,8 @@
 		height: $two-third;
 		background: $grey;
 		width: 100%;
-		border-right: $border-style;
-		border-bottom: $border-style;
+		border-right: 1px solid var(--foreground-color);
+		border-bottom: 1px solid var(--foreground-color);
 		float: left;
 		position: relative;
 		padding: 0;
@@ -401,8 +401,8 @@
 		height: calc(40% - 100px);
 		width: 50%;
 		float: left;
-		border-bottom: $border-style;
-		border-right: $border-style;
+		border-bottom: 1px solid var(--foreground-color);
+		border-right: 1px solid var(--foreground-color);
 		@include screen-size('small') {
 			height: 170px;
 		}
@@ -413,7 +413,7 @@
 		height: calc(40% - 100px);
 		width: 100%;
 		float: left;
-		border-bottom: $border-style;
+		border-bottom: 1px solid var(--foreground-color);
 		@include screen-size('small') {
 			height: 170px;
 		}
@@ -427,7 +427,7 @@
 		}
 
 		&:active {
-			background: $black;
+			background: var(--foreground-color);
 			color: $white;
 		}
 	}
@@ -497,7 +497,7 @@
 
 		&:hover {
 			.circle {
-				background: $black;
+				background: var(--foreground-color);
 			}
 			.applications-open {
 				opacity: 1;

@@ -87,7 +87,7 @@
 		display: none;
 		background: $white;
 		padding: $small-margin;
-		border: $border-style;
+		border: 1px solid var(--foreground-color);
 		z-index: 1000;
 
 		.name {

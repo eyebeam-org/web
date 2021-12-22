@@ -57,12 +57,12 @@
 		.text {
 			padding: $extra-small-margin;
 			font-size: $font-size-h1;
-			color: $black;
+			color: var(--foreground-color);
 			line-height: 1.1em;
 		}
 
 		&.inverted {
-			background: $black;
+			background: var(--foreground-color);
 			.text {
 				color: $white;
 			}

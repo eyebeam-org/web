@@ -24,7 +24,7 @@ $true-white: rgb(255, 255, 255);
 $rgb-grey: rgb(201, 201, 201);
 
 // MISC
-$border-style: 1px solid $black;
+$border-style: 1px solid var(--foreground-color);
 $border-style-inverted: 1px solid $white;
 $transition: cubic-bezier(0.23, 1, 0.32, 1);
 $one-third: calc(100% / 3);

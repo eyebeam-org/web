@@ -37,7 +37,7 @@
 		width: 100%;
 		path {
 			fill: none;
-			stroke: $white;
+			stroke: var(--background-color);
 			stroke-width: 0.75;
 			stroke-miterlimit: 10;
 		}

@@ -179,7 +179,7 @@
 
 		.inner {
 			width: 100%;
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 			min-height: 100vh;
 			display: inline-block;
 
@@ -190,7 +190,7 @@
 	}
 
 	.introduction {
-		border-bottom: $border-style;
+		border-bottom: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
 		padding-top: 0;
 		padding-right: 30px;
@@ -214,8 +214,8 @@
 	.nav-tile {
 		width: 50%;
 		min-height: $HEADER_HEIGHT;
-		border-bottom: $border-style;
-		border-right: $border-style;
+		border-bottom: 1px solid var(--foreground-color);
+		border-right: 1px solid var(--foreground-color);
 		display: block;
 		float: left;
 		text-decoration: none;
@@ -227,7 +227,7 @@
 		}
 
 		&:active {
-			background: $black;
+			background: var(--foreground-color);
 			color: $white;
 		}
 
@@ -237,27 +237,27 @@
 		&.media-kit {
 			border-right: none;
 			@include screen-size('small') {
-				border-right: $border-style;
+				border-right: 1px solid var(--foreground-color);
 			}
 		}
 
 		@include screen-size('small') {
 			width: 100%;
-			border-left: $border-style;
-			border-right: $border-style;
-			border-bottom: $border-style;
+			border-left: 1px solid var(--foreground-color);
+			border-right: 1px solid var(--foreground-color);
+			border-bottom: 1px solid var(--foreground-color);
 			min-height: 33vh;
 
 			&:nth-child(odd) {
-				border-right: $border-style;
+				border-right: 1px solid var(--foreground-color);
 			}
 
 			&:last-child {
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 			}
 
 			&:first-of-type {
-				border-top: $border-style;
+				border-top: 1px solid var(--foreground-color);
 			}
 		}
 	}
@@ -265,15 +265,15 @@
 	.full-tile {
 		width: 100%;
 		min-height: $HEADER_HEIGHT;
-		border-bottom: $border-style;
+		border-bottom: 1px solid var(--foreground-color);
 		display: block;
 		float: left;
 		text-decoration: none;
 
 		@include screen-size('small') {
 			min-height: unset;
-			border-left: $border-style;
-			border-right: $border-style;
+			border-left: 1px solid var(--foreground-color);
+			border-right: 1px solid var(--foreground-color);
 		}
 
 		&.contact {
@@ -283,7 +283,7 @@
 			position: relative;
 
 			@include screen-size('small') {
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 			}
 
 			.bottom-container {
@@ -325,7 +325,7 @@
 			left: 0;
 			height: 50px;
 			width: 100%;
-			border-top: $border-style;
+			border-top: 1px solid var(--foreground-color);
 			text-align: center;
 			line-height: 50px;
 			text-decoration: none;

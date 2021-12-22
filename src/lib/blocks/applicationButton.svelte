@@ -95,7 +95,7 @@
 					width: 20px;
 					height: 20px;
 					border-radius: 50%;
-					background: $black;
+					background: var(--foreground-color);
 				}
 
 				.applications-text {
@@ -104,7 +104,7 @@
 				}
 
 				&:hover {
-					background: $black;
+					background: var(--foreground-color);
 					color: $grey;
 
 					.circle {
@@ -122,10 +122,10 @@
 
 	.application-button-large {
 		width: 100%;
-		background: $black;
+		background: var(--foreground-color);
+		color: var(--background-color);
 		height: 220px;
 		padding: $small-margin;
-		color: $white;
 		display: flex;
 
 		.column {
@@ -157,7 +157,7 @@
 		.circle {
 			width: 20px;
 			height: 20px;
-			background: $white;
+			background: var(--background-color);
 			border-radius: 50%;
 			float: left;
 			margin-top: 2px;
@@ -182,20 +182,20 @@
 		}
 
 		.apply-now {
-			border: $border-style-inverted;
+			border: 1px solid var(--background-color);
 			height: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			cursor: pointer;
 			user-select: none;
-			color: $white;
+			color: var(--background-color);
 			text-decoration: none;
 			font-size: $font-size-body;
 
 			&:hover {
-				background: $white;
-				color: $black;
+				background: var(--background-color);
+				color: var(--foreground-color);
 			}
 		}
 	}

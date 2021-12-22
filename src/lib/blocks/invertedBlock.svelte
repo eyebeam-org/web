@@ -21,7 +21,7 @@
 
 	.inverted-block {
 		width: 100%;
-		background: $black;
+		background: var(--foreground-color);
 		padding: 40px;
 		color: $white;
 	}

@@ -7,7 +7,7 @@
 
 	svg {
 		path {
-			fill: $black;
+			fill: var(--foreground-color);
 		}
 	}
 </style>

@@ -171,7 +171,7 @@
 	}
 
 	.article {
-		border: $border-style;
+		border: 1px solid var(--foreground-color);
 		min-height: 100vh;
 		display: inline-block;
 		width: 100%;
@@ -213,7 +213,7 @@
 				max-height: 100%;
 				margin-right: $small-margin;
 				img {
-					border: $border-style;
+					border: 1px solid var(--foreground-color);
 					max-height: 100%;
 					max-width: 100%;
 				}
@@ -226,7 +226,7 @@
 			&.boxed {
 				display: block;
 				height: $HEADER_HEIGHT;
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 
 				@include screen-size('small') {
 					height: auto;
@@ -289,7 +289,7 @@
 				}
 
 				.image {
-					border: $border-style;
+					border: 1px solid var(--foreground-color);
 					width: 100%;
 					line-height: 0;
 
@@ -332,7 +332,7 @@
 		text-decoration: none;
 
 		&:hover {
-			background: $black;
+			background: var(--foreground-color);
 			color: $white;
 		}
 	}

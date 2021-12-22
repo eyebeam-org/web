@@ -101,7 +101,7 @@
 
 		.header {
 			height: $HEADER_HEIGHT;
-			border-bottom: $border-style;
+			border-bottom: 1px solid var(--foreground-color);
 			padding: 15px;
 			font-size: $font-size-body;
 
@@ -119,7 +119,7 @@
 		}
 
 		.inner {
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 			min-height: 100vh;
 		}
 

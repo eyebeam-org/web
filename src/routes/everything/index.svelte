@@ -147,13 +147,13 @@
 		width: 100%;
 
 		.inner {
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 			min-height: 100vh;
 
 			.header {
 				width: 100%;
 				display: inline-block;
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 				padding: 15px;
 
 				.description {
@@ -172,7 +172,7 @@
 
 					.filter {
 						padding: $button-padding;
-						border: $border-style;
+						border: 1px solid var(--foreground-color);
 						margin-right: 5px;
 						float: left;
 						user-select: none;
@@ -180,12 +180,12 @@
 						font-size: $font-size-extra-small;
 
 						&:hover {
-							background: $black;
+							background: var(--foreground-color);
 							color: $white;
 						}
 
 						&.active {
-							background: $black;
+							background: var(--foreground-color);
 							color: $white;
 						}
 					}
@@ -194,7 +194,7 @@
 
 			.single-post {
 				padding: 15px;
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 				text-decoration: none;
 				display: block;
 				font-size: $font-size-small;

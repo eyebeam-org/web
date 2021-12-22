@@ -10,7 +10,7 @@
 	svg {
 		margin-left: 4px;
 		path {
-			fill: $black;
+			fill: var(--foreground-color);
 		}
 	}
 </style>

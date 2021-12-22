@@ -265,7 +265,7 @@
 			right: 60px;
 			width: 40px;
 			user-select: none;
-			// border: $border-style;
+			// border: 1px solid var(--foreground-color);
 
 			@include screen-size('small') {
 				display: none;
@@ -277,14 +277,14 @@
 				text-align: center;
 				display: block;
 				width: 40px;
-				border-bottom: $border-style;
-				border-right: $border-style;
-				border-left: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
+				border-right: 1px solid var(--foreground-color);
+				border-left: 1px solid var(--foreground-color);
 				text-decoration: none;
 				cursor: pointer;
 
 				&:first-child {
-					border-top: $border-style;
+					border-top: 1px solid var(--foreground-color);
 				}
 
 				&:hover {
@@ -294,11 +294,11 @@
 		}
 
 		.inner {
-			border: $border-style;
+			border: 1px solid var(--foreground-color);
 			min-height: 100vh;
 
 			.header {
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 				padding-left: 15px;
 				padding-right: 15px;
 				padding-bottom: 40px;
@@ -319,7 +319,7 @@
 						.order-option {
 							padding: $button-padding;
 							margin-right: 8px;
-							border: $border-style;
+							border: 1px solid var(--foreground-color);
 							user-select: none;
 							cursor: pointer;
 							font-size: $font-size-extra-small;
@@ -360,7 +360,7 @@
 						.filter-option {
 							padding: $button-padding;
 							margin-right: 8px;
-							border: $border-style;
+							border: 1px solid var(--foreground-color);
 							user-select: none;
 							cursor: pointer;
 							font-size: $font-size-extra-small;
@@ -380,7 +380,7 @@
 			}
 
 			.sub-section {
-				border-bottom: $border-style;
+				border-bottom: 1px solid var(--foreground-color);
 				padding: 15px;
 
 				&:last-child {
