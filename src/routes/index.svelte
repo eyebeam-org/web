@@ -39,7 +39,7 @@
 	import Statements from '$lib/statements/statements.svelte';
 	import OpenEyebeam from '$lib/open-eyebeam/open-eyebeam.svelte';
 	import Search from '$lib/search/search.svelte';
-	import PersonLink from '$lib/person-link/person-link.svelte';
+	import PersonLinkList from '$lib/person-link-list/person-link-list.svelte';
 	import Sticker from '$lib/sticker/sticker.svelte';
 
 	const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
@@ -143,9 +143,7 @@
 					<div class="title">{truncate(event.title, { length: 48 })}</div>
 					{#if event.people && event.people.length > 0}
 						<div class="event-people">
-							{#each event.people as person}
-								<PersonLink {person} />
-							{/each}
+							<PersonLinkList people={event.people} />
 						</div>
 					{/if}
 				</a>

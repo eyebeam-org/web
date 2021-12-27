@@ -324,7 +324,7 @@
 			text-decoration: none;
 			padding: $button-padding;
 			background: var(--foreground-color);
-			color: $white;
+			color: var(--background-color);
 			text-transform: capitalize;
 			font-size: $font-size-extra-small;
 			display: inline-block;

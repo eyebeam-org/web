@@ -89,6 +89,7 @@
 		padding: $small-margin;
 		border: 1px solid var(--foreground-color);
 		z-index: 1000;
+		color: $black;
 
 		.name {
 			font-weight: bold;
@@ -100,6 +101,8 @@
 		color: $black;
 		background: $grey;
 		text-decoration: none;
+		margin-bottom: 3px;
+		display: inline-block;
 
 		&:hover {
 			& + .pop-up {

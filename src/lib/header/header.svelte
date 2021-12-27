@@ -321,6 +321,10 @@
 			border-left: 1px solid $black;
 		}
 
+		&:last-child {
+			margin-left: -3px;
+		}
+
 		&.active {
 			background: $black;
 			color: $white;

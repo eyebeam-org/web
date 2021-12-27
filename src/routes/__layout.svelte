@@ -7,6 +7,7 @@
 
 	// __ IMPORT
 	import { onMount } from 'svelte';
+	import sample from 'lodash/sample.js';
 	import Header from '$lib/header/header.svelte';
 	import Footer from '$lib/footer/footer.svelte';
 	import PhoneHeader from '$lib/phone/header/header.svelte';
@@ -15,13 +16,20 @@
 
 	// __ STORES
 	import { page } from '$app/stores';
-	import { loaded, trayOpen, inversion } from '$lib/stores.js';
+	import { loaded, trayOpen, inversion, theme } from '$lib/stores.js';
 
 	let root = {};
 
 	const BLACK = 'rgb(34, 31, 32)';
 	const WHITE = 'rgb(245, 244, 238)';
-	const GREY = 'rgb(224, 222, 215)';
+
+	const RED = 'rgb(255, 0, 0)';
+	const GREEN = 'rgb(0, 255, 0)';
+	const BLUE = 'rgb(0, 0, 255)';
+	const RGB = [RED, GREEN, BLUE];
+
+	const MAIN_FONT = "'Literata', serif";
+	const ALT_FONT = "'Helvetica', sans-serif";
 
 	$: if (root.style) {
 		if ($inversion) {
@@ -32,6 +40,20 @@
 			console.log('LIGHT MODE');
 			root.style.setProperty('--background-color', WHITE);
 			root.style.setProperty('--foreground-color', BLACK);
+		}
+	}
+
+	$: if (root.style) {
+		if ($theme == 'rgb') {
+			console.log('RGB');
+			root.style.setProperty('--background-color', WHITE);
+			root.style.setProperty('--foreground-color', sample(RGB));
+			// root.style.setProperty('--font-stack', ALT_FONT);
+			inversion.set(false);
+		}
+		if ($theme == 'ink') {
+			console.log('INK');
+			root.style.setProperty('--font-stack', MAIN_FONT);
 		}
 	}
 
@@ -73,7 +95,7 @@
 	:root {
 		--background-color: rgb(245, 244, 238);
 		--foreground-color: rgb(34, 31, 32);
-		-–font-stack: 'Literata', serif;
+		--font-stack: 'Literata', serif;
 	}
 
 	body,
@@ -195,6 +217,8 @@
 			&:before {
 				content: '•';
 				padding-right: 5px;
+				position: relative;
+				top: -1px;
 			}
 		}
 	}

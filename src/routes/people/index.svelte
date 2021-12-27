@@ -257,7 +257,8 @@
 		}
 
 		.alphabetical-navigation {
-			background: $white;
+			background: var(--background-color);
+			color: var(--foreground-color);
 			display: flex;
 			flex-direction: column;
 			position: absolute;
@@ -289,6 +290,7 @@
 
 				&:hover {
 					background: $grey;
+					color: $black;
 				}
 			}
 		}
@@ -324,6 +326,7 @@
 							cursor: pointer;
 							font-size: $font-size-extra-small;
 							background: $grey;
+							color: $black;
 
 							.icon {
 								margin-left: 8px;
@@ -366,6 +369,7 @@
 							font-size: $font-size-extra-small;
 							background: $grey;
 							margin-bottom: 8px;
+							color: $black;
 
 							&.active {
 								background: $white;
