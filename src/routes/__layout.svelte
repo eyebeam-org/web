@@ -29,7 +29,7 @@
 	const RGB = [RED, GREEN, BLUE];
 
 	const MAIN_FONT = "'Literata', serif";
-	const ALT_FONT = "'Helvetica', sans-serif";
+	const ALT_FONT = "'Eyebeam Sans', sans-serif";
 
 	$: if (root.style) {
 		if ($inversion) {
@@ -48,12 +48,14 @@
 			console.log('RGB');
 			root.style.setProperty('--background-color', WHITE);
 			root.style.setProperty('--foreground-color', sample(RGB));
-			// root.style.setProperty('--font-stack', ALT_FONT);
+			root.style.setProperty('--font-stack', ALT_FONT);
 			inversion.set(false);
 		}
 		if ($theme == 'ink') {
 			console.log('INK');
 			root.style.setProperty('--font-stack', MAIN_FONT);
+			root.style.setProperty('--background-color', WHITE);
+			root.style.setProperty('--foreground-color', BLACK);
 		}
 	}
 
