@@ -20,12 +20,26 @@
 	// __ VARIABLES
 	let linkEl = {};
 	let popEl = {};
+	let popper = {};
 
 	const initPopper = () => {
-		createPopper(linkEl, popEl, {
-			placement: 'bottom'
+		popper = createPopper(linkEl, popEl, {
+			modifiers: [
+				{
+					name: 'offset',
+					options: {
+						offset: [0, 20]
+					}
+				}
+			]
 		});
 	};
+
+	// , {
+	// 		placement: 'bottom'
+	// 	}
+
+	// strategy: 'fixed',
 
 	const renderNewLines = (t) => t.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
@@ -44,16 +58,29 @@
 </script>
 
 {#if person}
-	<a href={'/people/' + get(person, 'slug.current')} bind:this={linkEl} sveltekit:prefetch>
+	<a
+		href={'/people/' + get(person, 'slug.current')}
+		bind:this={linkEl}
+		sveltekit:prefetch
+		on:mouseenter={(e) => {
+			console.log('mouseenter');
+			console.log(popper);
+			// popper.update();
+		}}
+		on:mouseleave={(e) => {
+			console.log('mouseleave');
+		}}
+	>
 		{@html overrideText ? renderNewLines(overrideText) : person.title}
 	</a>
 
 	<div class="pop-up" bind:this={popEl}>
+		<!-- ARROW  -->
+		<div class="arrow" />
 		<!-- FIRST COLUMN -->
 		<div class="column first">
 			<!-- NAME -->
 			<div class="name">{person.title}</div>
-
 			<!-- BADGES -->
 			<div class="badges">
 				{#if person.role}
@@ -90,6 +117,20 @@
 		border: 1px solid var(--foreground-color);
 		z-index: 1000;
 		color: $black;
+		position: relative;
+		margin-top: 20px;
+
+		.arrow {
+			width: 20px;
+			height: 20px;
+			background: $white;
+			position: absolute;
+			top: -11px;
+			left: 20px;
+			transform: rotate(-45deg);
+			border-right: 1px solid $black;
+			border-top: 1px solid $black;
+		}
 
 		.name {
 			font-weight: bold;
@@ -113,7 +154,7 @@
 
 	.column {
 		&.first {
-			padding-right: 10px;
+			padding-right: 20px;
 		}
 	}
 </style>

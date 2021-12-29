@@ -134,9 +134,13 @@
 			<div class="icon"><Youtube /></div></a
 		>
 		<div class="tile events">
-			<div class="sub-tile header">UPCOMING & RECENT</div>
+			<div class="sub-tile header event">UPCOMING & RECENT</div>
 			{#each posts.events as event}
-				<a href={'/events/' + get(event, 'slug.current', '')} class="sub-tile" sveltekit:prefetch>
+				<a
+					href={'/events/' + get(event, 'slug.current', '')}
+					class="sub-tile event"
+					sveltekit:prefetch
+				>
 					{#if event.startDate}
 						<div class="time">{distanceToDate(event.startDate)}</div>
 					{/if}
@@ -457,6 +461,10 @@
 			@include screen-size('small') {
 				padding-top: $small-margin;
 			}
+		}
+
+		&.event {
+			height: 50%;
 		}
 
 		.time {
