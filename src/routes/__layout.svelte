@@ -63,16 +63,15 @@
 		root = document.documentElement;
 	});
 
-	// setTimeout(() => {
-	loaded.set(true);
-	// document.getElementById('main').classList.remove('hidden');
-	// }, 1000);
+	setTimeout(() => {
+		loaded.set(true);
+	}, 2000);
 </script>
 
-<!-- LOADING
+<!-- LOADING -->
 {#if !$loaded}
 	<Loading />
-{/if} -->
+{/if}
 
 <!-- HEADER -->
 <Header />
@@ -80,7 +79,7 @@
 <PhoneHeader />
 
 <!-- MAIN -->
-<main id="main" class:open={$trayOpen} class:inversion={$inversion}>
+<main id="main" class:shown={$loaded} class:open={$trayOpen} class:inversion={$inversion}>
 	<slot />
 </main>
 
@@ -128,9 +127,10 @@
 		&.open {
 			transform: translateY(240px);
 		}
+		opacity: 0;
 
-		&.hidden {
-			opacity: 0;
+		&.shown {
+			opacity: 1;
 		}
 
 		@include screen-size('small') {
