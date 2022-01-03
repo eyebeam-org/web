@@ -11,7 +11,7 @@
 	import { quadOut } from 'svelte/easing';
 
 	// __ GRAPHICS
-	import BigBeam from '$lib/graphics/big-beam.svelte';
+	import AnimatedBeam from '$lib/graphics/animated-beam.svelte';
 	import Logo from '$lib/graphics/logo.svelte';
 </script>
 
@@ -19,7 +19,7 @@
 	<!-- LOGO -->
 	<div class="logo">
 		<div class="beams">
-			<BigBeam />
+			<AnimatedBeam />
 		</div>
 		<div class="wordmark">
 			<Logo />
