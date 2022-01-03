@@ -6,6 +6,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORT
+	import { fade, slide } from 'svelte/transition';
 	import Clock from '$lib/clock/clock.svelte';
 	import { loadData } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
@@ -14,7 +15,8 @@
 	import Search from '$lib/search/search.svelte';
 
 	// __ STORES
-	import { page } from '$app/stores';
+	import { page, navigating } from '$app/stores';
+	import { goto } from '$app/navigation';
 
 	// __ GRAPHICS
 	import BigBeam from '$lib/graphics/big-beam.svelte';
@@ -32,6 +34,13 @@
 	const toggleMenu = () => {
 		menuOpen = !menuOpen;
 	};
+
+	$: {
+		console.log('$navigating', $navigating);
+		if ($navigating === null) {
+			toggleMenu();
+		}
+	}
 
 	const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
 	const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
@@ -72,9 +81,17 @@
 			</span>
 		</div>
 		{#if menuOpen}
-			<div class="menu" on:click={toggleMenu}>
+			<div class="menu" in:fade>
 				{#each MENU_ITEMS as item}
-					<a href={item.value} class="menu-item">{item.label}</a>
+					<div
+						class="menu-item"
+						on:click={() => {
+							console.log('item.value', item.value);
+							goto(item.value);
+						}}
+					>
+						{item.label}
+					</div>
 				{/each}
 			</div>
 			<div class="logo"><BigBeam flipped={true} /></div>

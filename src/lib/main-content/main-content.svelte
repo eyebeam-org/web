@@ -259,6 +259,7 @@
 			margin-bottom: $small-margin;
 			padding-left: 0;
 			padding-right: 0;
+			margin-left: 0;
 		}
 
 		.people-inner {

@@ -128,18 +128,34 @@
 		padding: $small-margin;
 		display: flex;
 
+		@include screen-size('small') {
+			flex-wrap: wrap;
+		}
+
 		.column {
 			height: 100%;
+
+			@include screen-size('small') {
+				height: auto;
+			}
 
 			&.first {
 				width: 80%;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
+
+				@include screen-size('small') {
+					width: 100%;
+				}
 			}
 
 			&.second {
 				width: 220px;
+
+				@include screen-size('small') {
+					width: 100%;
+				}
 			}
 		}
 

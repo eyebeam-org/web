@@ -116,6 +116,14 @@
 	* {
 		box-sizing: border-box;
 		transition: color 0.3s $transition, background-color 0.3s $transition;
+		-webkit-tap-highlight-color: transparent;
+
+		&::selection {
+			background: $transparent-grey;
+		}
+		&::-moz-selection {
+			background: $transparent-grey;
+		}
 	}
 
 	main {

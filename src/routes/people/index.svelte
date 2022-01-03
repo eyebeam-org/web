@@ -24,6 +24,8 @@
 	// __ IMPORTS
 	import groupBy from 'lodash/groupBy.js';
 	import { getCurrentYear } from '$lib/global.js';
+	import { onMount } from 'svelte';
+	// import { page } from '$app/stores';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -32,6 +34,9 @@
 
 	// __ GRAPHICS
 	import ArrowDown from '$lib/graphics/arrow-down.svelte';
+
+	// console.log('$page', $page);
+	// console.log('xxx', $page.query.getAll());
 
 	// __ PROPS
 	export let people;
@@ -121,6 +126,29 @@
 		groupedPeopleAlpha = groupBy(filteredPeople, (p) => p.lastName.charAt(0));
 		groupedPeopleChrono = groupBy(filteredPeople, (p) => p.firstEngagement);
 	}
+
+	onMount(async () => {
+		console.log('location.hash', location.hash);
+		if (location.hash) {
+			const strippedHash = location.hash.substring(1);
+			switch (strippedHash) {
+				case 'artists':
+					activeFilter = 'artist';
+					break;
+				case 'staff':
+					activeFilter = 'staff';
+					break;
+				case 'board':
+					activeFilter = 'board';
+					break;
+				case 'advisory-committee':
+					activeFilter = 'advisoryCommittee';
+					break;
+				default:
+					activeFilter = 'everyone';
+			}
+		}
+	});
 </script>
 
 <svelte:head>
@@ -404,6 +432,14 @@
 			list-style: none;
 			margin-bottom: 5px;
 			font-size: $font-size-body;
+			padding-left: 0;
+			text-indent: 0;
+			&:before {
+				content: unset;
+				padding-right: 0;
+				position: static;
+				top: unset;
+			}
 		}
 	}
 

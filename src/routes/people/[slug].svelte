@@ -73,7 +73,7 @@
 				<!-- BADGES -->
 				<div class="badges">
 					{#if person.role}
-						<a href="/people" class="badge">{roleToRoleName[person.role]}</a>
+						<a href={'/people#' + person.role} class="badge">{roleToRoleName[person.role]}</a>
 					{/if}
 					{#if person.groupTags}
 						{#each person.groupTags as tag}
