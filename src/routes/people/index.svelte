@@ -25,7 +25,7 @@
 	import groupBy from 'lodash/groupBy.js';
 	import { getCurrentYear } from '$lib/global.js';
 	import { onMount } from 'svelte';
-	// import { page } from '$app/stores';
+	import { page } from '$app/stores';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -36,7 +36,7 @@
 	// __ GRAPHICS
 	import ArrowDown from '$lib/graphics/arrow-down.svelte';
 
-	// console.log('$page', $page);
+	console.log('$page', $page);
 	// console.log('xxx', $page.query.getAll());
 
 	// __ PROPS

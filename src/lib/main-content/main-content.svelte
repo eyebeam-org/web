@@ -300,6 +300,7 @@
 					background: $grey;
 					margin-top: 10px;
 					display: inline-block;
+					color: $black;
 				}
 
 				.image {

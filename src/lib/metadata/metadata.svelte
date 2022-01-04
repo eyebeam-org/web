@@ -18,9 +18,6 @@
 	export let post = {};
 	export let isSingle = false;
 
-	console.log('post', post);
-	console.log('$page', $page);
-
 	const BASE_URL = 'https://eyebeam.org';
 	const DEFAULT_DESCRIPTION = 'Eyebeam is lorem ipsum...';
 	const DEFAULT_IMAGE = 'https://eyebeam.netlify.com/img/eyebeam-logo.png';
