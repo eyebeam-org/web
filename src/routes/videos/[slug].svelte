@@ -22,13 +22,8 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { onDestroy } from 'svelte';
-	import get from 'lodash/get.js';
 	import has from 'lodash/has.js';
 	import { longFormatDate } from '$lib/global';
-
-	// __ STORES
-	import { currentPage } from '$lib/stores.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -36,25 +31,17 @@
 	import Blocks from '$lib/blocks/blocks.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
 	import SeeAlso from '$lib/see-also/see-also.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let video;
-
-	// __ Set currentPage
-	currentPage.set({ slug: get(video, 'slug.current', ''), title: video.title });
-
-	onDestroy(() => {
-		currentPage.set(null);
-	});
 </script>
 
-<svelte:head>
-	<title>{video.title}</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={video} />
 <!-- SIDEBAR -->
 <Sidebar title={video.title} />
-
+<!-- MAIN CONTENT  -->
 <div class="main-content">
 	<div class="inner">
 		<div class="header">

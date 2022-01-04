@@ -31,6 +31,7 @@
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ GRAPHICS
 	import ArrowDown from '$lib/graphics/arrow-down.svelte';
@@ -151,13 +152,10 @@
 	});
 </script>
 
-<svelte:head>
-	<title>People</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={{ title: 'People' }} />
 <!-- SIDEBAR -->
 <Sidebar />
-
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

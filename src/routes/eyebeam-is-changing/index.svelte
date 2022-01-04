@@ -24,15 +24,14 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import MainContent from '$lib/main-content/main-content.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let eyebeamIsChanging;
 </script>
 
-<svelte:head>
-	<title>{eyebeamIsChanging.title}</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={eyebeamIsChanging} />
 <!-- SIDEBAR -->
 <Sidebar title={eyebeamIsChanging.title} />
 <!-- MAIN CONTENT -->

@@ -31,6 +31,7 @@
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PressAndNewsItem from '$lib/press-and-news-item/press-and-news-item.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let about;
@@ -95,13 +96,11 @@
 	];
 </script>
 
-<svelte:head>
-	<title>{aboutMap['what-is-eyebeam'].title}</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={aboutMap['what-is-eyebeam']} />
 <!-- SIDEBAR -->
 <Sidebar {toc} title={aboutMap['what-is-eyebeam'].title} />
-
+<!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
 		<div class="tile introduction">

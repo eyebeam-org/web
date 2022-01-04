@@ -18,10 +18,6 @@
 	export let blog;
 </script>
 
-<svelte:head>
-	<title>BLOG</title>
-</svelte:head>
-
 <h1>BLOG</h1>
 
 <ul>

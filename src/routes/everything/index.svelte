@@ -30,6 +30,7 @@
 	// __ COMPONENTS
 	import PersonLink from '$lib/person-link/person-link.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let everything;
@@ -80,9 +81,8 @@
 	}
 </script>
 
-<svelte:head>
-	<title>{everything.page.title}</title>
-</svelte:head>
+<!-- METADATA -->
+<Metadata post={everything.page} />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">

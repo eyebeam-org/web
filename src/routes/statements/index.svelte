@@ -29,6 +29,7 @@
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ GRAPHICS
 	import BigBeam from '$lib/graphics/big-beam.svelte';
@@ -37,13 +38,10 @@
 	export let statements;
 </script>
 
-<svelte:head>
-	<title>Statements</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={{ title: 'Statements' }} />
 <!-- SIDEBAR -->
 <Sidebar />
-
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

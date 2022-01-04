@@ -28,6 +28,7 @@
 	import Blocks from '$lib/blocks/blocks.svelte';
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let newsletterPage;
@@ -36,13 +37,11 @@
 	let emailAddress = '';
 	const subscribe = () => {
 		console.log(emailAddress);
-		// window.alert('todo: subscribe');
 	};
 </script>
 
-<svelte:head>
-	<title>{newsletterPage.title}</title>
-</svelte:head>
+<!-- METADATA -->
+<Metadata post={newsletterPage} />
 
 <!-- SIDEBAR -->
 <Sidebar />

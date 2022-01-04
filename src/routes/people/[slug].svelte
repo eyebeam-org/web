@@ -22,23 +22,19 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { onDestroy } from 'svelte';
 	import { loadData, urlFor } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
-	import get from 'lodash/get.js';
 	import { postTypeToName, postTypeToCategory, roleToRoleName } from '$lib/global.js';
 
 	// __ GRAPHICS
 	import ExternalLink from '$lib/graphics/external-link.svelte';
-
-	// __ STORES
-	import { currentPage } from '$lib/stores.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
 	import SeeAlso from '$lib/see-also/see-also.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let person;
@@ -48,22 +44,13 @@
 		'*[$personId in people[]._ref || $personId in advisors[]._ref || $personId in fellows[]._ref]',
 		{ personId: person._id }
 	);
-
-	// __ Set currentPage
-	currentPage.set({ slug: get(person, 'slug.current', ''), title: person.title });
-
-	onDestroy(() => {
-		currentPage.set(null);
-	});
 </script>
 
-<svelte:head>
-	<title>{person.title}</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={person} />
 <!-- SIDEBAR -->
 <Sidebar title={person.title} />
-
+<!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
 		<div class="header">

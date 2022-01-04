@@ -22,34 +22,22 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { onDestroy } from 'svelte';
 	import get from 'lodash/get.js';
 	import { parseToc } from '$lib/global.js';
-
-	// __ STORES
-	import { currentPage } from '$lib/stores.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import MainContent from '$lib/main-content/main-content.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let program;
 
 	const toc = parseToc(get(program, 'content.content'));
-
-	// __ Set currentPage
-	currentPage.set({ slug: get(program, 'slug.current', ''), title: program.title });
-
-	onDestroy(() => {
-		currentPage.set(null);
-	});
 </script>
 
-<svelte:head>
-	<title>{program.title}</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={program} />
 <!-- SIDEBAR -->
 <Sidebar title={program.title} {toc} />
 <!-- MAIN CONTENT -->

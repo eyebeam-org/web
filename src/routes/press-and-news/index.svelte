@@ -23,7 +23,6 @@
 
 	// __ IMPORTS
 	import has from 'lodash/has.js';
-	import get from 'lodash/get.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -31,18 +30,17 @@
 	import PressAndNewsItem from '$lib/press-and-news-item/press-and-news-item.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
 	import SeeAlso from '$lib/see-also/see-also.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let posts;
 </script>
 
-<svelte:head>
-	<title>Press & News</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={{ title: 'Press & News' }} />
 <!-- SIDEBAR -->
 <Sidebar title="Press & News" />
-
+<!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
 		<h1>Press & News</h1>

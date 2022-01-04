@@ -41,6 +41,7 @@
 	import Search from '$lib/search/search.svelte';
 	import PersonLinkList from '$lib/person-link-list/person-link-list.svelte';
 	import Sticker from '$lib/sticker/sticker.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
 	const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
@@ -55,9 +56,8 @@
 	};
 </script>
 
-<svelte:head>
-	<title>eyebeam.org</title>
-</svelte:head>
+<!-- METADATA -->
+<Metadata />
 
 <div class="homepage-menu">
 	<div class="section one">

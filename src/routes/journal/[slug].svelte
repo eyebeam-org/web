@@ -23,13 +23,15 @@
 
 	import { renderBlockText, urlFor } from '$lib/sanity.js';
 
+	// __ COMPONENTS
+	import Metadata from '$lib/metadata/metadata.svelte';
+
 	// *** PROPS
 	export let post;
 </script>
 
-<svelte:head>
-	<title>{post.title}</title>
-</svelte:head>
+<!-- METADATA -->
+<Metadata {post} />
 
 <!-- TITLE -->
 <h1>{post.title}</h1>

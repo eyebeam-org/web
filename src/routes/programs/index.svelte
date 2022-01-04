@@ -30,6 +30,7 @@
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let programs;
@@ -39,13 +40,10 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Programs</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={{ title: 'Programs' }} />
 <!-- SIDEBAR -->
 <Sidebar {toc} title="Programs" />
-
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

@@ -22,37 +22,23 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { onDestroy } from 'svelte';
-	import { urlFor } from '$lib/sanity.js';
-	import has from 'lodash/has.js';
 	import get from 'lodash/get.js';
 	import { parseToc } from '$lib/global.js';
-
-	// __ STORES
-	import { currentPage } from '$lib/stores.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import MainContent from '$lib/main-content/main-content.svelte';
+	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let event;
 
 	let toc = parseToc(get(event, 'content.content'));
 	toc.push({ title: 'People', link: '#people' });
-
-	// __ Set currentPage
-	currentPage.set({ slug: get(event, 'slug.current', ''), title: event.title });
-
-	onDestroy(() => {
-		currentPage.set(null);
-	});
 </script>
 
-<svelte:head>
-	<title>{event.title}</title>
-</svelte:head>
-
+<!-- METADATA -->
+<Metadata post={event} />
 <!-- SIDEBAR -->
 <Sidebar title={event.title} {toc} />
 <!-- MAIN CONTENT -->
