@@ -77,6 +77,16 @@ export const longFormatDate = date => {
     }
 }
 
+export const dateTimeFormat = date => {
+    try {
+        if (date) {
+            return format(parseISO(date), "MMMM d, yyyy, HH:mm")
+        }
+    } catch (err) {
+        console.dir(err)
+    }
+}
+
 export const shortFormatDate = date => {
     try {
         if (date) {

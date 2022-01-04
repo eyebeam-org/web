@@ -8,7 +8,7 @@
 	// __ IMPORTS
 	import { urlFor } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
-	import { longFormatDate } from '$lib/global';
+	import { dateTimeFormat, longFormatDate } from '$lib/global';
 
 	// __ COMPONENTS
 	import Blocks from '$lib/blocks/blocks.svelte';
@@ -46,7 +46,7 @@
 			{#if page._type == 'note'}
 				<!-- DATE -->
 				<div class="date">
-					{longFormatDate(page._createdAt)}
+					{dateTimeFormat(page._createdAt)}
 				</div>
 				<!-- AUTHOR(S) -->
 				{#if page.people && page.people.length > 0}
@@ -80,9 +80,22 @@
 			{/if}
 		</div>
 
-		<!-- EVENT SPECIFIC -->
+		<!-- EVENT INFO -->
 		{#if page._type === 'event'}
-			<div class="event-info">TODO:EVENT INFO</div>
+			<div class="event-info">
+				{#if page.startDate}
+					<div class="dates">
+						<h3>Dates</h3>
+						{longFormatDate(page.startDate)}
+					</div>
+				{/if}
+				{#if has(page, 'location.content')}
+					<div class="location">
+						<h3>Location</h3>
+						<Blocks blocks={page.location.content} />
+					</div>
+				{/if}
+			</div>
 		{/if}
 
 		<!-- PRESS & NEWS SPECIFIC -->
@@ -336,5 +349,27 @@
 			background: var(--foreground-color);
 			color: $white;
 		}
+	}
+
+	.event-info {
+		padding: $small-margin;
+		border: 1px solid var(--foreground-color);
+		font-size: $font-size-small;
+		display: inline-block;
+		margin-left: $small-margin;
+		min-width: 300px;
+		width: 40%;
+
+		.dates {
+			margin-bottom: $small-margin;
+		}
+	}
+
+	:global(.event-info p) {
+		margin: 0;
+	}
+
+	:global(.event-info h3) {
+		margin: 0;
 	}
 </style>
