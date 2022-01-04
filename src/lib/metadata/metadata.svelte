@@ -7,7 +7,9 @@
 
 	// __ IMPORTS
 	import { onDestroy } from 'svelte';
-	import { get, has, truncate } from 'lodash';
+	import has from 'lodash/has.js';
+	import get from 'lodash/get.js';
+	import truncate from 'lodash/truncate.js';
 	import { toPlainText, urlFor } from '$lib/sanity';
 
 	// __ STORES
