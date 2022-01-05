@@ -5,6 +5,7 @@
 	//
 	// # # # # # # # # # # # # #
 
+	import { onMount } from 'svelte';
 	import TWEEN from '@tweenjs/tween.js';
 
 	const EASING = TWEEN.Easing.Cubic.Out;
@@ -29,10 +30,12 @@
 		requestAnimationFrame(animate);
 	};
 
-	// window.setTimeout(() => {
-	tween.start(); // Start the tween immediately.
-	animate();
-	// }, 500);
+	onMount(async () => {
+		window.setTimeout(() => {
+			tween.start(); // Start the tween immediately.
+			animate();
+		}, 500);
+	});
 </script>
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.98 67.2">
