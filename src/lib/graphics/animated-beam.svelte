@@ -15,7 +15,7 @@
 	};
 	let pos = 1;
 
-	$: console.log(pos);
+	// $: console.log(pos);
 
 	const tween = new TWEEN.Tween(counter) // Create a new tween that modifies 'coords'.
 		.to({ value: 20 }, 1500) // Move to (300, 200) in 1 second.
@@ -29,10 +29,10 @@
 		requestAnimationFrame(animate);
 	};
 
-	window.setTimeout(() => {
-		tween.start(); // Start the tween immediately.
-		animate();
-	}, 500);
+	// window.setTimeout(() => {
+	tween.start(); // Start the tween immediately.
+	animate();
+	// }, 500);
 </script>
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.98 67.2">
