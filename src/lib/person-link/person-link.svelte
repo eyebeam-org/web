@@ -21,8 +21,7 @@
 	let linkEl = {};
 	let popEl = {};
 	let popper = {};
-
-	const isDesktop = window.matchMedia('(min-width: 700px)');
+	let isDesktop = {};
 
 	const initPopper = () => {
 		popper = createPopper(linkEl, popEl, {
@@ -77,6 +76,7 @@
 	}
 
 	onMount(async () => {
+		isDesktop = window.matchMedia('(min-width: 700px)');
 		if (person && isDesktop.matches) {
 			initPopper();
 		}
