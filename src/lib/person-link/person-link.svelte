@@ -22,28 +22,54 @@
 	let popEl = {};
 	let popper = {};
 
+	const isDesktop = window.matchMedia('(min-width: 700px)');
+
 	const initPopper = () => {
 		popper = createPopper(linkEl, popEl, {
+			placement: 'bottom-start',
 			modifiers: [
 				{
 					name: 'offset',
 					options: {
-						offset: [0, 20]
+						offset: [10, 5]
 					}
-				}
+				},
+				{ name: 'eventListeners', enabled: false }
 			]
 		});
 	};
 
-	// , {
-	// 		placement: 'bottom'
-	// 	}
+	const show = () => {
+		if (isDesktop.matches) {
+			console.log('SHOW');
+			popEl.classList.add('show');
+			// Enable the event listeners
+			popper.setOptions((options) => ({
+				...options,
+				modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }]
+			}));
+			// We need to tell Popper to update the tooltip position
+			// after we show the tooltip, otherwise it will be incorrect
+			popper.update();
+		}
+	};
 
-	// strategy: 'fixed',
+	const hide = () => {
+		if (isDesktop.matches) {
+			console.log('hide');
+			popEl.classList.remove('show');
+			// Disable the event listeners
+			popper.setOptions((options) => ({
+				...options,
+				modifiers: [...options.modifiers, { name: 'eventListeners', enabled: false }]
+			}));
+		}
+	};
 
 	const renderNewLines = (t) => t.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
 	if (personId) {
+		console.log('loading-data');
 		loadData('*[_id == "' + personId + '"][0]').then((p) => {
 			person = p;
 			setTimeout(initPopper, 1000);
@@ -51,7 +77,7 @@
 	}
 
 	onMount(async () => {
-		if (person) {
+		if (person && isDesktop.matches) {
 			initPopper();
 		}
 	});
@@ -62,21 +88,15 @@
 		href={'/people/' + get(person, 'slug.current')}
 		bind:this={linkEl}
 		sveltekit:prefetch
-		on:mouseenter={(e) => {
-			console.log('mouseenter');
-			console.log(popper);
-			// popper.update();
-		}}
-		on:mouseleave={(e) => {
-			console.log('mouseleave');
-		}}
+		on:mouseenter={show}
+		on:mouseleave={hide}
 	>
 		{@html overrideText ? renderNewLines(overrideText) : person.title}
 	</a>
 
 	<div class="pop-up" bind:this={popEl}>
 		<!-- ARROW  -->
-		<div class="arrow" />
+		<!-- <div class="arrow" /> -->
 		<!-- FIRST COLUMN -->
 		<div class="column first">
 			<!-- NAME -->
@@ -111,14 +131,18 @@
 	@import '../../variables.scss';
 
 	.pop-up {
-		display: none;
 		background: $white;
 		padding: $small-margin;
 		border: 1px solid var(--foreground-color);
 		z-index: 1000;
 		color: $black;
 		position: relative;
-		margin-top: 20px;
+		display: none;
+		max-width: 360px;
+
+		.show {
+			display: block;
+		}
 
 		.arrow {
 			width: 20px;
@@ -138,18 +162,16 @@
 		}
 	}
 
+	:global(.pop-up.show) {
+		display: flex !important;
+	}
+
 	a {
 		color: $black;
 		background: $grey;
 		text-decoration: none;
 		margin-bottom: 3px;
 		display: inline-block;
-
-		&:hover {
-			& + .pop-up {
-				display: flex;
-			}
-		}
 	}
 
 	.column {
