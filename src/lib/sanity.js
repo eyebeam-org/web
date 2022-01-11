@@ -184,6 +184,7 @@ export const loadData = async (query, params) => {
     try {
         const res = await client.fetch(query, params)
         if (res === null) {
+            console.log('QUERY', query)
             return Promise.reject('No posts');
         }
         // console.log(res)

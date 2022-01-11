@@ -26,6 +26,7 @@
 	import has from 'lodash/has.js';
 	import get from 'lodash/get.js';
 	import keyBy from 'lodash/keyBy.js';
+	import truncate from 'lodash/truncate.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -148,7 +149,9 @@
 					<h2>{aboutMap[section].title}</h2>
 					{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
-							{@html renderBlockText(aboutMap[section].introduction.content)}
+							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {
+								length: 600
+							})}
 						</div>
 					{/if}
 				</a>
