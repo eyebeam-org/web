@@ -152,3 +152,5 @@ export const parseToc = (text) => {
     return tempToc;
 };
 
+export const renderNewLines = (t) => t.replace(/(?:\r\n|\r|\n)/g, '<br>');
+

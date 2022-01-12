@@ -26,6 +26,7 @@
 	import has from 'lodash/has.js';
 	import { longFormatDate } from '$lib/global';
 	import get from 'lodash/get.js';
+	import truncate from 'lodash/truncate.js';
 
 	// __ COMPONENTS
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -66,7 +67,11 @@
 				<h2>{program.title}</h2>
 				<!-- DESCRIPTION -->
 				{#if has(program, 'introduction.content')}
-					<div class="introduction-text">{@html renderBlockText(program.introduction.content)}</div>
+					<div class="introduction-text">
+						{@html truncate(renderBlockText(program.introduction.content), {
+							length: 600
+						})}
+					</div>
 				{/if}
 
 				{#if program.applicationsOpen}

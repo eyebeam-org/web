@@ -9,7 +9,7 @@
 	import { createPopper } from '@popperjs/core';
 	import { onMount } from 'svelte';
 	import { loadData, urlFor } from '$lib/sanity.js';
-	import { roleToRoleName } from '$lib/global.js';
+	import { roleToRoleName, renderNewLines } from '$lib/global.js';
 	import get from 'lodash/get.js';
 
 	// __ PROPS
@@ -64,8 +64,6 @@
 			}));
 		}
 	};
-
-	const renderNewLines = (t) => t.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
 	if (personId) {
 		console.log('loading-data');
