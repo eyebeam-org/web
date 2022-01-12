@@ -33,7 +33,7 @@
 {:else if c.marks.includes('strong')}
 	<!-- Bold -->
 	<strong>{@html renderNewLines(c.text)}</strong>
-{:else if currentDefinition._type === 'link'}
+{:else if currentDefinition._type === 'link' && currentDefinition.href}
 	{#if currentDefinition.href.includes('https://eyebeam.org')}
 		<!-- Internal Link -->
 		<a href={currentDefinition.href}>{@html renderNewLines(c.text)}</a>
