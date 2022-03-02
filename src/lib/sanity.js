@@ -9,7 +9,7 @@ const tracer = x => {
     return x
 }
 
-const SANITY_ID = '3knpqano'
+const SANITY_ID = import.meta.env.VITE_SANITY_ID
 
 export const client = sanityClient({
     projectId: SANITY_ID,
