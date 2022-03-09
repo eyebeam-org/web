@@ -30,10 +30,11 @@
 	@import '../../variables.scss';
 
 	.logo-block {
-		margin-left: $small-margin;
-		margin-right: $small-margin;
+		// margin-left: $small-margin;
+		// margin-right: $small-margin;
 		margin-bottom: $small-margin;
-		width: calc(100% - 40px);
+		margin-top: $small-margin;
+		width: 100%;
 		// padding: 15px;
 		border-bottom: 1px solid var(--foreground-color);
 		font-size: $font-size-body;
@@ -59,8 +60,8 @@
 		}
 
 		.logoblock-text {
-			padding-top: 40px;
-			padding-bottom: 40px;
+			padding-top: 20px;
+			padding-bottom: 20px;
 		}
 	}
 

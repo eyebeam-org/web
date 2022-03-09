@@ -118,7 +118,9 @@
 		{#each ORDER as section}
 			{#if section == 'press-and-news'}
 				<div class="tile full-tile press-and-news">
-					<h2>{aboutMap['press-and-news'].title}</h2>
+					<h2>
+						<a href="/press-and-news" sveltekit:prefetch>{aboutMap['press-and-news'].title}</a>
+					</h2>
 					<div class="press-and-news-listing">
 						{#await pressAndNews then pressAndNews}
 							{#each pressAndNews as post}
@@ -126,7 +128,7 @@
 							{/each}
 						{/await}
 					</div>
-					<a href="/press-and-news" class="see-all">See all Press & News</a>
+					<a href="/press-and-news" class="see-all" sveltekit:prefetch>See all Press & News</a>
 				</div>
 			{:else if section == 'contact'}
 				<div class="tile full-tile contact">
@@ -134,9 +136,10 @@
 					<div class="bottom-container">
 						<div class="column">{aboutMap['contact'].address}</div>
 						<div class="column">
-							{aboutMap['contact'].phoneNumber}<br /><a href={'mailto:' + aboutMap['contact'].email}
-								>{aboutMap['contact'].email}</a
-							>
+							{aboutMap['contact'].phoneNumber}<br />
+							<a href={'mailto:' + aboutMap['contact'].email}>
+								{aboutMap['contact'].email}
+							</a>
 						</div>
 					</div>
 				</div>
@@ -308,12 +311,23 @@
 
 	.press-and-news {
 		position: relative;
+		padding-left: 0;
+		padding-right: 0;
+
+		h2 {
+			margin-right: $extra-small-margin;
+			margin-left: $extra-small-margin;
+
+			a {
+				text-decoration: none;
+			}
+		}
 
 		.press-and-news-listing {
 			width: 100%;
 			display: flex;
-			margin-top: 45px;
-			padding-bottom: 50px;
+			margin-top: 25px;
+			padding-bottom: 25px;
 
 			@include screen-size('small') {
 				flex-wrap: wrap;

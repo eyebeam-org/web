@@ -34,50 +34,71 @@
 
 	// __ PROPS
 	export let posts;
+
+	const toc = [
+		{
+			title: 'News',
+			link: '#news'
+		},
+		{
+			title: 'Press Releases',
+			link: '#press-releases'
+		},
+		{
+			title: 'Press Contact',
+			link: '#press-contact'
+		}
+	];
 </script>
 
 <!-- METADATA -->
 <Metadata post={{ title: 'Press & News' }} />
 <!-- SIDEBAR -->
-<Sidebar title="Press & News" />
+<Sidebar {toc} title="Press & News" />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
 		<h1>Press & News</h1>
 
 		{#if has(posts, 'page.content.content')}
-			<Blocks blocks={posts.page.content.content} />
+			<div class="text-content">
+				<Blocks blocks={posts.page.content.content} />
+			</div>
 		{/if}
 
-		<div class="section">
+		<div class="section" id="news">
 			<h2>News</h2>
 			<div class="press-and-news-listing">
 				{#each posts.news as post}
 					<PressAndNewsItem {post} />
 				{/each}
 			</div>
-			<div class="load-more">Load more</div>
+			<!-- <div class="load-more">Load more</div> -->
+			<div class="bottom-divider" />
 		</div>
 
-		<div class="section">
+		<div class="section" id="press-releases">
 			<h2>Press releases</h2>
 			<div class="press-and-news-listing">
 				{#each posts.press as post}
 					<PressAndNewsItem {post} />
 				{/each}
 			</div>
-			<div class="load-more">Load more</div>
+			<!-- <div class="load-more">Load more</div> -->
+			<div class="bottom-divider" />
 		</div>
 
-		<div class="section">
+		<div class="section" id="press-contact">
 			<h2>Press contact</h2>
 			{#if has(posts, 'page.pressContact.content')}
-				<Blocks blocks={posts.page.pressContact.content} />
+				<div class="text-content">
+					<Blocks blocks={posts.page.pressContact.content} />
+				</div>
 			{/if}
 		</div>
 
 		<!-- SEE ALSO -->
-		{#if posts.page.internalLinks || posts.page.externalLinks}
+		{#if (posts.page.internalLinks && posts.page.internalLinks.length > 0) || (posts.page.externalLinks && posts.page.externalLinks.length > 0)}
 			<SeeAlso externalLinks={posts.page.externalLinks} internalLinks={posts.page.internalLinks} />
 		{/if}
 	</div>
@@ -102,14 +123,23 @@
 			border: 1px solid var(--foreground-color);
 			min-height: 100vh;
 			display: inline-block;
-			padding: $small-margin;
+
+			h1 {
+				padding: $small-margin;
+			}
+
+			.text-content {
+				padding-left: $small-margin;
+				padding-right: $small-margin;
+			}
 		}
 	}
 
 	.press-and-news-listing {
 		width: 100%;
 		display: flex;
-		margin-top: 45px;
+		margin-top: 20px;
+		flex-wrap: wrap;
 	}
 
 	.load-more {
@@ -129,7 +159,18 @@
 		}
 	}
 
+	.bottom-divider {
+		width: 100%;
+		border-bottom: 1px solid var(--foreground-color);
+		margin-top: 40px;
+	}
+
 	.section {
 		margin-top: 40px;
+
+		h2 {
+			padding-left: $small-margin;
+			padding-right: $small-margin;
+		}
 	}
 </style>

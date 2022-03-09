@@ -28,6 +28,7 @@
 	@import '../../variables.scss';
 
 	.press-and-news-item {
+		width: 25%;
 		text-decoration: none;
 		padding: $small-margin;
 
@@ -37,7 +38,7 @@
 
 		.date {
 			font-size: $font-size-extra-small;
-			letter-spacing: 1px;
+			margin-bottom: 5px;
 		}
 
 		.title {
@@ -47,7 +48,8 @@
 		.source {
 			font-size: $font-size-extra-small;
 			letter-spacing: 1px;
-			margin-top: $small-margin;
+			margin-top: 1em;
+			text-transform: uppercase;
 		}
 
 		&:hover {
