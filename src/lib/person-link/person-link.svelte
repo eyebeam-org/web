@@ -66,7 +66,7 @@
 	};
 
 	if (personId) {
-		console.log('loading-data');
+		// console.log('loading-data');
 		loadData('*[_id == "' + personId + '"][0]').then((p) => {
 			person = p;
 			setTimeout(initPopper, 1000);

@@ -1,6 +1,6 @@
 <script context="module">
-	export const load = async ({ page, fetch, session, stuff }) => {
-		const res = await fetch(`/press-and-news/${page.params.slug}.json`);
+	export const load = async ({ params, fetch, session, stuff }) => {
+		const res = await fetch(`/press-and-news/${params.slug}.json`);
 		if (res.ok) {
 			const page = await res.json();
 			return {

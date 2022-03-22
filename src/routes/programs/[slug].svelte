@@ -1,6 +1,6 @@
 <script context="module">
-	export const load = async ({ page, fetch, session, stuff }) => {
-		const res = await fetch(`/programs/${page.params.slug}.json`);
+	export const load = async ({ params, fetch, session, stuff }) => {
+		const res = await fetch(`/programs/${params.slug}.json`);
 		if (res.ok) {
 			const program = await res.json();
 			return {

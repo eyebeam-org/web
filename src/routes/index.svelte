@@ -1,6 +1,6 @@
 <script context="module">
 	export const load = async ({ fetch }) => {
-		const res = await fetch('frontpage.json');
+		const res = await fetch('/frontpage.json');
 		if (res.ok) {
 			const posts = await res.json();
 			return {

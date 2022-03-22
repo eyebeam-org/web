@@ -1,6 +1,6 @@
 <script context="module">
-	export const load = async ({ page, fetch, session, stuff }) => {
-		const res = await fetch(`/notes/${page.params.slug}.json`);
+	export const load = async ({ params, fetch, session, stuff }) => {
+		const res = await fetch(`/notes/${params.slug}.json`);
 		if (res.ok) {
 			const note = await res.json();
 			return {
