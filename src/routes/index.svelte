@@ -66,7 +66,7 @@
 				{#if get(posts, 'stickers.stickerLeft.enabled', false)}
 					<Sticker sticker={posts.stickers.stickerLeft} />
 				{:else}
-					<OpenEyebeam />
+					<OpenEyebeam openEyebeam={posts.openEyebeam.mainImage}/>
 				{/if}
 			</div>
 			<div class="tile logo-and-statement">
@@ -93,7 +93,7 @@
 					</a>
 				{/each}
 			</div>
-			<a href="/about" class="tile about" sveltekit:prefetch>What is eyebeam?</a>
+			<a href="/about" class="tile about" sveltekit:prefetch>What is Eyebeam?</a>
 			<a href="/people" class="tile people" sveltekit:prefetch>People</a>
 		</div>
 		<div class="tile search" on:click={toggleSearch}><SearchIcon /> Search this website</div>

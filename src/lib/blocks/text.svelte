@@ -11,6 +11,7 @@
 
 	// *** PROPS
 	export let b = {};
+	console.log('b: ', b)
 </script>
 
 {#if b.children && b.children.length > 0}
@@ -34,6 +35,12 @@
 				{c.text}
 			{/each}
 		</h3>
+	{:else if b.style == 'span'}
+		<span>
+			{#each b.children as c}
+				{c.text}
+			{/each}
+		</span>
 	{:else}
 		<p>
 			{#each b.children as c}
