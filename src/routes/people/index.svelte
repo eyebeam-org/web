@@ -289,7 +289,7 @@
 			flex-direction: column;
 			position: absolute;
 			top: 80px;
-			right: 60px;
+			right: 0;
 			width: 40px;
 			user-select: none;
 			// border: 1px solid var(--foreground-color);

@@ -131,6 +131,7 @@
 		margin-left: 60px;
 		margin-right: 60px;
 		transition: transform 0.5s $transition;
+		position: relative;
 
 		&.open {
 			transform: translateY(240px);
