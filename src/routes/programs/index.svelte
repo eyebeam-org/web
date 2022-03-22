@@ -77,9 +77,11 @@
 				{#if program.applicationsOpen}
 					<div class="application-container">
 						<div class="circle" />
-						<span class="applications-open">Applications open</span>
-						<div class="date">
-							Due by {longFormatDate(program.applicationEndDate)}
+						<div class="text">
+							<div class="applications-open">Applications open</div>
+							<div class="date">
+								Due by {longFormatDate(program.applicationEndDate)}
+							</div>
 						</div>
 					</div>
 				{/if}
@@ -201,12 +203,14 @@
 			height: 20px;
 			border-radius: 50%;
 			background: var(--foreground-color);
-			margin-top: 10px;
 		}
 
-		.applications-open {
+		.text {
 			margin-left: 10px;
-			font-size: $font-size-extra-small;
+
+			.applications-open {
+				font-size: $font-size-extra-small;
+			}
 		}
 	}
 </style>
