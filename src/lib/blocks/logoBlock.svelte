@@ -30,12 +30,10 @@
 	@import '../../variables.scss';
 
 	.logo-block {
-		// margin-left: $small-margin;
-		// margin-right: $small-margin;
+		margin-left: $small-margin;
+		margin-right: $small-margin;
 		margin-bottom: $small-margin;
 		margin-top: $small-margin;
-		width: 100%;
-		// padding: 15px;
 		border-bottom: 1px solid var(--foreground-color);
 		font-size: $font-size-body;
 

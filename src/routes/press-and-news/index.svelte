@@ -127,11 +127,6 @@
 			h1 {
 				padding: $small-margin;
 			}
-
-			.text-content {
-				padding-left: $small-margin;
-				padding-right: $small-margin;
-			}
 		}
 	}
 
