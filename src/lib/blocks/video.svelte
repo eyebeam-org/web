@@ -16,9 +16,6 @@
 	export let b = {};
 
 	const videoPost = loadData('*[_id == $id][0]', { id: b.videoPost._ref });
-	// videoPost.then((v) => {
-	// 	console.log('v', v);
-	// });
 </script>
 
 {#await videoPost then videoPost}
@@ -34,7 +31,10 @@
 		<div class="icon">
 			<PlayArrow />
 		</div>
-		<div class="title">{videoPost.title}</div>
+		<div class="title">
+			{videoPost.title}
+			{#if videoPost.runtime}({videoPost.runtime}){/if}
+		</div>
 	</a>
 {/await}
 
@@ -62,7 +62,7 @@
 			display: block;
 			position: absolute;
 			top: 10px;
-			left: 80px;
+			left: 90px;
 			z-index: 10;
 			color: $white;
 			font-size: $font-size-h2;
@@ -83,6 +83,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			padding-left: 7px;
 		}
 	}
 </style>
