@@ -2,9 +2,9 @@
 	export const load = async ({ fetch }) => {
 		const res = await fetch('/people.json');
 		if (res.ok) {
-			const people = await res.json();
+			const data = await res.json();
 			return {
-				props: { people }
+				props: { data }
 			};
 		}
 		const { message } = await res.json();
@@ -40,8 +40,7 @@
 	// console.log('xxx', $page.query.getAll());
 
 	// __ PROPS
-	export let people;
-	console.log('people', people);
+	export let data = {};
 
 	// __ VARIABLES
 	const START_YEAR = 1997;
@@ -120,9 +119,9 @@
 
 	$: {
 		if (activeFilter === 'everyone') {
-			filteredPeople = people;
+			filteredPeople = data.people;
 		} else {
-			filteredPeople = people.filter((p) => p.role === activeFilter);
+			filteredPeople = data.people.filter((p) => p.role === activeFilter);
 		}
 		groupedPeopleAlpha = groupBy(filteredPeople, (p) => p.lastName.charAt(0));
 		groupedPeopleChrono = groupBy(filteredPeople, (p) => p.firstEngagement);
@@ -155,7 +154,7 @@
 <!-- METADATA -->
 <Metadata post={{ title: 'People' }} />
 <!-- SIDEBAR -->
-<Sidebar />
+<Sidebar data={data} />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

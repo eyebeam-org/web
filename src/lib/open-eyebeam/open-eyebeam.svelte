@@ -18,7 +18,6 @@
 	// *** PROPS
 	export let openEyebeam = {};
 	export let small = false;
-	console.log('openEyebeam', openEyebeam);
 
 	let url = '';
 
@@ -32,7 +31,7 @@
 
 <a href={ openEyebeam.externalLink} class="open-eyebeam">
 	{#if has(openEyebeam, 'image.asset')}
-		<img alt={openEyebeam.image.alt} src={urlFor(openEyebeam.image).quality(90).url()} />
+		<img class="open-eyebeam-image" alt={openEyebeam.image.alt} src={urlFor(openEyebeam.image).quality(90).url()} />
 		{#if has(openEyebeam, 'image.caption') }
 <div class="link"><span class="arrow"><TriangleRight /> </span> <Blocks blocks={openEyebeam.image.caption.content} />
 
@@ -56,6 +55,9 @@
 		height: 100%;
 		text-decoration: none;
 		display: block;
+		.open-eyebeam-image {
+			max-width: 100%;
+		}
 
 		.link {
 			position: absolute;

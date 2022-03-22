@@ -7,6 +7,7 @@
 
 	// __ IMPORTS
 	import { renderBlockText } from '$lib/sanity.js';
+	import get from 'lodash/get.js';
 
 	// __ GRAPHICS
 	import Logo from '$lib/graphics/logo.svelte';
@@ -23,14 +24,17 @@
 	export let title = '';
 	export let location = '';
 	export let date = false;
+	export let data = {}
 </script>
 
 <!-- SIDEBAR -->
 <div class="sidebar">
-	<!-- OPEN EYEBEAM -->
-	<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam">
-		<OpenEyebeam />
-	</a>
+<!-- OPEN EYEBEAM/STICKER -->
+	{#if get(data, 'stickers.stickerLeft.enabled', false)}
+		<Sticker sticker={data.stickers.stickerLeft} />
+	{:else}
+		<OpenEyebeam openEyebeam={data.openEyebeam.mainImage}/>
+	{/if}
 	<!-- LOGO -->
 	<div class="tile logo" class:bordered={title || toc.length > 0 || location || date}>
 		<a href="/" class="wordmark"><Logo /></a>

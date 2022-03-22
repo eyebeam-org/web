@@ -2,6 +2,7 @@ import { loadData } from "$lib/sanity.js"
 
 // GET =>
 export const get = async (request) => {
+	const openEyebeam = await loadData("*[_id == 'openEyebeam']{...}[0]")
 	const response = await loadData("*[_type == 'person' && slug.current == $slug]{..., internalLinks[]->{...}}[0]", { slug: request.params.slug })
 	return { body: response.status === 404 ? 'ERROR' : response };
 };
