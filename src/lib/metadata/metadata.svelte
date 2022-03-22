@@ -35,7 +35,7 @@
 		description = DEFAULT_DESCRIPTION;
 	}
 
-	const url = BASE_URL + $page.path;
+	const url = BASE_URL + $page.url.pathname;
 
 	const image = has(post, 'mainImage.asset') ? urlFor(post.mainImage) : DEFAULT_IMAGE;
 

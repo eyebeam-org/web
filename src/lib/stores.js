@@ -12,7 +12,7 @@ export const activeCity = writable({})
 export const currentCategory = derived(
     page,
     $page => {
-        let pathArray = $page.path.split('/').filter(p => p)
+        let pathArray = $page.url.pathname.split('/').filter(p => p)
         if (pathArray[0] && categoryToName[pathArray[0]]) {
             return { slug: pathArray[0], name: categoryToName[pathArray[0]] }
         } else {

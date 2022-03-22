@@ -34,7 +34,7 @@
 	<!-- LOGO -->
 	<div class="tile logo" class:bordered={title || toc.length > 0 || location || date}>
 		<a href="/" class="wordmark"><Logo /></a>
-		{#if $page.path !== '/statements'}
+		{#if $page.url.pathname !== '/statements'}
 			<Statements />
 		{/if}
 	</div>

@@ -36,7 +36,7 @@
 	};
 
 	$: {
-		console.log('$navigating', $navigating);
+		// console.log('$navigating', $navigating);
 		if ($navigating === null) {
 			toggleMenu();
 		}
@@ -64,11 +64,11 @@
 	<div class="search-bar" on:click={toggleSearch}>
 		<span class="icon"><SearchIcon white={true} /></span>Search this site
 	</div>
-	{#if $page.path == '/'}
+	{#if $page.url.pathname == '/'}
 		<a href="/" class="logo"><BigBeam /></a>
 		<a href="/" class="wordmark"><Logo /></a>
 	{/if}
-	{#if $page.path !== '/'}
+	{#if $page.url.pathname !== '/'}
 		<div class="wordmark" on:click={toggleMenu}><Logo /></div>
 		<div class="menu-toggle" on:click={toggleMenu}>
 			<span class="menu-toggle-header">Click to {menuOpen ? 'hide' : 'show'} menu</span>

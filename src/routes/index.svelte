@@ -1,6 +1,6 @@
 <script context="module">
 	export const load = async ({ fetch }) => {
-		const res = await fetch('/index.json');
+		const res = await fetch('frontpage.json');
 		if (res.ok) {
 			const posts = await res.json();
 			return {
@@ -123,16 +123,16 @@
 		</a>
 		<a href={INSTAGRAM_URL} target="_blank" class="tile social instagram"
 			>Instagram
-			<div class="icon"><Instagram /></div></a
-		>
+			<div class="icon"><Instagram /></div>
+		</a>
 		<a href={TWITTER_URL} target="_blank" class="tile social twitter"
 			>Twitter
-			<div class="icon"><Twitter /></div></a
-		>
+			<div class="icon"><Twitter /></div>
+		</a>
 		<a href={YOUTUBE_URL} target="_blank" class="tile social youtube"
 			>Youtube
-			<div class="icon"><Youtube /></div></a
-		>
+			<div class="icon"><Youtube /></div>
+		</a>
 		<div class="tile events">
 			<div class="sub-tile header event">UPCOMING & RECENT</div>
 			{#each posts.events as event}

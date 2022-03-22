@@ -84,7 +84,7 @@
 </main>
 
 <!-- FOOTER -->
-{#if $page.path !== '/'}
+{#if $page.url.pathname !== '/'}
 	<Footer />
 {/if}
 <!-- PHONE FOOTER -->
