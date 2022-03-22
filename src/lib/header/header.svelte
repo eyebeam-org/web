@@ -125,7 +125,7 @@
 			<!-- BREADCRUMBS -->
 			<div class="breadcrumbs">
 				<span class="arrow-down"><ArrowDown /></span>
-				<a href="/">eyebeam.org</a>
+				<a href="/" sveltekit:prefetch>eyebeam.org</a>
 				<!-- CATEGORY -->
 				{#if $currentCategory}
 					<span class="divider">/</span>

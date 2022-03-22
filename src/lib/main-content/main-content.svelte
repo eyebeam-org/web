@@ -208,6 +208,7 @@
 				line-height: 1.1em;
 				@include screen-size('small') {
 					margin-left: 0;
+					margin-bottom: 0;
 				}
 			}
 
@@ -222,7 +223,7 @@
 			}
 
 			.image-container {
-				width: 40%;
+				min-width: 40%;
 				max-height: 100%;
 				margin-right: $small-margin;
 				img {

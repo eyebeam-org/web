@@ -112,5 +112,6 @@
 		margin-bottom: 0;
 		margin-left: 0;
 		margin-right: 0;
+		font-size: $font-size-small !important;
 	}
 </style>

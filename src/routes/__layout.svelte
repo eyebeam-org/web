@@ -206,7 +206,6 @@
 
 	figcaption {
 		font-style: italic;
-		font-size: $font-size-small;
 
 		p {
 			padding-left: 0 !important;

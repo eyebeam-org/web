@@ -204,7 +204,6 @@
 		float: left;
 		&.one {
 			width: 50%;
-			// background: yellow;
 			height: calc(100% - 100px);
 
 			@include screen-size('small') {
@@ -238,7 +237,6 @@
 	.search {
 		height: 100px;
 		width: 100%;
-		// background: pink;
 		float: left;
 		border-top: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
@@ -261,7 +259,6 @@
 
 	.logo-and-statement {
 		height: $one-third;
-		// background: purple;
 		width: 100%;
 		border-right: 1px solid var(--foreground-color);
 		float: left;
@@ -312,7 +309,7 @@
 	.social {
 		width: 25%;
 		height: 100px;
-		// background: salmon;
+		padding: 10px !important;
 		float: left;
 		border-right: 1px solid var(--foreground-color);
 		border-bottom: 1px solid var(--foreground-color);
@@ -341,7 +338,6 @@
 	.change {
 		height: calc(40% - 100px);
 		width: 50%;
-		// background: olive;
 		float: left;
 		border-right: 1px solid var(--foreground-color);
 		border-bottom: 1px solid var(--foreground-color);
@@ -359,7 +355,6 @@
 	.support {
 		height: calc(40% - 100px);
 		width: 50%;
-		// background: aqua;
 		float: left;
 		border-bottom: 1px solid var(--foreground-color);
 
@@ -372,7 +367,6 @@
 	.events {
 		height: 60%;
 		width: 100%;
-		// background: green;
 		float: left;
 		padding: 0 !important;
 	}
@@ -455,7 +449,6 @@
 		}
 
 		&.header {
-			// font-variant: small-caps;
 			font-size: $font-size-extra-small;
 			letter-spacing: 0.5px;
 			@include screen-size('small') {

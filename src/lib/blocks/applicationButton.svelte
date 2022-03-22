@@ -114,7 +114,6 @@
 			}
 
 			.date {
-				margin-top: 8px;
 				font-style: italic;
 			}
 		}
