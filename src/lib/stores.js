@@ -4,7 +4,6 @@ import { categoryToName } from '$lib/global.js';
 
 // WRITABLE
 export const currentPage = writable(null)
-export const loaded = writable(false)
 export const trayOpen = writable(false)
 export const theme = writable('ink')
 export const inversion = writable(false)

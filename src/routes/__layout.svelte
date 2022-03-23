@@ -16,9 +16,10 @@
 
 	// __ STORES
 	import { page } from '$app/stores';
-	import { loaded, trayOpen, inversion, theme } from '$lib/stores.js';
+	import { trayOpen, inversion, theme } from '$lib/stores.js';
 
 	let root = {};
+	let ready = false;
 
 	const BLACK = 'rgb(34, 31, 32)';
 	const WHITE = 'rgb(245, 244, 238)';
@@ -64,24 +65,25 @@
 	});
 
 	setTimeout(() => {
-		loaded.set(true);
+		ready = true;
 	}, 2000);
 </script>
 
-<!-- LOADING -->
-{#if !$loaded}
-	<Loading />
-{/if}
-
 <!-- HEADER -->
-<Header />
+<Header {ready} />
+
 <!-- PHONE HEADER -->
 <PhoneHeader />
 
-<!-- MAIN -->
-<main id="main" class:shown={$loaded} class:open={$trayOpen} class:inversion={$inversion}>
-	<slot />
-</main>
+{#if !ready}
+	<!-- LOADING -->
+	<Loading />
+{:else}
+	<!-- MAIN -->
+	<main id="main" class:open={$trayOpen} class:inversion={$inversion}>
+		<slot />
+	</main>
+{/if}
 
 <!-- FOOTER -->
 {#if $page.url.pathname !== '/'}
@@ -132,14 +134,10 @@
 		margin-right: 60px;
 		transition: transform 0.5s $transition;
 		position: relative;
+		opacity: 1;
 
 		&.open {
 			transform: translateY(240px);
-		}
-		opacity: 0;
-
-		&.shown {
-			opacity: 1;
 		}
 
 		@include screen-size('small') {

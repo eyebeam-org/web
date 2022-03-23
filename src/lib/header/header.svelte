@@ -21,12 +21,13 @@
 	import {
 		currentCategory,
 		currentPage,
-		loaded,
 		trayOpen,
 		activeCity,
 		theme,
 		inversion
 	} from '$lib/stores.js';
+
+	export let ready = false;
 
 	const cities = loadData('*[_id == "cities"][0]');
 
@@ -121,7 +122,7 @@
 		</div>
 	</div>
 	<nav class="menubar">
-		<div class="inner-text" class:loaded={$loaded}>
+		<div class="inner-text" class:ready>
 			<!-- BREADCRUMBS -->
 			<div class="breadcrumbs">
 				<span class="arrow-down"><ArrowDown /></span>
@@ -185,8 +186,9 @@
 
 			.inner-text {
 				opacity: 0;
+				transition: opacity 0.5s $transition;
 
-				&.loaded {
+				&.ready {
 					opacity: 1;
 				}
 			}

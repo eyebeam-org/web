@@ -6,7 +6,6 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
@@ -36,7 +35,7 @@
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-		background: $grey;
+		background: $white;
 		display: flex;
 		align-items: center;
 		justify-content: center;
