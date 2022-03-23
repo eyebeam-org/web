@@ -22,7 +22,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { loadData, urlFor } from '$lib/sanity.js';
+	import { urlFor } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import { postTypeToName, postTypeToCategory, roleToRoleName } from '$lib/global.js';
 
@@ -39,22 +39,39 @@
 	// __ PROPS
 	export let person;
 
-	// *[$id in people[]._ref]
-	const connectedPosts = loadData(
-		'*[$personId in people[]._ref || $personId in advisors[]._ref || $personId in fellows[]._ref]',
-		{ personId: person._id }
-	);
+	let toc = [];
+
+	if (person.website) {
+		toc.push({
+			title: 'Website',
+			link: '#website'
+		});
+	}
+
+	if (has(person, 'bio.content')) {
+		toc.push({
+			title: 'Bio',
+			link: '#bio'
+		});
+	}
+
+	if (person.connectedPosts.length > 0) {
+		toc.push({
+			title: 'At Eyebeam',
+			link: '#at-eyebeam'
+		});
+	}
 </script>
 
 <!-- METADATA -->
 <Metadata post={person} />
 <!-- SIDEBAR -->
-<Sidebar title={person.title} />
+<Sidebar title={person.title} {toc} />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
 		<div class="header">
-			<div class="column left">
+			<div class="column left" class:full={!person.mainImage}>
 				<!-- NAME -->
 				<h1>{person.title}</h1>
 				<!-- BADGES -->
@@ -113,35 +130,33 @@
 		</div>
 
 		<!-- AT EYEBEAM -->
-		{#await connectedPosts then connectedPosts}
-			{#if connectedPosts.length > 0}
-				<div class="at-eyebeam" id="at-eyebeam">
-					<h2>At Eyebeam</h2>
-					{#each connectedPosts as post}
-						<a
-							class="connected-post"
-							href={'/' + postTypeToCategory[post._type] + '/' + post.slug.current}
-							sveltekit:prefetch
-						>
-							<div class="image">
-								{#if post.mainImage}
-									<img
-										alt={post.title}
-										src={urlFor(post.mainImage).quality(90).saturation(-100).width(400).url()}
-									/>
-								{:else}
-									<div class="big-title">{post.title}</div>
-								{/if}
-							</div>
-							<div class="text">
-								<span class="type">{postTypeToName[post._type]}</span>
-								<span class="title">{post.title}</span>
-							</div>
-						</a>
-					{/each}
-				</div>
-			{/if}
-		{/await}
+		{#if person.connectedPosts.length > 0}
+			<div class="at-eyebeam" id="at-eyebeam">
+				<h2>At Eyebeam</h2>
+				{#each person.connectedPosts as post}
+					<a
+						class="connected-post"
+						href={'/' + postTypeToCategory[post._type] + '/' + post.slug.current}
+						sveltekit:prefetch
+					>
+						<div class="image">
+							{#if post.mainImage}
+								<img
+									alt={post.title}
+									src={urlFor(post.mainImage).quality(90).saturation(-100).width(400).url()}
+								/>
+							{:else}
+								<div class="big-title">{post.title}</div>
+							{/if}
+						</div>
+						<div class="text">
+							<span class="type">{postTypeToName[post._type]}</span>
+							<span class="title">{post.title}</span>
+						</div>
+					</a>
+				{/each}
+			</div>
+		{/if}
 
 		<!-- SEE ALSO -->
 		{#if person.internalLinks || person.externalLinks}
@@ -196,6 +211,10 @@
 						padding-right: 15px;
 					}
 
+					&.full {
+						max-width: 100%;
+					}
+
 					@include screen-size('small') {
 						max-width: unset;
 						width: 100%;
@@ -245,14 +264,11 @@
 				text-transform: uppercase;
 				margin-right: 20px;
 			}
-
-			.title {
-			}
 		}
 
 		.image {
 			border: 1px solid var(--foreground-color);
-			max-height: 300px;
+			max-height: 400px;
 			width: 100%;
 			line-height: 0;
 			overflow: hidden;
