@@ -4,7 +4,7 @@
 		if (res.ok) {
 			const about = await res.json();
 			return {
-				props: { about }
+				props: { about: about.about, pressAndNews: about.pressAndNews }
 			};
 		}
 		const { message } = await res.json();
@@ -22,7 +22,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	import { renderBlockText, loadData } from '$lib/sanity.js';
+	import { renderBlockText } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import keyBy from 'lodash/keyBy.js';
 	import truncate from 'lodash/truncate.js';
@@ -34,9 +34,9 @@
 
 	// __ PROPS
 	export let about;
-	const aboutMap = keyBy(about, '_id');
+	export let pressAndNews;
 
-	const pressAndNews = loadData('*[_type == "press" || _type == "news" ][0..3]');
+	const aboutMap = keyBy(about, '_id');
 
 	const ORDER = [
 		'our-mission-and-values',
@@ -102,6 +102,7 @@
 
 <!-- METADATA -->
 <Metadata post={aboutMap['what-is-eyebeam']} />
+
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
@@ -123,11 +124,9 @@
 						<a href="/press-and-news" sveltekit:prefetch>{aboutMap['press-and-news'].title}</a>
 					</h2>
 					<div class="press-and-news-listing">
-						{#await pressAndNews then pressAndNews}
-							{#each pressAndNews as post}
-								<PressAndNewsItem {post} />
-							{/each}
-						{/await}
+						{#each pressAndNews as post}
+							<PressAndNewsItem {post} />
+						{/each}
 					</div>
 					<a href="/press-and-news" class="see-all" sveltekit:prefetch>See all Press & News</a>
 				</div>
