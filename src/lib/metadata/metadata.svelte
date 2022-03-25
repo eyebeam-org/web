@@ -16,13 +16,12 @@
 	import { currentPage } from '$lib/stores.js';
 	import { page as pageStore } from '$app/stores';
 
-	// *** PROPS
+	// __ PROPS
 	export let page = {};
 	export let isSingle = false;
 
-	const BASE_URL = 'https://eyebeam.org';
-	const DEFAULT_DESCRIPTION = 'Eyebeam is lorem ipsum...';
-	const DEFAULT_IMAGE = 'https://eyebeam.netlify.com/img/eyebeam-logo.png';
+	// __ CONSTANTS
+	import { BASE_URL, DEFAULT_DESCRIPTION, DEFAULT_IMAGE } from '$lib/global.js';
 
 	const title = page.title ? page.title : 'eyebeam.org';
 

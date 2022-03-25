@@ -14,15 +14,15 @@
 
 	// *** PROPS
 	export let b = {};
+
+	const slug = slugify(b.title, {
+		lower: true
+	});
 </script>
 
 <div class="columns">
 	{#if b.title}
-		<h2
-			id={slugify(b.title, {
-				lower: true
-			})}
-		>
+		<h2 id={slug}>
 			{b.title}
 		</h2>
 	{/if}

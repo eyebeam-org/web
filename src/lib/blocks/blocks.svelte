@@ -1,9 +1,13 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  BLOCK RENDERER
+	//  Block Renderer
 	//
 	// # # # # # # # # # # # # #
+
+	// This component parses rich text edited in the sanity CMS
+	// and pass it on to appropriate sub-components to be rendered.
+	// ==> https://github.com/portabletext/portabletext
 
 	// __ BLOCKS
 	import Text from '$lib/blocks/text.svelte';

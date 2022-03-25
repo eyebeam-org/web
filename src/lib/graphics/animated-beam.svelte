@@ -9,14 +9,11 @@
 	import TWEEN from '@tweenjs/tween.js';
 
 	const EASING = TWEEN.Easing.Cubic.Out;
-	// const EASING = TWEEN.Easing.Linear.None;
 
 	let counter = {
 		value: 1
 	};
 	let pos = 1;
-
-	// $: console.log(pos);
 
 	const tween = new TWEEN.Tween(counter) // Create a new tween that modifies 'coords'.
 		.to({ value: 20 }, 1500) // Move to (300, 200) in 1 second.

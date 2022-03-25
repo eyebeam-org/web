@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Person link
+	//  Person Link
 	//
 	// # # # # # # # # # # # # #
 
@@ -40,7 +40,6 @@
 
 	const show = () => {
 		if (isDesktop.matches) {
-			console.log('SHOW');
 			popEl.classList.add('show');
 			// Enable the event listeners
 			popper.setOptions((options) => ({
@@ -66,7 +65,6 @@
 	};
 
 	if (personId) {
-		// console.log('loading-data');
 		loadData('*[_id == "' + personId + '"][0]').then((p) => {
 			person = p;
 			setTimeout(initPopper, 1000);
@@ -93,8 +91,6 @@
 	</a>
 
 	<div class="pop-up" bind:this={popEl}>
-		<!-- ARROW  -->
-		<!-- <div class="arrow" /> -->
 		<!-- FIRST COLUMN -->
 		<div class="column first">
 			<!-- NAME -->

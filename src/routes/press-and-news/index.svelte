@@ -35,7 +35,7 @@
 		}
 	];
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set('Press & News');
 	$: sidebarToC.set(toc);

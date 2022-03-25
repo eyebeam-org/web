@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  All statements
+	//  Statements
 	//
 	// # # # # # # # # # # # # #
 
@@ -20,7 +20,7 @@
 	// __ PROPS
 	export let statements;
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set('');
 	$: sidebarToC.set([]);
@@ -73,6 +73,7 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				padding: $small-margin;
 			}
 
 			.single-statement {

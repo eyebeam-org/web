@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Eyebeam is changing
+	//  Eyebeam is Changing
 	//
 	// # # # # # # # # # # # # #
 
@@ -12,7 +12,7 @@
 	// __ PROPS
 	export let page;
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set([]);

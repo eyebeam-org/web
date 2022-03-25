@@ -8,9 +8,9 @@
 	// __ IMPORT
 	import { onMount } from 'svelte';
 	import sample from 'lodash/sample.js';
-	import Header from '$lib/header/header.svelte';
+	import Menubar from '$lib/menubar/menubar.svelte';
 	import Footer from '$lib/footer/footer.svelte';
-	import PhoneHeader from '$lib/phone/header/header.svelte';
+	import PhoneMenubar from '$lib/phone/menubar/menubar.svelte';
 	import PhoneFooter from '$lib/phone/footer/footer.svelte';
 	import Loading from '$lib/loading/loading.svelte';
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
@@ -71,10 +71,10 @@
 </script>
 
 <!-- HEADER -->
-<Header {ready} />
+<Menubar {ready} />
 
 <!-- PHONE HEADER -->
-<PhoneHeader />
+<PhoneMenubar />
 
 {#if !ready}
 	<!-- LOADING -->
@@ -225,6 +225,7 @@
 		list-style: none;
 		margin-left: 10px;
 		padding-left: 0;
+		margin-left: 0;
 
 		li {
 			padding-left: 1em;

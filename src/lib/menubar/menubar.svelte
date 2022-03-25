@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	// Header
+	// Menubar
 	//
 	// # # # # # # # # # # # # #
 
@@ -26,6 +26,7 @@
 		theme,
 		inversion
 	} from '$lib/stores.js';
+	import Divider from '$lib/blocks/divider.svelte';
 
 	export let ready = false;
 
@@ -42,7 +43,7 @@
 	};
 </script>
 
-<header class:open={$trayOpen}>
+<nav class="menubar" class:open={$trayOpen}>
 	<div class="settings">
 		<!-- SETTINGS BAR -->
 		<div class="settings-bar" on:click={toggleTray}>
@@ -121,7 +122,7 @@
 			</div>
 		</div>
 	</div>
-	<nav class="menubar">
+	<div class="small-bar">
 		<div class="inner-text" class:ready>
 			<!-- BREADCRUMBS -->
 			<div class="breadcrumbs">
@@ -147,15 +148,15 @@
 				<Clock />
 			</div>
 		</div>
-	</nav>
-</header>
+	</div>
+</nav>
 
 <style lang="scss">
 	@import '../../variables.scss';
 
 	$HEADER_HEIGHT: 30px;
 
-	header {
+	.menubar {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -174,7 +175,7 @@
 			transform: translateY(0);
 		}
 
-		.menubar {
+		.small-bar {
 			width: 100%;
 			height: $HEADER_HEIGHT;
 			background: var(--foreground-color);

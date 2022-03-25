@@ -11,15 +11,15 @@
 
 	// *** PROPS
 	export let b = {};
+
+	let slug = slugify(b.children[0].text, {
+		lower: true
+	});
 </script>
 
 {#if b.children && b.children.length > 0}
 	{#if b.style == 'h2'}
-		<h2
-			id={slugify(b.children[0].text, {
-				lower: true
-			})}
-		>
+		<h2 id={slug}>
 			{#each b.children as c}
 				{#if !c.marks || c.marks.length === 0}
 					{c.text}

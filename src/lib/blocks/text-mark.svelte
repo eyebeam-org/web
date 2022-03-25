@@ -4,6 +4,7 @@
 	//  TEXT MARK
 	//
 	// # # # # # # # # # # # # #
+
 	import get from 'lodash/get.js';
 	import { renderNewLines } from '$lib/global.js';
 
@@ -17,11 +18,7 @@
 	export let defs = {};
 	export let c = {};
 
-	// console.log('c', c);
-	// console.log('defs', defs);
-
 	let currentDefinition = c.marks && c.marks[0] ? defs.find((m) => m._key === c.marks[0]) : null;
-	// console.log('currentDefinition', currentDefinition);
 </script>
 
 {#if !c.marks || c.marks.length === 0}

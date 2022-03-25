@@ -34,7 +34,6 @@
 				height="480"
 				src="https://player.vimeo.com/video/{getVideoId(b.url).id}"
 				frameborder="0"
-				byline="false"
 				color="#ffffff"
 				allow="autoplay; fullscreen"
 				allowfullscreen

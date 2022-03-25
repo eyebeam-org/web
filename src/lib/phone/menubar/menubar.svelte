@@ -6,10 +6,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORT
-	import { fade, slide } from 'svelte/transition';
-	import Clock from '$lib/clock/clock.svelte';
-	import { loadData } from '$lib/sanity.js';
-	import has from 'lodash/has.js';
+	import { fade } from 'svelte/transition';
 
 	// __ COMPONENTS
 	import Search from '$lib/search/search.svelte';
@@ -60,7 +57,7 @@
 	];
 </script>
 
-<header>
+<nav class="menubar">
 	<div class="search-bar" on:click={toggleSearch}>
 		<span class="icon"><SearchIcon white={true} /></span>Search this site
 	</div>
@@ -97,7 +94,7 @@
 			<div class="logo"><BigBeam flipped={true} /></div>
 		{/if}
 	{/if}
-</header>
+</nav>
 
 {#if searchActive}
 	<Search on:close={toggleSearch} />
@@ -108,7 +105,7 @@
 
 	$HEADER_HEIGHT: 30px;
 
-	header {
+	.menubar {
 		cursor: pointer;
 		margin-bottom: $small-margin;
 

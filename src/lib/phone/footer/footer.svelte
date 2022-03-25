@@ -7,19 +7,10 @@
 
 	// __ IMPORTS
 	import { loadData } from '$lib/sanity.js';
-
-	// __ GRAPHICS
-	import Newsletter from '$lib/graphics/newsletter.svelte';
-	import Twitter from '$lib/graphics/twitter.svelte';
-	import Instagram from '$lib/graphics/instagram.svelte';
-	import Youtube from '$lib/graphics/youtube.svelte';
-	import BigBeam from '$lib/graphics/big-beam.svelte';
 	import Logo from '$lib/graphics/logo.svelte';
 
 	// __ CONSTANTS
-	const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
-	const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
-	const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
+	import { INSTAGRAM_URL, TWITTER_URL, YOUTUBE_URL } from '$lib/global.js';
 
 	// __ VARIABLES
 	const contact = loadData("*[_id == 'contact'][0]");

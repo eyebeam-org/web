@@ -1,9 +1,10 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  CLOCK
+	//  CLOCK & WEATHER
 	//
 	// # # # # # # # # # # # # #
+
 	// __ IMPORT
 	import has from 'lodash/has.js';
 	import inRange from 'lodash/inRange.js';
@@ -35,6 +36,7 @@
 	setInterval(updateTime, 10000);
 	updateTime();
 
+	// ==> https://openweathermap.org/weather-conditions
 	const weatherCodeToDescription = (id) => {
 		if (inRange(id, 200, 299)) return 'stormy';
 		if (inRange(id, 300, 599)) return 'rainy';
@@ -48,7 +50,6 @@
 
 	const updateWeather = (city, country) => {
 		showClock = false;
-		// NEW YORK
 		if (city) {
 			fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + API_KEY)
 				.then((response) => response.json())

@@ -31,7 +31,7 @@
 		<div class="text">{item.question}</div>
 		<div class="icon">
 			{#if open}
-				<ArrowDown />
+				<ArrowDown inverted={true} />
 			{:else}
 				<ArrowLeft />
 			{/if}

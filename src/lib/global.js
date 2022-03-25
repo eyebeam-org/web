@@ -1,6 +1,17 @@
 import slugify from 'slugify';
 
 // ____
+// ____ GLOBAL CONSTANTS
+// ___
+
+export const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
+export const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
+export const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
+export const BASE_URL = 'https://eyebeam.org';
+export const DEFAULT_DESCRIPTION = 'Eyebeam is lorem ipsum...';
+export const DEFAULT_IMAGE = 'https://eyebeam.netlify.com/img/eyebeam-logo.png';
+
+// ____
 // ____ Name maps
 // ___
 
@@ -125,7 +136,7 @@ export const parseToc = (text) => {
     let tempToc = []
     if (text && Array.isArray(text)) {
         let headers = text.filter((b) => b.style == 'h2' || b._type == 'columnsBlock' || b._type == 'faq');
-        // console.log(headers);
+        console.log('headers', headers);
 
         tempToc = headers.map((b) => {
             if (b._type == 'columnsBlock' || b._type == 'faq') {

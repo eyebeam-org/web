@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single about page
+	//  Single About Page
 	//
 	// # # # # # # # # # # # # #
 

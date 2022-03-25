@@ -9,18 +9,18 @@
 	import slugify from 'slugify';
 
 	// __ COMPONENTS
-	import QA from '$lib/qa/qa.svelte';
+	import QA from '$lib/blocks/questionAnswerItem.svelte';
 
 	// *** PROPS
 	export let b = {};
+
+	let slug = slugify(b.title, {
+		lower: true
+	});
 </script>
 
 <div class="faq">
-	<h2
-		id={slugify(b.title, {
-			lower: true
-		})}
-	>
+	<h2 id={slug}>
 		{b.title}
 	</h2>
 	<div class="faq-inner">

@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Person link list
+	//  Person Link List
 	//
 	// # # # # # # # # # # # # #
 

@@ -23,6 +23,7 @@
 	if (sticker.externalLink) {
 		url = sticker.externalLink;
 	} else if (has(sticker, 'internalLink.slug.current')) {
+		// TODO
 		url = 'ccccc';
 	}
 </script>

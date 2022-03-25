@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single Press & News page
+	//  Single Press & News Page
 	//
 	// # # # # # # # # # # # # #
 
@@ -12,7 +12,7 @@
 	// *** PROPS
 	export let page;
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set([]);

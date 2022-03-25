@@ -109,7 +109,7 @@
 
 		{#each ORDER as section}
 			{#if section == 'press-and-news'}
-				<!-- PRESS & NEWS -->
+				<!-- PRESS & NEWS SECTION -->
 				<div class="tile full-tile press-and-news">
 					<h2>
 						<a href="/press-and-news" sveltekit:prefetch>{aboutMap['press-and-news'].title}</a>
@@ -122,7 +122,7 @@
 					<a href="/press-and-news" class="see-all" sveltekit:prefetch>See all Press & News</a>
 				</div>
 			{:else if section == 'contact'}
-				<!-- CONTACT -->
+				<!-- CONTACT SECTION -->
 				<div class="tile full-tile contact">
 					<h2>Contact</h2>
 					<div class="bottom-container">

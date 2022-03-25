@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single page
+	//  Single Event Page
 	//
 	// # # # # # # # # # # # # #
 
@@ -17,7 +17,9 @@
 	export let page;
 
 	let toc = parseToc(get(page, 'content.content'));
-	toc.push({ title: 'People', link: '#people' });
+	if (get(page, 'people', []).length > 0) {
+		toc.push({ title: 'People', link: '#people' });
+	}
 
 	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';

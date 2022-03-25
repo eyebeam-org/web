@@ -20,20 +20,20 @@
 
 {#await videoPost then videoPost}
 	<a href={'/videos/' + get(videoPost, 'slug.current')} class="video-block">
-		<!-- MAIN IMAGE -->
-		{#if videoPost.mainImage}
-			<img
-				class="main-image"
-				alt={videoPost.title}
-				src={urlFor(videoPost.mainImage).quality(90).saturation(-100).width(400).url()}
-			/>
-		{/if}
-		<div class="icon">
-			<PlayArrow />
-		</div>
-		<div class="title">
-			{videoPost.title}
-			{#if videoPost.runtime}({videoPost.runtime}){/if}
+		<div class="embed">
+			{#if videoPost.mainImage}
+				<img
+					alt={videoPost.title}
+					src={urlFor(videoPost.mainImage).quality(90).saturation(-100).width(400).url()}
+				/>
+			{/if}
+			<div class="icon">
+				<PlayArrow />
+			</div>
+			<div class="title">
+				{videoPost.title}
+				{#if videoPost.runtime}({videoPost.runtime}){/if}
+			</div>
 		</div>
 	</a>
 {/await}
@@ -46,16 +46,14 @@
 		width: 100%;
 		position: relative;
 		display: block;
-		height: 400px;
 		margin-bottom: $small-margin;
 
 		img {
 			display: block;
 			width: 100%;
+			height: auto;
 			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
+			object-fit: cover;
 		}
 
 		.title {
@@ -84,6 +82,24 @@
 			justify-content: center;
 			align-items: center;
 			padding-left: 7px;
+		}
+	}
+
+	.embed {
+		color: $white;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+
+		.inner {
+			width: 100%;
+			position: relative;
+			padding-bottom: 56.25%;
+			height: 0;
+			overflow: hidden;
+			max-width: 100%;
 		}
 	}
 </style>

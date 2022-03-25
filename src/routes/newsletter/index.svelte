@@ -21,7 +21,7 @@
 		console.log(emailAddress);
 	};
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set('');
 	$: sidebarToC.set([]);

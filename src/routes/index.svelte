@@ -27,9 +27,8 @@
 	import Sticker from '$lib/sticker/sticker.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
 
-	const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
-	const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
-	const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
+	// __ CONSTANTS
+	import { INSTAGRAM_URL, TWITTER_URL, YOUTUBE_URL } from '$lib/global.js';
 
 	// __ PROPS
 	export let programs;
@@ -172,6 +171,7 @@
 			margin-bottom: unset;
 			min-height: unset;
 			min-width: unset;
+			max-height: unset;
 		}
 	}
 

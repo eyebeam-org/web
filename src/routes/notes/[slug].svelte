@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single note
+	//  Single Note Page
 	//
 	// # # # # # # # # # # # # #
 
@@ -17,7 +17,7 @@
 	export let page;
 	let toc = parseToc(get(page, 'content.content'));
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set(toc);

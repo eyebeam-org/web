@@ -19,9 +19,6 @@
 	// __ GRAPHICS
 	import ArrowDown from '$lib/graphics/arrow-down.svelte';
 
-	console.log('$page', $page);
-	// console.log('xxx', $page.query.getAll());
-
 	// __ PROPS
 	export let people;
 

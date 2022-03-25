@@ -21,7 +21,6 @@
 
 	// __ PROPS
 	export let page;
-	console.log('page', page);
 
 	let videoActive = false;
 
@@ -44,7 +43,7 @@
 		}
 	];
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set(toc);

@@ -14,11 +14,9 @@
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
-	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
 	let hasContent = false;
-	// $: hasContent = $sidebarTitle.length > 0 || $sidebarToC.length > 0;
 	$: hasContent = $sidebarToC.length > 0;
 
 	const handleToC = (link) => {
@@ -42,9 +40,7 @@
 	<!-- LOGO -->
 	<div class="tile logo" class:bordered={hasContent}>
 		<a href="/" class="wordmark"><Logo /></a>
-		{#if $page.url.pathname !== '/statements'}
-			<Statements />
-		{/if}
+		<Statements />
 	</div>
 	<!-- TOC -->
 	{#if hasContent}

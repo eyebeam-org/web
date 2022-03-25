@@ -4,6 +4,9 @@
 	//  DONATION WIDGET
 	//
 	// # # # # # # # # # # # # #
+
+	// This component brutally re-styles the give lively donation widget
+	// through extreme use of !important
 </script>
 
 <svelte:head>

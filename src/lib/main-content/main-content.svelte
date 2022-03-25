@@ -8,7 +8,9 @@
 	// __ IMPORTS
 	import { urlFor } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
+	import get from 'lodash/get.js';
 	import { dateTimeFormat, longFormatDate } from '$lib/global';
+	import { fade } from 'svelte/transition';
 
 	// __ COMPONENTS
 	import Blocks from '$lib/blocks/blocks.svelte';
@@ -21,8 +23,6 @@
 
 	// *** PROPS
 	export let page;
-	console.log('MAIN CONTENT', page);
-	console.log('page._type', page._type);
 
 	const BOXED_TYPES = ['program', 'note'];
 	let boxed = BOXED_TYPES.includes(page._type) ? true : false;
@@ -37,7 +37,7 @@
 	let showPeople = PEOPLE_TYPES.includes(page._type) ? true : false;
 </script>
 
-<div class="main-content">
+<div class="main-content" in:fade>
 	<div class="article">
 		<div class="header" class:boxed class:tight>
 			<!-- TITLE -->
@@ -137,7 +137,7 @@
 		{/if}
 
 		<!-- PEOPLE -->
-		{#if showPeople && page.people && Array.isArray(page.people)}
+		{#if showPeople && get(page, 'people', []).length > 0}
 			<div class="people" id="people">
 				<h2>People</h2>
 				<div class="people-inner">
@@ -204,6 +204,7 @@
 
 			h1 {
 				@include text-margins();
+				margin-right: 20px;
 				margin-bottom: 160px;
 				line-height: 1.1em;
 				@include screen-size('small') {
