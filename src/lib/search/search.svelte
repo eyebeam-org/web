@@ -10,7 +10,7 @@
 	import { quadOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
-	import { loadData, renderBlockText } from '$lib/sanity.js';
+	import { loadData } from '$lib/sanity.js';
 	import { postTypeToName, postTypeToCategory } from '$lib/global.js';
 	import get from 'lodash/get.js';
 

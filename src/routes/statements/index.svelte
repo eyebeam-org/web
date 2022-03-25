@@ -26,7 +26,6 @@
 	import { longFormatDate } from '$lib/global.js';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
@@ -36,12 +35,16 @@
 
 	// __ PROPS
 	export let statements;
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set('');
+	$: sidebarToC.set([]);
 </script>
 
 <!-- METADATA -->
 <Metadata post={{ title: 'Statements' }} />
-<!-- SIDEBAR -->
-<Sidebar />
+
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

@@ -5,9 +5,6 @@
 	//
 	// # # # # # # # # # # # # #
 
-	// __ IMPORTS
-	import { renderBlockText } from '$lib/sanity.js';
-
 	// __ GRAPHICS
 	import Logo from '$lib/graphics/logo.svelte';
 
@@ -16,13 +13,24 @@
 	import OpenEyebeam from '$lib/open-eyebeam/open-eyebeam.svelte';
 
 	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 
-	// __ PROPS
-	export let toc = [];
-	export let title = '';
-	export let location = '';
-	export let date = false;
+	let hasContent = false;
+	// $: hasContent = $sidebarTitle.length > 0 || $sidebarToC.length > 0;
+	$: hasContent = $sidebarToC.length > 0;
+
+	const handleToC = (link) => {
+		if (link[0] == '#') {
+			const targetElement = document.querySelector(link);
+			if (targetElement) {
+				targetElement.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else {
+			goto(link);
+		}
+	};
 </script>
 
 <!-- SIDEBAR -->
@@ -32,21 +40,26 @@
 		<OpenEyebeam />
 	</a>
 	<!-- LOGO -->
-	<div class="tile logo" class:bordered={title || toc.length > 0 || location || date}>
+	<div class="tile logo" class:bordered={hasContent}>
 		<a href="/" class="wordmark"><Logo /></a>
 		{#if $page.url.pathname !== '/statements'}
 			<Statements />
 		{/if}
 	</div>
 	<!-- TOC -->
-	{#if title || toc.length > 0}
+	{#if hasContent}
 		<div class="tile toc">
-			<p>{title}</p>
-			{#if toc.length > 0}
+			<p>{$sidebarTitle}</p>
+			{#if $sidebarToC.length > 0}
 				<ul>
-					{#each toc as item}
+					{#each $sidebarToC as item}
 						<li>
-							<a href={item.link} sveltekit:prefetch>{item.title}</a>
+							<span
+								class="pseudo-link"
+								on:click={() => {
+									handleToC(item.link);
+								}}>{item.title}</span
+							>
 						</li>
 					{/each}
 				</ul>
@@ -82,6 +95,7 @@
 			border-bottom: 1px solid var(--foreground-color);
 			float: left;
 			position: relative;
+			padding: 0;
 		}
 
 		.logo {
@@ -106,8 +120,9 @@
 		.toc {
 			padding-top: 0;
 
-			a {
+			.pseudo-link {
 				text-decoration: none;
+				cursor: pointer;
 
 				&:hover {
 					text-decoration: underline;

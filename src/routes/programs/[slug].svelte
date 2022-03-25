@@ -26,7 +26,6 @@
 	import { parseToc } from '$lib/global.js';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import MainContent from '$lib/main-content/main-content.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
 
@@ -38,7 +37,5 @@
 
 <!-- METADATA -->
 <Metadata post={program} />
-<!-- SIDEBAR -->
-<Sidebar title={program.title} {toc} />
 <!-- MAIN CONTENT -->
 <MainContent page={program} />

@@ -24,12 +24,10 @@
 	// __ IMPORTS
 	import { renderBlockText, loadData } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
-	import get from 'lodash/get.js';
 	import keyBy from 'lodash/keyBy.js';
 	import truncate from 'lodash/truncate.js';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PressAndNewsItem from '$lib/press-and-news-item/press-and-news-item.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
@@ -95,12 +93,15 @@
 			title: 'Contact'
 		}
 	];
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set(aboutMap['what-is-eyebeam'].title);
+	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
 <Metadata post={aboutMap['what-is-eyebeam']} />
-<!-- SIDEBAR -->
-<Sidebar {toc} title={aboutMap['what-is-eyebeam'].title} />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

@@ -27,7 +27,6 @@
 	import getVideoId from 'get-video-id';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
 	import SeeAlso from '$lib/see-also/see-also.svelte';
@@ -60,12 +59,15 @@
 			title: 'People'
 		}
 	];
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set(video.title);
+	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
 <Metadata post={video} />
-<!-- SIDEBAR -->
-<Sidebar title={video.title} {toc} />
 <!-- MAIN CONTENT  -->
 <div class="main-content">
 	<div class="article">

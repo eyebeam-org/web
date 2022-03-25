@@ -30,7 +30,6 @@
 	import ExternalLink from '$lib/graphics/external-link.svelte';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
 	import SeeAlso from '$lib/see-also/see-also.svelte';
@@ -61,12 +60,16 @@
 			link: '#at-eyebeam'
 		});
 	}
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set(person.title);
+	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
 <Metadata post={person} />
-<!-- SIDEBAR -->
-<Sidebar title={person.title} {toc} />
+
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

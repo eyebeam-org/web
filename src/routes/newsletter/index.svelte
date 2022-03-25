@@ -26,7 +26,6 @@
 
 	// __ COMPONENTS
 	import Blocks from '$lib/blocks/blocks.svelte';
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
 
@@ -38,13 +37,15 @@
 	const subscribe = () => {
 		console.log(emailAddress);
 	};
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set('');
+	$: sidebarToC.set([]);
 </script>
 
 <!-- METADATA -->
 <Metadata post={newsletterPage} />
-
-<!-- SIDEBAR -->
-<Sidebar />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">

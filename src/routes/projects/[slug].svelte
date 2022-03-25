@@ -26,7 +26,6 @@
 	import { parseToc } from '$lib/global.js';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import MainContent from '$lib/main-content/main-content.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
 
@@ -35,11 +34,15 @@
 
 	let toc = parseToc(get(project, 'content.content'));
 	toc.push({ title: 'People', link: '#people' });
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set(project.title);
+	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
 <Metadata post={project} />
-<!-- SIDEBAR -->
-<Sidebar {toc} title={project.title} />
+
 <!-- MAIN CONTENT -->
 <MainContent page={project} />

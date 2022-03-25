@@ -3,11 +3,13 @@ import { page } from '$app/stores';
 import { categoryToName } from '$lib/global.js';
 
 // WRITABLE
-export const currentPage = writable(null)
 export const trayOpen = writable(false)
 export const theme = writable('ink')
 export const inversion = writable(false)
 export const activeCity = writable({})
+export const sidebarTitle = writable('')
+export const sidebarToC = writable([])
+export const currentPage = writable(null)
 export const currentCategory = derived(
     page,
     $page => {

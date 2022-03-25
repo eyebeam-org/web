@@ -13,6 +13,7 @@
 	import PhoneHeader from '$lib/phone/header/header.svelte';
 	import PhoneFooter from '$lib/phone/footer/footer.svelte';
 	import Loading from '$lib/loading/loading.svelte';
+	import Sidebar from '$lib/sidebar/sidebar.svelte';
 
 	// __ STORES
 	import { page } from '$app/stores';
@@ -81,7 +82,12 @@
 {:else}
 	<!-- MAIN -->
 	<main id="main" class:open={$trayOpen} class:inversion={$inversion}>
-		<slot />
+		{#if $page.url.pathname == '/'}
+			<slot />
+		{:else}
+			<Sidebar />
+			<slot />
+		{/if}
 	</main>
 {/if}
 

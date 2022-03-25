@@ -29,7 +29,6 @@
 	import truncate from 'lodash/truncate.js';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
 
@@ -39,12 +38,15 @@
 	const toc = programs.map((p) => {
 		return { title: p.title, link: '/programs/' + get(p, 'slug.current', '') };
 	});
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set('Programs');
+	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
 <Metadata post={{ title: 'Programs' }} />
-<!-- SIDEBAR -->
-<Sidebar {toc} title="Programs" />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

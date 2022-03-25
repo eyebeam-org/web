@@ -26,18 +26,20 @@
 	import { parseToc } from '$lib/global.js';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import MainContent from '$lib/main-content/main-content.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
 	export let note;
 	let toc = parseToc(get(note, 'content.content'));
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set(note.title);
+	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
 <Metadata post={note} />
-<!-- SIDEBAR -->
-<Sidebar title={note.title} {toc} />
 <!-- MAIN CONTENT -->
 <MainContent page={note} />

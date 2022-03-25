@@ -28,7 +28,6 @@
 	import { page } from '$app/stores';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
@@ -150,12 +149,15 @@
 			}
 		}
 	});
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set('');
+	$: sidebarToC.set([]);
 </script>
 
 <!-- METADATA -->
 <Metadata post={{ title: 'People' }} />
-<!-- SIDEBAR -->
-<Sidebar />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

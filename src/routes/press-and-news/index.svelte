@@ -25,7 +25,6 @@
 	import has from 'lodash/has.js';
 
 	// __ COMPONENTS
-	import Sidebar from '$lib/sidebar/sidebar.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PressAndNewsItem from '$lib/press-and-news-item/press-and-news-item.svelte';
 	import Blocks from '$lib/blocks/blocks.svelte';
@@ -49,12 +48,15 @@
 			link: '#press-contact'
 		}
 	];
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set('Press & News');
+	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
 <Metadata post={{ title: 'Press & News' }} />
-<!-- SIDEBAR -->
-<Sidebar {toc} title="Press & News" />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
