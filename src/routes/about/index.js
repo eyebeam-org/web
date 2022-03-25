@@ -10,10 +10,4 @@ export const get = async (request) => {
 			pressAndNews: pressAndNews.status === 404 ? 'ERROR' : pressAndNews
 		}
 	};
-	// return {
-	// 	body: {
-	// 		about: 'xxxxx',
-	// 		pressAndNews: 'yyyyy'
-	// 	}
-	// };
 };

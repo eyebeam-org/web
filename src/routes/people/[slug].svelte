@@ -20,25 +20,25 @@
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
-	export let person;
+	export let page;
 
 	let toc = [];
 
-	if (person.website) {
+	if (page.website) {
 		toc.push({
 			title: 'Website',
 			link: '#website'
 		});
 	}
 
-	if (has(person, 'bio.content')) {
+	if (has(page, 'bio.content')) {
 		toc.push({
 			title: 'Bio',
 			link: '#bio'
 		});
 	}
 
-	if (person.connectedPosts.length > 0) {
+	if (page.connectedPosts.length > 0) {
 		toc.push({
 			title: 'At Eyebeam',
 			link: '#at-eyebeam'
@@ -47,50 +47,50 @@
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
-	$: sidebarTitle.set(person.title);
+	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
-<Metadata post={person} />
+<Metadata {page} />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
 		<div class="header">
-			<div class="column left" class:full={!person.mainImage}>
+			<div class="column left" class:full={!page.mainImage}>
 				<!-- NAME -->
-				<h1>{person.title}</h1>
+				<h1>{page.title}</h1>
 				<!-- BADGES -->
 				<div class="badges">
-					{#if person.role}
-						<a href={'/people#' + person.role} class="badge">{roleToRoleName[person.role]}</a>
+					{#if page.role}
+						<a href={'/people#' + page.role} class="badge">{roleToRoleName[page.role]}</a>
 					{/if}
-					{#if person.groupTags}
-						{#each person.groupTags as tag}
+					{#if page.groupTags}
+						{#each page.groupTags as tag}
 							<a href="/people" class="badge">{tag.label}</a>
 						{/each}
 					{/if}
 				</div>
 
 				<!-- QUOTE -->
-				{#if person.quote}
-					<div class="quote">{person.quote}</div>
+				{#if page.quote}
+					<div class="quote">{page.quote}</div>
 				{/if}
 			</div>
 
 			<!-- MAIN IMAGE -->
-			{#if person.mainImage}
+			{#if page.mainImage}
 				<div class="column right">
 					<figure class="image-container">
 						<img
 							class="main-image"
-							alt={person.title}
-							src={urlFor(person.mainImage).quality(90).saturation(-100).width(400).url()}
+							alt={page.title}
+							src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
 						/>
-						{#if has(person, 'mainImage.caption.content')}
+						{#if has(page, 'mainImage.caption.content')}
 							<figcaption>
-								<Blocks blocks={person.mainImage.caption.content} />
+								<Blocks blocks={page.mainImage.caption.content} />
 							</figcaption>
 						{/if}
 					</figure>
@@ -100,27 +100,27 @@
 
 		<div class="block-text info">
 			<!-- WEBSITE -->
-			{#if person.website}
+			{#if page.website}
 				<div class="website" id="website">
 					<h3>Website</h3>
-					<p><a href={person.website} target="_blank">{person.website} <ExternalLink /></a></p>
+					<p><a href={page.website} target="_blank">{page.website} <ExternalLink /></a></p>
 				</div>
 			{/if}
 
 			<!-- BIO -->
-			{#if has(person, 'bio.content')}
+			{#if has(page, 'bio.content')}
 				<div class="bio" id="bio">
 					<h3>Bio</h3>
-					<Blocks blocks={person.bio.content} />
+					<Blocks blocks={page.bio.content} />
 				</div>
 			{/if}
 		</div>
 
 		<!-- AT EYEBEAM -->
-		{#if person.connectedPosts.length > 0}
+		{#if page.connectedPosts.length > 0}
 			<div class="at-eyebeam" id="at-eyebeam">
 				<h2>At Eyebeam</h2>
-				{#each person.connectedPosts as post}
+				{#each page.connectedPosts as post}
 					<a
 						class="connected-post"
 						href={'/' + postTypeToCategory[post._type] + '/' + post.slug.current}
@@ -146,13 +146,13 @@
 		{/if}
 
 		<!-- SEE ALSO -->
-		{#if person.internalLinks || person.externalLinks}
-			<SeeAlso externalLinks={person.externalLinks} internalLinks={person.internalLinks} />
+		{#if page.internalLinks || page.externalLinks}
+			<SeeAlso externalLinks={page.externalLinks} internalLinks={page.internalLinks} />
 		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={person._updatedAt} />
+	<BottomBar updatedAt={page._updatedAt} />
 </div>
 
 <style lang="scss">

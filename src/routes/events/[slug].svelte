@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single event
+	//  Single page
 	//
 	// # # # # # # # # # # # # #
 
@@ -14,18 +14,19 @@
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
-	export let event;
+	export let page;
 
-	let toc = parseToc(get(event, 'content.content'));
+	let toc = parseToc(get(page, 'content.content'));
 	toc.push({ title: 'People', link: '#people' });
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
-	$: sidebarTitle.set(event.title);
+	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
-<Metadata post={event} />
+<Metadata {page} />
+
 <!-- MAIN CONTENT -->
-<MainContent page={event} />
+<MainContent {page} />

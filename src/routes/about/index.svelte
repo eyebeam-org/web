@@ -91,7 +91,7 @@
 </script>
 
 <!-- METADATA -->
-<Metadata post={aboutMap['what-is-eyebeam']} />
+<Metadata page={aboutMap['what-is-eyebeam']} />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">

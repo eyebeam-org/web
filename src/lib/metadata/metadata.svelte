@@ -14,33 +14,33 @@
 
 	// __ STORES
 	import { currentPage } from '$lib/stores.js';
-	import { page } from '$app/stores';
+	import { page as pageStore } from '$app/stores';
 
 	// *** PROPS
-	export let post = {};
+	export let page = {};
 	export let isSingle = false;
 
 	const BASE_URL = 'https://eyebeam.org';
 	const DEFAULT_DESCRIPTION = 'Eyebeam is lorem ipsum...';
 	const DEFAULT_IMAGE = 'https://eyebeam.netlify.com/img/eyebeam-logo.png';
 
-	const title = post.title ? post.title : 'eyebeam.org';
+	const title = page.title ? page.title : 'eyebeam.org';
 
 	let description = '';
-	if (has(post, 'content.content')) {
-		description = truncate(toPlainText(post.content.content), { length: 160 });
-	} else if (has(post, 'introduction.content')) {
-		description = truncate(toPlainText(post.introduction.content), { length: 160 });
+	if (has(page, 'content.content')) {
+		description = truncate(toPlainText(page.content.content), { length: 160 });
+	} else if (has(page, 'introduction.content')) {
+		description = truncate(toPlainText(page.introduction.content), { length: 160 });
 	} else {
 		description = DEFAULT_DESCRIPTION;
 	}
 
-	const url = BASE_URL + $page.url.pathname;
+	const url = BASE_URL + $pageStore.url.pathname;
 
-	const image = has(post, 'mainImage.asset') ? urlFor(post.mainImage) : DEFAULT_IMAGE;
+	const image = has(page, 'mainImage.asset') ? urlFor(page.mainImage) : DEFAULT_IMAGE;
 
 	if (isSingle) {
-		currentPage.set({ slug: get(post, 'slug.current', ''), title: post.title });
+		currentPage.set({ slug: get(page, 'slug.current', ''), title: page.title });
 	}
 	onDestroy(() => {
 		if (isSingle) {

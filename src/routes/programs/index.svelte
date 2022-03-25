@@ -30,7 +30,8 @@
 </script>
 
 <!-- METADATA -->
-<Metadata post={{ title: 'Programs' }} />
+<Metadata page={{ title: 'Programs' }} />
+
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

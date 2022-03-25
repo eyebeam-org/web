@@ -20,8 +20,8 @@
 	import PlayArrow from '$lib/graphics/play-arrow.svelte';
 
 	// __ PROPS
-	export let post;
-	console.log('post', post);
+	export let page;
+	console.log('page', page);
 
 	let videoActive = false;
 
@@ -46,12 +46,12 @@
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
-	$: sidebarTitle.set(post.title);
+	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
-<Metadata {post} />
+<Metadata {page} />
 <!-- MAIN CONTENT  -->
 <div class="main-content">
 	<div class="article">
@@ -60,21 +60,21 @@
 			<div class="embed">
 				{#if videoActive}
 					<div class="inner">
-						{#if post.url.includes('youtube')}
+						{#if page.url.includes('youtube')}
 							<iframe
 								width="720"
 								height="480"
-								src="https://www.youtube.com/embed/{getVideoId(post.url).id}?autoplay=1"
+								src="https://www.youtube.com/embed/{getVideoId(page.url).id}?autoplay=1"
 								frameborder="0"
 								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 								allowfullscreen
 							/>
 						{/if}
-						{#if post.url.includes('vimeo')}
+						{#if page.url.includes('vimeo')}
 							<iframe
 								width="720"
 								height="480"
-								src="https://player.vimeo.com/video/{getVideoId(post.url).id}?autoplay=1"
+								src="https://player.vimeo.com/video/{getVideoId(page.url).id}?autoplay=1"
 								frameborder="0"
 								color="#ffffff"
 								allow="autoplay; fullscreen"
@@ -84,47 +84,47 @@
 					</div>
 				{:else}
 					<!-- MAIN IMAGE -->
-					{#if post.mainImage}
+					{#if page.mainImage}
 						<img
-							alt={post.title}
-							src={urlFor(post.mainImage).quality(90).saturation(-100).width(400).url()}
+							alt={page.title}
+							src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
 						/>
 					{/if}
 					<div class="icon">
 						<PlayArrow />
 					</div>
 					<div class="title">
-						{post.title}
-						{#if post.runtime}({post.runtime}){/if}
+						{page.title}
+						{#if page.runtime}({page.runtime}){/if}
 					</div>
 				{/if}
 			</div>
 		</div>
 
 		<!-- MAIN TEXT -->
-		{#if has(post, 'content.content')}
+		{#if has(page, 'content.content')}
 			<div class="block-text" id="about">
 				<h2>About</h2>
-				<Blocks blocks={post.content.content} />
+				<Blocks blocks={page.content.content} />
 			</div>
 		{/if}
 
 		<!-- TRANSCRIPT -->
-		{#if post.transcript && post.transcript.asset && post.transcript.asset._ref}
+		{#if page.transcript && page.transcript.asset && page.transcript.asset._ref}
 			<div class="transcript" id="transcript">
 				<h2>Transcript</h2>
-				<a href={post.transcriptUrl} target="_blank" class="transcript-button">
+				<a href={page.transcriptUrl} target="_blank" class="transcript-button">
 					Download transcript as .PDF
 				</a>
 			</div>
 		{/if}
 
 		<!-- PEOPLE -->
-		{#if post.people && Array.isArray(post.people)}
+		{#if page.people && Array.isArray(page.people)}
 			<div class="people" id="people">
 				<h2>People</h2>
 				<div class="people-inner">
-					{#each post.people as person}
+					{#each page.people as person}
 						<a class="people-link" href={'/people/' + person.slug.current} sveltekit:prefetch>
 							<div class="image">
 								{#if person.mainImage}
@@ -144,13 +144,13 @@
 		{/if}
 
 		<!-- SEE ALSO -->
-		{#if post.internalLinks || post.externalLinks}
-			<SeeAlso externalLinks={post.externalLinks} internalLinks={post.internalLinks} />
+		{#if page.internalLinks || page.externalLinks}
+			<SeeAlso externalLinks={page.externalLinks} internalLinks={page.internalLinks} />
 		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={post._updatedAt} />
+	<BottomBar updatedAt={page._updatedAt} />
 </div>
 
 <style lang="scss">

@@ -18,13 +18,13 @@
 
 	const toc = parseToc(get(page, 'content.content'));
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
-<Metadata post={page} />
+<Metadata {page} />
 <!-- MAIN CONTENT -->
 <MainContent {page} />

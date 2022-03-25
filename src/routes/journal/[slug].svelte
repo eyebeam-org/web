@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single journal post
+	//  Single journal page
 	//
 	// # # # # # # # # # # # # #
 	import { renderBlockText, urlFor } from '$lib/sanity.js';
@@ -10,28 +10,28 @@
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// *** PROPS
-	export let post;
+	export let page;
 </script>
 
 <!-- METADATA -->
-<Metadata {post} />
+<Metadata {page} />
 
 <!-- TITLE -->
-<h1>{post.title}</h1>
+<h1>{page.title}</h1>
 
 <!-- MAIN IMAGE -->
-<img alt={post.title} src={urlFor(post.mainImage).quality(90).saturation(-100).width(400).url()} />
+<img alt={page.title} src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()} />
 
 <!-- MAIN TEXT -->
-<div>{@html renderBlockText(post.content.content)}</div>
+<div>{@html renderBlockText(page.content.content)}</div>
 
 <!-- PEOPLE -->
 <h2>People</h2>
 <ul>
-	{#each post.people as person}
+	{#each page.people as person}
 		<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
 	{/each}
 </ul>
 
 <!-- LAST UPDATED -->
-<div>Last Updated: {post._updatedAt}</div>
+<div>Last Updated: {page._updatedAt}</div>

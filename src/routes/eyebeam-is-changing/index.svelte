@@ -19,6 +19,7 @@
 </script>
 
 <!-- METADATA -->
-<Metadata post={page} />
+<Metadata {page} />
+
 <!-- MAIN CONTENT -->
 <MainContent {page} />

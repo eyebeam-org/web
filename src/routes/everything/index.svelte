@@ -67,7 +67,7 @@
 </script>
 
 <!-- METADATA -->
-<Metadata post={page} />
+<Metadata {page} />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">

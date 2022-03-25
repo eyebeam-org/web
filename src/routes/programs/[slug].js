@@ -2,6 +2,6 @@ import { loadData } from "$lib/sanity.js"
 
 // GET =>
 export const get = async (request) => {
-	const program = await loadData("*[_type == 'program' && slug.current == $slug]{..., people[]->{...}, internalLinks[]->{...}}[0]", { slug: request.params.slug })
-	return { body: { program: program.status === 404 ? 'ERROR' : program } };
+	const page = await loadData("*[_type == 'page' && slug.current == $slug]{..., people[]->{...}, internalLinks[]->{...}}[0]", { slug: request.params.slug })
+	return { body: { page: page.status === 404 ? 'ERROR' : page } };
 };

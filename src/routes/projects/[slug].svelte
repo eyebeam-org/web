@@ -14,19 +14,19 @@
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
-	export let project;
+	export let page;
 
-	let toc = parseToc(get(project, 'content.content'));
+	let toc = parseToc(get(page, 'content.content'));
 	toc.push({ title: 'People', link: '#people' });
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
-	$: sidebarTitle.set(project.title);
+	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
-<Metadata post={project} />
+<Metadata {page} />
 
 <!-- MAIN CONTENT -->
-<MainContent page={project} />
+<MainContent {page} />

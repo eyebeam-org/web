@@ -42,7 +42,8 @@
 </script>
 
 <!-- METADATA -->
-<Metadata post={{ title: 'Press & News' }} />
+<Metadata page={{ title: 'Press & News' }} />
+
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">

@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single Press & News post
+	//  Single Press & News page
 	//
 	// # # # # # # # # # # # # #
 
@@ -10,15 +10,16 @@
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// *** PROPS
-	export let post;
+	export let page;
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
-	$: sidebarTitle.set(post.title);
+	$: sidebarTitle.set(page.title);
 	$: sidebarToC.set([]);
 </script>
 
 <!-- METADATA -->
-<Metadata {post} />
+<Metadata {page} />
+
 <!-- MAIN CONTENT -->
-<MainContent page={post} />
+<MainContent {page} />
