@@ -15,7 +15,7 @@
 		window.alert('open eyebeam');
 	}}
 >
-	<iframe src="https://embedded--open-eyebeam.netlify.app/" title="Open Eyebeam" />
+	<iframe src={import.meta.env.VITE_OPEN_EYEBEAM_EMBED_URL} title="Open Eyebeam" />
 	<div class="link"><span class="arrow"><TriangleRight /></span> open.eyebeam.org</div>
 </div>
 

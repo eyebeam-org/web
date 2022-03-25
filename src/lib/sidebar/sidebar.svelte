@@ -36,7 +36,7 @@
 <!-- SIDEBAR -->
 <div class="sidebar">
 	<!-- OPEN EYEBEAM -->
-	<a href="https://open-eyebeam.netlify.app" class="tile open-eyebeam">
+	<a href={import.meta.env.VITE_OPEN_EYEBEAM_PUBLIC_URL} class="tile open-eyebeam">
 		<OpenEyebeam />
 	</a>
 	<!-- LOGO -->

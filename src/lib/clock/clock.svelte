@@ -12,7 +12,7 @@
 	// __ STORES
 	import { activeCity } from '$lib/stores.js';
 
-	const API_KEY = 'a9b67d6b5ed093b28c410750ef6a70cd';
+	const API_KEY = import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY;
 
 	let currentTime;
 	let currentWeather = {
