@@ -11,6 +11,7 @@
 
 	// __ BLOCKS
 	import Text from '$lib/blocks/text.svelte';
+	import HTML from '$lib/blocks/html.svelte';
 	import Image from '$lib/blocks/image.svelte';
 	import InvertedBlock from '$lib/blocks/invertedBlock.svelte';
 	import LogoBlock from '$lib/blocks/logoBlock.svelte';
@@ -32,6 +33,8 @@
 			<LogoBlock {b} />
 		{:else if b.style == 'invertedBlock'}
 			<InvertedBlock {b} />
+		{:else if b.style == 'html'}
+			<HTML {b} />
 		{:else}
 			<Text {b} />
 		{/if}
