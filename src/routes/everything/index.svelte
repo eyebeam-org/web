@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ fetch }) => {
-		const res = await fetch('/everything.json');
-		if (res.ok) {
-			const everything = await res.json();
-			return {
-				props: { everything }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -33,7 +17,8 @@
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
-	export let everything;
+	export let page;
+	export let posts;
 
 	const FILTERS = [
 		{
@@ -74,25 +59,25 @@
 
 	$: {
 		if (activeFilter === 'everything') {
-			filteredPosts = everything.posts;
+			filteredPosts = posts;
 		} else {
-			filteredPosts = everything.posts.filter((p) => p._type === activeFilter);
+			filteredPosts = posts.filter((p) => p._type === activeFilter);
 		}
 	}
 </script>
 
 <!-- METADATA -->
-<Metadata post={everything.page} />
+<Metadata post={page} />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
 		<div class="header">
-			<h1>{everything.page.title}</h1>
+			<h1>{page.title}</h1>
 			<!-- BIO -->
-			{#if has(everything, 'page.content.content')}
+			{#if has(page, 'content.content')}
 				<div class="body-content description">
-					<Blocks blocks={everything.page.content.content} />
+					<Blocks blocks={page.content.content} />
 				</div>
 			{/if}
 			<div class="filters">

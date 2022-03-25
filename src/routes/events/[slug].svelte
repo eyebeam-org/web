@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ params, fetch, session, stuff }) => {
-		const res = await fetch(`/events/${params.slug}.json`);
-		if (res.ok) {
-			const event = await res.json();
-			return {
-				props: { event }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//

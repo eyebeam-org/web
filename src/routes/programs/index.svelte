@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ fetch }) => {
-		const res = await fetch('/programs.json');
-		if (res.ok) {
-			const programs = await res.json();
-			return {
-				props: { programs }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//

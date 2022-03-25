@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ fetch }) => {
-		const res = await fetch('/press-and-news.json');
-		if (res.ok) {
-			const posts = await res.json();
-			return {
-				props: { posts }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -32,7 +16,9 @@
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
-	export let posts;
+	export let page;
+	export let press;
+	export let news;
 
 	const toc = [
 		{
@@ -62,16 +48,16 @@
 	<div class="inner">
 		<h1>Press & News</h1>
 
-		{#if has(posts, 'page.content.content')}
+		{#if has(page, 'content.content')}
 			<div class="text-content">
-				<Blocks blocks={posts.page.content.content} />
+				<Blocks blocks={page.content.content} />
 			</div>
 		{/if}
 
 		<div class="section" id="news">
 			<h2>News</h2>
 			<div class="press-and-news-listing">
-				{#each posts.news as post}
+				{#each news as post}
 					<PressAndNewsItem {post} />
 				{/each}
 			</div>
@@ -82,7 +68,7 @@
 		<div class="section" id="press-releases">
 			<h2>Press releases</h2>
 			<div class="press-and-news-listing">
-				{#each posts.press as post}
+				{#each press as post}
 					<PressAndNewsItem {post} />
 				{/each}
 			</div>
@@ -92,16 +78,16 @@
 
 		<div class="section" id="press-contact">
 			<h2>Press contact</h2>
-			{#if has(posts, 'page.pressContact.content')}
+			{#if has(page, 'pressContact.content')}
 				<div class="text-content">
-					<Blocks blocks={posts.page.pressContact.content} />
+					<Blocks blocks={page.pressContact.content} />
 				</div>
 			{/if}
 		</div>
 
 		<!-- SEE ALSO -->
-		{#if (posts.page.internalLinks && posts.page.internalLinks.length > 0) || (posts.page.externalLinks && posts.page.externalLinks.length > 0)}
-			<SeeAlso externalLinks={posts.page.externalLinks} internalLinks={posts.page.internalLinks} />
+		{#if (page.internalLinks && page.internalLinks.length > 0) || (page.externalLinks && page.externalLinks.length > 0)}
+			<SeeAlso externalLinks={page.externalLinks} internalLinks={page.internalLinks} />
 		{/if}
 	</div>
 

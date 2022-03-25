@@ -1,26 +1,9 @@
-<script context="module">
-	export const load = async ({ params, fetch, session, stuff }) => {
-		const res = await fetch(`/blog/${params.slug}.json`);
-		if (res.ok) {
-			const post = await res.json();
-			return {
-				props: { post }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single blog page
+	//  Single journal post
 	//
 	// # # # # # # # # # # # # #
-
 	import { renderBlockText, urlFor } from '$lib/sanity.js';
 
 	// __ COMPONENTS

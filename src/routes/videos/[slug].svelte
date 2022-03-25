@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ params, fetch, session, stuff }) => {
-		const res = await fetch(`/videos/${params.slug}.json`);
-		if (res.ok) {
-			const video = await res.json();
-			return {
-				props: { video }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -36,8 +20,8 @@
 	import PlayArrow from '$lib/graphics/play-arrow.svelte';
 
 	// __ PROPS
-	export let video;
-	console.log('video', video);
+	export let post;
+	console.log('post', post);
 
 	let videoActive = false;
 
@@ -62,12 +46,12 @@
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
-	$: sidebarTitle.set(video.title);
+	$: sidebarTitle.set(post.title);
 	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
-<Metadata post={video} />
+<Metadata {post} />
 <!-- MAIN CONTENT  -->
 <div class="main-content">
 	<div class="article">
@@ -76,21 +60,21 @@
 			<div class="embed">
 				{#if videoActive}
 					<div class="inner">
-						{#if video.url.includes('youtube')}
+						{#if post.url.includes('youtube')}
 							<iframe
 								width="720"
 								height="480"
-								src="https://www.youtube.com/embed/{getVideoId(video.url).id}?autoplay=1"
+								src="https://www.youtube.com/embed/{getVideoId(post.url).id}?autoplay=1"
 								frameborder="0"
 								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 								allowfullscreen
 							/>
 						{/if}
-						{#if video.url.includes('vimeo')}
+						{#if post.url.includes('vimeo')}
 							<iframe
 								width="720"
 								height="480"
-								src="https://player.vimeo.com/video/{getVideoId(video.url).id}?autoplay=1"
+								src="https://player.vimeo.com/video/{getVideoId(post.url).id}?autoplay=1"
 								frameborder="0"
 								color="#ffffff"
 								allow="autoplay; fullscreen"
@@ -100,47 +84,47 @@
 					</div>
 				{:else}
 					<!-- MAIN IMAGE -->
-					{#if video.mainImage}
+					{#if post.mainImage}
 						<img
-							alt={video.title}
-							src={urlFor(video.mainImage).quality(90).saturation(-100).width(400).url()}
+							alt={post.title}
+							src={urlFor(post.mainImage).quality(90).saturation(-100).width(400).url()}
 						/>
 					{/if}
 					<div class="icon">
 						<PlayArrow />
 					</div>
 					<div class="title">
-						{video.title}
-						{#if video.runtime}({video.runtime}){/if}
+						{post.title}
+						{#if post.runtime}({post.runtime}){/if}
 					</div>
 				{/if}
 			</div>
 		</div>
 
 		<!-- MAIN TEXT -->
-		{#if has(video, 'content.content')}
+		{#if has(post, 'content.content')}
 			<div class="block-text" id="about">
 				<h2>About</h2>
-				<Blocks blocks={video.content.content} />
+				<Blocks blocks={post.content.content} />
 			</div>
 		{/if}
 
 		<!-- TRANSCRIPT -->
-		{#if video.transcript && video.transcript.asset && video.transcript.asset._ref}
+		{#if post.transcript && post.transcript.asset && post.transcript.asset._ref}
 			<div class="transcript" id="transcript">
 				<h2>Transcript</h2>
-				<a href={video.transcriptUrl} target="_blank" class="transcript-button">
+				<a href={post.transcriptUrl} target="_blank" class="transcript-button">
 					Download transcript as .PDF
 				</a>
 			</div>
 		{/if}
 
 		<!-- PEOPLE -->
-		{#if video.people && Array.isArray(video.people)}
+		{#if post.people && Array.isArray(post.people)}
 			<div class="people" id="people">
 				<h2>People</h2>
 				<div class="people-inner">
-					{#each video.people as person}
+					{#each post.people as person}
 						<a class="people-link" href={'/people/' + person.slug.current} sveltekit:prefetch>
 							<div class="image">
 								{#if person.mainImage}
@@ -160,13 +144,13 @@
 		{/if}
 
 		<!-- SEE ALSO -->
-		{#if video.internalLinks || video.externalLinks}
-			<SeeAlso externalLinks={video.externalLinks} internalLinks={video.internalLinks} />
+		{#if post.internalLinks || post.externalLinks}
+			<SeeAlso externalLinks={post.externalLinks} internalLinks={post.internalLinks} />
 		{/if}
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={video._updatedAt} />
+	<BottomBar updatedAt={post._updatedAt} />
 </div>
 
 <style lang="scss">

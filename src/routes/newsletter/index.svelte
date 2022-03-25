@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ fetch }) => {
-		const res = await fetch('/newsletter.json');
-		if (res.ok) {
-			const newsletterPage = await res.json();
-			return {
-				props: { newsletterPage }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -30,8 +14,7 @@
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
-	export let newsletterPage;
-	console.log(newsletterPage);
+	export let page;
 
 	let emailAddress = '';
 	const subscribe = () => {
@@ -45,18 +28,18 @@
 </script>
 
 <!-- METADATA -->
-<Metadata post={newsletterPage} />
+<Metadata post={page} />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
 		<!-- TITLE -->
-		<h1>{newsletterPage.title}</h1>
+		<h1>{page.title}</h1>
 
 		<!-- MAIN TEXT -->
-		{#if has(newsletterPage, 'content.content')}
+		{#if has(page, 'content.content')}
 			<div class="body-content">
-				<Blocks blocks={newsletterPage.content.content} />
+				<Blocks blocks={page.content.content} />
 			</div>
 		{/if}
 
@@ -94,7 +77,7 @@
 	</div>
 
 	<!-- BOTTOM BAR -->
-	<BottomBar updatedAt={newsletterPage._updatedAt} />
+	<BottomBar updatedAt={page._updatedAt} />
 </div>
 
 <style lang="scss">

@@ -95,6 +95,7 @@
 {#if $page.url.pathname !== '/'}
 	<Footer />
 {/if}
+
 <!-- PHONE FOOTER -->
 <PhoneFooter />
 

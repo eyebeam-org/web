@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ params, fetch, session, stuff }) => {
-		const res = await fetch(`/people/${params.slug}.json`);
-		if (res.ok) {
-			const person = await res.json();
-			return {
-				props: { person }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//

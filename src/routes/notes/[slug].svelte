@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ params, fetch, session, stuff }) => {
-		const res = await fetch(`/notes/${params.slug}.json`);
-		if (res.ok) {
-			const note = await res.json();
-			return {
-				props: { note }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -30,16 +14,16 @@
 	import Metadata from '$lib/metadata/metadata.svelte';
 
 	// __ PROPS
-	export let note;
-	let toc = parseToc(get(note, 'content.content'));
+	export let post;
+	let toc = parseToc(get(post, 'content.content'));
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
-	$: sidebarTitle.set(note.title);
+	$: sidebarTitle.set(post.title);
 	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
-<Metadata post={note} />
+<Metadata {post} />
 <!-- MAIN CONTENT -->
-<MainContent page={note} />
+<MainContent page={post} />

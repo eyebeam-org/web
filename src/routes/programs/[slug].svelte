@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ params, fetch, session, stuff }) => {
-		const res = await fetch(`/programs/${params.slug}.json`);
-		if (res.ok) {
-			const program = await res.json();
-			return {
-				props: { program }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -33,9 +17,15 @@
 	export let program;
 
 	const toc = parseToc(get(program, 'content.content'));
+
+	// __ STORES
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarTitle.set(program.title);
+	$: sidebarToC.set(toc);
 </script>
 
 <!-- METADATA -->
 <Metadata post={program} />
+
 <!-- MAIN CONTENT -->
 <MainContent page={program} />

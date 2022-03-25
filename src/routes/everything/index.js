@@ -4,9 +4,10 @@ import { loadData } from "$lib/sanity.js"
 export const get = async () => {
 	const posts = await loadData("*[_type in ['event', 'project', 'press', 'news', 'program', 'note', 'videoPost']]{..., people[]->{...}}")
 	const page = await loadData("*[_id == 'everything'][0]")
-	const response = {
-		page: page,
-		posts: posts
-	}
-	return { body: response.status === 404 ? 'ERROR' : response };
+	return {
+		body: {
+			page: page.status === 404 ? 'ERROR' : page,
+			posts: posts.status === 404 ? 'ERROR' : posts
+		}
+	};
 };

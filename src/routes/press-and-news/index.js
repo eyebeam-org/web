@@ -5,10 +5,11 @@ export const get = async (request) => {
 	const news = await loadData("*[_type == 'news']")
 	const press = await loadData("*[_type == 'press']")
 	const page = await loadData("*[_id == 'press-and-news']{..., internalLinks[]->{...}}[0]")
-	const response = {
-		news: news,
-		press: press,
-		page: page
-	}
-	return { body: response.status === 404 ? 'ERROR' : response };
+	return {
+		body: {
+			news: news.status === 404 ? 'ERROR' : news,
+			press: press.status === 404 ? 'ERROR' : press,
+			page: page.status === 404 ? 'ERROR' : page
+		}
+	};
 };

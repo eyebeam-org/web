@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ fetch }) => {
-		const res = await fetch('/people.json');
-		if (res.ok) {
-			const people = await res.json();
-			return {
-				props: { people }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -40,7 +24,6 @@
 
 	// __ PROPS
 	export let people;
-	console.log('people', people);
 
 	// __ VARIABLES
 	const START_YEAR = 1997;

@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ fetch }) => {
-		const res = await fetch('/about.json');
-		if (res.ok) {
-			const about = await res.json();
-			return {
-				props: { about: about.about, pressAndNews: about.pressAndNews }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -26,6 +10,7 @@
 	import has from 'lodash/has.js';
 	import keyBy from 'lodash/keyBy.js';
 	import truncate from 'lodash/truncate.js';
+	import Blocks from '$lib/blocks/blocks.svelte';
 
 	// __ COMPONENTS
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
@@ -36,8 +21,13 @@
 	export let about;
 	export let pressAndNews;
 
+	console.log('about', about);
+	console.log('pressAndNews', pressAndNews);
+
+	// Rearrange about posts as a an array of keyed objects
 	const aboutMap = keyBy(about, '_id');
 
+	// The order that we want the the posts to be listed, according to the design
 	const ORDER = [
 		'our-mission-and-values',
 		'our-history',
@@ -77,7 +67,7 @@
 			title: 'Get involved'
 		},
 		{
-			link: '/about/press-and-news',
+			link: '/press-and-news',
 			title: 'Press & News'
 		},
 		{
@@ -94,7 +84,7 @@
 		}
 	];
 
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set(aboutMap['what-is-eyebeam'].title);
 	$: sidebarToC.set(toc);
@@ -112,13 +102,14 @@
 			<!-- INTRODUCTION -->
 			{#if has(aboutMap['what-is-eyebeam'], 'introduction.content')}
 				<div class="description">
-					{@html renderBlockText(aboutMap['what-is-eyebeam'].introduction.content)}
+					<Blocks blocks={aboutMap['what-is-eyebeam'].introduction.content} />
 				</div>
 			{/if}
 		</div>
 
 		{#each ORDER as section}
 			{#if section == 'press-and-news'}
+				<!-- PRESS & NEWS -->
 				<div class="tile full-tile press-and-news">
 					<h2>
 						<a href="/press-and-news" sveltekit:prefetch>{aboutMap['press-and-news'].title}</a>
@@ -131,6 +122,7 @@
 					<a href="/press-and-news" class="see-all" sveltekit:prefetch>See all Press & News</a>
 				</div>
 			{:else if section == 'contact'}
+				<!-- CONTACT -->
 				<div class="tile full-tile contact">
 					<h2>Contact</h2>
 					<div class="bottom-container">
@@ -144,6 +136,7 @@
 					</div>
 				</div>
 			{:else}
+				<!-- STANDARD SECTIONS -->
 				<a
 					class="tile nav-tile {section}"
 					href={'/about/' + aboutMap[section]._id}

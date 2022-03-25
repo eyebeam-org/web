@@ -1,19 +1,3 @@
-<script context="module">
-	export const load = async ({ fetch }) => {
-		const res = await fetch('/frontpage.json');
-		if (res.ok) {
-			const posts = await res.json();
-			return {
-				props: { posts }
-			};
-		}
-		const { message } = await res.json();
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -48,7 +32,9 @@
 	const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
 
 	// __ PROPS
-	export let posts = {};
+	export let programs;
+	export let events;
+	export let stickers;
 
 	let searchActive = false;
 	const toggleSearch = () => {
@@ -63,8 +49,8 @@
 	<div class="section one">
 		<div class="column one">
 			<div class="tile open-eyebeam">
-				{#if get(posts, 'stickers.stickerLeft.enabled', false)}
-					<Sticker sticker={posts.stickers.stickerLeft} />
+				{#if get(stickers, 'stickerLeft.enabled', false)}
+					<Sticker sticker={stickers.stickerLeft} />
 				{:else}
 					<OpenEyebeam />
 				{/if}
@@ -77,7 +63,7 @@
 		<div class="column two">
 			<div class="tile programs">
 				<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
-				{#each posts.programs as program}
+				{#each programs as program}
 					<a
 						href={'/programs/' + get(program, 'slug.current', '')}
 						class="sub-tile"
@@ -99,15 +85,15 @@
 		<div class="tile search" on:click={toggleSearch}><SearchIcon /> Search this website</div>
 	</div>
 	<div class="column three">
-		{#if get(posts, 'stickers.stickerRight.enabled', false)}
-			{#if get(posts, 'stickers.stickerRight.fullWidth', false) == false}
+		{#if get(stickers, 'stickerRight.enabled', false)}
+			{#if get(stickers, 'stickerRight.fullWidth', false) == false}
 				<div class="tile half-sticker">
-					<Sticker sticker={posts.stickers.stickerRight} small={true} />
+					<Sticker sticker={stickers.stickerRight} small={true} />
 				</div>
 				<a href="/about/support-eyebeam" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
 			{:else}
 				<div class="tile full-sticker">
-					<Sticker sticker={posts.stickers.stickerRight} small={true} />
+					<Sticker sticker={stickers.stickerRight} small={true} />
 				</div>
 			{/if}
 		{:else}
@@ -135,7 +121,7 @@
 		</a>
 		<div class="tile events">
 			<div class="sub-tile header event">UPCOMING & RECENT</div>
-			{#each posts.events as event}
+			{#each events as event}
 				<a
 					href={'/events/' + get(event, 'slug.current', '')}
 					class="sub-tile event"
