@@ -26,7 +26,6 @@
 		theme,
 		inversion
 	} from '$lib/stores.js';
-	import Divider from '$lib/blocks/divider.svelte';
 
 	export let ready = false;
 
@@ -127,11 +126,11 @@
 			<!-- BREADCRUMBS -->
 			<div class="breadcrumbs">
 				<span class="arrow-down"><ArrowDown /></span>
-				<a href="/" sveltekit:prefetch>eyebeam.org</a>
+				<a href="/" sveltekit:prefetch class="site-title">eyebeam.org</a>
 				<!-- CATEGORY -->
 				{#if $currentCategory}
 					<span class="divider">/</span>
-					<a href={'/' + $currentCategory.slug}>{$currentCategory.name}</a>
+					<a href={'/' + $currentCategory.slug} class="crumb">{$currentCategory.name}</a>
 					<!-- PAGE -->
 					{#if $currentPage}
 						<span class="divider">/</span>
@@ -196,6 +195,14 @@
 
 			.breadcrumbs {
 				float: left;
+
+				a {
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
 			}
 
 			.arrow-down {

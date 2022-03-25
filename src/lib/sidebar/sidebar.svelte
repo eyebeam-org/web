@@ -73,9 +73,8 @@
 	}
 
 	.sidebar {
-		float: left;
-		width: 50%;
 		width: $one-third;
+		min-width: 400px;
 		border: 1px solid var(--foreground-color);
 		border-right: none;
 		font-size: $font-size-small;

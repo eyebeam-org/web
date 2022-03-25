@@ -142,6 +142,8 @@
 		transition: transform 0.5s $transition;
 		position: relative;
 		opacity: 1;
+		display: flex;
+		align-items: flex-start;
 
 		&.open {
 			transform: translateY(240px);

@@ -9,7 +9,7 @@
 	import { urlFor } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import get from 'lodash/get.js';
-	import { dateTimeFormat, longFormatDate } from '$lib/global';
+	import { dateTimeFormat, longFormatDate, roleToRoleName } from '$lib/global';
 	import { fade } from 'svelte/transition';
 
 	// __ COMPONENTS
@@ -17,6 +17,8 @@
 	import SeeAlso from '$lib/see-also/see-also.svelte';
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
+	import VideoPlayer from '$lib/video-player/video-player.svelte';
+	import AtEyebeam from '$lib/at-eyebeam/at-eyebeam.svelte';
 
 	// __ GRAPHICS
 	import ExternalLink from '$lib/graphics/external-link.svelte';
@@ -24,7 +26,7 @@
 	// *** PROPS
 	export let page;
 
-	const BOXED_TYPES = ['program', 'note'];
+	const BOXED_TYPES = ['program', 'note', 'person'];
 	let boxed = BOXED_TYPES.includes(page._type) ? true : false;
 
 	const INTRO_TYPES = ['program', 'note'];
@@ -33,52 +35,75 @@
 	const TIGHT_TYPES = ['artists', 'event', 'eyebeamIsChanging', 'news', 'press'];
 	let tight = TIGHT_TYPES.includes(page._type) ? true : false;
 
-	const PEOPLE_TYPES = ['event'];
+	const PEOPLE_TYPES = ['event', 'videoPost'];
 	let showPeople = PEOPLE_TYPES.includes(page._type) ? true : false;
 </script>
 
 <div class="main-content" in:fade>
 	<div class="article">
-		<div class="header" class:boxed class:tight>
-			<!-- TITLE -->
-			<h1>{page.title}</h1>
+		{#if page._type == 'videoPost'}
+			<VideoPlayer {page} />
+		{:else}
+			<div class="header" class:boxed class:tight>
+				<div>
+					<!-- TITLE -->
+					<h1>{page.title}</h1>
 
-			{#if page._type == 'note'}
-				<!-- DATE -->
-				<div class="date">
-					{dateTimeFormat(page._createdAt)}
-				</div>
-				<!-- AUTHOR(S) -->
-				{#if page.people && page.people.length > 0}
-					<div class="authors">
-						by {#each page.people as person}
-							<PersonLink {person} />
-						{/each}
+					<!-- BADGES -->
+					<div class="badges">
+						{#if page.role}
+							<a href={'/people#' + page.role} class="badge">{roleToRoleName[page.role]}</a>
+						{/if}
+						{#if page.groupTags}
+							{#each page.groupTags as tag}
+								<a href="/people" class="badge">{tag.label}</a>
+							{/each}
+						{/if}
 					</div>
-				{/if}
-			{/if}
 
-			<!-- INTRODUCTION -->
-			{#if showIntroduction && has(page, 'introduction.content', [])}
-				<div><Blocks blocks={page.introduction.content} /></div>
-			{/if}
-
-			<!-- MAIN IMAGE -->
-			{#if !showIntroduction && page.mainImage}
-				<figure class="image-container">
-					<img
-						class="main-image"
-						alt={page.title}
-						src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
-					/>
-					{#if has(page, 'mainImage.caption.content')}
-						<figcaption>
-							<Blocks blocks={page.mainImage.caption.content} />
-						</figcaption>
+					<!-- QUOTE -->
+					{#if page.quote}
+						<div class="quote">{page.quote}</div>
 					{/if}
-				</figure>
-			{/if}
-		</div>
+
+					{#if page._type == 'note'}
+						<!-- DATE -->
+						<div class="date">
+							{dateTimeFormat(page._createdAt)}
+						</div>
+						<!-- AUTHOR(S) -->
+						{#if page.people && page.people.length > 0}
+							<div class="authors">
+								by {#each page.people as person}
+									<PersonLink {person} />
+								{/each}
+							</div>
+						{/if}
+					{/if}
+
+					<!-- INTRODUCTION -->
+					{#if showIntroduction && has(page, 'introduction.content', [])}
+						<div><Blocks blocks={page.introduction.content} /></div>
+					{/if}
+				</div>
+
+				<!-- MAIN IMAGE -->
+				{#if !showIntroduction && page.mainImage}
+					<figure class="image-container">
+						<img
+							class="main-image"
+							alt={page.title}
+							src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
+						/>
+						{#if has(page, 'mainImage.caption.content')}
+							<figcaption>
+								<Blocks blocks={page.mainImage.caption.content} />
+							</figcaption>
+						{/if}
+					</figure>
+				{/if}
+			</div>
+		{/if}
 
 		<!-- EVENT INFO -->
 		{#if page._type === 'event'}
@@ -131,9 +156,35 @@
 			{/if}
 		{/if}
 
+		<!-- WEBSITE -->
+		{#if page.website}
+			<div class="website" id="website">
+				<h3>Website</h3>
+				<p><a href={page.website} target="_blank">{page.website} <ExternalLink /></a></p>
+			</div>
+		{/if}
+
+		<!-- BIO -->
+		{#if has(page, 'bio.content')}
+			<div class="bio" id="bio">
+				<h3>Bio</h3>
+				<Blocks blocks={page.bio.content} />
+			</div>
+		{/if}
+
 		<!-- MAIN TEXT -->
 		{#if has(page, 'content.content')}
 			<Blocks blocks={page.content.content} />
+		{/if}
+
+		<!-- VIDEO POST: TRANSCRIPT -->
+		{#if page.transcript && page.transcript.asset && page.transcript.asset._ref}
+			<div class="transcript" id="transcript">
+				<h2>Transcript</h2>
+				<a href={page.transcriptUrl} target="_blank" class="transcript-button">
+					Download transcript as .PDF
+				</a>
+			</div>
 		{/if}
 
 		<!-- PEOPLE -->
@@ -160,6 +211,11 @@
 			</div>
 		{/if}
 
+		<!-- AT EYEBEAM -->
+		{#if get(page, 'connectedPosts', []).length > 0}
+			<AtEyebeam posts={page.connectedPosts} />
+		{/if}
+
 		<!-- SEE ALSO -->
 		{#if page.internalLinks || page.externalLinks}
 			<SeeAlso externalLinks={page.externalLinks} internalLinks={page.internalLinks} />
@@ -174,7 +230,6 @@
 	@import '../../variables.scss';
 
 	.main-content {
-		float: left;
 		width: $two-third;
 		margin-bottom: 120px;
 
@@ -188,6 +243,7 @@
 		min-height: 100vh;
 		display: inline-block;
 		width: 100%;
+		padding-bottom: $small-margin;
 
 		@include screen-size('small') {
 			border: unset;
@@ -213,6 +269,22 @@
 				}
 			}
 
+			.badges {
+				margin-top: $small-margin;
+				margin-bottom: $small-margin;
+				margin-left: $small-margin;
+
+				.badge {
+					text-decoration: none;
+					padding: $button-padding;
+					background: var(--foreground-color);
+					color: var(--background-color);
+					text-transform: capitalize;
+					font-size: $font-size-extra-small;
+					display: inline-block;
+				}
+			}
+
 			.date {
 				@include text-margins();
 				margin-bottom: $small-margin;
@@ -224,7 +296,9 @@
 			}
 
 			.image-container {
-				min-width: 40%;
+				max-width: 35%;
+				min-width: 35%;
+				width: 35%;
 				max-height: 100%;
 				margin-right: $small-margin;
 				img {
@@ -239,7 +313,7 @@
 			}
 
 			&.boxed {
-				display: block;
+				display: flex;
 				height: $HEADER_HEIGHT;
 				border-bottom: 1px solid var(--foreground-color);
 
@@ -259,6 +333,27 @@
 				}
 			}
 		}
+	}
+
+	.transcript {
+		margin-bottom: $small-margin;
+
+		.transcript-button {
+			padding: $extra-small-margin;
+			background: $grey;
+			display: inline-block;
+			margin-left: $small-margin;
+			cursor: pointer;
+			text-decoration: none;
+		}
+	}
+
+	.bio {
+		margin-top: $small-margin;
+	}
+
+	.website {
+		margin-top: $small-margin;
 	}
 
 	.people {
@@ -362,6 +457,11 @@
 		margin-left: $small-margin;
 		min-width: 300px;
 		width: 40%;
+
+		@include screen-size('small') {
+			padding-left: 0;
+			padding-right: 0;
+		}
 
 		.dates {
 			margin-bottom: $small-margin;
