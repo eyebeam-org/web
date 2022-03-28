@@ -15,6 +15,8 @@
 	import { page, navigating } from '$app/stores';
 	import { goto } from '$app/navigation';
 
+	import { INSTAGRAM_URL, TWITTER_URL, YOUTUBE_URL } from '$lib/global.js';
+
 	// __ GRAPHICS
 	import BigBeam from '$lib/graphics/big-beam.svelte';
 	import SearchIcon from '$lib/graphics/search.svelte';
@@ -31,17 +33,6 @@
 	const toggleMenu = () => {
 		menuOpen = !menuOpen;
 	};
-
-	$: {
-		// console.log('$navigating', $navigating);
-		if ($navigating === null) {
-			toggleMenu();
-		}
-	}
-
-	const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
-	const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
-	const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
 
 	const MENU_ITEMS = [
 		{ label: 'Home', value: '/' },
@@ -83,7 +74,7 @@
 					<div
 						class="menu-item"
 						on:click={() => {
-							console.log('item.value', item.value);
+							menuOpen = false;
 							goto(item.value);
 						}}
 					>
