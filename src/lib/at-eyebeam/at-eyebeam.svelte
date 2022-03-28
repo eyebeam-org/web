@@ -92,6 +92,10 @@
 				padding: $small-margin;
 				min-height: 200px;
 				line-height: 1.2em;
+
+				@include screen-size('small') {
+					padding: $extra-small-margin;
+				}
 			}
 
 			&:hover {

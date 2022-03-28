@@ -16,7 +16,7 @@
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 
 	// __ STORES
-	import { page } from '$app/stores';
+	import { page, navigating } from '$app/stores';
 	import { trayOpen, inversion, theme } from '$lib/stores.js';
 
 	let root = {};
@@ -83,21 +83,31 @@
 	<!-- MAIN -->
 	<main id="main" class:open={$trayOpen} class:inversion={$inversion}>
 		{#if $page.url.pathname == '/'}
-			<slot />
+			{#if $navigating == null}
+				<slot />
+			{:else}
+				<div class="navigating" />
+			{/if}
 		{:else}
-			<Sidebar />
-			<slot />
+			<Sidebar fullBorders={$navigating !== null} />
+			{#if $navigating == null}
+				<slot />
+			{:else}
+				<div class="navigating" />
+			{/if}
 		{/if}
 	</main>
 {/if}
 
 <!-- FOOTER -->
-{#if $page.url.pathname !== '/'}
-	<Footer />
-{/if}
+{#if $navigating == null}
+	{#if $page.url.pathname !== '/'}
+		<Footer />
+	{/if}
 
-<!-- PHONE FOOTER -->
-<PhoneFooter />
+	<!-- PHONE FOOTER -->
+	<PhoneFooter />
+{/if}
 
 <style lang="scss" global>
 	@import '../variables.scss';

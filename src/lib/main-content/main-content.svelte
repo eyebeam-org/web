@@ -50,16 +50,19 @@
 					<h1>{page.title}</h1>
 
 					<!-- BADGES -->
-					<div class="badges">
-						{#if page.role}
-							<a href={'/people?filter=' + page.role} class="badge">{roleToRoleName[page.role]}</a>
-						{/if}
-						{#if page.groupTags}
-							{#each page.groupTags as tag}
-								<a href="/people" class="badge">{tag.label}</a>
-							{/each}
-						{/if}
-					</div>
+					{#if page._type == 'person'}
+						<div class="badges">
+							{#if page.role}
+								<a href={'/people?filter=' + page.role} class="badge">{roleToRoleName[page.role]}</a
+								>
+							{/if}
+							{#if page.groupTags}
+								{#each page.groupTags as tag}
+									<a href="/people" class="badge">{tag.label}</a>
+								{/each}
+							{/if}
+						</div>
+					{/if}
 
 					<!-- QUOTE -->
 					{#if page.quote}
@@ -235,6 +238,7 @@
 
 		@include screen-size('small') {
 			width: 100%;
+			margin-bottom: 0;
 		}
 	}
 
@@ -256,6 +260,7 @@
 
 			@include screen-size('small') {
 				display: block;
+				margin-bottom: $small-margin;
 			}
 
 			h1 {
@@ -263,9 +268,11 @@
 				margin-right: 20px;
 				margin-bottom: 160px;
 				line-height: 1.1em;
+
 				@include screen-size('small') {
 					margin-left: 0;
 					margin-bottom: 0;
+					margin-bottom: $small-margin;
 				}
 			}
 
@@ -273,6 +280,10 @@
 				margin-top: $small-margin;
 				margin-bottom: $small-margin;
 				margin-left: $small-margin;
+
+				@include screen-size('small') {
+					margin-left: 0;
+				}
 
 				.badge {
 					text-decoration: none;
@@ -301,6 +312,7 @@
 				width: 35%;
 				max-height: 100%;
 				margin-right: $small-margin;
+
 				img {
 					border: 1px solid var(--foreground-color);
 					max-height: 100%;
@@ -309,6 +321,10 @@
 
 				@include screen-size('small') {
 					width: 100%;
+					margin-right: 0;
+					margin: 0;
+					max-width: unset;
+					min-width: unset;
 				}
 			}
 
@@ -330,6 +346,9 @@
 			&.tight {
 				h1 {
 					margin-bottom: 60px;
+					@include screen-size('small') {
+						margin-bottom: $small-margin;
+					}
 				}
 			}
 		}
@@ -428,6 +447,10 @@
 		font-style: italic;
 		@include text-margins();
 		font-size: $font-size-body;
+
+		@include screen-size('small') {
+			margin-left: 0;
+		}
 	}
 
 	.including {
@@ -448,6 +471,10 @@
 			background: var(--foreground-color);
 			color: $white;
 		}
+
+		@include screen-size('small') {
+			margin-left: 0;
+		}
 	}
 
 	.event-info {
@@ -460,8 +487,8 @@
 		width: 40%;
 
 		@include screen-size('small') {
-			padding-left: 0;
-			padding-right: 0;
+			margin-left: 0;
+			margin-right: 0;
 		}
 
 		.dates {

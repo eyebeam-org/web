@@ -48,4 +48,10 @@
 			column-width: 50%;
 		}
 	}
+
+	:global(.columns .inner p) {
+		@include screen-size('small') {
+			font-size: $font-size-small;
+		}
+	}
 </style>

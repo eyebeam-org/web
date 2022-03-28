@@ -12,7 +12,7 @@
 	import Search from '$lib/search/search.svelte';
 
 	// __ STORES
-	import { page, navigating } from '$app/stores';
+	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
 	import { INSTAGRAM_URL, TWITTER_URL, YOUTUBE_URL } from '$lib/global.js';
@@ -69,9 +69,10 @@
 			</span>
 		</div>
 		{#if menuOpen}
-			<div class="menu" in:fade>
-				{#each MENU_ITEMS as item}
+			<div class="menu">
+				{#each MENU_ITEMS as item, index}
 					<div
+						in:fade={{ delay: index * 30, duration: 100 }}
 						class="menu-item"
 						on:click={() => {
 							menuOpen = false;
@@ -82,7 +83,7 @@
 					</div>
 				{/each}
 			</div>
-			<div class="logo"><BigBeam flipped={true} /></div>
+			<div class="logo" in:fade={{ delay: 300, duration: 400 }}><BigBeam flipped={true} /></div>
 		{/if}
 	{/if}
 </nav>
@@ -145,6 +146,11 @@
 			.menu-item {
 				display: block;
 				text-decoration: none;
+
+				&:hover,
+				&:active {
+					background: $grey;
+				}
 			}
 		}
 

@@ -31,7 +31,7 @@
 	@import '../../../variables.scss';
 
 	footer {
-		margin-top: 120px;
+		margin-top: 80px;
 		margin-bottom: 40px;
 		width: 100%;
 		margin-right: $small-margin;

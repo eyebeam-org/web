@@ -95,6 +95,10 @@
 			color: $white;
 			font-size: $font-size-h2;
 			line-height: 1.2em;
+
+			@include screen-size('small') {
+				font-size: $font-size-body;
+			}
 		}
 
 		.icon {

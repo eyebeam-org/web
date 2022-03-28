@@ -16,6 +16,8 @@
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	import { goto } from '$app/navigation';
 
+	export let fullBorders = false;
+
 	let hasContent = false;
 	$: hasContent = $sidebarToC.length > 0;
 
@@ -32,7 +34,7 @@
 </script>
 
 <!-- SIDEBAR -->
-<div class="sidebar">
+<div class="sidebar" class:full-borders={fullBorders}>
 	<!-- OPEN EYEBEAM -->
 	<a href={import.meta.env.VITE_OPEN_EYEBEAM_PUBLIC_URL} class="tile open-eyebeam">
 		<OpenEyebeam />
@@ -78,6 +80,10 @@
 		border: 1px solid var(--foreground-color);
 		border-right: none;
 		font-size: $font-size-small;
+
+		&.full-borders {
+			border-right: 1px solid var(--foreground-color);
+		}
 
 		@include screen-size('small') {
 			display: none;
