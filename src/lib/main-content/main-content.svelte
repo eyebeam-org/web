@@ -88,7 +88,7 @@
 				</div>
 
 				<!-- MAIN IMAGE -->
-				{#if !showIntroduction && page.mainImage}
+				{#if !showIntroduction && has(page, 'mainImage.asset')}
 					<figure class="image-container">
 						<img
 							class="main-image"
