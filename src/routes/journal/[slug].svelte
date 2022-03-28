@@ -1,7 +1,7 @@
 <script>
 	// # # # # # # # # # # # # #
 	//
-	//  Single journal page
+	//  Single Journal Page
 	//
 	// # # # # # # # # # # # # #
 	import { renderBlockText, urlFor } from '$lib/sanity.js';

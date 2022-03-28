@@ -1,6 +1,5 @@
 import { loadData } from "$lib/sanity.js"
 
-// GET =>
 export const get = async (request) => {
 	const news = await loadData("*[_type == 'news']")
 	const press = await loadData("*[_type == 'press']")
