@@ -2,7 +2,7 @@
 	export async function load() {
 		return {
 			status: 302,
-			redirect: '/everything#video'
+			redirect: '/everything?filter=videoPost'
 		};
 	}
 </script>

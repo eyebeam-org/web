@@ -16,6 +16,9 @@
 	import Blocks from '$lib/blocks/blocks.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
 
+	// __ STORES
+	import { page as pageStore } from '$app/stores';
+
 	// __ PROPS
 	export let page;
 	export let posts;
@@ -54,14 +57,20 @@
 			value: 'news'
 		}
 	];
-	let activeFilter = 'everything';
+	let activeFilter = $pageStore.url.searchParams.get('filter')
+		? $pageStore.url.searchParams.get('filter')
+		: 'everything';
 	let filteredPosts = [];
 
 	$: {
 		if (activeFilter === 'everything') {
 			filteredPosts = posts;
+			history.replaceState({}, '', '/everything');
 		} else {
 			filteredPosts = posts.filter((p) => p._type === activeFilter);
+			const url = new URL(window.location);
+			url.searchParams.set('filter', activeFilter);
+			history.replaceState({}, '', url);
 		}
 	}
 </script>
@@ -76,7 +85,7 @@
 			<h1>{page.title}</h1>
 			<!-- BIO -->
 			{#if has(page, 'content.content')}
-				<div class="body-content description">
+				<div class="description">
 					<Blocks blocks={page.content.content} />
 				</div>
 			{/if}
@@ -116,9 +125,6 @@
 						{/each}
 					</div>
 				{/if}
-				<!-- {#if post.person}
-					<div class='person'><PersonLink person={post.person}/></div>
-				{/if} -->
 			</a>
 		{/each}
 	</div>
@@ -133,27 +139,31 @@
 
 		.inner {
 			border: 1px solid var(--foreground-color);
-			min-height: 100vh;
+			min-height: 662px;
 
 			.header {
 				width: 100%;
 				display: inline-block;
 				border-bottom: 1px solid var(--foreground-color);
-				padding: 15px;
 
 				.description {
-					width: 800px;
-					max-width: 90%;
 					margin-left: auto;
 					margin-right: auto;
 					margin-top: 40px;
 					margin-bottom: $small-margin;
 				}
 
+				h1 {
+					margin-right: $small-margin;
+					margin-left: $small-margin;
+				}
+
 				.filters {
-					margin-top: 80px;
+					margin-top: 40px;
 					display: inline-block;
 					margin-bottom: 10px;
+					margin-right: $small-margin;
+					margin-left: $small-margin;
 
 					.filter {
 						padding: $button-padding;
