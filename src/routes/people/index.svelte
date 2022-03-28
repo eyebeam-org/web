@@ -8,8 +8,6 @@
 	// __ IMPORTS
 	import groupBy from 'lodash/groupBy.js';
 	import { getCurrentYear } from '$lib/global.js';
-	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
 
 	// __ COMPONENTS
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
@@ -18,6 +16,9 @@
 
 	// __ GRAPHICS
 	import ArrowDown from '$lib/graphics/arrow-down.svelte';
+
+	// __ STORES
+	import { page as pageStore } from '$app/stores';
 
 	// __ PROPS
 	export let people;
@@ -53,7 +54,7 @@
 		'Y',
 		'Z'
 	];
-	const FILTER_OPTIONS = [
+	const FILTERS = [
 		{
 			label: 'Everyone',
 			value: 'everyone'
@@ -75,69 +76,55 @@
 			value: 'advisoryCommittee'
 		}
 	];
-	let YEAR_LIST = [];
 
+	const scrollToSection = (alpha) => {
+		const el = document.querySelector('#' + alpha);
+		if (el) {
+			el.scrollIntoView({ behavior: 'smooth' });
+			history.replaceState(null, null, '#' + alpha);
+		}
+	};
+
+	// Construct year list
+	let YEAR_LIST = [];
 	for (let i = START_YEAR; i <= CURRENT_YEAR; i++) {
 		YEAR_LIST.push(i);
 	}
-	console.log(YEAR_LIST);
 
 	let filteredPeople = [];
 	let groupedPeopleAlpha = {};
 	let groupedPeopleChrono = {};
 
-	console.log(getCurrentYear());
-
-	let activeFilter = 'everyone';
+	let activeFilter = $pageStore.url.searchParams.get('filter')
+		? $pageStore.url.searchParams.get('filter')
+		: 'everyone';
 	let order = 'alphabetical';
-
-	const scrollToSection = (alpha) => {
-		const el = document.querySelector('#' + alpha);
-		el.scrollIntoView({ behavior: 'smooth' });
-		history.replaceState(null, null, '#' + alpha);
-	};
 
 	$: {
 		if (activeFilter === 'everyone') {
 			filteredPeople = people;
+			history.replaceState({}, '', '/people');
 		} else {
 			filteredPeople = people.filter((p) => p.role === activeFilter);
+			const url = new URL(window.location);
+			url.searchParams.set('filter', activeFilter);
+			history.replaceState({}, '', url);
 		}
+	}
+
+	$: {
 		groupedPeopleAlpha = groupBy(filteredPeople, (p) => p.lastName.charAt(0));
 		groupedPeopleChrono = groupBy(filteredPeople, (p) => p.firstEngagement);
 	}
 
-	onMount(async () => {
-		console.log('location.hash', location.hash);
-		if (location.hash) {
-			const strippedHash = location.hash.substring(1);
-			switch (strippedHash) {
-				case 'artists':
-					activeFilter = 'artist';
-					break;
-				case 'staff':
-					activeFilter = 'staff';
-					break;
-				case 'board':
-					activeFilter = 'board';
-					break;
-				case 'advisory-committee':
-					activeFilter = 'advisoryCommittee';
-					break;
-				default:
-					activeFilter = 'everyone';
-			}
-		}
-	});
-
-	// __ STORES
+	// Set sidebar content
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set('');
 	$: sidebarToC.set([]);
 </script>
 
 <!-- METADATA -->
-<Metadata post={{ title: 'People' }} />
+<Metadata page={{ title: 'People' }} />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
@@ -203,7 +190,7 @@
 			<div class="filter">
 				<div class="filter-header">Show</div>
 				<div class="filter-options">
-					{#each FILTER_OPTIONS as option}
+					{#each FILTERS as option}
 						<div
 							class="filter-option"
 							class:active={activeFilter === option.value}
@@ -274,7 +261,6 @@
 			right: 0;
 			width: 40px;
 			user-select: none;
-			// border: 1px solid var(--foreground-color);
 
 			@include screen-size('small') {
 				display: none;
@@ -333,19 +319,20 @@
 							user-select: none;
 							cursor: pointer;
 							font-size: $font-size-extra-small;
-							background: $grey;
 							color: $black;
 
 							.icon {
-								margin-left: 8px;
-							}
-
-							&.active {
-								background: $white;
+								margin-left: 5px;
 							}
 
 							&:hover {
-								background: $white;
+								background: var(--foreground-color);
+								color: $white;
+							}
+
+							&.active {
+								background: var(--foreground-color);
+								color: $white;
 							}
 						}
 					}
@@ -375,16 +362,17 @@
 							user-select: none;
 							cursor: pointer;
 							font-size: $font-size-extra-small;
-							background: $grey;
 							margin-bottom: 8px;
-							color: $black;
-
-							&.active {
-								background: $white;
-							}
+							color: var(--foreground-color);
 
 							&:hover {
-								background: $white;
+								background: var(--foreground-color);
+								color: $white;
+							}
+
+							&.active {
+								background: var(--foreground-color);
+								color: $white;
 							}
 						}
 					}

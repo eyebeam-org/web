@@ -27,7 +27,7 @@
 </script>
 
 <!-- METADATA -->
-<Metadata post={{ title: 'Statements' }} />
+<Metadata page={{ title: 'Statements' }} />
 
 <!-- MAIN CONTENT -->
 <div class="main-content">

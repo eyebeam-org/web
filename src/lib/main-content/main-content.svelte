@@ -52,7 +52,7 @@
 					<!-- BADGES -->
 					<div class="badges">
 						{#if page.role}
-							<a href={'/people#' + page.role} class="badge">{roleToRoleName[page.role]}</a>
+							<a href={'/people?filter=' + page.role} class="badge">{roleToRoleName[page.role]}</a>
 						{/if}
 						{#if page.groupTags}
 							{#each page.groupTags as tag}
@@ -441,6 +441,7 @@
 		display: inline-block;
 		font-size: $font-size-small;
 		margin-left: $small-margin;
+		margin-top: $small-margin;
 		text-decoration: none;
 
 		&:hover {
