@@ -103,7 +103,7 @@
 					<!-- TYPE -->
 					<div class="type">{postTypeToName[post._type]}</div>
 					<!-- DATE -->
-					<div class="date">{longFormatDate(post._createdAt)}</div>
+					<div class="date">{longFormatDate(post._updatedAt)}</div>
 				</div>
 				<!-- TITLE -->
 				<div class="title">{post.title}</div>
