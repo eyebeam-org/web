@@ -284,7 +284,7 @@
 
 				&:hover {
 					background: $grey;
-					color: $black;
+					color: var(--hover-text-color);
 				}
 			}
 		}
@@ -319,7 +319,7 @@
 							user-select: none;
 							cursor: pointer;
 							font-size: $font-size-extra-small;
-							color: $black;
+							color: var(--foreground-color);
 
 							.icon {
 								margin-left: 5px;
@@ -327,12 +327,12 @@
 
 							&:hover {
 								background: var(--foreground-color);
-								color: $white;
+								color: var(--background-color);
 							}
 
 							&.active {
 								background: var(--foreground-color);
-								color: $white;
+								color: var(--background-color);
 							}
 						}
 					}
@@ -367,12 +367,12 @@
 
 							&:hover {
 								background: var(--foreground-color);
-								color: $white;
+								color: var(--background-color);
 							}
 
 							&.active {
 								background: var(--foreground-color);
-								color: $white;
+								color: var(--background-color);
 							}
 						}
 					}
@@ -386,10 +386,6 @@
 				&:last-child {
 					border-bottom: none;
 				}
-
-				// &:target {
-				// 	background: red;
-				// }
 			}
 		}
 	}

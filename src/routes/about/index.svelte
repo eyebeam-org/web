@@ -222,6 +222,7 @@
 
 		&:hover {
 			background: $grey;
+			color: var(--hover-text-color);
 		}
 
 		&:active {
@@ -341,6 +342,7 @@
 
 			&:hover {
 				background: $grey;
+				color: var(--hover-text-color);
 			}
 		}
 	}

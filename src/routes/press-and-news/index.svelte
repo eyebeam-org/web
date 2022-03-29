@@ -50,7 +50,7 @@
 		<h1>Press & News</h1>
 
 		{#if has(page, 'content.content')}
-			<div class="text-content">
+			<div>
 				<Blocks blocks={page.content.content} />
 			</div>
 		{/if}
@@ -140,6 +140,7 @@
 
 		&:hover {
 			background: $grey;
+			color: var(--hover-text-color);
 		}
 	}
 
@@ -156,5 +157,9 @@
 			padding-left: $small-margin;
 			padding-right: $small-margin;
 		}
+	}
+
+	.text-content {
+		padding: $small-margin;
 	}
 </style>

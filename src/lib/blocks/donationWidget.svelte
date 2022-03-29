@@ -35,12 +35,10 @@
 	:global(.donation-widget .gl-widget__frequency-selection-container) {
 		height: 200px;
 		border-top: $border-style;
-		// background: yellow;
 	}
 
 	:global(.donation-widget .gl-widget__input-group) {
 		height: 200px;
-		// background: green;
 		font-size: $font-size-h2 !important;
 		color: var(--foreground-color) !important;
 		padding-top: 75px !important;
@@ -78,7 +76,6 @@
 		border-top: $border-style;
 		height: 200px;
 		margin-top: 0 !important;
-		// background: blue;
 	}
 
 	:global(.donation-widget .gl-widget__frequency-buttons) {
@@ -98,7 +95,7 @@
 		transition: unset !important;
 
 		&:hover {
-			color: var(--foreground-color) !important;
+			color: var(--hover-text-color) !important;
 			background: $grey !important;
 		}
 	}
@@ -108,7 +105,7 @@
 		margin-right: 0 !important;
 		border-radius: 0 !important;
 		border: 0 !important;
-		color: black !important;
+		color: var(--foreground-color);
 
 		&:first-child {
 			border-right: $border-style !important;
@@ -118,18 +115,18 @@
 	:global(.donation-widget .gl-widget__btn--outline-primary) {
 		&:focus {
 			background-color: $grey !important;
-			color: black !important;
+			color: var(--hover-text-color) !important;
 		}
 
 		&:hover {
 			background-color: $grey !important;
-			color: black !important;
+			color: var(--hover-text-color) !important;
 		}
 	}
 
 	:global(.donation-widget .gl-widget--selected-btn) {
 		background-color: $grey !important;
-		color: black !important;
+		color: var(--foreground-color) !important;
 	}
 
 	:global(.donation-widget .gl-widget__btn--outline-primary:hover:not(.gl-widget--selected-btn)) {

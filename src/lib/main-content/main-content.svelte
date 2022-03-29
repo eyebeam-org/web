@@ -466,11 +466,7 @@
 		margin-left: $small-margin;
 		margin-top: $small-margin;
 		text-decoration: none;
-
-		&:hover {
-			background: var(--foreground-color);
-			color: $white;
-		}
+		color: $black;
 
 		@include screen-size('small') {
 			margin-left: 0;

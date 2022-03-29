@@ -38,10 +38,12 @@
 			console.log('DARKMODE');
 			root.style.setProperty('--background-color', BLACK);
 			root.style.setProperty('--foreground-color', WHITE);
+			root.style.setProperty('--hover-text-color', BLACK);
 		} else {
 			console.log('LIGHT MODE');
 			root.style.setProperty('--background-color', WHITE);
 			root.style.setProperty('--foreground-color', BLACK);
+			root.style.setProperty('--hover-text-color', BLACK);
 		}
 	}
 
@@ -58,6 +60,7 @@
 			root.style.setProperty('--font-stack', MAIN_FONT);
 			root.style.setProperty('--background-color', WHITE);
 			root.style.setProperty('--foreground-color', BLACK);
+			root.style.setProperty('--hover-text-color', BLACK);
 		}
 	}
 
@@ -114,6 +117,7 @@
 	:root {
 		--background-color: rgb(245, 244, 238);
 		--foreground-color: rgb(34, 31, 32);
+		--hover-text-color: rgb(34, 31, 32);
 		--font-stack: 'Literata', serif;
 	}
 

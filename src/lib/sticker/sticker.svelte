@@ -65,7 +65,7 @@
 		&.inverted {
 			background: var(--foreground-color);
 			.text {
-				color: $white;
+				color: var(--background-color);
 			}
 		}
 

@@ -176,12 +176,12 @@
 
 						&:hover {
 							background: var(--foreground-color);
-							color: $white;
+							color: var(--background-color);
 						}
 
 						&.active {
 							background: var(--foreground-color);
-							color: $white;
+							color: var(--background-color);
 						}
 					}
 				}
@@ -201,6 +201,7 @@
 				&:hover {
 					background: $grey;
 					cursor: pointer;
+					color: var(--hover-text-color);
 				}
 
 				.top {

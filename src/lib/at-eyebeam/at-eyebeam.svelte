@@ -100,6 +100,7 @@
 
 			&:hover {
 				background: $grey;
+				color: var(--hover-text-color);
 			}
 		}
 	}

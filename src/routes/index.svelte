@@ -230,6 +230,7 @@
 		&:hover {
 			background: $grey;
 			cursor: pointer;
+			color: var(--hover-text-color);
 		}
 
 		&:active {
@@ -406,11 +407,12 @@
 
 		&:hover {
 			background: $grey;
+			color: var(--hover-text-color);
 		}
 
 		&:active {
 			background: var(--foreground-color);
-			color: $white;
+			color: var(--background-color);
 		}
 	}
 
@@ -464,8 +466,8 @@
 			}
 
 			.circle {
-				width: 20px;
-				height: 20px;
+				width: 15px;
+				height: 15px;
 				border-radius: 50%;
 				background: $grey;
 				margin-top: 10px;
@@ -477,15 +479,17 @@
 				opacity: 0;
 				position: relative;
 				top: 4px;
+				color: var(--foreground-color);
 			}
 		}
 
 		&:hover {
 			.circle {
-				background: var(--foreground-color);
+				background: var(--hover-text-color);
 			}
 			.applications-open {
 				opacity: 1;
+				color: var(--hover-text-color);
 			}
 		}
 	}

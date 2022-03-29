@@ -128,9 +128,7 @@
 	}
 
 	form {
-		width: calc(100% - 120px);
-		margin-right: 60px;
-		margin-left: 60px;
+		width: 100%;
 
 		@include screen-size('small') {
 			width: 100%;
@@ -161,7 +159,7 @@
 			&.subscribe {
 				border: 0;
 				background: var(--foreground-color);
-				color: $white;
+				color: var(--background-color);
 				cursor: pointer;
 				font-size: $font-size-extra-small;
 				letter-spacing: 1px;

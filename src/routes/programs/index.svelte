@@ -151,11 +151,12 @@
 
 		&:hover {
 			background: $grey;
+			color: var(--hover-text-color);
 		}
 
 		&:active {
 			background: var(--foreground-color);
-			color: $white;
+			color: var(--background-color);
 		}
 
 		@include screen-size('small') {

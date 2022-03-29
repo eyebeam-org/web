@@ -125,29 +125,17 @@
 	@import '../../variables.scss';
 
 	.pop-up {
-		background: $white;
+		background: var(--background-color);
 		padding: $small-margin;
 		border: 1px solid var(--foreground-color);
 		z-index: 1000;
-		color: $black;
+		color: var(--foreground-color);
 		position: relative;
 		display: none;
 		max-width: 360px;
 
 		.show {
 			display: block;
-		}
-
-		.arrow {
-			width: 20px;
-			height: 20px;
-			background: $white;
-			position: absolute;
-			top: -11px;
-			left: 20px;
-			transform: rotate(-45deg);
-			border-right: 1px solid $black;
-			border-top: 1px solid $black;
 		}
 
 		.name {
