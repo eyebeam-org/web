@@ -6,12 +6,13 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORT
-	import Clock from '$lib/clock/clock.svelte';
 	import { loadData } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
+	import Cookies from 'js-cookie';
 
 	// __ COMPONENTS
 	import Blocks from '$lib/blocks/blocks.svelte';
+	import Clock from '$lib/clock/clock.svelte';
 
 	// __ GRAPHICS
 	import FullBeam from '$lib/graphics/full-beam.svelte';
@@ -32,8 +33,15 @@
 	const cities = loadData('*[_id == "cities"][0]');
 
 	cities.then((c) => {
+		console.log(c);
 		if (c.cities && c.cities[0]) {
-			activeCity.set(c.cities[0]);
+			let cityCookie = Cookies.get('eyebeam-city');
+			console.log(cityCookie);
+			if (cityCookie && c.cities.find((city) => city._key === cityCookie)) {
+				activeCity.set(c.cities.find((city) => city._key === cityCookie));
+			} else {
+				activeCity.set(c.cities[0]);
+			}
 		}
 	});
 
@@ -85,6 +93,7 @@
 								class:active={$inversion}
 								on:click={() => {
 									inversion.set(!$inversion);
+									Cookies.set('eyebeam-inversion', $inversion, { expires: 1 });
 								}}
 							/>
 						</div>
@@ -106,6 +115,7 @@
 								class:active={$activeCity._key === city._key}
 								on:click={() => {
 									activeCity.set(city);
+									Cookies.set('eyebeam-city', city._key, { expires: 1 });
 								}}
 							>
 								{city.name}

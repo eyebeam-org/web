@@ -265,7 +265,8 @@
 
 			h1 {
 				@include text-margins();
-				margin-right: 20px;
+				margin-right: $small-margin;
+				margin-top: $small-margin;
 				margin-bottom: 160px;
 				line-height: 1.1em;
 
@@ -274,6 +275,10 @@
 					margin-bottom: 0;
 					margin-bottom: $small-margin;
 				}
+			}
+
+			.quote {
+				margin: $small-margin;
 			}
 
 			.badges {

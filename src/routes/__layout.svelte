@@ -8,6 +8,9 @@
 	// __ IMPORT
 	import { onMount } from 'svelte';
 	import sample from 'lodash/sample.js';
+	import Cookies from 'js-cookie';
+
+	// __ COMPONENTS
 	import Menubar from '$lib/menubar/menubar.svelte';
 	import Footer from '$lib/footer/footer.svelte';
 	import PhoneMenubar from '$lib/phone/menubar/menubar.svelte';
@@ -50,8 +53,10 @@
 	$: if (root.style) {
 		if ($theme == 'rgb') {
 			console.log('RGB');
+			let randomColor = sample(RGB);
 			root.style.setProperty('--background-color', WHITE);
-			root.style.setProperty('--foreground-color', sample(RGB));
+			root.style.setProperty('--foreground-color', randomColor);
+			root.style.setProperty('--hover-text-color', randomColor);
 			root.style.setProperty('--font-stack', ALT_FONT);
 			inversion.set(false);
 		}
@@ -66,11 +71,16 @@
 
 	onMount(async () => {
 		root = document.documentElement;
-	});
 
-	setTimeout(() => {
-		ready = true;
-	}, 2000);
+		setTimeout(() => {
+			ready = true;
+			let inversionCookie = Cookies.get('eyebeam-inversion');
+			console.log('inversionCookie', inversionCookie);
+			if (inversionCookie == 'true') {
+				inversion.set(true);
+			}
+		}, 2000);
+	});
 </script>
 
 <!-- HEADER -->

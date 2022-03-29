@@ -136,7 +136,6 @@ export const parseToc = (text) => {
     let tempToc = []
     if (text && Array.isArray(text)) {
         let headers = text.filter((b) => b.style == 'h2' || b._type == 'columnsBlock' || b._type == 'faq');
-        console.log('headers', headers);
 
         tempToc = headers.map((b) => {
             if (b._type == 'columnsBlock' || b._type == 'faq') {
