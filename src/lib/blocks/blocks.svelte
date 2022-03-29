@@ -22,6 +22,7 @@
 	import ApplicationButton from '$lib/blocks/applicationButton.svelte';
 	import Faq from '$lib/blocks/faq.svelte';
 	import Video from '$lib/blocks/video.svelte';
+	import PersonList from '$lib/blocks/personList.svelte';
 
 	// *** PROPS
 	export let blocks = [];
@@ -62,5 +63,8 @@
 	{/if}
 	{#if b._type == 'videoBlock'}
 		<Video {b} />
+	{/if}
+	{#if b._type == 'personList'}
+		<PersonList {b} />
 	{/if}
 {/each}
