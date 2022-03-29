@@ -29,7 +29,7 @@
 	const WHITE = 'rgb(245, 244, 238)';
 
 	const RED = 'rgb(255, 0, 0)';
-	const GREEN = 'rgb(0, 255, 0)';
+	const GREEN = 'rgb(0, 160, 0)';
 	const BLUE = 'rgb(0, 0, 255)';
 	const RGB = [RED, GREEN, BLUE];
 
@@ -42,11 +42,13 @@
 			root.style.setProperty('--background-color', BLACK);
 			root.style.setProperty('--foreground-color', WHITE);
 			root.style.setProperty('--hover-text-color', BLACK);
+			root.style.setProperty('--special-text-color', BLACK);
 		} else {
 			console.log('LIGHT MODE');
 			root.style.setProperty('--background-color', WHITE);
 			root.style.setProperty('--foreground-color', BLACK);
 			root.style.setProperty('--hover-text-color', BLACK);
+			root.style.setProperty('--special-text-color', BLACK);
 		}
 	}
 
@@ -54,10 +56,11 @@
 		if ($theme == 'rgb') {
 			console.log('RGB');
 			let randomColor = sample(RGB);
+			root.style.setProperty('--font-stack', ALT_FONT);
 			root.style.setProperty('--background-color', WHITE);
 			root.style.setProperty('--foreground-color', randomColor);
 			root.style.setProperty('--hover-text-color', randomColor);
-			root.style.setProperty('--font-stack', ALT_FONT);
+			root.style.setProperty('--special-text-color', randomColor);
 			inversion.set(false);
 		}
 		if ($theme == 'ink') {
@@ -66,6 +69,7 @@
 			root.style.setProperty('--background-color', WHITE);
 			root.style.setProperty('--foreground-color', BLACK);
 			root.style.setProperty('--hover-text-color', BLACK);
+			root.style.setProperty('--special-text-color', BLACK);
 		}
 	}
 
@@ -128,6 +132,7 @@
 		--background-color: rgb(245, 244, 238);
 		--foreground-color: rgb(34, 31, 32);
 		--hover-text-color: rgb(34, 31, 32);
+		--special-text-color: rgb(34, 31, 32);
 		--font-stack: 'Literata', serif;
 	}
 

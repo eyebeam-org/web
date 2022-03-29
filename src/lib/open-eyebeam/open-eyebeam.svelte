@@ -41,7 +41,7 @@
 			bottom: $small-margin;
 			left: $extra-small-margin;
 			font-size: $font-size-extra-small;
-			color: $black;
+			color: var(--special-text-color);
 
 			.arrow {
 				margin-right: 6px;

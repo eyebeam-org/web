@@ -91,7 +91,7 @@
 		padding-left: 60px;
 		padding-right: 60px;
 		overflow-y: auto;
-		color: $black;
+		color: var(--special-text-color);
 
 		@include screen-size('small') {
 			padding-left: $small-margin;
@@ -132,7 +132,7 @@
 				width: 100%;
 				background: transparent;
 				outline: none;
-				border: 1px solid $black;
+				border: 1px solid var(--special-text-color);
 				font-size: $font-size-h2;
 				padding: 10px;
 				padding-bottom: 15px;
@@ -152,7 +152,7 @@
 				margin-bottom: 20px;
 				display: block;
 				text-decoration: none;
-				color: $black;
+				color: var(--special-text-color);
 
 				.type {
 					font-size: $font-size-body;

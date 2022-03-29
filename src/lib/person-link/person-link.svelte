@@ -149,7 +149,7 @@
 	}
 
 	a {
-		color: $black;
+		color: var(--special-text-color);
 		background: $grey;
 		text-decoration: none;
 		margin-bottom: 3px;

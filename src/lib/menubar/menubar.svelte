@@ -248,7 +248,7 @@
 		.settings {
 			height: 240px;
 			background: $grey;
-			color: $black;
+			color: var(--special-text-color);
 			overflow: hidden;
 
 			.settings-bar {
@@ -257,8 +257,8 @@
 				padding-left: 5px;
 				padding-right: 10px;
 				cursor: pointer;
-				border-bottom: 1px solid $black;
-				color: $black;
+				border-bottom: 1px solid var(--special-text-color);
+				color: var(--special-text-color);
 				width: 100%;
 
 				.tray-toggle {
@@ -303,23 +303,23 @@
 	.city-button {
 		padding: $button-padding;
 		display: inline-block;
-		border-top: 1px solid $black;
-		border-right: 1px solid $black;
-		border-bottom: 1px solid $black;
+		border-top: 1px solid var(--special-text-color);
+		border-right: 1px solid var(--special-text-color);
+		border-bottom: 1px solid var(--special-text-color);
 		user-select: none;
 		cursor: pointer;
 
 		&:first-child {
-			border-left: 1px solid $black;
+			border-left: 1px solid var(--special-text-color);
 		}
 
 		&.active {
-			background: $black;
+			background: var(--special-text-color);
 			color: $white;
 		}
 
 		&:hover {
-			background: $black;
+			background: var(--special-text-color);
 			color: $white;
 		}
 	}
@@ -331,14 +331,14 @@
 	.theme-button {
 		padding: $button-padding;
 		display: inline-block;
-		border-top: 1px solid $black;
-		border-right: 1px solid $black;
-		border-bottom: 1px solid $black;
+		border-top: 1px solid var(--special-text-color);
+		border-right: 1px solid var(--special-text-color);
+		border-bottom: 1px solid var(--special-text-color);
 		user-select: none;
 		cursor: pointer;
 
 		&:first-child {
-			border-left: 1px solid $black;
+			border-left: 1px solid var(--special-text-color);
 		}
 
 		&:last-child {
@@ -346,12 +346,12 @@
 		}
 
 		&.active {
-			background: $black;
+			background: var(--special-text-color);
 			color: $white;
 		}
 
 		&:hover {
-			background: $black;
+			background: var(--special-text-color);
 			color: $white;
 		}
 	}
@@ -359,7 +359,7 @@
 	.inversion-button {
 		width: 35px;
 		height: 35px;
-		border: 1px solid $black;
+		border: 1px solid var(--special-text-color);
 		display: inline-block;
 		border-radius: 50%;
 		user-select: none;
@@ -367,11 +367,11 @@
 		background: transparent;
 
 		&:hover {
-			background: $black;
+			background: var(--special-text-color);
 		}
 
 		&.active {
-			background: $black;
+			background: var(--special-text-color);
 		}
 	}
 </style>

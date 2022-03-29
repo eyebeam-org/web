@@ -421,7 +421,7 @@
 					background: $grey;
 					margin-top: 10px;
 					display: inline-block;
-					color: $black;
+					color: var(--special-text-color);
 				}
 
 				.image {
@@ -471,7 +471,7 @@
 		margin-left: $small-margin;
 		margin-top: $small-margin;
 		text-decoration: none;
-		color: $black;
+		color: var(--special-text-color);
 
 		@include screen-size('small') {
 			margin-left: 0;
