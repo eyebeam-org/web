@@ -1,11 +1,109 @@
 <script>
+	// # # # # # # # # # # # # #
+	//
+	// Journal Listing
+	//
+	// # # # # # # # # # # # # #
+
+	// __ IMPORTS
+	import get from 'lodash/get.js';
+	import { longFormatDate } from '$lib/global';
+
+	// __ GRAPHICS
+	import BigBeam from '$lib/graphics/big-beam.svelte';
+	import Logo from '$lib/graphics/logo.svelte';
+
+	// __ COMPONENTS
+	import PersonLinkList from '$lib/person-link-list/person-link-list.svelte';
+
+	// __ PROPS
 	export let journal;
 </script>
 
-<h1>JOURNAL</h1>
+<div class="journal">
+	<div class="header">
+		<div class="inner">
+			<BigBeam />
+			<Logo />
+			<div class="tagline">Eyebeam's Journal<br />Since 2022</div>
+		</div>
+	</div>
 
-<ul>
-	{#each journal as post}
-		<li><a href={'/journal/' + post.slug.current} sveltekit:prefetch>{post.title}</a></li>
-	{/each}
-</ul>
+	<div class="listing">
+		{#each journal as post}
+			<a class="item" href={'/journal/' + get(post, 'slug.current', '')} sveltekit:prefetch>
+				<div class="title">
+					{post.title}
+				</div>
+				<div class="authors">
+					<i>by</i>
+					<PersonLinkList people={post.people} />
+				</div>
+				<div class="date">
+					{longFormatDate(post._updatedAt)}
+				</div>
+			</a>
+		{/each}
+	</div>
+</div>
+
+<style lang="scss">
+	@import '../../variables.scss';
+
+	.journal {
+		width: 880px;
+		margin-left: auto;
+		margin-right: auto;
+		background: var(--background-color);
+		border: 1px solid var(--foreground-color);
+
+		.header {
+			border-bottom: 1px solid var(--foreground-color);
+			height: 340px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.inner {
+				width: 340px;
+				text-align: center;
+
+				.tagline {
+					margin-top: $SMALL;
+				}
+			}
+		}
+
+		.listing {
+			.item {
+				display: block;
+				height: 340px;
+				width: 100%;
+				position: relative;
+
+				&:hover {
+					background: $grey;
+					color: var(--hover-text-color);
+				}
+
+				.title {
+					position: absolute;
+					top: $NORMAL;
+					left: $NORMAL;
+				}
+
+				.authors {
+					position: absolute;
+					top: $NORMAL;
+					right: $NORMAL;
+				}
+
+				.date {
+					position: absolute;
+					bottom: $NORMAL;
+					left: $NORMAL;
+				}
+			}
+		}
+	}
+</style>

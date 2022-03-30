@@ -4,34 +4,74 @@
 	//  Single Journal Page
 	//
 	// # # # # # # # # # # # # #
-	import { renderBlockText, urlFor } from '$lib/sanity.js';
+
+	// __ IMPORTS
+	import has from 'lodash/has.js';
 
 	// __ COMPONENTS
+	import Blocks from '$lib/blocks/blocks.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
+	import PersonLinkList from '$lib/person-link-list/person-link-list.svelte';
 
-	// *** PROPS
+	// __ PROPS
 	export let page;
 </script>
 
 <!-- METADATA -->
 <Metadata {page} />
 
-<!-- TITLE -->
-<h1>{page.title}</h1>
+<div class="journal">
+	<div class="header">
+		<!-- TITLE -->
+		<h1>{page.title}</h1>
+		{#if page.subtitle}
+			<div class="subtitle">
+				{page.subtitle}
+			</div>
+		{/if}
+		<div class="authors">
+			<PersonLinkList people={page.people} />
+		</div>
+	</div>
 
-<!-- MAIN IMAGE -->
-<img alt={page.title} src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()} />
+	<div class="content">
+		{#if has(page, 'content.content')}
+			<Blocks blocks={page.content.content} />
+		{/if}
+	</div>
+</div>
 
-<!-- MAIN TEXT -->
-<div>{@html renderBlockText(page.content.content)}</div>
+<style lang="scss">
+	@import '../../variables.scss';
 
-<!-- PEOPLE -->
-<h2>People</h2>
-<ul>
-	{#each page.people as person}
-		<li><a href={'/people/' + person.slug.current} sveltekit:prefetch>{person.title}</a></li>
-	{/each}
-</ul>
+	.journal {
+		width: 880px;
+		margin-left: auto;
+		margin-right: auto;
+		background: var(--background-color);
+		border: 1px solid var(--foreground-color);
 
-<!-- LAST UPDATED -->
-<div>Last Updated: {page._updatedAt}</div>
+		.header {
+			border-bottom: 1px solid var(--foreground-color);
+			height: 340px;
+			padding: $LARGE;
+
+			h1 {
+				font-size: $font-size-h2;
+			}
+
+			.subtitle {
+				margin-top: $SMALL;
+			}
+
+			.authors {
+				margin-top: $SMALL;
+			}
+		}
+
+		.content {
+			padding: $LARGE;
+			font-size: $font-size-journal;
+		}
+	}
+</style>

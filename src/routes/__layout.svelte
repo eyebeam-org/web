@@ -43,12 +43,14 @@
 			root.style.setProperty('--foreground-color', WHITE);
 			root.style.setProperty('--hover-text-color', BLACK);
 			root.style.setProperty('--special-text-color', BLACK);
+			root.style.setProperty('--journal-background-color', BLACK);
 		} else {
 			console.log('LIGHT MODE');
 			root.style.setProperty('--background-color', WHITE);
 			root.style.setProperty('--foreground-color', BLACK);
 			root.style.setProperty('--hover-text-color', BLACK);
 			root.style.setProperty('--special-text-color', BLACK);
+			root.style.setProperty('--journal-background-color', BLACK);
 		}
 	}
 
@@ -61,6 +63,7 @@
 			root.style.setProperty('--foreground-color', randomColor);
 			root.style.setProperty('--hover-text-color', randomColor);
 			root.style.setProperty('--special-text-color', randomColor);
+			root.style.setProperty('--journal-background-color', randomColor);
 			inversion.set(false);
 		}
 		if ($theme == 'ink') {
@@ -70,7 +73,15 @@
 			root.style.setProperty('--foreground-color', BLACK);
 			root.style.setProperty('--hover-text-color', BLACK);
 			root.style.setProperty('--special-text-color', BLACK);
+			root.style.setProperty('--journal-background-color', BLACK);
 		}
+	}
+
+	let isJournal = false;
+	$: if ($page.url.pathname.includes('/journal')) {
+		isJournal = true;
+	} else {
+		isJournal = false;
 	}
 
 	onMount(async () => {
@@ -98,8 +109,9 @@
 	<Loading />
 {:else}
 	<!-- MAIN -->
-	<main id="main" class:open={$trayOpen} class:inversion={$inversion}>
-		{#if $page.url.pathname == '/'}
+	<main id="main" class:open={$trayOpen} class:journal={isJournal} class:inversion={$inversion}>
+		<!-- Don't render the sidebar for landing and journal -->
+		{#if $page.url.pathname == '/' || isJournal}
 			{#if $navigating == null}
 				<slot />
 			{:else}
@@ -118,7 +130,7 @@
 
 <!-- FOOTER -->
 {#if $navigating == null}
-	{#if $page.url.pathname !== '/'}
+	{#if $page.url.pathname !== '/' && !isJournal}
 		<Footer />
 	{/if}
 	<!-- PHONE FOOTER -->
@@ -133,6 +145,7 @@
 		--foreground-color: rgb(34, 31, 32);
 		--hover-text-color: rgb(34, 31, 32);
 		--special-text-color: rgb(34, 31, 32);
+		--journal-background-color: rgb(34, 31, 32);
 		--font-stack: 'Literata', serif;
 	}
 
@@ -165,8 +178,8 @@
 
 	main {
 		padding-top: 80px;
-		margin-left: 60px;
-		margin-right: 60px;
+		padding-left: 60px;
+		padding-right: 60px;
 		transition: transform 0.5s $transition;
 		position: relative;
 		opacity: 1;
@@ -183,6 +196,12 @@
 			padding-top: 0;
 			display: inline-block;
 			width: calc(100vw - 30px);
+		}
+
+		&.journal {
+			background: var(--journal-background-color);
+			padding-bottom: $HUGE;
+			min-height: 100vh;
 		}
 	}
 

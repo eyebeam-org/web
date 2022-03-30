@@ -90,6 +90,7 @@
 				font-size: $font-size-h2;
 				width: 100%;
 				padding: $SMALL;
+				padding-top: 10px;
 				min-height: 200px;
 				line-height: 1.2em;
 			}

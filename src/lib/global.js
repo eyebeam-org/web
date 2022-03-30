@@ -18,7 +18,7 @@ export const DEFAULT_IMAGE = 'https://eyebeam.netlify.com/img/eyebeam-logo.png';
 export const postTypeToCategory = {
     program: 'programs',
     person: 'people',
-    blogPost: 'blog',
+    journalPost: 'journal',
     event: 'events',
     aboutPage: 'about',
     project: 'projects',
@@ -31,7 +31,7 @@ export const postTypeToCategory = {
 export const postTypeToName = {
     program: 'Program',
     person: 'Person',
-    blogPost: 'Blog',
+    journalPost: 'Journal',
     event: 'Event',
     aboutPage: 'About',
     project: 'Project',
@@ -44,7 +44,7 @@ export const postTypeToName = {
 export const categoryToName = {
     programs: 'Programs',
     people: 'People',
-    blog: 'Blog',
+    journal: 'Journal',
     events: 'Events',
     about: 'About',
     projects: 'Projects',
@@ -136,7 +136,6 @@ export const parseToc = (text) => {
     let tempToc = []
     if (text && Array.isArray(text)) {
         let headers = text.filter((b) => b.style == 'h2' || b._type == 'columnsBlock' || b._type == 'faq');
-
         tempToc = headers.map((b) => {
             if (b._type == 'columnsBlock' || b._type == 'faq') {
                 return {

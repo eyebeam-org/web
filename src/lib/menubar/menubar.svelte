@@ -33,10 +33,8 @@
 	const cities = loadData('*[_id == "cities"][0]');
 
 	cities.then((c) => {
-		console.log(c);
 		if (c.cities && c.cities[0]) {
 			let cityCookie = Cookies.get('eyebeam-city');
-			console.log(cityCookie);
 			if (cityCookie && c.cities.find((city) => city._key === cityCookie)) {
 				activeCity.set(c.cities.find((city) => city._key === cityCookie));
 			} else {
