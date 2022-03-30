@@ -52,10 +52,20 @@
 		background: var(--background-color);
 		border: 1px solid var(--foreground-color);
 
+		@include screen-size('small') {
+			width: 100%;
+			margin-top: $LARGE;
+		}
+
 		.header {
 			border-bottom: 1px solid var(--foreground-color);
 			height: 340px;
 			padding: $LARGE;
+
+			@include screen-size('small') {
+				padding: $NORMAL;
+				height: auto;
+			}
 
 			h1 {
 				font-size: $font-size-h2;
@@ -73,6 +83,11 @@
 		.content {
 			padding: $LARGE;
 			font-size: $font-size-journal;
+
+			@include screen-size('small') {
+				padding: $NORMAL;
+				font-size: $font-size-body;
+			}
 		}
 	}
 </style>

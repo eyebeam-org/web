@@ -58,6 +58,11 @@
 		background: var(--background-color);
 		border: 1px solid var(--foreground-color);
 
+		@include screen-size('small') {
+			width: calc(100vw - 30px);
+			margin-top: $LARGE;
+		}
+
 		.header {
 			border-bottom: 1px solid var(--foreground-color);
 			height: 340px;
@@ -68,6 +73,10 @@
 			.inner {
 				width: 340px;
 				text-align: center;
+
+				@include screen-size('small') {
+					width: 80%;
+				}
 
 				.tagline {
 					margin-top: $SMALL;
@@ -97,6 +106,12 @@
 					position: absolute;
 					top: $NORMAL;
 					right: $NORMAL;
+
+					@include screen-size('small') {
+						top: 120px;
+						right: unset;
+						left: $NORMAL;
+					}
 				}
 
 				.date {

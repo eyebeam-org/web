@@ -134,7 +134,9 @@
 		<Footer />
 	{/if}
 	<!-- PHONE FOOTER -->
-	<PhoneFooter />
+	{#if !isJournal}
+		<PhoneFooter />
+	{/if}
 {/if}
 
 <style lang="scss" global>
