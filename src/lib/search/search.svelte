@@ -17,6 +17,9 @@
 	// __ GRAPHICS
 	import X from '$lib/graphics/x.svelte';
 
+	// __ STORES
+	import { goto } from '$app/navigation';
+
 	const dispatch = createEventDispatcher();
 
 	let inputEl = {};
@@ -30,7 +33,7 @@
 
 	const submitSearch = async () => {
 		searchResults = await loadData(
-			'*[!(_type in ["statement"]) && [title, name, pt::text(content.content), pt::text(introduction.content)] match $searchTerm]{...}',
+			'*[_type in ["note", "event", "project", "program", "person", "videoPost", "journal", "press", "news"] && [title, name, pt::text(content.content), pt::text(introduction.content)] match $searchTerm]{...}',
 			{ searchTerm: searchTerm }
 		);
 		console.log(searchResults);
@@ -64,14 +67,18 @@
 	<!-- RESULTS -->
 	<div class="result-container">
 		{#each searchResults as result}
-			<a
-				href={'/' + postTypeToCategory[result._type] + '/' + get(result, 'slug.current', '')}
-				sveltekit:prefetch
+			<div
+				on:click={() => {
+					goto('/' + postTypeToCategory[result._type] + '/' + get(result, 'slug.current', ''));
+					close();
+				}}
 				class="result"
 			>
-				<div class="type">{postTypeToName[result._type]}</div>
+				<div class="type">
+					{postTypeToName[result._type] ? postTypeToName[result._type] : 'Page'}
+				</div>
 				<div class="title">{result.title}</div>
-			</a>
+			</div>
 		{/each}
 	</div>
 </div>
@@ -112,6 +119,10 @@
 
 			.text {
 				margin-right: 15px;
+
+				@include screen-size('small') {
+					margin-right: 10px;
+				}
 			}
 
 			@include screen-size('small') {
@@ -124,7 +135,7 @@
 			margin-top: 110px;
 
 			@include screen-size('small') {
-				margin-top: 80px;
+				margin-top: 90px;
 			}
 
 			input {
@@ -141,28 +152,46 @@
 
 				@include screen-size('small') {
 					font-size: $font-size-medium;
-					height: 80px;
+					height: 60px;
 				}
 			}
 		}
 
 		.result-container {
 			margin-top: 30px;
+			margin-bottom: 60px;
+
 			.result {
 				margin-bottom: 20px;
 				display: block;
 				text-decoration: none;
 				color: var(--special-text-color);
+				cursor: pointer;
 
 				.type {
-					font-size: $font-size-body;
+					font-size: $font-size-small;
 					text-transform: uppercase;
+
+					@include screen-size('small') {
+						font-size: $font-size-extra-small;
+					}
 				}
 
 				.title {
 					font-size: $font-size-h2;
+
+					@include screen-size('small') {
+						font-size: $font-size-medium;
+					}
 				}
 			}
+		}
+	}
+
+	:global(.close svg) {
+		@include screen-size('small') {
+			width: 20px;
+			height: 20px;
 		}
 	}
 </style>

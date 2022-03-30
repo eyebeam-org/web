@@ -37,6 +37,11 @@
 		border-bottom: 1px solid var(--foreground-color);
 		font-size: $font-size-body;
 
+		@include screen-size('small') {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
 		.top-row {
 			display: flex;
 

@@ -63,6 +63,7 @@
 		background: transparent !important;
 		margin-bottom: 0 !important;
 		padding: 0 !important;
+		color: var(--foreground-color) !important;
 	}
 
 	:global(.donation-widget .gl-widget__currency) {

@@ -298,17 +298,26 @@
 					text-transform: capitalize;
 					font-size: $font-size-extra-small;
 					display: inline-block;
+					margin-bottom: 5px;
 				}
 			}
 
 			.date {
 				@include text-margins();
 				margin-bottom: $small-margin;
+				@include screen-size('small') {
+					margin-left: 0;
+					margin-right: 0;
+				}
 			}
 
 			.authors {
 				@include text-margins();
 				margin-bottom: $small-margin;
+				@include screen-size('small') {
+					margin-left: 0;
+					margin-right: 0;
+				}
 			}
 
 			.image-container {
@@ -369,6 +378,10 @@
 			margin-left: $small-margin;
 			cursor: pointer;
 			text-decoration: none;
+
+			@include screen-size('small') {
+				margin-left: 0;
+			}
 		}
 	}
 

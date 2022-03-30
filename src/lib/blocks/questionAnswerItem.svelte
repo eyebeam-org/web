@@ -7,6 +7,7 @@
 
 	// __ IMPORTS
 	import has from 'lodash/has.js';
+	import { fade } from 'svelte/transition';
 
 	// __ COMPONENTS
 	import Blocks from '$lib/blocks/blocks.svelte';
@@ -38,7 +39,7 @@
 		</div>
 	</div>
 	{#if open}
-		<div class="answer">
+		<div class="answer" in:fade>
 			{#if has(item, 'answer.content', [])}
 				<Blocks blocks={item.answer.content} />
 			{/if}
@@ -78,4 +79,9 @@
 			border-bottom: 1px solid var(--foreground-color);
 		}
 	}
+
+	// :global(.article .answer p) {
+	// 	margin-left: 0;
+	// 	margin-right: 0;
+	// }
 </style>

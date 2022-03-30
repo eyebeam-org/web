@@ -44,9 +44,17 @@
 		float: left;
 		max-width: 50%;
 
+		@include screen-size('small') {
+			margin-left: 0;
+		}
+
 		&.right {
 			float: right;
 			max-width: 50%;
+
+			@include screen-size('small') {
+				margin-left: 20px;
+			}
 		}
 
 		&.full {
