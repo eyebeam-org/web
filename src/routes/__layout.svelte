@@ -191,11 +191,10 @@
 		}
 
 		@include screen-size('small') {
-			margin-left: 15px;
-			margin-right: 15px;
+			padding-left: 15px;
+			padding-right: 15px;
 			padding-top: 0;
 			display: inline-block;
-			width: calc(100vw - 30px);
 		}
 
 		&.journal {
