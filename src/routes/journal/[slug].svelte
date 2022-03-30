@@ -7,6 +7,7 @@
 
 	// __ IMPORTS
 	import has from 'lodash/has.js';
+	import { fade } from 'svelte/transition';
 
 	// __ COMPONENTS
 	import Blocks from '$lib/blocks/blocks.svelte';
@@ -20,7 +21,7 @@
 <!-- METADATA -->
 <Metadata {page} />
 
-<div class="journal">
+<div class="journal" in:fade>
 	<div class="header">
 		<!-- TITLE -->
 		<h1>{page.title}</h1>

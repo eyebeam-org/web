@@ -47,14 +47,15 @@
 			<div class="header" class:boxed class:tight>
 				<div>
 					<!-- TITLE -->
-					<h1>{page.title}</h1>
+					<h1 class:long={page.title.length > 42}>{page.title}</h1>
 
 					<!-- BADGES -->
 					{#if page._type == 'person'}
 						<div class="badges">
 							{#if page.role}
-								<a href={'/people?filter=' + page.role} class="badge">{roleToRoleName[page.role]}</a
-								>
+								<a href={'/people?filter=' + page.role} class="badge">
+									{roleToRoleName[page.role]}
+								</a>
 							{/if}
 							{#if page.groupTags}
 								{#each page.groupTags as tag}
@@ -257,6 +258,7 @@
 			display: flex;
 			justify-content: space-between;
 			width: 100%;
+			overflow: hidden;
 
 			@include screen-size('small') {
 				display: block;
@@ -274,6 +276,10 @@
 					margin-left: 0;
 					margin-bottom: 0;
 					margin-bottom: $NORMAL;
+				}
+
+				&.long {
+					font-size: $font-size-h2;
 				}
 			}
 

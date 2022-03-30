@@ -8,6 +8,7 @@
 	// __ IMPORTS
 	import get from 'lodash/get.js';
 	import { longFormatDate } from '$lib/global';
+	import { fade } from 'svelte/transition';
 
 	// __ GRAPHICS
 	import BigBeam from '$lib/graphics/big-beam.svelte';
@@ -20,7 +21,7 @@
 	export let journal;
 </script>
 
-<div class="journal">
+<div class="journal" in:fade>
 	<div class="header">
 		<div class="inner">
 			<BigBeam />
