@@ -84,7 +84,7 @@
 	@import '../../variables.scss';
 
 	.tile {
-		padding: $extra-small-margin;
+		padding: $SMALL;
 		overflow: hidden;
 	}
 
@@ -112,7 +112,7 @@
 		border-bottom: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
 		padding-top: 0;
-		padding-right: $large-margin;
+		padding-right: $LARGE;
 
 		@include screen-size('small') {
 			border-bottom: unset;
@@ -139,7 +139,7 @@
 		float: left;
 		text-decoration: none;
 		cursor: pointer;
-		padding-right: 40px;
+		padding-right: $LARGE;
 
 		&:nth-child(odd) {
 			border-right: none;
@@ -184,7 +184,7 @@
 		display: flex;
 		align-items: center;
 		background: $grey;
-		padding: $extra-small-margin;
+		padding: $SMALL;
 
 		.circle {
 			width: 20px;
@@ -194,7 +194,7 @@
 		}
 
 		.text {
-			margin-left: 10px;
+			margin-left: $SMALL;
 
 			.applications-open {
 				font-size: $font-size-extra-small;

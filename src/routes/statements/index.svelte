@@ -73,12 +73,12 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				padding: $small-margin;
+				padding: $NORMAL;
 			}
 
 			.single-statement {
-				padding: 15px;
-				margin-bottom: $small-margin;
+				padding: $SMALL;
+				margin-bottom: $NORMAL;
 
 				.text {
 					font-size: $font-size-h2;
@@ -87,12 +87,12 @@
 
 				.person {
 					font-size: $font-size-body;
-					margin-top: 10px;
+					margin-top: $SMALL;
 				}
 
 				.date {
 					font-size: $font-size-body;
-					margin-top: 10px;
+					margin-top: $SMALL;
 				}
 			}
 		}

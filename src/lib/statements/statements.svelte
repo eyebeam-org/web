@@ -61,7 +61,7 @@
 		}
 
 		.button-container {
-			margin-top: $extra-small-margin;
+			margin-top: $TINY;
 		}
 
 		.more {
@@ -77,7 +77,7 @@
 
 		.see-all {
 			float: left;
-			margin-left: 10px;
+			margin-left: $SMALL;
 		}
 	}
 

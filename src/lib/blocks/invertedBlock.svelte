@@ -22,7 +22,7 @@
 	.inverted-block {
 		width: 100%;
 		background: var(--foreground-color);
-		padding: 40px;
+		padding: $LARGE;
 		color: var(--background-color);
 	}
 </style>

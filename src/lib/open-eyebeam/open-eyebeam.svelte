@@ -38,13 +38,13 @@
 
 		.link {
 			position: absolute;
-			bottom: $small-margin;
-			left: $extra-small-margin;
+			bottom: $NORMAL;
+			left: $SMALL;
 			font-size: $font-size-extra-small;
 			color: var(--special-text-color);
 
 			.arrow {
-				margin-right: 6px;
+				margin-right: $TINY;
 				position: relative;
 				top: 2px;
 			}

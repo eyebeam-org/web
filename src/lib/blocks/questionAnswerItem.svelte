@@ -64,8 +64,8 @@
 			.text {
 				font-style: italic;
 				user-select: none;
-				padding-top: 10px;
-				padding-bottom: 10px;
+				padding-top: $SMALL;
+				padding-bottom: $SMALL;
 				font-size: $font-size-small;
 			}
 

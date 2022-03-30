@@ -40,7 +40,7 @@
 		border-bottom: 1px solid var(--foreground-color);
 		width: 100%;
 		display: inline-block;
-		padding: 15px;
+		padding: $SMALL;
 		height: 50px;
 
 		@include screen-size('small') {
@@ -50,7 +50,7 @@
 		.last-updated {
 			float: left;
 			.icon {
-				margin-right: 10px;
+				margin-right: $TINY;
 			}
 		}
 
@@ -59,7 +59,7 @@
 			cursor: pointer;
 
 			.icon {
-				margin-left: 5px;
+				margin-left: $TINY;
 			}
 		}
 	}

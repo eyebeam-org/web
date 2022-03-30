@@ -44,12 +44,12 @@
 
 		.logo {
 			.beams {
-				margin-bottom: 10px;
+				margin-bottom: $SMALL;
 				width: 260px;
 			}
 
 			.wordmark {
-				margin-bottom: 10px;
+				margin-bottom: $SMALL;
 				width: 260px;
 
 				svg {

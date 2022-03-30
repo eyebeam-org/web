@@ -76,7 +76,7 @@
 		width: 100%;
 		position: relative;
 		display: block;
-		margin-bottom: $small-margin;
+		margin-bottom: $NORMAL;
 		cursor: pointer;
 		background: var(--foreground-color);
 

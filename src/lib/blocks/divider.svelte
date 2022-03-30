@@ -15,8 +15,8 @@
 	@import '../../variables.scss';
 
 	.divider {
-		margin-top: $small-margin;
-		margin-bottom: $small-margin;
+		margin-top: $NORMAL;
+		margin-bottom: $NORMAL;
 		height: 1px;
 		border-top: 1px solid var(--foreground-color);
 		width: 100%;

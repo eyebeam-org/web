@@ -60,8 +60,8 @@
 	@import '../../variables.scss';
 
 	footer {
-		margin-top: 152px;
-		margin-bottom: 40px;
+		margin-top: $LARGE;
+		margin-bottom: $LARGE;
 		float: left;
 		width: 100%;
 		display: flex;
@@ -73,19 +73,19 @@
 		}
 
 		.line {
-			margin-bottom: 10px;
+			margin-bottom: $TINY;
 
 			a {
 				text-decoration: none;
 			}
 
 			.beams {
-				margin-bottom: 10px;
+				margin-bottom: $TINY;
 				width: 340px;
 			}
 
 			.wordmark {
-				margin-bottom: 10px;
+				margin-bottom: $TINY;
 				width: 340px;
 
 				svg {
@@ -94,11 +94,11 @@
 			}
 
 			&.tagline {
-				margin-bottom: 20px;
+				margin-bottom: $NORMAL;
 			}
 
 			&.address {
-				margin-bottom: 10px;
+				margin-bottom: $TINY;
 			}
 		}
 

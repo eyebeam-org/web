@@ -51,7 +51,7 @@
 	.see-also {
 		width: 100%;
 		background: $grey;
-		padding: $small-margin;
+		padding: $NORMAL;
 		font-size: $font-size-body;
 		border-top: 1px solid var(--foreground-color);
 	}

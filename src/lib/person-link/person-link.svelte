@@ -126,7 +126,7 @@
 
 	.pop-up {
 		background: var(--background-color);
-		padding: $small-margin;
+		padding: $NORMAL;
 		border: 1px solid var(--foreground-color);
 		z-index: 1000;
 		color: var(--foreground-color);
@@ -140,7 +140,7 @@
 
 		.name {
 			font-weight: bold;
-			margin-right: 10px;
+			margin-right: $SMALL;
 		}
 	}
 
@@ -152,13 +152,13 @@
 		color: var(--special-text-color);
 		background: $grey;
 		text-decoration: none;
-		margin-bottom: 3px;
+		margin-bottom: $TINY;
 		display: inline-block;
 	}
 
 	.column {
 		&.first {
-			padding-right: 20px;
+			padding-right: $NORMAL;
 		}
 	}
 </style>

@@ -8,7 +8,7 @@
 	@import '../../variables.scss';
 
 	svg {
-		margin-left: 4px;
+		margin-left: 3px;
 		path {
 			fill: var(--foreground-color);
 		}

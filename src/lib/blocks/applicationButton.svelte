@@ -76,17 +76,17 @@
 
 	.application-button-small {
 		margin-top: 0;
-		margin-bottom: 40px;
+		margin-bottom: $LARGE;
 		display: inline-block;
 		width: 100%;
 
 		.application-button-inner {
-			margin: $small-margin;
+			margin: $NORMAL;
 			display: inline-block;
 
 			.button {
 				background: $grey;
-				padding: $extra-small-margin;
+				padding: $SMALL;
 				display: flex;
 				align-items: center;
 				text-decoration: none;
@@ -99,7 +99,7 @@
 				}
 
 				.applications-text {
-					margin-left: 10px;
+					margin-left: $SMALL;
 					font-size: $font-size-small;
 				}
 
@@ -124,7 +124,7 @@
 		background: var(--foreground-color);
 		color: var(--background-color);
 		height: 220px;
-		padding: $small-margin;
+		padding: $NORMAL;
 		display: flex;
 
 		@include screen-size('small') {
@@ -164,7 +164,7 @@
 
 			.col {
 				&.second {
-					margin-left: 10px;
+					margin-left: $SMALL;
 				}
 			}
 		}
@@ -188,7 +188,7 @@
 		}
 
 		.text {
-			padding-right: 40px;
+			padding-right: $LARGE;
 			font-size: $font-size-body;
 
 			@include screen-size('small') {

@@ -31,11 +31,11 @@
 	@import '../../../variables.scss';
 
 	footer {
-		margin-top: 80px;
-		margin-bottom: 40px;
+		margin-top: $LARGE;
+		margin-bottom: $LARGE;
 		width: 100%;
-		margin-right: $small-margin;
-		margin-left: $small-margin;
+		margin-right: $NORMAL;
+		margin-left: $NORMAL;
 		overflow: hidden;
 		width: calc(100vw - 40px);
 

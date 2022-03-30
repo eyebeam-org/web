@@ -214,7 +214,7 @@
 	figure {
 		margin-right: 0;
 		margin-left: 0;
-		margin-top: 1em;
+		margin-top: $NORMAL;
 
 		img {
 			max-width: 100%;
@@ -226,7 +226,7 @@
 		h2,
 		h3 {
 			@include text-margins;
-			margin-bottom: $vertical-space;
+			margin-bottom: $NORMAL;
 
 			@include screen-size('small') {
 				padding-right: 0;
@@ -253,7 +253,7 @@
 
 	ul {
 		list-style: none;
-		margin-left: 10px;
+		margin-left: $SMALL;
 		padding-left: 0;
 		margin-left: 0;
 
@@ -262,7 +262,7 @@
 			text-indent: -1em;
 			&:before {
 				content: '•';
-				padding-right: 5px;
+				padding-right: $TINY;
 				position: relative;
 				top: -1px;
 			}

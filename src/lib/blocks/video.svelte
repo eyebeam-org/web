@@ -46,7 +46,7 @@
 		width: 100%;
 		position: relative;
 		display: block;
-		margin-bottom: $small-margin;
+		margin-bottom: $NORMAL;
 
 		img {
 			display: block;
@@ -85,7 +85,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			padding-left: 7px;
+			padding-left: $TINY;
 		}
 	}
 

@@ -44,7 +44,7 @@
 	@import '../../variables.scss';
 
 	.connected-post {
-		margin-bottom: 20px;
+		margin-bottom: $NORMAL;
 		display: block;
 		text-decoration: none;
 		width: calc(50% - 10px);
@@ -54,21 +54,21 @@
 
 		@include screen-size('small') {
 			width: 100%;
-			margin-bottom: $large-margin;
+			margin-bottom: $LARGE;
 		}
 
 		&:nth-child(even) {
-			margin-right: 20px;
+			margin-right: $NORMAL;
 		}
 
 		.text {
-			margin-top: 5px;
+			margin-top: $TINY;
 
 			.type {
 				font-size: $font-size-extra-small;
 				letter-spacing: 0.5px;
 				text-transform: uppercase;
-				margin-right: 20px;
+				margin-right: $NORMAL;
 			}
 		}
 
@@ -89,13 +89,9 @@
 			.big-title {
 				font-size: $font-size-h2;
 				width: 100%;
-				padding: $small-margin;
+				padding: $SMALL;
 				min-height: 200px;
 				line-height: 1.2em;
-
-				@include screen-size('small') {
-					padding: $extra-small-margin;
-				}
 			}
 
 			&:hover {
@@ -106,7 +102,7 @@
 	}
 
 	.at-eyebeam {
-		padding: $small-margin;
+		padding: $NORMAL;
 		border-top: 1px solid var(--foreground-color);
 		@include screen-size('small') {
 			padding-left: 0;
@@ -114,7 +110,7 @@
 		}
 
 		h2 {
-			margin-bottom: $small-margin;
+			margin-bottom: $NORMAL;
 			margin-left: 0;
 		}
 	}

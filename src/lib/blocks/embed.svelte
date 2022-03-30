@@ -53,14 +53,14 @@
 
 	.embed {
 		color: $white;
-		margin-bottom: $small-margin;
+		margin-bottom: $NORMAL;
 		cursor: pointer;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 
-		padding-bottom: $small-margin;
-		padding-top: $small-margin;
+		padding-bottom: $NORMAL;
+		padding-top: $NORMAL;
 
 		width: 100%;
 

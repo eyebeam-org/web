@@ -252,7 +252,7 @@
 
 		.logo {
 			width: 220px;
-			margin-bottom: $extra-small-margin;
+			margin-bottom: $SMALL;
 		}
 	}
 
@@ -266,7 +266,7 @@
 
 		@include screen-size('small') {
 			border-right: unset;
-			padding-top: $small-margin;
+			padding-top: $NORMAL;
 		}
 	}
 
@@ -317,7 +317,7 @@
 		}
 
 		.icon {
-			margin-top: 5px;
+			margin-top: $TINY;
 			margin-left: 1px;
 		}
 	}
@@ -330,7 +330,7 @@
 		border-bottom: 1px solid var(--foreground-color);
 
 		.half-beam {
-			margin-top: 10px;
+			margin-top: $TINY;
 		}
 
 		@include screen-size('small') {
@@ -359,7 +359,7 @@
 	}
 
 	.tile {
-		padding: $extra-small-margin;
+		padding: $SMALL;
 		overflow: hidden;
 		user-select: none;
 
@@ -420,19 +420,19 @@
 		float: left;
 		width: 50%;
 		height: $one-third;
-		padding: $extra-small-margin;
+		padding: $SMALL;
 		overflow: hidden;
 
 		@include screen-size('small') {
 			width: 100%;
-			padding-top: 8px;
-			padding-bottom: 8px;
+			padding-top: $TINY;
+			padding-bottom: $TINY;
 			font-size: $font-size-small;
 		}
 
 		&:last-child {
 			@include screen-size('small') {
-				padding-bottom: $small-margin;
+				padding-bottom: $NORMAL;
 			}
 		}
 
@@ -440,7 +440,7 @@
 			font-size: $font-size-extra-small;
 			letter-spacing: 0.5px;
 			@include screen-size('small') {
-				padding-top: $small-margin;
+				padding-top: $NORMAL;
 			}
 		}
 
@@ -449,12 +449,12 @@
 		}
 
 		.time {
-			margin-bottom: 5px;
+			margin-bottom: $TINY;
 			font-size: $font-size-extra-small;
 		}
 
 		.title {
-			margin-bottom: 5px;
+			margin-bottom: $TINY;
 		}
 
 		.application-container {
@@ -470,15 +470,13 @@
 				height: 15px;
 				border-radius: 50%;
 				background: $grey;
-				margin-top: 10px;
+				margin-top: $TINY;
 			}
 
 			.applications-open {
-				margin-left: 10px;
+				margin-left: $TINY;
 				font-size: $font-size-extra-small;
 				opacity: 0;
-				position: relative;
-				top: 4px;
 				color: var(--foreground-color);
 			}
 		}

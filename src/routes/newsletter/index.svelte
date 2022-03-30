@@ -92,13 +92,13 @@
 		}
 
 		.inner {
-			padding: 15px;
+			padding: $SMALL;
 			border: 1px solid var(--foreground-color);
 			min-height: $SIDEBAR_HEIGHT;
 			padding-top: 0;
 
 			h1 {
-				margin-bottom: 120px;
+				margin-bottom: $HUGE;
 			}
 
 			@include screen-size('small') {
@@ -106,7 +106,7 @@
 				padding: 0;
 
 				h1 {
-					margin-bottom: $large-margin;
+					margin-bottom: $LARGE;
 				}
 			}
 		}
@@ -120,10 +120,10 @@
 	}
 
 	.body-content {
-		margin-bottom: 80px;
+		margin-bottom: $EXTRA_LARGE;
 
 		@include screen-size('small') {
-			margin-bottom: $large-margin;
+			margin-bottom: $LARGE;
 		}
 	}
 
@@ -138,13 +138,13 @@
 
 		label {
 			width: 100%;
-			margin-bottom: 10px;
+			margin-bottom: $SMALL;
 			display: block;
 			font-size: $font-size-extra-small;
 		}
 
 		input {
-			margin-bottom: 20px;
+			margin-bottom: $NORMAL;
 			width: 100%;
 			height: 70px;
 			font-family: inherit;
@@ -153,7 +153,7 @@
 				border: 1px solid var(--foreground-color);
 				border-radius: 0;
 				background: $white;
-				padding-left: $small-margin;
+				padding-left: $NORMAL;
 			}
 
 			&.subscribe {

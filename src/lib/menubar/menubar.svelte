@@ -190,8 +190,8 @@
 			background: var(--foreground-color);
 			color: var(--background-color);
 			line-height: $HEADER_HEIGHT;
-			padding-left: 15px;
-			padding-right: 10px;
+			padding-left: $SMALL;
+			padding-right: $SMALL;
 			overflow: hidden;
 
 			.inner-text {
@@ -216,12 +216,12 @@
 			}
 
 			.arrow-down {
-				margin-right: 5px;
+				margin-right: $TINY;
 			}
 
 			.divider {
-				margin-right: 5px;
-				margin-left: 5px;
+				margin-right: $TINY;
+				margin-left: $TINY;
 			}
 
 			a {
@@ -240,7 +240,7 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				margin-left: 12px;
+				margin-left: $TINY;
 				cursor: pointer;
 			}
 		}
@@ -254,7 +254,7 @@
 			.settings-bar {
 				height: $HEADER_HEIGHT;
 				line-height: $HEADER_HEIGHT;
-				padding-left: 5px;
+				padding-left: $TINY;
 				padding-right: 10px;
 				cursor: pointer;
 				border-bottom: 1px solid var(--special-text-color);
@@ -265,10 +265,10 @@
 					width: 18px;
 					height: $HEADER_HEIGHT;
 					display: flex;
-					margin-right: 8px;
+					margin-right: $TINY;
+					margin-left: $TINY;
 					justify-content: center;
 					align-items: center;
-					margin-left: 8px;
 					cursor: pointer;
 					float: left;
 				}
@@ -276,14 +276,14 @@
 
 			.settings-content {
 				display: flex;
-				padding-left: 15px;
-				padding-right: 15px;
+				padding-left: $SMALL;
+				padding-right: $SMALL;
 
 				.section {
-					padding-top: $small-margin;
+					padding-top: $NORMAL;
 
 					.section-header {
-						margin-bottom: 10px;
+						margin-bottom: $SMALL;
 					}
 
 					&.theme {
@@ -325,7 +325,7 @@
 	}
 
 	.theme-switches {
-		margin-bottom: $small-margin;
+		margin-bottom: $NORMAL;
 	}
 
 	.theme-button {

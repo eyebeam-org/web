@@ -36,8 +36,8 @@
 	.faq {
 		display: inline-block;
 		width: 100%;
-		padding: $small-margin;
-		margin-bottom: 40px;
+		padding: $NORMAL;
+		margin-bottom: $LARGE;
 
 		h2 {
 			margin-left: 0;
@@ -50,7 +50,7 @@
 		}
 
 		.faq-inner {
-			margin-top: 1em;
+			margin-top: $NORMAL;
 		}
 	}
 </style>

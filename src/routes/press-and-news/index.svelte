@@ -114,7 +114,7 @@
 			display: inline-block;
 
 			h1 {
-				padding: $small-margin;
+				padding: $NORMAL;
 			}
 		}
 	}
@@ -122,7 +122,7 @@
 	.press-and-news-listing {
 		width: 100%;
 		display: flex;
-		margin-top: 20px;
+		margin-top: $NORMAL;
 		flex-wrap: wrap;
 	}
 
@@ -134,7 +134,7 @@
 		text-align: center;
 		line-height: 50px;
 		text-decoration: none;
-		margin-top: 40px;
+		margin-top: $LARGE;
 		user-select: one;
 		cursor: pointer;
 
@@ -147,19 +147,19 @@
 	.bottom-divider {
 		width: 100%;
 		border-bottom: 1px solid var(--foreground-color);
-		margin-top: 40px;
+		margin-top: $LARGE;
 	}
 
 	.section {
-		margin-top: 40px;
+		margin-top: $LARGE;
 
 		h2 {
-			padding-left: $small-margin;
-			padding-right: $small-margin;
+			padding-left: $NORMAL;
+			padding-right: $NORMAL;
 		}
 	}
 
 	.text-content {
-		padding: $small-margin;
+		padding: $NORMAL;
 	}
 </style>

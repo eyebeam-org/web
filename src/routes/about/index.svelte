@@ -163,7 +163,7 @@
 	@import '../../variables.scss';
 
 	.tile {
-		padding: $extra-small-margin;
+		padding: $SMALL;
 		overflow: hidden;
 	}
 
@@ -191,7 +191,7 @@
 		border-bottom: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
 		padding-top: 0;
-		padding-right: 30px;
+		padding-right: $LARGE;
 
 		@include screen-size('small') {
 			border-bottom: unset;
@@ -218,7 +218,7 @@
 		float: left;
 		text-decoration: none;
 		cursor: pointer;
-		padding-right: 40px;
+		padding-right: $LARGE;
 
 		&:hover {
 			background: $grey;
@@ -309,8 +309,8 @@
 		padding-right: 0;
 
 		h2 {
-			margin-right: $extra-small-margin;
-			margin-left: $extra-small-margin;
+			margin-right: $SMALL;
+			margin-left: $SMALL;
 
 			a {
 				text-decoration: none;
@@ -320,8 +320,8 @@
 		.press-and-news-listing {
 			width: 100%;
 			display: flex;
-			margin-top: 25px;
-			padding-bottom: 25px;
+			margin-top: $NORMAL;
+			padding-bottom: $NORMAL;
 
 			@include screen-size('small') {
 				flex-wrap: wrap;

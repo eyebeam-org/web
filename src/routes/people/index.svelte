@@ -295,18 +295,18 @@
 
 			.header {
 				border-bottom: 1px solid var(--foreground-color);
-				padding-left: 15px;
-				padding-right: 15px;
-				padding-bottom: 40px;
+				padding-left: $SMALL;
+				padding-right: $SMALL;
+				padding-bottom: $NORMAL;
 
 				.order {
-					margin-top: 15px;
+					margin-top: $SMALL;
 					width: 100%;
 
 					.order-header {
 						font-style: italic;
 						font-size: $font-size-extra-small;
-						margin-bottom: 5px;
+						margin-bottom: $TINY;
 					}
 
 					.order-options {
@@ -314,7 +314,7 @@
 
 						.order-option {
 							padding: $button-padding;
-							margin-right: 8px;
+							margin-right: $TINY;
 							border: 1px solid var(--foreground-color);
 							user-select: none;
 							cursor: pointer;
@@ -322,7 +322,7 @@
 							color: var(--foreground-color);
 
 							.icon {
-								margin-left: 5px;
+								margin-left: $TINY;
 							}
 
 							&:hover {
@@ -339,13 +339,13 @@
 				}
 
 				.filter {
-					margin-top: 15px;
+					margin-top: $SMALL;
 					width: 100%;
 
 					.filter-header {
 						font-style: italic;
 						font-size: $font-size-extra-small;
-						margin-bottom: 5px;
+						margin-bottom: $TINY;
 					}
 
 					.filter-options {
@@ -357,12 +357,12 @@
 
 						.filter-option {
 							padding: $button-padding;
-							margin-right: 8px;
+							margin-right: $TINY;
 							border: 1px solid var(--foreground-color);
 							user-select: none;
 							cursor: pointer;
 							font-size: $font-size-extra-small;
-							margin-bottom: 8px;
+							margin-bottom: $TINY;
 							color: var(--foreground-color);
 
 							&:hover {
@@ -381,7 +381,7 @@
 
 			.sub-section {
 				border-bottom: 1px solid var(--foreground-color);
-				padding: 15px;
+				padding: $SMALL;
 
 				&:last-child {
 					border-bottom: none;
@@ -394,7 +394,7 @@
 		padding: 0;
 		li {
 			list-style: none;
-			margin-bottom: 5px;
+			margin-bottom: $TINY;
 			font-size: $font-size-body;
 			padding-left: 0;
 			text-indent: 0;

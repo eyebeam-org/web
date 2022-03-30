@@ -99,7 +99,7 @@
 
 	.menubar {
 		cursor: pointer;
-		margin-bottom: $small-margin;
+		margin-bottom: $NORMAL;
 
 		.search-bar {
 			background: var(--foreground-color);
@@ -109,24 +109,24 @@
 			color: $white;
 
 			.icon {
-				margin-right: 10px;
+				margin-right: $TINY;
 			}
 		}
 
 		.logo {
-			margin: $small-margin;
+			margin: $NORMAL;
 			display: block;
 		}
 
 		.wordmark {
-			margin: $small-margin;
+			margin: $NORMAL;
 			display: block;
 		}
 
 		.menu-toggle {
 			border-bottom: 1px solid var(--foreground-color);
 			border-top: 1px solid var(--foreground-color);
-			margin: $small-margin;
+			margin: $NORMAL;
 			font-size: $font-size-medium;
 			display: flex;
 			justify-content: space-between;
@@ -137,7 +137,7 @@
 
 		.menu {
 			border-bottom: 1px solid var(--foreground-color);
-			margin: $small-margin;
+			margin: $NORMAL;
 			margin-top: 0;
 			font-size: $font-size-medium;
 			padding-bottom: 8px;

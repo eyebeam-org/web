@@ -56,7 +56,7 @@
 		}
 
 		.text {
-			padding: $extra-small-margin;
+			padding: $SMALL;
 			font-size: $font-size-h1;
 			color: var(--foreground-color);
 			line-height: 1.1em;

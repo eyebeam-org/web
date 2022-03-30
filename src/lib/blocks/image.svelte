@@ -37,8 +37,8 @@
 	@import '../../variables.scss';
 
 	figure {
-		margin-left: 20px;
-		margin-right: 20px;
+		margin-left: $NORMAL;
+		margin-right: $NORMAL;
 		float: left;
 		border: 1px solid var(--foreground-color);
 		float: left;
@@ -53,7 +53,7 @@
 			max-width: 50%;
 
 			@include screen-size('small') {
-				margin-left: 20px;
+				margin-left: $NORMAL;
 			}
 		}
 
@@ -73,7 +73,7 @@
 			}
 
 			figcaption {
-				padding: $small-margin;
+				padding: $NORMAL;
 				border-top: 1px solid var(--foreground-color);
 				border-bottom: 1px solid var(--foreground-color);
 
@@ -99,7 +99,7 @@
 			}
 
 			figcaption {
-				padding: $small-margin;
+				padding: $NORMAL;
 				border-top: 1px solid var(--foreground-color);
 				border-bottom: 1px solid var(--foreground-color);
 

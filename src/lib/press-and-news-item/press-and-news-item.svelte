@@ -30,7 +30,7 @@
 	.press-and-news-item {
 		width: 25%;
 		text-decoration: none;
-		padding: $small-margin;
+		padding: $NORMAL;
 
 		@include screen-size('small') {
 			width: 50%;
@@ -38,7 +38,7 @@
 
 		.date {
 			font-size: $font-size-extra-small;
-			margin-bottom: 5px;
+			margin-bottom: $TINY;
 		}
 
 		.title {
@@ -48,7 +48,7 @@
 		.source {
 			font-size: $font-size-extra-small;
 			letter-spacing: 1px;
-			margin-top: 1em;
+			margin-top: $NORMAL;
 			text-transform: uppercase;
 		}
 

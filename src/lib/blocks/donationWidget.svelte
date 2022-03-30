@@ -22,7 +22,7 @@
 	@import '../../variables.scss';
 
 	.donation-widget {
-		margin-top: $small-margin;
+		margin-top: $NORMAL;
 		height: 600px;
 		width: 100%;
 

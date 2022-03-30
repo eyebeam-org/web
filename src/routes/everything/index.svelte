@@ -149,26 +149,26 @@
 				.description {
 					margin-left: auto;
 					margin-right: auto;
-					margin-top: 40px;
-					margin-bottom: $small-margin;
+					margin-top: $LARGE;
+					margin-bottom: $NORMAL;
 				}
 
 				h1 {
-					margin-right: $small-margin;
-					margin-left: $small-margin;
+					margin-right: $NORMAL;
+					margin-left: $NORMAL;
 				}
 
 				.filters {
-					margin-top: 40px;
+					margin-top: $LARGE;
 					display: inline-block;
-					margin-bottom: 10px;
-					margin-right: $small-margin;
-					margin-left: $small-margin;
+					margin-bottom: $SMALL;
+					margin-right: $NORMAL;
+					margin-left: $NORMAL;
 
 					.filter {
 						padding: $button-padding;
 						border: 1px solid var(--foreground-color);
-						margin-right: 5px;
+						margin-right: $TINY;
 						float: left;
 						user-select: none;
 						cursor: pointer;
@@ -188,7 +188,7 @@
 			}
 
 			.single-post {
-				padding: 15px;
+				padding: $SMALL;
 				border-bottom: 1px solid var(--foreground-color);
 				text-decoration: none;
 				display: block;
@@ -217,12 +217,12 @@
 
 					.date {
 						float: right;
-						margin-top: 5px;
+						margin-top: $TINY;
 					}
 				}
 
 				.title {
-					margin-bottom: 5px;
+					margin-bottom: $TINY;
 				}
 
 				.people {

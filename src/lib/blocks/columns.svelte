@@ -38,8 +38,8 @@
 
 	.columns {
 		h2 {
-			padding-top: $small-margin;
-			padding-bottom: $small-margin;
+			padding-top: $NORMAL;
+			padding-bottom: $NORMAL;
 		}
 		.inner {
 			width: 100%;

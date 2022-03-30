@@ -8,8 +8,7 @@
 	// __ IMPORTS
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
-	import { onMount } from 'svelte';
-	import { createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	import { loadData } from '$lib/sanity.js';
 	import { postTypeToName, postTypeToCategory } from '$lib/global.js';
 	import get from 'lodash/get.js';
@@ -25,7 +24,6 @@
 	let inputEl = {};
 	let searchResults = [];
 	let searchTerm = '';
-	// $: console.log(searchTerm);
 
 	const close = () => {
 		dispatch('close');
@@ -36,7 +34,6 @@
 			'*[_type in ["note", "event", "project", "program", "person", "videoPost", "journal", "press", "news"] && [title, name, pt::text(content.content), pt::text(introduction.content)] match $searchTerm]{...}',
 			{ searchTerm: searchTerm }
 		);
-		console.log(searchResults);
 	};
 
 	onMount(async () => {
@@ -101,8 +98,8 @@
 		color: var(--special-text-color);
 
 		@include screen-size('small') {
-			padding-left: $small-margin;
-			padding-right: $small-margin;
+			padding-left: $NORMAL;
+			padding-right: $NORMAL;
 			font-size: $font-size-medium;
 		}
 
@@ -111,17 +108,17 @@
 			top: 100px;
 			right: 45px;
 			cursor: pointer;
-			padding: 15px;
+			padding: $SMALL;
 			font-size: $font-size-small;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 
 			.text {
-				margin-right: 15px;
+				margin-right: $SMALL;
 
 				@include screen-size('small') {
-					margin-right: 10px;
+					margin-right: $TINY;
 				}
 			}
 
@@ -132,14 +129,14 @@
 		}
 
 		.input-container {
-			margin-top: 110px;
+			margin-top: $HUGE;
 
 			@include screen-size('small') {
-				margin-top: 90px;
+				margin-top: $EXTRA_LARGE;
 			}
 
 			input {
-				margin-top: 20px;
+				margin-top: $NORMAL;
 				width: 100%;
 				background: transparent;
 				outline: none;
@@ -158,11 +155,11 @@
 		}
 
 		.result-container {
-			margin-top: 30px;
-			margin-bottom: 60px;
+			margin-top: $LARGE;
+			margin-bottom: $EXTRA_LARGE;
 
 			.result {
-				margin-bottom: 20px;
+				margin-bottom: $NORMAL;
 				display: block;
 				text-decoration: none;
 				color: var(--special-text-color);

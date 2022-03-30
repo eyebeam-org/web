@@ -234,7 +234,7 @@
 
 	.main-content {
 		width: $two-third;
-		margin-bottom: 120px;
+		margin-bottom: $HUGE;
 
 		@include screen-size('small') {
 			width: 100%;
@@ -247,7 +247,7 @@
 		min-height: 100vh;
 		display: inline-block;
 		width: 100%;
-		padding-bottom: $small-margin;
+		padding-bottom: $NORMAL;
 
 		@include screen-size('small') {
 			border: unset;
@@ -260,31 +260,31 @@
 
 			@include screen-size('small') {
 				display: block;
-				margin-bottom: $small-margin;
+				margin-bottom: $NORMAL;
 			}
 
 			h1 {
 				@include text-margins();
-				margin-right: $small-margin;
-				margin-top: $small-margin;
-				margin-bottom: 160px;
+				margin-right: $NORMAL;
+				margin-top: $NORMAL;
+				margin-bottom: $HUGE;
 				line-height: 1.1em;
 
 				@include screen-size('small') {
 					margin-left: 0;
 					margin-bottom: 0;
-					margin-bottom: $small-margin;
+					margin-bottom: $NORMAL;
 				}
 			}
 
 			.quote {
-				margin: $small-margin;
+				margin: $NORMAL;
 			}
 
 			.badges {
-				margin-top: $small-margin;
-				margin-bottom: $small-margin;
-				margin-left: $small-margin;
+				margin-top: $NORMAL;
+				margin-bottom: $NORMAL;
+				margin-left: $NORMAL;
 
 				@include screen-size('small') {
 					margin-left: 0;
@@ -304,7 +304,7 @@
 
 			.date {
 				@include text-margins();
-				margin-bottom: $small-margin;
+				margin-bottom: $NORMAL;
 				@include screen-size('small') {
 					margin-left: 0;
 					margin-right: 0;
@@ -313,7 +313,7 @@
 
 			.authors {
 				@include text-margins();
-				margin-bottom: $small-margin;
+				margin-bottom: $NORMAL;
 				@include screen-size('small') {
 					margin-left: 0;
 					margin-right: 0;
@@ -325,7 +325,7 @@
 				min-width: 35%;
 				width: 35%;
 				max-height: 100%;
-				margin-right: $small-margin;
+				margin-right: $NORMAL;
 
 				img {
 					border: 1px solid var(--foreground-color);
@@ -349,19 +349,19 @@
 
 				@include screen-size('small') {
 					height: auto;
-					padding-bottom: $large-margin;
+					padding-bottom: $LARGE;
 				}
 
 				h1 {
-					margin-bottom: $small-margin;
+					margin-bottom: $NORMAL;
 				}
 			}
 
 			&.tight {
 				h1 {
-					margin-bottom: 60px;
+					margin-bottom: $LARGE;
 					@include screen-size('small') {
-						margin-bottom: $small-margin;
+						margin-bottom: $NORMAL;
 					}
 				}
 			}
@@ -369,13 +369,13 @@
 	}
 
 	.transcript {
-		margin-bottom: $small-margin;
+		margin-bottom: $NORMAL;
 
 		.transcript-button {
-			padding: $extra-small-margin;
+			padding: $SMALL;
 			background: $grey;
 			display: inline-block;
-			margin-left: $small-margin;
+			margin-left: $NORMAL;
 			cursor: pointer;
 			text-decoration: none;
 
@@ -386,16 +386,16 @@
 	}
 
 	.bio {
-		margin-top: $small-margin;
+		margin-top: $NORMAL;
 	}
 
 	.website {
-		margin-top: $small-margin;
+		margin-top: $NORMAL;
 	}
 
 	.people {
 		width: 100%;
-		padding: $small-margin;
+		padding: $NORMAL;
 
 		@include screen-size('small') {
 			padding-left: 0;
@@ -403,7 +403,7 @@
 		}
 
 		h2 {
-			margin-bottom: $small-margin;
+			margin-bottom: $NORMAL;
 			padding-left: 0;
 			padding-right: 0;
 			margin-left: 0;
@@ -472,17 +472,17 @@
 	}
 
 	.including {
-		margin-top: $small-margin;
-		margin-bottom: $small-margin;
+		margin-top: $NORMAL;
+		margin-bottom: $NORMAL;
 	}
 
 	.button {
-		padding: $small-margin;
+		padding: $NORMAL;
 		background: $grey;
 		display: inline-block;
 		font-size: $font-size-small;
-		margin-left: $small-margin;
-		margin-top: $small-margin;
+		margin-left: $NORMAL;
+		margin-top: $NORMAL;
 		text-decoration: none;
 		color: var(--special-text-color);
 
@@ -492,11 +492,11 @@
 	}
 
 	.event-info {
-		padding: $small-margin;
+		padding: $SMALL;
 		border: 1px solid var(--foreground-color);
 		font-size: $font-size-small;
 		display: inline-block;
-		margin-left: $small-margin;
+		margin-left: $NORMAL;
 		min-width: 300px;
 		width: 40%;
 
@@ -506,7 +506,7 @@
 		}
 
 		.dates {
-			margin-bottom: $small-margin;
+			margin-bottom: $NORMAL;
 		}
 	}
 

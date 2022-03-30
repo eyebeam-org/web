@@ -70,7 +70,7 @@
 	@import '../../variables.scss';
 
 	.tile {
-		padding: 15px;
+		padding: $SMALL;
 		overflow: hidden;
 	}
 
@@ -114,7 +114,7 @@
 
 			.wordmark {
 				width: $LOGO_WIDTH;
-				margin-bottom: $extra-small-margin;
+				margin-bottom: $SMALL;
 			}
 		}
 
