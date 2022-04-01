@@ -368,12 +368,15 @@
 
 	.change {
 		height: calc(40% - 100px);
+		align-items: start;
+		align-content: start;
 		width: 50%;
 		float: left;
 		border-right: 1px solid var(--foreground-color);
 		border-bottom: 1px solid var(--foreground-color);
 
 		.half-beam {
+			width: 100%;
 			margin-top: $TINY;
 		}
 
