@@ -98,10 +98,12 @@
 					{/if}
 				</div>
 			</div>
-			<!-- TEXT -->
+			<!-- TEXT 
+			CURRENTLY NOT IN USE
 			<div class="section text">
 				<div class="section-header">Text</div>
 			</div>
+			-->
 			<!-- CITY -->
 			<div class="section city">
 				<div class="section-header">City</div>
@@ -169,7 +171,6 @@
 		left: 0;
 		width: 100%;
 		z-index: 100;
-		height: 340px;
 		transition: transform 0.5s $transition;
 		transform: translateY(-240px);
 		font-size: $font-size-extra-small;

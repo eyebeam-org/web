@@ -64,7 +64,7 @@
 		<div class="column two">
 			<div class="tile programs">
 <a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
-				{#each programs.slice(0,4) as program}
+				{#each programs.slice(0,5) as program}
 					<a
 						href={'/programs/' + get(program, 'slug.current', '')}
 						class="sub-tile"
@@ -79,13 +79,6 @@
 						{/if}
 					</a>
 				{/each}
-					<a
-						href='/programs/'
-						class="sub-tile"
-						sveltekit:prefetch
-					>
-						<div class="title">MORE</div>
-</a>
 
 			</div>
 				<a
@@ -290,9 +283,6 @@
 		.logo {
 			width: 220px;
 			margin-bottom: $SMALL;
-		}
-		.statement {
-			width: 100%;
 		}
 	}
 
