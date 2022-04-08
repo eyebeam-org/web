@@ -32,7 +32,7 @@
 
 	// __ PROPS
 	export let programs;
-	export let events;
+	export let newPosts;
 	export let stickers;
 
 	let searchActive = false;
@@ -40,7 +40,6 @@
 		searchActive = !searchActive;
 	};
 	$: programs, console.log('programs: ', programs)
-	$: events, console.log('events: ', events)
 </script>
 
 <!-- METADATA -->
@@ -150,21 +149,21 @@
 		</a>
 		<div class="tile events">
 			<div class="sub-tile header">UPCOMING & RECENT</div>
-			{#each events.slice(0, 7) as event}
+			{#each newPosts.slice(0, 7) as post}
 				<a
-					href={'/' + event.route + '/' + get(event, 'slug.current', '')}
+					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
 					class="sub-tile event"
 					sveltekit:prefetch
 				>
-					{#if event.startDate}
-						<div class="time">{distanceToDate(event.startDate)}</div>
-						{:else if event._updatedAt }
-						<div class="time">{distanceToDate(event._updatedAt)}</div>
+					{#if post.startDate}
+						<div class="time">{distanceToDate(post.startDate)}</div>
+						{:else if post._updatedAt }
+						<div class="time">{distanceToDate(post._updatedAt)}</div>
 					{/if}
-					<div class="title">{truncate(event.title, { length: 48 })}</div>
-					{#if event.people && event.people.length > 0}
+					<div class="title">{truncate(post.title, { length: 48 })}</div>
+					{#if post.people && post.people.length > 0}
 						<div class="event-people">
-							<PersonLinkList people={event.people} />
+							<PersonLinkList people={post.people} />
 						</div>
 					{/if}
 				</a>
