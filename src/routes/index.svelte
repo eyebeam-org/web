@@ -507,8 +507,12 @@
 
 
 		&.event {
-			min-height: $one-fourth;
+			min-height: $one-third;
 			max-height: 50%;
+			flex: 1;
+			display:flex;
+			flex-wrap: wrap;
+			align-content: center;
 		}
 
 		.time {
@@ -518,6 +522,7 @@
 
 		.title {
 			margin-bottom: $TINY;
+			width: 100%;
 		}
 
 
