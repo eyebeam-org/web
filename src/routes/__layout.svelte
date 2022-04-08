@@ -288,4 +288,7 @@
 			}
 		}
 	}
+.nodisplay {
+		display: none;
+}
 </style>

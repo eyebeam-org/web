@@ -111,7 +111,7 @@
 			<a href="/about" class="tile eyebeam-internal" sveltekit:prefetch>What is eyebeam?</a>
 
 		</div>
-<div class="tile search" on:click={toggleSearch}><div class="icon"><SearchIcon /></div> <span class="search-text">Search this website</span></div>
+<button class="tile search" on:click={toggleSearch}><div class="icon"><SearchIcon /></div> <span class="search-text">Search this website</span></button>
 	</div>
 	<div class="column three">
 		{#if get(stickers, 'stickerRight.enabled', false)}
@@ -152,7 +152,7 @@
 			<div class="sub-tile header">UPCOMING & RECENT</div>
 			{#each events.slice(0, 7) as event}
 				<a
-					href={'/events/' + get(event, 'slug.current', '')}
+					href={'/' + event.route + '/' + get(event, 'slug.current', '')}
 					class="sub-tile event"
 					sveltekit:prefetch
 				>
@@ -408,7 +408,15 @@
 		float: left;
 		padding: 0 !important;
 	}
-
+	button, input[type="submit"], input[type="reset"] {
+		background: none;
+		color: inherit;
+		border: none;
+		padding: 0;
+		font: inherit;
+		cursor: pointer;
+		outline: inherit;
+	}
 	.tile {
 		display: flex;
 		flex-wrap: wrap;

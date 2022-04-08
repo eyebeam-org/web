@@ -53,8 +53,8 @@
 		<span class="icon"><SearchIcon white={true} /></span>Search this site
 	</div>
 	{#if $page.url.pathname == '/'}
-		<a href="/" class="logo"><BigBeam /></a>
-		<a href="/" class="wordmark"><Logo /></a>
+		<a href="/" aria-label="The Eyebeam logo: lines spreading out in a half-circle like sun rays." class="logo"><BigBeam /></a>
+		<a href="/"  class="wordmark"><Logo /></a>
 	{/if}
 	{#if $page.url.pathname !== '/'}
 		<div class="wordmark" on:click={toggleMenu}><Logo /></div>
