@@ -39,6 +39,8 @@
 	const toggleSearch = () => {
 		searchActive = !searchActive;
 	};
+	$: programs, console.log('programs: ', programs)
+	$: events, console.log('events: ', events)
 </script>
 
 <!-- METADATA -->
@@ -61,8 +63,8 @@
 		</div>
 		<div class="column two">
 			<div class="tile programs">
-				<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
-				{#each programs as program}
+<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
+				{#each programs.slice(0,4) as program}
 					<a
 						href={'/programs/' + get(program, 'slug.current', '')}
 						class="sub-tile"
@@ -72,16 +74,44 @@
 						{#if program.applicationsOpen}
 							<div class="application-container">
 								<div class="circle" />
-								<span class="applications-open">Applications open</span>
+								<span class="subtitle applications-open">Applications open</span>
 							</div>
 						{/if}
 					</a>
 				{/each}
+					<a
+						href='/programs/'
+						class="sub-tile"
+						sveltekit:prefetch
+					>
+						<div class="title">MORE</div>
+</a>
+
 			</div>
-			<a href="/about" class="tile about" sveltekit:prefetch>What is eyebeam?</a>
-			<a href="/people" class="tile people" sveltekit:prefetch>People</a>
+				<a
+	href='/journal'
+							class="tile eyebeam-internal"
+							sveltekit:prefetch
+						>
+
+<div class="title">Journal</div>
+							<span class="subtitle">Updates from Eyebeam staff & artists</span>
+						</a>
+			<a href="/people" class="tile eyebeam-internal people" sveltekit:prefetch>People</a>
+						<a
+	href='/notes'
+							class="tile eyebeam-internal"
+							sveltekit:prefetch
+						>
+
+<div class="title">Posts</div>
+							<span class="subtitle">Artist profiles, interviews, & more</span>
+					</a>
+
+			<a href="/about" class="tile eyebeam-internal" sveltekit:prefetch>What is eyebeam?</a>
+
 		</div>
-		<div class="tile search" on:click={toggleSearch}><SearchIcon /> Search this website</div>
+<div class="tile search" on:click={toggleSearch}><div class="icon"><SearchIcon /></div> <span class="search-text">Search this website</span></div>
 	</div>
 	<div class="column three">
 		{#if get(stickers, 'stickerRight.enabled', false)}
@@ -119,8 +149,8 @@
 			<div class="icon"><Youtube /></div>
 		</a>
 		<div class="tile events">
-			<div class="sub-tile header event">UPCOMING & RECENT</div>
-			{#each events as event}
+			<div class="sub-tile header">UPCOMING & RECENT</div>
+			{#each events.slice(0, 7) as event}
 				<a
 					href={'/events/' + get(event, 'slug.current', '')}
 					class="sub-tile event"
@@ -128,6 +158,8 @@
 				>
 					{#if event.startDate}
 						<div class="time">{distanceToDate(event.startDate)}</div>
+						{:else if event._updatedAt }
+						<div class="time">{distanceToDate(event._updatedAt)}</div>
 					{/if}
 					<div class="title">{truncate(event.title, { length: 48 })}</div>
 					{#if event.people && event.people.length > 0}
@@ -221,12 +253,17 @@
 	}
 
 	.search {
+		align-items: flex-start;
+		justify-content: flex-start;
 		height: 100px;
 		width: 100%;
 		float: left;
 		border-top: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
-
+		.search-text {
+			margin-left: $TINY;
+		}
+	
 		&:hover {
 			background: $grey;
 			cursor: pointer;
@@ -254,9 +291,15 @@
 			width: 220px;
 			margin-bottom: $SMALL;
 		}
+		.statement {
+			width: 100%;
+		}
 	}
 
 	.programs {
+
+		align-items: flex-start;
+		align-content: flex-start;
 		height: $two-third;
 		width: 100%;
 		border-right: 1px solid var(--foreground-color);
@@ -268,10 +311,13 @@
 			border-right: unset;
 			padding-top: $NORMAL;
 		}
+		.sub-tile {
+			min-height: $one-third;
+		}
 	}
 
-	.about {
-		height: $one-third;
+	.eyebeam-internal {
+		height: $one-sixth;
 		width: 50%;
 		float: left;
 		border-right: 1px solid var(--foreground-color);
@@ -282,18 +328,15 @@
 	}
 
 	.people {
-		height: $one-third;
-		width: 50%;
-		float: left;
-		border-right: 1px solid var(--foreground-color);
-
 		@include screen-size('small') {
-			height: 170px;
 			border-right: unset;
 		}
 	}
 
 	.social {
+		align-items: flex-start;
+		flex-wrap: nowrap;
+		flex-direction: column;
 		width: 25%;
 		height: 100px;
 		padding: 10px !important;
@@ -317,6 +360,7 @@
 		}
 
 		.icon {
+			width:100%;
 			margin-top: $TINY;
 			margin-left: 1px;
 		}
@@ -324,12 +368,15 @@
 
 	.change {
 		height: calc(40% - 100px);
+		align-items: start;
+		align-content: start;
 		width: 50%;
 		float: left;
 		border-right: 1px solid var(--foreground-color);
 		border-bottom: 1px solid var(--foreground-color);
 
 		.half-beam {
+			width: 100%;
 			margin-top: $TINY;
 		}
 
@@ -352,6 +399,10 @@
 	}
 
 	.events {
+		align-items: flex-start;
+		align-content: flex-start;
+		justify-content: flex-start;
+		flex-flow: column wrap;
 		height: 60%;
 		width: 100%;
 		float: left;
@@ -359,6 +410,8 @@
 	}
 
 	.tile {
+		display: flex;
+		flex-wrap: wrap;
 		padding: $SMALL;
 		overflow: hidden;
 		user-select: none;
@@ -367,6 +420,17 @@
 			font-size: $font-size-body;
 		}
 	}
+	.header {
+			font-size: $font-size-extra-small;
+			float: left;
+			width: 50%;
+			height: $font-size-extra-small;
+			padding: $SMALL;
+			@include screen-size('small') {
+				padding-top: $NORMAL;
+			}
+	}
+
 
 	.open-eyebeam {
 		height: $two-third;
@@ -416,11 +480,16 @@
 		}
 	}
 
+	.subtitle {
+		width:100%;
+		font-size: $font-size-extra-small;
+	}
+
+
 	.sub-tile {
-		float: left;
 		width: 50%;
-		height: $one-third;
 		padding: $SMALL;
+		max-height: 50%;
 		overflow: hidden;
 
 		@include screen-size('small') {
@@ -436,16 +505,10 @@
 			}
 		}
 
-		&.header {
-			font-size: $font-size-extra-small;
-			letter-spacing: 0.5px;
-			@include screen-size('small') {
-				padding-top: $NORMAL;
-			}
-		}
 
 		&.event {
-			height: 50%;
+			min-height: $one-fourth;
+			max-height: 50%;
 		}
 
 		.time {
@@ -456,6 +519,8 @@
 		.title {
 			margin-bottom: $TINY;
 		}
+
+
 
 		.application-container {
 			display: flex;
@@ -472,10 +537,8 @@
 				background: $grey;
 				margin-top: $TINY;
 			}
-
 			.applications-open {
 				margin-left: $TINY;
-				font-size: $font-size-extra-small;
 				opacity: 0;
 				color: var(--foreground-color);
 			}

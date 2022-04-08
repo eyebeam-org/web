@@ -15,17 +15,28 @@
 	import Youtube from '$lib/graphics/youtube.svelte';
 	import BigBeam from '$lib/graphics/big-beam.svelte';
 	import Logo from '$lib/graphics/logo.svelte';
+	import SearchIcon from '$lib/graphics/search.svelte';
 
 	// __ CONSTANTS
 	import { INSTAGRAM_URL, TWITTER_URL, YOUTUBE_URL } from '$lib/global.js';
 
+	// __ COMPONENTS
+	import Search from '$lib/search/search.svelte';
+
 	// __ VARIABLES
 	const contact = loadData("*[_id == 'contact'][0]");
+	let searchActive = false;
+	const toggleSearch = () => {
+		searchActive = !searchActive;
+	};
+
 </script>
 
 {#await contact then contact}
 	<footer>
+
 		<!-- LOGO -->
+
 		<div class="line logo">
 			<div class="beams">
 				<BigBeam />
@@ -36,6 +47,9 @@
 		</div>
 		<!-- TAGLINE -->
 		<div class="line tagline">{contact.tagline}</div>
+		<!-- SEARCH -->
+<div class="tile search" on:click={toggleSearch}><div class="icon"><SearchIcon /></div> <span class="search-text">Search this website</span></div>
+
 		<!-- PHONE -->
 		<div class="line phone-number">
 			<a href={'tel:' + contact.phoneNumber} target="_blank">{contact.phoneNumber}</a>
@@ -55,12 +69,53 @@
 		</div>
 	</footer>
 {/await}
+{#if searchActive}
+	<Search on:close={toggleSearch} />
+{/if}
 
 <style lang="scss">
 	@import '../../variables.scss';
 
+	.search {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: flex-start;
+		height: 50px;
+		width: 50%;
+		margin: 0 auto $LARGE;
+		border: 1px solid var(--foreground-color);
+		padding: $SMALL;
+		overflow: hidden;
+		user-select: none;
+
+		@include screen-size('small') {
+			font-size: $font-size-body;
+		}
+
+		.search-text {
+			margin-left: $TINY;
+		}
+	
+		&:hover {
+			background: $grey;
+			cursor: pointer;
+			color: var(--hover-text-color);
+		}
+
+		&:active {
+			background: var(--foreground-color);
+		}
+
+		@include screen-size('small') {
+			// border-right: unset;
+			// border-bottom: 1px solid var(--foreground-color);
+			display: none;
+		}
+	}
+
 	footer {
-		margin-top: $LARGE;
+		margin-top: $NORMAL;
 		margin-bottom: $LARGE;
 		float: left;
 		width: 100%;

@@ -15,7 +15,7 @@
 		window.alert('open eyebeam');
 	}}
 >
-	<iframe src={import.meta.env.VITE_OPEN_EYEBEAM_EMBED_URL} title="Open Eyebeam" />
+	<iframe src={import.meta.env.VITE_OPEN_EYEBEAM_EMBED_URL} title="Open Eyebeam"/>
 	<div class="link"><span class="arrow"><TriangleRight /></span> open.eyebeam.org</div>
 </div>
 
@@ -32,8 +32,9 @@
 
 		iframe {
 			border: none;
-			width: 100%;
-			height: 100%;
+			width: 200%;
+			height: 200%;
+			transform: translate(-15%, -25%)
 		}
 
 		.link {
