@@ -11,12 +11,11 @@
 
 <div
 	class="open-eyebeam"
-	on:click={() => {
-		window.alert('open eyebeam');
-	}}
 >
-	<iframe src={import.meta.env.VITE_OPEN_EYEBEAM_EMBED_URL} title="Open Eyebeam"/>
+<iframe src={import.meta.env.VITE_OPEN_EYEBEAM_EMBED_URL} title="Open Eyebeam"/>
+<a target="_blank" href="https://open-eyebeam.netlify.app">
 	<div class="link"><span class="arrow"><TriangleRight /></span> open.eyebeam.org</div>
+</a>
 </div>
 
 <style lang="scss">
