@@ -148,8 +148,8 @@
 			<div class="icon"><Youtube /></div>
 		</a>
 		<div class="tile events">
-			<div class="sub-tile header">UPCOMING & RECENT</div>
-			{#each newPosts.slice(0, 7) as post}
+<a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
+{#each newPosts.slice(0, 7) as post}
 				<a
 					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
 					class="sub-tile event"
