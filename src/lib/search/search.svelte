@@ -51,8 +51,10 @@
 	<!-- INPUT -->
 	<div class="input-container">
 		<div>What are you looking for?</div>
+		<label for="search" class="nodisplay">Search: </label>
 		<input
 			type="text"
+			name="search"
 			bind:this={inputEl}
 			bind:value={searchTerm}
 			on:keyup={(e) => {

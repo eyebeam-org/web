@@ -1,3 +1,5 @@
+<span class="nodisplay">Eyebeam</span>
+
 <svg viewBox="0 0 220 29" fill="none" xmlns="http://www.w3.org/2000/svg">
 	<path
 		d="M0 29V0H29.2792V5.8H5.85584V11.6H29.2792V17.4H5.85584V23.2H29.2792V29H0Z"

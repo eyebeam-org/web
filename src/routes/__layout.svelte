@@ -297,4 +297,7 @@
 			}
 		}
 	}
+.nodisplay {
+		display: none;
+}
 </style>

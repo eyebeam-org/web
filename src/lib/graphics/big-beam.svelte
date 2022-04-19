@@ -7,7 +7,7 @@
 
 	export let flipped = false;
 </script>
-
+<span class="nodisplay">The Eyebeam logo: lines spreading out in a half-circle like sun rays.</span>
 <svg
 	class:flipped
 	version="1.1"
