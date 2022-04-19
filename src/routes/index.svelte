@@ -164,7 +164,12 @@ href='https://fold.eyebeam.org'
 					<div class="title">{truncate(post.title, { length: 48 })}</div>
 					{#if post.people && post.people.length > 0}
 						<div class="event-people">
+						{#if post.people.length < 2}
 							<PersonLinkList people={post.people} />
+						{:else}
+							<PersonLinkList people={post.people.slice(0, 2)} />
+>	...
+							{/if}
 						</div>
 					{/if}
 				</a>

@@ -11,6 +11,7 @@
 
 	// *** PROPS
 	export let b = {};
+	console.log('b: ', b)
 
 	let slug = slugify(b.children[0].text, {
 		lower: true
