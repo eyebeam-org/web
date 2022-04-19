@@ -56,6 +56,7 @@
 	.statement {
 		width: 100%;
 		font-size: $font-size-small;
+		width: 100%;
 
 		.text {
 			font-style: italic;

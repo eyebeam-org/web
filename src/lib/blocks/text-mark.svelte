@@ -14,31 +14,26 @@
 	// __ GRAPHICS
 	import ExternalLink from '$lib/graphics/external-link.svelte';
 
+
+	import ProcessTextMark from '$lib/blocks/process-text-mark.svelte';
+
 	// *** PROPS
 	export let defs = {};
 	export let c = {};
 
-	let currentDefinition = c.marks && c.marks[0] ? defs.find((m) => m._key === c.marks[0]) : null;
+	let currentDefinition = c.marks && c.marks[0] ? defs.find((m) => c.marks.includes(m._key )) : null;
+	console.log('current definition: ', currentDefinition)
 </script>
-
-{#if !c.marks || c.marks.length === 0}
-	<!-- Normal -->
-	{@html renderNewLines(c.text)}
-{:else if c.marks.includes('em')}
-	<!-- Italic -->
-	<em>{@html renderNewLines(c.text)}</em>
-{:else if c.marks.includes('strong')}
-	<!-- Bold -->
-	<strong>{@html renderNewLines(c.text)}</strong>
+{#if !currentDefinition}
+<ProcessTextMark {c} defs={defs} />
 {:else if currentDefinition._type === 'link' && currentDefinition.href}
 	{#if currentDefinition.href.includes('https://eyebeam.org')}
 		<!-- Internal Link -->
-		<a href={currentDefinition.href}>{@html renderNewLines(c.text)}</a>
-	{:else}
+			<a href={currentDefinition.href}><ProcessTextMark {c} defs={defs} /></a>
+		{:else}
 		<!-- External Link -->
 		<a href={currentDefinition.href} target="_blank">
-			{@html renderNewLines(c.text)}
-			<ExternalLink />
+			<ProcessTextMark {c} defs={defs} />			<ExternalLink />
 		</a>
 	{/if}
 {:else if currentDefinition._type === 'person'}

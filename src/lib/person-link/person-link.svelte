@@ -87,7 +87,11 @@
 		on:mouseenter={show}
 		on:mouseleave={hide}
 	>
+		{#if person.title.length < 20}
 		{@html overrideText ? renderNewLines(overrideText) : person.title}
+		{:else}
+		{@html overrideText ? renderNewLines(overrideText) : person.title.slice(0, 20) + '...'}
+		{/if}
 	</a>
 
 	<div class="pop-up" bind:this={popEl}>

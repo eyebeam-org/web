@@ -63,7 +63,15 @@
 		<div class="column two">
 			<div class="tile programs">
 <a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
-				{#each programs.slice(0,4) as program}
+					<a
+href='https://fold.eyebeam.org'
+						class="sub-tile"
+						sveltekit:prefetch
+><div class="title">The Fold</div>
+							<span class="subtitle">Eyebeam's new membership program</span>
+</a>
+
+				{#each programs.slice(0,5) as program}
 					<a
 						href={'/programs/' + get(program, 'slug.current', '')}
 						class="sub-tile"
@@ -78,13 +86,6 @@
 						{/if}
 					</a>
 				{/each}
-					<a
-						href='/programs/'
-						class="sub-tile"
-						sveltekit:prefetch
-					>
-						<div class="title">MORE</div>
-</a>
 
 			</div>
 				<a
@@ -107,7 +108,7 @@
 							<span class="subtitle">Artist profiles, interviews, & more</span>
 					</a>
 
-			<a href="/about" class="tile eyebeam-internal" sveltekit:prefetch>What is eyebeam?</a>
+			<a href="/about" class="tile eyebeam-internal" sveltekit:prefetch>About Eyebeam</a>
 
 		</div>
 <button class="tile search" on:click={toggleSearch}><div class="icon"><SearchIcon /></div> <span class="search-text">Search this website</span></button>
@@ -163,7 +164,12 @@
 					<div class="title">{truncate(post.title, { length: 48 })}</div>
 					{#if post.people && post.people.length > 0}
 						<div class="event-people">
+						{#if post.people.length < 2}
 							<PersonLinkList people={post.people} />
+						{:else}
+							<PersonLinkList people={post.people.slice(0, 2)} />
+>	...
+							{/if}
 						</div>
 					{/if}
 				</a>
@@ -289,9 +295,6 @@
 		.logo {
 			width: 220px;
 			margin-bottom: $SMALL;
-		}
-		.statement {
-			width: 100%;
 		}
 	}
 

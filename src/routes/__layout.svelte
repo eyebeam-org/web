@@ -12,6 +12,7 @@
 
 	// __ COMPONENTS
 	import Menubar from '$lib/menubar/menubar.svelte';
+	import Menu from '$lib/main-menu/menu.svelte';
 	import Footer from '$lib/footer/footer.svelte';
 	import PhoneMenubar from '$lib/phone/menubar/menubar.svelte';
 	import PhoneFooter from '$lib/phone/footer/footer.svelte';
@@ -102,7 +103,12 @@
 <Menubar {ready} />
 
 <!-- PHONE HEADER -->
+
 <PhoneMenubar />
+
+{#if $page.url.pathname != '/' && isJournal == false}
+<Menu />
+{/if}
 
 {#if !ready}
 	<!-- LOADING -->
@@ -110,6 +116,7 @@
 {:else}
 	<!-- MAIN -->
 	<main id="main" class:open={$trayOpen} class:journal={isJournal} class:inversion={$inversion}>
+
 		<!-- Don't render the sidebar for landing and journal -->
 		{#if $page.url.pathname == '/' || isJournal}
 			{#if $navigating == null}
@@ -118,6 +125,7 @@
 				<div class="navigating" />
 			{/if}
 		{:else}
+
 			<Sidebar fullBorders={$navigating !== null} />
 			{#if $navigating == null}
 				<slot />
@@ -127,6 +135,7 @@
 		{/if}
 	</main>
 {/if}
+
 
 <!-- FOOTER -->
 {#if $navigating == null}
@@ -179,7 +188,7 @@
 	}
 
 	main {
-		padding-top: 80px;
+		padding-top: 40px;
 		padding-left: 60px;
 		padding-right: 60px;
 		transition: transform 0.5s $transition;
