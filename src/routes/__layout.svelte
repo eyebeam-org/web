@@ -103,7 +103,12 @@
 <Menubar {ready} />
 
 <!-- PHONE HEADER -->
+
 <PhoneMenubar />
+
+{#if $page.url.pathname != '/' && isJournal == false}
+<Menu />
+{/if}
 
 {#if !ready}
 	<!-- LOADING -->
@@ -131,9 +136,6 @@
 	</main>
 {/if}
 
-{#if $page.url.pathname != '/' && isJournal == false}
-<Menu />
-{/if}
 
 <!-- FOOTER -->
 {#if $navigating == null}
@@ -186,7 +188,7 @@
 	}
 
 	main {
-		padding-top: 80px;
+		padding-top: 40px;
 		padding-left: 60px;
 		padding-right: 60px;
 		transition: transform 0.5s $transition;

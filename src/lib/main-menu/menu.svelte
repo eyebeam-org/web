@@ -7,6 +7,7 @@
 <a class="menu-button" href="/notes">Notes</a>
 <a class="menu-button" href="/journal">Journal</a>
 <a class="menu-button" href="/people">People</a>
+<a class="menu-button" href="/about">About</a>
 <a class="menu-button" href="/everything">Everything</a>
 </div>
 </div>
@@ -15,16 +16,17 @@
 <style lang="scss">
 	@import '../../variables.scss';
 		.menu-content {
-			margin-left: 60px;
-			margin-top: 20px;
 			width: 100%;
+			padding-top: $NORMAL;
+			text-align: center;
 
 			.section {
+				margin: 0 auto;
 				padding-top: $NORMAL;
 
 				.section-header {
 					margin-bottom: $SMALL;
-			}
+				}
 			.menu-button {
 				text-decoration: none;
 				padding: $button-padding;

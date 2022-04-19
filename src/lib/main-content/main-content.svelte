@@ -202,7 +202,7 @@
 								{#if person.mainImage}
 									<img
 										alt={person.title}
-										src={urlFor(person.mainImage).quality(90).saturation(-100).width(400).url()}
+										src={urlFor(person.mainImage).quality(90).width(400).url()}
 									/>
 								{/if}
 							</div>
