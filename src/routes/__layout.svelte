@@ -186,7 +186,7 @@
 	}
 
 	main {
-		padding-top: 40px;
+		padding-top: 20px;
 		padding-left: 60px;
 		padding-right: 60px;
 		transition: transform 0.5s $transition;

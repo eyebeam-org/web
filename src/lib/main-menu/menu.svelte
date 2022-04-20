@@ -36,6 +36,7 @@
 			width: 100%;
 			padding-top: $NORMAL;
 			text-align: center;
+			margin-top: 10px;
 
 			.section {
 				margin: 0 auto;
