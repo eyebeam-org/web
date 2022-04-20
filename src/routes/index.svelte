@@ -62,7 +62,7 @@
 		</div>
 		<div class="column two">
 			<div class="tile programs">
-<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
+				<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
 					<a
 href='https://fold.eyebeam.org'
 						class="sub-tile"
@@ -148,8 +148,8 @@ href='https://fold.eyebeam.org'
 			>Youtube
 			<div class="icon"><Youtube /></div>
 		</a>
-		<div class="tile events">
 <a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
+		<div class="tile events">
 {#each newPosts.slice(0, 7) as post}
 				<a
 					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
@@ -314,7 +314,9 @@ href='https://fold.eyebeam.org'
 			padding-top: $NORMAL;
 		}
 		.sub-tile {
-			min-height: $one-third;
+			max-height: 40%;
+			min-height: $two-sevenths;
+			padding: $TINY $SMALL;
 		}
 	}
 
@@ -405,7 +407,7 @@ href='https://fold.eyebeam.org'
 		align-content: flex-start;
 		justify-content: flex-start;
 		flex-flow: column wrap;
-		height: 60%;
+		height: 50%;
 		width: 100%;
 		float: left;
 		padding: 0 !important;
@@ -430,16 +432,7 @@ href='https://fold.eyebeam.org'
 			font-size: $font-size-body;
 		}
 	}
-	.header {
-			font-size: $font-size-extra-small;
-			float: left;
-			width: 50%;
-			height: $font-size-extra-small;
-			padding: $SMALL;
-			@include screen-size('small') {
-				padding-top: $NORMAL;
-			}
-	}
+	
 
 
 	.open-eyebeam {
@@ -515,9 +508,26 @@ href='https://fold.eyebeam.org'
 			}
 		}
 
+		&.header {
+			display: block;
+			font-size: $font-size-small;
+			font-weight: 600;
+			display: flex;
+			align-content: center;
+			align-items: center;
+			min-height: auto;
+			width: 100%;
+			border-bottom: 1px solid var(--foreground-color);
+			height: $LARGE;
+			@include screen-size('small') {
+				padding-top: $NORMAL;
+			}
+			}
+
+
 
 		&.event {
-			min-height: $one-third;
+			min-height: calc(100% /2.8);
 			max-height: 50%;
 			flex: 1;
 			display:flex;
