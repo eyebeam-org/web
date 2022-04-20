@@ -106,9 +106,7 @@
 
 <PhoneMenubar />
 
-{#if $page.url.pathname != '/' && isJournal == false}
 <Menu />
-{/if}
 
 {#if !ready}
 	<!-- LOADING -->
