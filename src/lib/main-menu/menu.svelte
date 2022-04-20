@@ -1,3 +1,15 @@
+<script>
+
+	import SearchIcon from '$lib/graphics/search.svelte';
+
+	import Search from '$lib/search/search.svelte'
+
+	let searchActive = false;
+	const toggleSearch = () => {
+		searchActive = !searchActive;
+	};
+
+</script>
 <div class="menu-content">
 <div class="section">
 <a class="menu-button" href="/programs">Programs</a>
@@ -9,8 +21,13 @@
 <a class="menu-button" href="/people">People</a>
 <a class="menu-button" href="/about">About</a>
 <a class="menu-button" href="/everything">Everything</a>
+<a class="menu-button" on:click={toggleSearch}><span class="icon"><SearchIcon /></span> <span class="search-text">Search</span></a>
 </div>
 </div>
+
+{#if searchActive}
+	<Search on:close={toggleSearch} />
+{/if}
 
 
 <style lang="scss">

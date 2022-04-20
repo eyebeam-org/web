@@ -58,9 +58,7 @@
 			bind:this={inputEl}
 			bind:value={searchTerm}
 			on:keyup={(e) => {
-				if (e.code === 'Enter' || e.keyCode === 13) {
-					submitSearch();
-				}
+				submitSearch();
 			}}
 		/>
 	</div>
@@ -88,7 +86,7 @@
 
 	.search-overlay {
 		position: fixed;
-		z-index: 100;
+		z-index: 101;
 		top: 0;
 		left: 0;
 		width: 100vw;
