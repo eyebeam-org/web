@@ -160,10 +160,10 @@
 		{/if}
 
 		<!-- HEADER -->
-		<div class="header">
+		<header class="header">
 			<h1>People</h1>
 			<!-- ORDER -->
-			<div class="order">
+			<nav class="order">
 				<div class="order-header">Order by</div>
 				<div class="order-options">
 					<div
@@ -185,7 +185,7 @@
 						Year <span class="icon"><ArrowDown /></span>
 					</div>
 				</div>
-			</div>
+			</nav>
 			<!-- FILTER -->
 			<div class="filter">
 				<div class="filter-header">Show</div>
@@ -203,12 +203,12 @@
 					{/each}
 				</div>
 			</div>
-		</div>
+		</header>
 
 		<!-- LIST -->
 		{#if order == 'alphabetical'}
 			{#each ALPHABET as alpha}
-				<div class="sub-section" id={alpha}>
+				<section class="sub-section" id={alpha}>
 					<h2 class="supersized">{alpha}</h2>
 					{#if groupedPeopleAlpha[alpha]}
 						<ul>
@@ -217,12 +217,12 @@
 							{/each}
 						</ul>
 					{/if}
-				</div>
+				</section>
 			{/each}
 		{/if}
 		{#if order == 'chronological'}
 			{#each YEAR_LIST as year}
-				<div class="sub-section" id={'year' + year}>
+				<section class="sub-section" id={'year' + year}>
 					<h2 class="supersized">{year}</h2>
 					{#if groupedPeopleChrono[year]}
 						<ul>
@@ -231,7 +231,7 @@
 							{/each}
 						</ul>
 					{/if}
-				</div>
+				</section>
 			{/each}
 		{/if}
 	</div>

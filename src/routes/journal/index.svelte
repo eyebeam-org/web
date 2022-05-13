@@ -22,13 +22,13 @@
 </script>
 
 <div class="journal" in:fade>
-	<div class="header">
+	<header class="header">
 		<div class="inner">
 			<BigBeam />
 			<Logo />
 			<div class="tagline">Eyebeam's Journal<br />Since 2022</div>
 		</div>
-	</div>
+	</header>
 
 	<div class="listing">
 		{#each journal as post}

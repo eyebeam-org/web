@@ -22,7 +22,7 @@
 <Metadata {page} />
 
 <div class="journal" in:fade>
-	<div class="header">
+	<header class="header">
 		<!-- TITLE -->
 		<h1>{page.title}</h1>
 		{#if page.subtitle}
@@ -33,13 +33,13 @@
 		<div class="authors">
 			<PersonLinkList people={page.people} />
 		</div>
-	</div>
+	</header>
 
-	<div class="content">
+	<article class="content">
 		{#if has(page, 'content.content')}
 			<Blocks blocks={page.content.content} />
 		{/if}
-	</div>
+	</article>
 </div>
 
 <style lang="scss">

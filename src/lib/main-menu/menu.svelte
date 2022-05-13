@@ -1,6 +1,7 @@
 <script>
 
 	import SearchIcon from '$lib/graphics/search.svelte';
+	import HeaderBeam from '$lib/graphics/header-beam.svelte';
 
 	import Search from '$lib/search/search.svelte'
 
@@ -12,6 +13,10 @@
 </script>
 <div class="menu-content">
 <div class="section">
+<div class="home">
+<a href="/" class="eyebeam-text" aria-label="eyebeam-homepage">EYEBEAM<HeaderBeam /></a>
+</div>
+
 <a class="menu-button" href="/programs">Programs</a>
 <a class="menu-button" href="/events">Events</a>
 <a class="menu-button" href="/projects">Projects</a>
@@ -37,10 +42,18 @@
 			padding-top: $NORMAL;
 			text-align: center;
 			margin-top: 10px;
+		.home {
+			float:left;
+			font-family: $ALT_FONT;
+			font-size: $font-size-h2;
+			.eyebeam-text {
+				text-decoration: none;
+			}
+			}
 
 			.section {
 				margin: 0 auto;
-				padding-top: $NORMAL;
+				padding: $NORMAL $LARGE*1.5 0 $LARGE*1.5;
 
 				.section-header {
 					margin-bottom: $SMALL;
