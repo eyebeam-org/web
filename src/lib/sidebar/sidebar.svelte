@@ -10,7 +10,7 @@
 
 	// __ COMPONENTS
 	import Statements from '$lib/statements/statements.svelte';
-	import OpenEyebeam from '$lib/open-eyebeam/open-eyebeam.svelte';
+	import Menu from '$lib/main-menu/menu.svelte';
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
@@ -35,15 +35,10 @@
 
 <!-- SIDEBAR -->
 <aside class="sidebar" class:full-borders={fullBorders}>
-	<!-- OPEN EYEBEAM -->
-	<a href={import.meta.env.VITE_OPEN_EYEBEAM_PUBLIC_URL} class="tile open-eyebeam">
-		<OpenEyebeam />
-	</a>
-	<!-- LOGO -->
-	<div class="tile logo" class:bordered={hasContent}>
-		<a href="/" class="wordmark"><Logo /></a>
-		<Statements />
+	<div class="tile open-eyebeam">
+		<Menu/>
 	</div>
+
 	<!-- TOC -->
 	{#if hasContent}
 		<div class="tile toc">
@@ -64,6 +59,7 @@
 			{/if}
 		</div>
 	{/if}
+
 </aside>
 
 <style lang="scss">

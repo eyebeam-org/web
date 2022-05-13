@@ -9,6 +9,7 @@ $font-size-body: 16px * $SCALE_FACTOR;
 $font-size-journal: 18px * $SCALE_FACTOR;
 $font-size-medium: 22px * $SCALE_FACTOR;
 $font-size-h2: 32px * $SCALE_FACTOR;
+$font-size-menu: 46px * $SCALE_FACTOR;
 $font-size-h1: 54px * $SCALE_FACTOR;
 
 // COLORS
@@ -32,8 +33,10 @@ $transition: cubic-bezier(0.23, 1, 0.32, 1);
 $one-third: calc(100% / 3);
 $two-third: calc((100% / 3) * 2);
 $one-fourth: calc(100% / 4);
+$three-eighths: calc((100% / 8)* 3 );
 $one-sixth: calc(100% / 6);
 $two-sevenths: calc((100% / 7) * 2);
+$full-height: calc(100%);
 $HEADER_HEIGHT: 440px;
 $LOGO_WIDTH: 220px;
 $SIDEBAR_HEIGHT: 660px;

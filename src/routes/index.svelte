@@ -21,6 +21,7 @@
 
 	// __ COMPONENTS
 	import Statements from '$lib/statements/statements.svelte';
+	import Menu from '$lib/main-menu/menu.svelte'
 	import OpenEyebeam from '$lib/open-eyebeam/open-eyebeam.svelte';
 	import Search from '$lib/search/search.svelte';
 	import PersonLinkList from '$lib/person-link-list/person-link-list.svelte';
@@ -34,20 +35,29 @@
 	export let programs;
 	export let newPosts;
 	export let stickers;
+	export let featuredArtists;
+	let artists;
 
 	let searchActive = false;
 	const toggleSearch = () => {
 		searchActive = !searchActive;
 	};
-	$: programs, console.log('programs: ', programs)
+
+	//FIXME: surely there is a less stupid way to do this
+	$: featuredArtists, console.log('featured artists: ', featuredArtists)
+	$: featuredArtists, artists = [featuredArtists[0].featuredArtist1, featuredArtists[0].featuredArtist2]
+	$: artists, console.log('artists: ', artists)
 </script>
 
 <!-- METADATA -->
 <Metadata />
 
 <div class="homepage-menu">
-	<section class="section one">
+	<section>
 		<div class="column one">
+			<Menu />
+		</div>
+		<div class="column two">
 			<div class="tile open-eyebeam">
 				{#if get(stickers, 'stickerLeft.enabled', false)}
 					<Sticker sticker={stickers.stickerLeft} />
@@ -55,69 +65,24 @@
 					<OpenEyebeam />
 				{/if}
 			</div>
-			<div class="tile logo-and-statement">
-				<div class="logo"><Logo /></div>
-				<Statements />
-			</div>
-		</div>
-		<div class="column two">
-			<div class="tile programs">
-				<a href="/programs" class="sub-tile header" sveltekit:prefetch>PROGRAMS</a>
+				<a class="sub-tile header" href="/people">OUR ARTISTS</a>
+				<div class="featured-artists">
+				{#each artists as artist}
+					<div class="tile">
 					<a
-href='https://fold.eyebeam.org'
-						class="sub-tile"
+						href={'/people/' + artist.slug.current }
 						sveltekit:prefetch
-><div class="title">The Fold</div>
-							<span class="subtitle">Eyebeam's new membership program</span>
-</a>
-
-				{#each programs.slice(0,5) as program}
-					<a
-						href={'/programs/' + get(program, 'slug.current', '')}
-						class="sub-tile"
-						sveltekit:prefetch
-					>
-						<div class="title">{program.title}</div>
-						{#if program.applicationsOpen}
-							<div class="application-container">
-								<div class="circle" />
-								<span class="subtitle applications-open">Applications open</span>
-							</div>
-						{/if}
-					</a>
+						class="featured-artist"
+	> <img class="featured-artist-image"alt ="" src={artist.image.url}/>{artist.firstName} {artist.lastName}</a>
+					</div>
 				{/each}
-
-			</div>
-				<a
-	href='/journal'
-							class="tile eyebeam-internal"
-							sveltekit:prefetch
-						>
-
-<div class="title">Journal</div>
-							<span class="subtitle">Updates from Eyebeam staff & artists</span>
-						</a>
-			<a href="/people" class="tile eyebeam-internal people" sveltekit:prefetch>People</a>
-						<a
-	href='/notes'
-							class="tile eyebeam-internal"
-							sveltekit:prefetch
-						>
-
-<div class="title">Posts</div>
-							<span class="subtitle">Artist profiles, interviews, & more</span>
-					</a>
-
-			<a href="/about" class="tile eyebeam-internal" sveltekit:prefetch>About Eyebeam</a>
-
-		</div>
-<button class="tile search" on:click={toggleSearch}><div class="icon"><SearchIcon /></div> <span class="search-text">Search this website</span></button>
-</section>
-<section>
+</div>
+	</div>
 	<div class="column three">
+<a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
 		{#if get(stickers, 'stickerRight.enabled', false)}
 			{#if get(stickers, 'stickerRight.fullWidth', false) == false}
-				<div class="tile half-sticker">
+				<div class="tile ">
 					<Sticker sticker={stickers.stickerRight} small={true} />
 				</div>
 				<a href="/about/support-eyebeam" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
@@ -126,13 +91,34 @@ href='https://fold.eyebeam.org'
 					<Sticker sticker={stickers.stickerRight} small={true} />
 				</div>
 			{/if}
-		{:else}
-			<a href="/eyebeam-is-changing" class="tile change" sveltekit:prefetch>
-				Eyebeam is changing...
-				<div class="half-beam"><HalfBeam /></div>
-			</a>
-			<a href="/about/support-eyebeam" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
 		{/if}
+		<div class="tile events no-sticker" class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class:large-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == true}>
+{#each newPosts.slice(0, 8) as post}
+				<a
+					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
+					class="sub-tile event"
+					sveltekit:prefetch
+				>
+					{#if post.startDate}
+						<div class="time">{distanceToDate(post.startDate)}</div>
+						{:else if post._updatedAt }
+						<div class="time">{distanceToDate(post._updatedAt)}</div>
+					{/if}
+					<div class="title">{truncate(post.title, { length: 48 })}</div>
+					{#if post.people && post.people.length > 0}
+						<div class="event-people">
+						{#if post.people.length < 1}
+							<PersonLinkList people={post.people} />
+
+							<PersonLinkList people={post.people.slice(0, 1)} />
+&	...
+							{/if}
+						</div>
+					{/if}
+				</a>
+			{/each}
+		</div>
+<div class="socials">
 		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
 			Newsletter
 			<div class="icon"><Newsletter /></div>
@@ -149,33 +135,8 @@ href='https://fold.eyebeam.org'
 			>Youtube
 			<div class="icon"><Youtube /></div>
 		</a>
-<a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
-		<div class="tile events">
-{#each newPosts.slice(0, 7) as post}
-				<a
-					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
-					class="sub-tile event"
-					sveltekit:prefetch
-				>
-					{#if post.startDate}
-						<div class="time">{distanceToDate(post.startDate)}</div>
-						{:else if post._updatedAt }
-						<div class="time">{distanceToDate(post._updatedAt)}</div>
-					{/if}
-					<div class="title">{truncate(post.title, { length: 48 })}</div>
-					{#if post.people && post.people.length > 0}
-						<div class="event-people">
-						{#if post.people.length < 2}
-							<PersonLinkList people={post.people} />
-						{:else}
-							<PersonLinkList people={post.people.slice(0, 2)} />
->	...
-							{/if}
-						</div>
-					{/if}
-				</a>
-			{/each}
-		</div>
+</div>
+
 	</div>
 </section>
 </div>
@@ -230,19 +191,21 @@ href='https://fold.eyebeam.org'
 
 	.column {
 		float: left;
+		border-right:1px solid var(--special-text-color);
 		&.one {
-			width: 50%;
-			height: calc(100% - 100px);
+			width: $one-fourth;
+			height: 100%;
 
 			@include screen-size('small') {
 				display: none;
 			}
 		}
 
+
 		&.two {
-			width: 50%;
+			width: $three-eighths;
 			// background: red;
-			height: calc(100% - 100px);
+			height: 100%;
 
 			@include screen-size('small') {
 				width: 100%;
@@ -251,7 +214,7 @@ href='https://fold.eyebeam.org'
 		}
 
 		&.three {
-			width: $one-third;
+			width: $three-eighths;
 			// background: blue;
 			height: 100%;
 
@@ -260,6 +223,10 @@ href='https://fold.eyebeam.org'
 				height: auto;
 			}
 		}
+	}
+	.socials {
+		height: $one-sixth;
+		width: 100%;
 	}
 
 	.search {
@@ -294,7 +261,6 @@ href='https://fold.eyebeam.org'
 	.logo-and-statement {
 		height: $one-third;
 		width: 100%;
-		border-right: 1px solid var(--foreground-color);
 		float: left;
 
 		.logo {
@@ -309,7 +275,6 @@ href='https://fold.eyebeam.org'
 		align-content: flex-start;
 		height: $two-third;
 		width: 100%;
-		border-right: 1px solid var(--foreground-color);
 		border-bottom: 1px solid var(--foreground-color);
 		float: left;
 		padding: 0 !important;
@@ -329,7 +294,6 @@ href='https://fold.eyebeam.org'
 		height: $one-sixth;
 		width: 50%;
 		float: left;
-		border-right: 1px solid var(--foreground-color);
 
 		@include screen-size('small') {
 			height: 170px;
@@ -347,11 +311,11 @@ href='https://fold.eyebeam.org'
 		flex-wrap: nowrap;
 		flex-direction: column;
 		width: 25%;
-		height: 100px;
+		height: 100%;
 		padding: 10px !important;
 		float: left;
+		border-top: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
-		border-bottom: 1px solid var(--foreground-color);
 
 		@include screen-size('small') {
 			width: 50%;
@@ -412,10 +376,42 @@ href='https://fold.eyebeam.org'
 		align-content: flex-start;
 		justify-content: flex-start;
 		flex-flow: column wrap;
-		height: 50%;
 		width: 100%;
 		float: left;
 		padding: 0 !important;
+		&.has-sticker {
+			height: calc((((100%/8) * 3) - 40px) - (100%/6));
+		}
+		&.full-sticker {
+			height: calc((25% - 40px) - (100%/6));
+		}
+		&.no-sticker {
+			height: calc((100% - 40px) - (100%/6));
+		}
+	}
+
+	.featured-artists {
+		height: calc((100% /3) - 40px);
+		flex-flow: row wrap;
+		font-family: $ALT_FONT;
+		font-size: $font-size-h2; 
+		.tile {
+			height:50%;
+			padding: $TINY;
+		}
+		.featured-artist {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			flex-flow: row nowrap;
+			text-align: center;
+		}
+		.featured-artist-image {
+			height: 100%;
+			margin-right: 20%;
+		}
 	}
 	button, input[type="submit"], input[type="reset"] {
 		background: none;
@@ -444,7 +440,6 @@ href='https://fold.eyebeam.org'
 		height: $two-third;
 		background: $grey;
 		width: 100%;
-		border-right: 1px solid var(--foreground-color);
 		border-bottom: 1px solid var(--foreground-color);
 		float: left;
 		position: relative;
@@ -453,11 +448,10 @@ href='https://fold.eyebeam.org'
 
 	.half-sticker {
 		padding: 0;
-		height: calc(40% - 100px);
+		height: $three-eighths;
 		width: 50%;
 		float: left;
 		border-bottom: 1px solid var(--foreground-color);
-		border-right: 1px solid var(--foreground-color);
 		@include screen-size('small') {
 			height: 170px;
 		}
@@ -515,6 +509,7 @@ href='https://fold.eyebeam.org'
 
 		&.header {
 			display: block;
+			font-family: $ALT_FONT;
 			font-size: $font-size-small;
 			font-weight: 600;
 			display: flex;
@@ -532,8 +527,8 @@ href='https://fold.eyebeam.org'
 
 
 		&.event {
-			min-height: calc(100% /2.8);
-			max-height: 50%;
+			min-height: calc(100% /4);
+			max-height: 25%;
 			flex: 1;
 			display:flex;
 			flex-wrap: wrap;

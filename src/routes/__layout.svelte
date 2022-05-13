@@ -11,8 +11,8 @@
 	import Cookies from 'js-cookie';
 
 	// __ COMPONENTS
+	import LogoHeader from '$lib/logo-header/logo-header.svelte';
 	import Menubar from '$lib/menubar/menubar.svelte';
-	import Menu from '$lib/main-menu/menu.svelte';
 	import Footer from '$lib/footer/footer.svelte';
 	import PhoneMenubar from '$lib/phone/menubar/menubar.svelte';
 	import PhoneFooter from '$lib/phone/footer/footer.svelte';
@@ -105,8 +105,8 @@
 <!-- PHONE HEADER -->
 
 <PhoneMenubar />
+<LogoHeader trayOpen = {$trayOpen} />
 
-<Menu />
 
 {#if !ready}
 	<!-- LOADING -->
