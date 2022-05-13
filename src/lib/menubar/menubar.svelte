@@ -43,16 +43,18 @@
 		}
 	});
 
+	let tray;
 	const toggleTray = () => {
 		trayOpen.set(!$trayOpen);
+		trayOpen ? tray.setAttribute("aria-expanded", true) : tray.setAttribute("aria-expanded", false)
 	};
 </script>
 
-<nav class="menubar" class:open={$trayOpen}>
+<nav class="menubar" class:open={$trayOpen} aria-expanded=false bind:this={tray}>
 	<div class="settings">
 		<!-- SETTINGS BAR -->
 		<div class="settings-bar" on:click={toggleTray}>
-			<div class="tray-toggle" on:click={toggleTray}>
+			<div class="tray-toggle" on:click={toggleTray} aria-label="Toggle accessibility settings">
 				<FullBeam black={true} />
 			</div>
 			Settings

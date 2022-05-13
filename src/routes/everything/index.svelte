@@ -81,7 +81,7 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
-		<div class="header">
+		<header class="header">
 			<h1>{page.title}</h1>
 			<!-- BIO -->
 			{#if has(page, 'content.content')}
@@ -89,7 +89,7 @@
 					<Blocks blocks={page.content.content} />
 				</div>
 			{/if}
-			<div class="filters">
+			<section class="filters">
 				{#each FILTERS as filter}
 					<div
 						class="filter"
@@ -101,8 +101,10 @@
 						{filter.label}
 					</div>
 				{/each}
-			</div>
-		</div>
+			</section>
+
+		</header>
+		<section>
 		{#each filteredPosts as post}
 			<a
 				href={'/' + postTypeToCategory[post._type] + '/' + get(post, 'slug.current')}
@@ -112,7 +114,7 @@
 					<!-- TYPE -->
 					<div class="type">{postTypeToName[post._type]}</div>
 					<!-- DATE -->
-					<div class="date">{longFormatDate(post._createdAt)}</div>
+					<div class="date">{longFormatDate(post._updatedAt)}</div>
 				</div>
 				<!-- TITLE -->
 				<div class="title">{post.title}</div>
@@ -127,6 +129,7 @@
 				{/if}
 			</a>
 		{/each}
+		</section>
 	</div>
 </div>
 

@@ -41,6 +41,7 @@
 	const show = () => {
 		if (isDesktop.matches) {
 			popEl.classList.add('show');
+			popEl.setAttribute('aria-expanded', true)
 			// Enable the event listeners
 			popper.setOptions((options) => ({
 				...options,
@@ -55,6 +56,7 @@
 	const hide = () => {
 		if (isDesktop.matches) {
 			console.log('hide');
+			popEl.setAttribute('aria-expanded', false)
 			popEl.classList.remove('show');
 			// Disable the event listeners
 			popper.setOptions((options) => ({
@@ -94,7 +96,7 @@
 		{/if}
 	</a>
 
-	<div class="pop-up" bind:this={popEl}>
+	<div class="pop-up" bind:this={popEl} aria-expanded=false>
 		<!-- FIRST COLUMN -->
 		<div class="column first">
 			<!-- NAME -->

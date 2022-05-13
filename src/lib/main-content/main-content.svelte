@@ -40,11 +40,11 @@
 </script>
 
 <div class="main-content" in:fade>
-	<div class="article">
+	<article class="article">
 		{#if page._type == 'videoPost'}
 			<VideoPlayer {page} />
 		{:else}
-			<div class="header" class:boxed class:tight>
+			<header class="header" class:boxed class:tight>
 				<div>
 					<!-- TITLE -->
 					<h1 class:long={page.title.length > 42}>{page.title}</h1>
@@ -106,7 +106,7 @@
 						{/if}
 					</figure>
 				{/if}
-			</div>
+			</header>
 		{/if}
 
 		<!-- EVENT INFO -->
@@ -224,7 +224,7 @@
 		{#if page.internalLinks || page.externalLinks}
 			<SeeAlso externalLinks={page.externalLinks} internalLinks={page.internalLinks} />
 		{/if}
-	</div>
+	</article>
 
 	<!-- BOTTOM BAR -->
 	<BottomBar updatedAt={page._updatedAt} />

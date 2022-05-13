@@ -46,7 +46,7 @@
 <Metadata />
 
 <div class="homepage-menu">
-	<div class="section one">
+	<section class="section one">
 		<div class="column one">
 			<div class="tile open-eyebeam">
 				{#if get(stickers, 'stickerLeft.enabled', false)}
@@ -112,7 +112,8 @@ href='https://fold.eyebeam.org'
 
 		</div>
 <button class="tile search" on:click={toggleSearch}><div class="icon"><SearchIcon /></div> <span class="search-text">Search this website</span></button>
-	</div>
+</section>
+<section>
 	<div class="column three">
 		{#if get(stickers, 'stickerRight.enabled', false)}
 			{#if get(stickers, 'stickerRight.fullWidth', false) == false}
@@ -176,6 +177,7 @@ href='https://fold.eyebeam.org'
 			{/each}
 		</div>
 	</div>
+</section>
 </div>
 
 {#if searchActive}
@@ -187,6 +189,9 @@ href='https://fold.eyebeam.org'
 
 	$one-third: calc(100% / 3);
 	$two-third: calc((100% / 3) * 2);
+	section {
+		all: unset;
+}
 
 	.homepage-menu {
 		border: 1px solid var(--foreground-color);

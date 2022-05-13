@@ -34,7 +34,7 @@
 </script>
 
 <!-- SIDEBAR -->
-<div class="sidebar" class:full-borders={fullBorders}>
+<aside class="sidebar" class:full-borders={fullBorders}>
 	<!-- OPEN EYEBEAM -->
 	<a href={import.meta.env.VITE_OPEN_EYEBEAM_PUBLIC_URL} class="tile open-eyebeam">
 		<OpenEyebeam />
@@ -64,7 +64,7 @@
 			{/if}
 		</div>
 	{/if}
-</div>
+</aside>
 
 <style lang="scss">
 	@import '../../variables.scss';
