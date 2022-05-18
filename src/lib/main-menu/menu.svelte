@@ -72,7 +72,6 @@
 					color: $white;
 				}
 				.icon {
-					height: 100%;
 					margin-right: $NORMAL;
 				}
 				&:last-child {
