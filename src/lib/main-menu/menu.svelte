@@ -29,12 +29,6 @@
 
 <style lang="scss">
 	@import '../../variables.scss';
-		.column .menu-content .menu-button {
-				font-size: $font-size-h1;
-		}
-		.sidebar .menu-content .menu-button {
-				font-size: $font-size-menu;
-		}
 
 		.menu-content {
 			width: 100%;
@@ -52,6 +46,7 @@
 					margin-bottom: $SMALL;
 				}
 			.menu-button {
+				font-size: $font-size-menu;
 				text-transform: uppercase;
 				flex-grow: 1;
 				display: flex;
@@ -62,7 +57,7 @@
 				text-align: center;
 				padding: $button-padding;
 				border-bottom: 1px solid var(--special-text-color);
-
+				height: $one-sixth;
 				cursor: pointer;
 				width: 100%;
 

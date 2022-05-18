@@ -23,7 +23,7 @@
 <div class="about">
 Come see what our fellows are up to in our new digital studio space.
 	<div class="open-eyebeam-link">
-OPEN EYEBEAM <ArrowRight />
+<a target="_blank" href="https://open-eyebeam.netlify.app">OPEN EYEBEAM <ArrowRight /></a>
 	</div>
 </div>
 </div>
@@ -46,8 +46,8 @@ OPEN EYEBEAM <ArrowRight />
 
 		iframe {
 			border: none;
-			width: 200%;
-			height: 200%;
+			width: 150%;
+			height: 150%;
 			transform: translate(-15%, -25%)
 		}
 		.about {
@@ -66,6 +66,9 @@ OPEN EYEBEAM <ArrowRight />
 			padding: $SMALL;
 			.open-eyebeam-link {
 				font-size: $font-size-h2;
+				a {
+					text-decoration: none;
+				}
 			}
 			
 		}
