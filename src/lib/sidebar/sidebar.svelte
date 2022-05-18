@@ -89,7 +89,6 @@
 			height: $HEADER_HEIGHT;
 			background: $grey;
 			width: 100%;
-			border-bottom: 1px solid var(--foreground-color);
 			float: left;
 			position: relative;
 			padding: 0;

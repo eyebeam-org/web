@@ -412,9 +412,9 @@
 		font-size: $font-size-h2; 
 		.tile {
 			height:50%;
-			padding: $TINY;
 		}
 		.featured-artist, .quote {
+			padding: $TINY;
 			height: 100%;
 			width: $two-third;
 			display: flex;
@@ -457,7 +457,6 @@
 	.tile {
 		display: flex;
 		flex-wrap: wrap;
-		padding: $SMALL;
 		overflow: hidden;
 		user-select: none;
 
@@ -559,12 +558,11 @@
 
 
 		&.event {
-			padding: 0;
 			width:100%;
-			min-height: calc(100% /4);
+			padding: $SMALL;
+			min-height: calc(100% /5);
 			max-height: 25%;
 			display: flex;
-			flex: 1;
 			align-content: center;
 			.post-image {
 				height: 80%;

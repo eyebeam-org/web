@@ -277,9 +277,6 @@
 				text-decoration: none;
 				cursor: pointer;
 
-				&:first-child {
-					border-top: 1px solid var(--foreground-color);
-				}
 
 				&:hover {
 					background: $grey;
