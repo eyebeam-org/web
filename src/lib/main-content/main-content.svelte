@@ -234,7 +234,7 @@
 	@import '../../variables.scss';
 
 	.main-content {
-		width: $two-third;
+		width: $five-sevenths;
 		margin-bottom: $HUGE;
 
 		@include screen-size('small') {

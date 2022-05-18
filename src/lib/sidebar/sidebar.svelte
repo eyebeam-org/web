@@ -71,7 +71,7 @@
 	}
 
 	.sidebar {
-		width: $one-third;
+		width: $two-sevenths;
 		min-width: 400px;
 		border: 1px solid var(--foreground-color);
 		border-right: none;

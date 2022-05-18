@@ -38,8 +38,7 @@
 		{ label: 'Home', value: '/' },
 		{ label: 'About / What is Eyebeam?', value: '/about' },
 		{ label: 'Programs', value: '/programs' },
-		{ label: 'Upcoming & Recent', value: '/' },
-		{ label: 'People', value: '/people' },
+		{ label: 'Artists', value: '/people' },
 		{ label: 'Support Eyebeam', value: '/about/support-eyebeam' },
 		{ label: 'Newsletter', value: '/newsletter' },
 		{ label: 'Instagram', value: INSTAGRAM_URL },
@@ -54,9 +53,7 @@
 	</div>
 	{#if $page.url.pathname == '/'}
 		<a href="/" aria-label="The Eyebeam logo: lines spreading out in a half-circle like sun rays." class="logo"><BigBeam /></a>
-		<a href="/"  class="wordmark"><Logo /></a>
 	{/if}
-	{#if $page.url.pathname !== '/'}
 		<div class="wordmark" on:click={toggleMenu}><Logo /></div>
 		<div class="menu-toggle" on:click={toggleMenu}>
 			<span class="menu-toggle-header">Click to {menuOpen ? 'hide' : 'show'} menu</span>
@@ -85,7 +82,6 @@
 			</div>
 			<div class="logo" in:fade={{ delay: 300, duration: 400 }}><BigBeam flipped={true} /></div>
 		{/if}
-	{/if}
 </nav>
 
 {#if searchActive}

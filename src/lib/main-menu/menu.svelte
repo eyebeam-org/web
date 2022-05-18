@@ -39,6 +39,7 @@
 		.menu-content {
 			width: 100%;
 			height: 100%;
+			background-color: $white;
 			text-align: center;
 			font-family: $ALT_FONT;
 			.section {
@@ -51,11 +52,12 @@
 					margin-bottom: $SMALL;
 				}
 			.menu-button {
+				text-transform: uppercase;
 				flex-grow: 1;
 				display: flex;
 				margin: auto;
 				align-items: center;
-				justify-content: center;
+				justify-content: flex-start;
 				text-decoration: none;
 				text-align: center;
 				padding: $button-padding;

@@ -74,6 +74,9 @@
 						sveltekit:prefetch
 						class="featured-artist"
 	> <img class="featured-artist-image"alt ="" src={artist.image.url}/>{artist.firstName} {artist.lastName}</a>
+					<div class="quote">
+							"{artist.quote}"
+					</div>
 					</div>
 				{/each}
 </div>
@@ -93,7 +96,7 @@
 			{/if}
 		{/if}
 		<div class="tile events no-sticker" class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class:large-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == true}>
-{#each newPosts.slice(0, 8) as post}
+{#each newPosts.slice(0, 4) as post}
 				<a
 					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
 					class="sub-tile event"
@@ -104,12 +107,12 @@
 						{:else if post._updatedAt }
 						<div class="time">{distanceToDate(post._updatedAt)}</div>
 					{/if}
-					<div class="title">{truncate(post.title, { length: 48 })}</div>
+					<div class="title">{truncate(post.title, { length: 72 })}</div>
 					{#if post.people && post.people.length > 0}
 						<div class="event-people">
-						{#if post.people.length < 1}
+						{#if post.people.length <= 1}
 							<PersonLinkList people={post.people} />
-
+						{:else}
 							<PersonLinkList people={post.people.slice(0, 1)} />
 &	...
 							{/if}
@@ -174,6 +177,7 @@
 			margin-bottom: unset;
 			min-height: unset;
 			min-width: unset;
+			max-width: 100%;
 			max-height: unset;
 		}
 	}
@@ -191,7 +195,10 @@
 
 	.column {
 		float: left;
+		max-width: 100%;
+		
 		border-right:1px solid var(--special-text-color);
+		max-width: 100%;
 		&.one {
 			width: $one-fourth;
 			height: 100%;
@@ -203,7 +210,7 @@
 
 
 		&.two {
-			width: $three-eighths;
+			width: 50%;
 			// background: red;
 			height: 100%;
 
@@ -214,7 +221,7 @@
 		}
 
 		&.three {
-			width: $three-eighths;
+			width: $one-fourth;
 			// background: blue;
 			height: 100%;
 
@@ -399,19 +406,36 @@
 			height:50%;
 			padding: $TINY;
 		}
-		.featured-artist {
+		.featured-artist, .quote {
 			height: 100%;
-			width: 100%;
+			width: $two-third;
 			display: flex;
 			align-items: center;
 			justify-content: flex-start;
 			flex-flow: row nowrap;
 			text-align: center;
 		}
-		.featured-artist-image {
-			height: 100%;
-			margin-right: 20%;
+		.quote {
+			width: $one-third;
+			//			font-family: $SERIF_STACK; 
+			font-size: $font-size-small;
+			padding: $SMALL; 
 		}
+		.featured-artist-image {
+			height: 85%;
+			max-width: 25%;
+			margin:0 20% 0 $SMALL;
+		}
+		@include screen-size('small') {
+			.featured-artist {
+				width: 100%;
+			}
+				.quote {
+					display: none;
+				}
+
+		}
+
 	}
 	button, input[type="submit"], input[type="reset"] {
 		background: none;
@@ -527,6 +551,7 @@
 
 
 		&.event {
+			width:100%;
 			min-height: calc(100% /4);
 			max-height: 25%;
 			flex: 1;
