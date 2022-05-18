@@ -256,9 +256,9 @@
 			color: var(--foreground-color);
 			display: flex;
 			flex-direction: column;
-			position: absolute;
+			float: right;
 			top: 80px;
-			right: 0;
+			right: 100px;
 			width: 40px;
 			user-select: none;
 
@@ -273,7 +273,6 @@
 				display: block;
 				width: 40px;
 				border-bottom: 1px solid var(--foreground-color);
-				border-right: 1px solid var(--foreground-color);
 				border-left: 1px solid var(--foreground-color);
 				text-decoration: none;
 				cursor: pointer;
