@@ -425,9 +425,9 @@
 		}
 		.quote {
 			width: $one-third;
-			//			font-family: $SERIF_STACK; 
+			font-family: $SERIF_STACK; 
 			font-size: $font-size-small;
-			padding: $SMALL; 
+			padding: $SMALL $SMALL SMALL 0; 
 		}
 		.featured-artist-image {
 			height: 85%;

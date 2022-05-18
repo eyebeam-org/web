@@ -65,6 +65,7 @@ Come see what our fellows are up to in our new digital studio space.
 			font-size: $font-size-medium;
 			padding: $SMALL;
 			.open-eyebeam-link {
+				font-family: $ALT_FONT;
 				font-size: $font-size-h2;
 				a {
 					text-decoration: none;

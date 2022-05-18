@@ -75,6 +75,7 @@
 		min-width: 400px;
 		border: 1px solid var(--foreground-color);
 		border-right: none;
+		border-bottom: none;
 		font-size: $font-size-small;
 
 		&.full-borders {
@@ -87,6 +88,7 @@
 
 		.open-eyebeam {
 			height: $HEADER_HEIGHT;
+			border-bottom: 1px solid var(--foreground-color);
 			background: $grey;
 			width: 100%;
 			float: left;
@@ -115,6 +117,7 @@
 
 		.toc {
 			padding-top: 0;
+			border-bottom: 1px solid var(--foreground-color);
 
 			.pseudo-link {
 				text-decoration: none;
