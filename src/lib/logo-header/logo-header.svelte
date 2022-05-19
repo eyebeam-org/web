@@ -32,9 +32,10 @@
       margin-left: $LARGE * 1.5;
       .home {
         font-family: $ALT_FONT;
-        font-size: $font-size-h2;
+        font-size: $font-size-menu;
         .eyebeam-text {
           text-decoration: none;
+          font-weight: 600;
         }
         }
         @include screen-size('small') {

@@ -34,7 +34,7 @@
 	const BLUE = 'rgb(0, 0, 255)';
 	const RGB = [RED, GREEN, BLUE];
 
-	const MAIN_FONT = "'Literata', serif";
+	const MAIN_FONT = "'Work Sans', Arial, sans-serif";
 	const ALT_FONT = "'Eyebeam Sans', sans-serif";
 
 	$: if (root.style) {

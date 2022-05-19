@@ -45,7 +45,7 @@
 
 	.big-sticker {
 		width: 100%;
-		height: calc(((100%/12)*5) - 20px);
+		height: 50%;
 		text-decoration: none;
 		display: block;
 		border-bottom: 1px solid var(--foreground-color);

@@ -85,6 +85,7 @@
 </div>
 	</div>
 	<div class="column three">
+<a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
 		{#if get(stickers, 'stickerRight.enabled', false)}
 			{#if get(stickers, 'stickerRight.fullWidth', false) == false}
 					<Sticker sticker={stickers.stickerRight} small={true} />
@@ -92,7 +93,6 @@
 					<Sticker sticker={stickers.stickerRight} small={false} />
 			{/if}
 		{/if}
-<a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
 		<div class:no-sticker={get(stickers, 'stickerRight.enabled', false) == false} class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class="tile events"  >
 {#each newPosts.slice(0, 4) as post}
 				<a
@@ -208,7 +208,7 @@
 			border-right: none;
 		}
 		&.one {
-			width: $one-fifth;
+			width: calc((100%/12)*2);
 			height: 100%;
 
 			@include screen-size('small') {
@@ -218,7 +218,7 @@
 
 
 		&.two {
-			width: 50%;
+			width: calc((100%/12)*6);
 			// background: red;
 			height: 100%;
 
@@ -229,9 +229,10 @@
 		}
 
 		&.three {
-			width: 30%;
 			// background: blue;
+			width: calc((100%/12)*4);
 			height: 100%;
+			border-right: none;
 
 			@include screen-size('small') {
 				width: 100%;
@@ -323,6 +324,7 @@
 	}
 
 	.social {
+		font-family: $ALT_FONT;
 		justify-content: center;
 		text-align: center;
 		flex-wrap: nowrap;
@@ -396,22 +398,25 @@
 		width: 100%;
 		float: left;
 		&.has-sticker {
-			height: calc(((100%/12)*5) - 20px);
+			height: calc(((100%/6)*2) - (100%/12));
+			flex-flow: row wrap;
 			.event {
-					height: 50%;
-					max-height:50%;
+					width: 50%;
+					max-width:50%;
+					height: 100%;
+					max-height: 100%;
+					.post-image {
+						display: none;
+					}
 			}
 		}
-		&.full-sticker {
-			height: calc((25% - 40px) - (100%/6));
-		}
 		&.no-sticker {
-			height: calc((100% - 40px) - (100%/6));
+			height: calc((100% - (100%/12)) - (100%/6));
 		}
 	}
 
 	.featured-artists {
-		height: calc((100% /3) - 40px);
+		height: calc(50% - (100%/6));
 		flex-flow: row wrap;
 		font-family: $ALT_FONT;
 		font-size: $font-size-h2; 
@@ -419,7 +424,7 @@
 			height:50%;
 		}
 		.featured-artist, .quote {
-			padding: $TINY;
+			padding: $SMALL $NORMAL;
 			height: 100%;
 			width: 100%;
 			display: flex;
@@ -429,20 +434,22 @@
 			text-align: center;
 		}
 		.quote {
-			width: $one-third;
-			font-family: $SERIF_STACK; 
+			width: $two-fifths;
 			font-size: $font-size-small;
-padding: $SMALL; 
 		}
 		.featured-artist-image {
-			height: 85%;
+			height: 100%;
 			max-width: 25%;
-			margin:0 $SMALL 0 $SMALL;
 		}
 		@include screen-size('small') {
 			border-bottom: 1px solid var(--foreground-color);
 			.featured-artist {
 				width: 100%;
+				justify-content: flex-start;
+				font-size: $font-size-medium;
+			}
+			.featured-artist-image {
+				margin-right: $NORMAL;
 			}
 				.quote {
 					display: none;
@@ -474,8 +481,8 @@ padding: $SMALL;
 
 
 	.open-eyebeam {
-		height: $two-third;
-			background: $grey;
+		height: calc(50% + (100%/12));
+		background: $grey;
 		width: 100%;
 		border-bottom: 1px solid var(--foreground-color);
 		float: left;
@@ -496,7 +503,6 @@ padding: $SMALL;
 
 	.full-sticker {
 		padding: 0;
-		height: calc(40% - 100px);
 		width: 100%;
 		float: left;
 		border-bottom: 1px solid var(--foreground-color);
@@ -547,7 +553,7 @@ padding: $SMALL;
 		&.header {
 			display: block;
 			font-family: $ALT_FONT;
-			font-size: $font-size-small;
+			font-size: $font-size-medium;
 			font-weight: 600;
 			display: flex;
 			align-content: center;
@@ -555,30 +561,32 @@ padding: $SMALL;
 			min-height: auto;
 			width: 100%;
 			border-bottom: 1px solid var(--foreground-color);
-			height: $LARGE;
+			height: calc(100%/12);
+			padding: $SMALL;
 		}
 
 
 
 		&.event {
 			width:100%;
-			padding: $SMALL;
+			padding: $TINY $NORMAL;
 			min-height: calc(100% /5);
 			max-height: 25%;
+			height:25%;
 			display: flex;
 			align-content: center;
+			align-items: center;
 			.post-image {
 				height: 80%;
-				width: 25%;
-				margin: $SMALL 0;
-				max-width: 25%;
+				width: 30%;
 				flex: none;
+				display: flex;
 				overflow: hidden;
 				img {
 					max-width: 100%;
 					width: 100%;
-					margin: 0 auto;
-					object-fit: cover;
+					align-items: center;
+					//					object-fit: cover;
 				}
 			}
 			.post-content {

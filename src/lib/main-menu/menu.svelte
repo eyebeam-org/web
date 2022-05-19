@@ -55,7 +55,7 @@
 				justify-content: flex-start;
 				text-decoration: none;
 				text-align: center;
-				padding: $button-padding;
+				padding: $SMALL;
 				border-bottom: 1px solid var(--special-text-color);
 				height: $one-sixth;
 				cursor: pointer;
