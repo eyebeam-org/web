@@ -66,7 +66,7 @@
 					<OpenEyebeam />
 				{/if}
 			</div>
-				<a class="sub-tile header" href="/people">OUR ARTISTS</a>
+				<a class="sub-tile header" href="/people">FEATURED ARTISTS</a>
 				<div class="featured-artists">
 				{#each artists as artist}
 					<div class="tile">
@@ -74,29 +74,26 @@
 						href={'/people/' + artist.slug.current }
 						sveltekit:prefetch
 						class="featured-artist"
-	> <img class="featured-artist-image"alt ="" src={artist.image.url}/>{artist.firstName} {artist.lastName}</a>
+> <img class="featured-artist-image"alt ="" src={artist.image.url}/>{artist.firstName} {artist.lastName}
 					<div class="quote">
 							"{artist.quote}"
 					</div>
+	</a>
+
 					</div>
 				{/each}
 </div>
 	</div>
 	<div class="column three">
-<a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
 		{#if get(stickers, 'stickerRight.enabled', false)}
 			{#if get(stickers, 'stickerRight.fullWidth', false) == false}
-				<div class="tile ">
 					<Sticker sticker={stickers.stickerRight} small={true} />
-				</div>
-				<a href="/about/support-eyebeam" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
 			{:else}
-				<div class="tile full-sticker">
-					<Sticker sticker={stickers.stickerRight} small={true} />
-				</div>
+					<Sticker sticker={stickers.stickerRight} small={false} />
 			{/if}
 		{/if}
-		<div class="tile events no-sticker" class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class:large-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == true}>
+<a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
+		<div class:no-sticker={get(stickers, 'stickerRight.enabled', false) == false} class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class="tile events"  >
 {#each newPosts.slice(0, 4) as post}
 				<a
 					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
@@ -206,6 +203,10 @@
 		
 		border-right:1px solid var(--special-text-color);
 		max-width: 100%;
+
+		@include screen-size('small') {
+			border-right: none;
+		}
 		&.one {
 			width: $one-fifth;
 			height: 100%;
@@ -234,7 +235,7 @@
 
 			@include screen-size('small') {
 				width: 100%;
-				height: auto;
+				height: $one-third;
 			}
 		}
 	}
@@ -395,7 +396,11 @@
 		width: 100%;
 		float: left;
 		&.has-sticker {
-			height: calc((((100%/8) * 3) - 40px) - (100%/6));
+			height: calc(((100%/12)*5) - 20px);
+			.event {
+					height: 50%;
+					max-height:50%;
+			}
 		}
 		&.full-sticker {
 			height: calc((25% - 40px) - (100%/6));
@@ -416,10 +421,10 @@
 		.featured-artist, .quote {
 			padding: $TINY;
 			height: 100%;
-			width: $two-third;
+			width: 100%;
 			display: flex;
 			align-items: center;
-			justify-content: flex-start;
+			justify-content: space-between;
 			flex-flow: row nowrap;
 			text-align: center;
 		}
@@ -427,14 +432,15 @@
 			width: $one-third;
 			font-family: $SERIF_STACK; 
 			font-size: $font-size-small;
-			padding: $SMALL $SMALL SMALL 0; 
+padding: $SMALL; 
 		}
 		.featured-artist-image {
 			height: 85%;
 			max-width: 25%;
-			margin:0 10% 0 $SMALL;
+			margin:0 $SMALL 0 $SMALL;
 		}
 		@include screen-size('small') {
+			border-bottom: 1px solid var(--foreground-color);
 			.featured-artist {
 				width: 100%;
 			}
@@ -469,7 +475,7 @@
 
 	.open-eyebeam {
 		height: $two-third;
-		background: $grey;
+			background: $grey;
 		width: 100%;
 		border-bottom: 1px solid var(--foreground-color);
 		float: left;
@@ -550,10 +556,7 @@
 			width: 100%;
 			border-bottom: 1px solid var(--foreground-color);
 			height: $LARGE;
-			@include screen-size('small') {
-				padding-top: $NORMAL;
-			}
-			}
+		}
 
 
 

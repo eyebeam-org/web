@@ -88,8 +88,14 @@ Come see what our fellows are up to in our new digital studio space.
 			}
 		}
 		@include screen-size('small') {
-			.frame-container {
+			flex-wrap: wrap;
+			.link {
 				display: none;
+			}
+			.frame-container {
+//				display: none;
+				width: 100%;
+				
 			}
 			.about {
 				width: 100%;
