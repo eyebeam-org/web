@@ -29,7 +29,7 @@
 			text-align: center;
       display:flex;
       text-align: left;
-      margin-left: $LARGE * 1.5;
+      padding-left: $LARGE * 1.5;
       .home {
         font-family: $ALT_FONT;
         font-size: $font-size-menu;

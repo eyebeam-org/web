@@ -20,6 +20,7 @@
 
 	let hasContent = false;
 	$: hasContent = $sidebarToC.length > 0;
+	$: console.log('sidebarToc: ', $sidebarToC)
 
 	const handleToC = (link) => {
 		if (link[0] == '#') {

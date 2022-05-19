@@ -18,6 +18,9 @@
 
 	// __ STORES
 	import { page as pageStore } from '$app/stores';
+	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	$: sidebarToC.set([]);
+
 
 	// __ PROPS
 	export let page;
