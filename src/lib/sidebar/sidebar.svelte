@@ -42,23 +42,23 @@
 
 	<!-- TOC -->
 	{#if hasContent}
-		<div class="tile toc">
+		<nav aria-label="On This Page" class="tile toc">
 			<p>{$sidebarTitle}</p>
 			{#if $sidebarToC.length > 0}
 				<ul>
 					{#each $sidebarToC as item}
 						<li>
-							<span
+							<a
 								class="pseudo-link"
 								on:click={() => {
 									handleToC(item.link);
-								}}>{item.title}</span
+								}}>{item.title}</a
 							>
 						</li>
 					{/each}
 				</ul>
 			{/if}
-		</div>
+		</nav>
 	{/if}
 
 </aside>
@@ -72,8 +72,7 @@
 	}
 
 	.sidebar {
-		width: $two-sevenths;
-		min-width: 400px;
+		width: $one-sixth;
 		border: 1px solid var(--foreground-color);
 		border-right: none;
 		border-bottom: none;
@@ -88,9 +87,9 @@
 		}
 
 		.open-eyebeam {
-			height: $HEADER_HEIGHT;
 			border-bottom: 1px solid var(--foreground-color);
 			background: $grey;
+			height: calc(100vh - 130px);
 			width: 100%;
 			float: left;
 			position: relative;

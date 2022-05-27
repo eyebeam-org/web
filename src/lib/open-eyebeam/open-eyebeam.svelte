@@ -67,6 +67,11 @@ Come see what our fellows are up to in our new digital studio space.
 			.open-eyebeam-link {
 				font-family: $ALT_FONT;
 				font-size: $font-size-menu;
+				@include screen-size('medium') {
+					font-size: $font-size-journal;
+				}
+
+
 				a {
 					text-decoration: none;
 				}

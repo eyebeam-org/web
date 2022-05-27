@@ -6,7 +6,7 @@
 
 </script>
 <div class="menu-content" class:open={trayOpen}>
-<div class="home">
+<div class="home" role="header">
 <a href="/" class="eyebeam-text" aria-label="eyebeam-homepage">EYEBEAM<HeaderBeam /></a>
 </div>
 </div>
@@ -32,7 +32,7 @@
       padding-left: $LARGE * 1.5;
       .home {
         font-family: $ALT_FONT;
-        font-size: $font-size-menu;
+        font-size: $font-size-logo;
         .eyebeam-text {
           text-decoration: none;
           font-weight: 600;

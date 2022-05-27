@@ -50,7 +50,7 @@
 	};
 </script>
 
-<nav class="menubar" class:open={$trayOpen} aria-expanded=false bind:this={tray}>
+<div aria-label="Accessibility Settings" role="Settings" class="menubar" class:open={$trayOpen} aria-expanded=false bind:this={tray}>
 	<div class="settings">
 		<!-- SETTINGS BAR -->
 		<div class="settings-bar" on:click={toggleTray}>
@@ -160,7 +160,7 @@
 			</div>
 		</div>
 	</div>
-</nav>
+</div>
 
 <style lang="scss">
 	@import '../../variables.scss';

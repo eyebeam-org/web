@@ -21,6 +21,9 @@
 	export let about;
 	export let pressAndNews;
 
+	//STORES
+	import { goto } from '$app/navigation';
+
 	console.log('about', about);
 	console.log('pressAndNews', pressAndNews);
 
@@ -88,6 +91,18 @@
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set(aboutMap['what-is-eyebeam'].title);
 	$: sidebarToC.set(toc);
+	//FIXME: this is currently duplicated here and in sidebar (as handleToC), should be in lib
+	const handlePseudoLink = (link) => {
+		if (link[0] == '#') {
+			const targetElement = document.querySelector(link);
+			if (targetElement) {
+				targetElement.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else {
+			goto(link);
+		}
+	};
+
 </script>
 
 <!-- METADATA -->
@@ -137,12 +152,12 @@
 				</div>
 			{:else}
 				<!-- STANDARD SECTIONS -->
-				<a
+				<div
 					class="tile nav-tile {section}"
-					href={'/about/' + aboutMap[section]._id}
+on:click={()=> {handlePseudoLink('/about/' + aboutMap[section]._id);}}
 					sveltekit:prefetch
 				>
-					<h2>{aboutMap[section].title}</h2>
+<h2> <a href={'/about/' + aboutMap[section]._id}>{aboutMap[section].title}</a></h2>
 					{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
 							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {
@@ -150,7 +165,7 @@
 							})}
 						</div>
 					{/if}
-				</a>
+				</div>
 			{/if}
 		{/each}
 	</div>

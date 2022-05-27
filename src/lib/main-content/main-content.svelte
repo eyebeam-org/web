@@ -96,7 +96,7 @@
 					<figure class="image-container">
 						<img
 							class="main-image"
-							alt={page.title}
+							alt={page.mainImage.alt}
 							src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
 						/>
 						{#if has(page, 'mainImage.caption.content')}
@@ -234,7 +234,7 @@
 	@import '../../variables.scss';
 
 	.main-content {
-		width: $five-sevenths;
+		width: $five-sixths;
 		margin-bottom: $HUGE;
 
 		@include screen-size('small') {

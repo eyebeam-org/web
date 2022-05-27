@@ -52,7 +52,7 @@
 
 <!-- METADATA -->
 <Metadata />
-
+<h1 class="accessibility-title">Eyebeam Home</h1>
 <div class="homepage-menu">
 	<section>
 		<div class="column one">
@@ -66,26 +66,30 @@
 					<OpenEyebeam />
 				{/if}
 			</div>
-				<a class="sub-tile header" href="/people">FEATURED ARTISTS</a>
+<h2><a class="sub-tile header" href="/people">FEATURED ARTISTS</a></h2>
 				<div class="featured-artists">
+				<ul>
 				{#each artists as artist}
 					<div class="tile">
-					<a
+<li>
+<a
 						href={'/people/' + artist.slug.current }
 						sveltekit:prefetch
 						class="featured-artist"
-> <img class="featured-artist-image"alt ="" src={artist.image.url}/>{artist.firstName} {artist.lastName}
-					<div class="quote">
+>  <img class="featured-artist-image"alt ="" src={artist.image.url}/><h3>{artist.firstName} {artist.lastName}</h3>
+					<h4 class="quote">
 							"{artist.quote}"
-					</div>
+			</h4>
 	</a>
 
+					</li>
 					</div>
 				{/each}
-</div>
+</ul>
+	</div>
 	</div>
 	<div class="column three">
-<a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
+<h2><a class="sub-tile header" href="/events">UPCOMING & RECENT</a></h2>
 		{#if get(stickers, 'stickerRight.enabled', false)}
 			{#if get(stickers, 'stickerRight.fullWidth', false) == false}
 					<Sticker sticker={stickers.stickerRight} small={true} />
@@ -101,9 +105,11 @@
 					sveltekit:prefetch
 				>
 					{#if post.mainImage != undefined && post.mainImage.asset != undefined}
-					<div class="post-image">
-						<img src={urlFor(post.mainImage.asset).width(1000).url()} />
-					</div>
+					{#if get(stickers, 'stickerRight.enabled', false) == false}
+						<div class="post-image">
+							<img src={urlFor(post.mainImage.asset).width(1000).url()} alt={post.mainImage.alt} />
+						</div>
+					{/if}
 					{/if}
 					<div class="post-content">
 						{#if post.startDate}
@@ -111,13 +117,13 @@
 						{:else if post._updatedAt }
 						<div class="time">{distanceToDate(post._updatedAt)}</div>
 					{/if}
-					<div class="title">{truncate(post.title, { length: 72 })}</div>
+<div class="title"><h3>{truncate(post.title, { length: 72 })}</h3></div>
 					{#if post.people && post.people.length > 0}
 						<div class="event-people">
 						{#if post.people.length <= 1}
-							<PersonLinkList people={post.people} />
+<h4><PersonLinkList people={post.people} /></h4>
 						{:else}
-							<PersonLinkList people={post.people.slice(0, 1)} /> & {post.people.length - 1} more
+<h4><PersonLinkList people={post.people.slice(0, 1)} /> & {post.people.length - 1} more</h4>
 						{/if}
 							</div>
 					{/if}
@@ -126,22 +132,31 @@
 			{/each}
 		</div>
 <div class="socials">
-		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
+		<ul>
+<li>		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
 			Newsletter
-			<div class="icon"><Newsletter /></div>
+<div class="icon"><Newsletter /></div>
 		</a>
+</li>
+<li>
 		<a href={INSTAGRAM_URL} target="_blank" class="tile social instagram"
 			>Instagram
 			<div class="icon"><Instagram /></div>
 		</a>
+</li>
+<li>
 		<a href={TWITTER_URL} target="_blank" class="tile social twitter"
 			>Twitter
 			<div class="icon"><Twitter /></div>
 		</a>
+</li>
+<li>
 		<a href={YOUTUBE_URL} target="_blank" class="tile social youtube"
 			>Youtube
 			<div class="icon"><Youtube /></div>
 		</a>
+	</li>
+</ul>
 </div>
 
 	</div>
@@ -153,6 +168,7 @@
 {/if}
 
 <style lang="scss">
+
 	@import '../variables.scss';
 
 	$one-third: calc(100% / 3);
@@ -160,6 +176,24 @@
 	section {
 		all: unset;
 }
+	.accessibility-title {
+		display: none;
+	}
+	h2, h3, h4 {
+		all:unset;
+	}
+	ul, li {
+		all: unset;
+		padding: 0;
+		display: inline;
+		max-height: 100%;
+	}
+	ul:before, li:before {
+		padding: 0;
+		all: unset;
+		list-style: none;
+		content: none;
+	}
 
 	.homepage-menu {
 		border: 1px solid var(--foreground-color);
@@ -169,11 +203,9 @@
 		margin-left: auto;
 		margin-right: auto;
 
-		min-width: 900px;
 		min-height: 520px;
 
-		max-width: 1400px;
-		max-height: 900px;
+		max-width: 100%;
 
 		@include screen-size('small') {
 			height: auto;
@@ -208,12 +240,16 @@
 			border-right: none;
 		}
 		&.one {
-			width: calc((100%/12)*2);
+			width: $one-sixth;
 			height: 100%;
-
 			@include screen-size('small') {
 				display: none;
 			}
+		@include screen-size('medium') {
+			width: $one-fourth;
+		}
+
+
 		}
 
 
@@ -226,6 +262,10 @@
 				width: 100%;
 				height: auto;
 			}
+		@include screen-size('medium') {
+			width: $one-half;
+		}
+
 		}
 
 		&.three {
@@ -238,6 +278,11 @@
 				width: 100%;
 				height: $one-third;
 			}
+			@include screen-size('medium') {
+				width: $one-fourth;
+			}
+
+
 		}
 	}
 	.socials {
@@ -340,6 +385,10 @@
 			width: 50%;
 			height: 85px;
 		}
+		@include screen-size('medium') {
+			font-size: 0px;
+		}
+
 
 		&.youtube {
 			border-right: none;
@@ -436,6 +485,10 @@
 		.quote {
 			width: $two-fifths;
 			font-size: $font-size-small;
+			@include screen-size('medium') {
+				font-size: $font-size-extra-small;
+			}
+
 		}
 		.featured-artist-image {
 			height: 100%;
@@ -554,6 +607,9 @@
 			display: block;
 			font-family: $ALT_FONT;
 			font-size: $font-size-medium;
+			@include screen-size('medium') {
+				font-size: $font-size-journal
+			}
 			font-weight: 600;
 			display: flex;
 			align-content: center;
@@ -604,6 +660,11 @@
 		.title {
 			margin-bottom: $TINY;
 			width: 100%;
+			@include screen-size('medium') {
+				font-size: $font-size-extra-small;
+			}
+
+
 		}
 
 

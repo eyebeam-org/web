@@ -90,7 +90,7 @@
 
 	.main-content {
 		float: left;
-		width: $two-third;
+		width: $five-sixths;
 
 		@include screen-size('small') {
 			width: 100%;

@@ -33,7 +33,7 @@
 </script>
 
 {#await contact then contact}
-	<footer>
+	<footer role="footer">
 
 		<!-- LOGO -->
 
@@ -48,7 +48,7 @@
 		<!-- TAGLINE -->
 		<div class="line tagline">{contact.tagline}</div>
 		<!-- SEARCH -->
-<div class="tile search" on:click={toggleSearch}><div class="icon"><SearchIcon /></div> <span class="search-text">Search this website</span></div>
+<a href="#search" class="tile search" on:click={toggleSearch}><div class="icon"><SearchIcon /></div> <span class="search-text">Search this website</span></a>
 
 		<!-- PHONE -->
 		<div class="line phone-number">
@@ -77,6 +77,7 @@
 	@import '../../variables.scss';
 
 	.search {
+		text-decoration: none;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: flex-start;

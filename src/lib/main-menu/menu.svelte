@@ -11,14 +11,14 @@
 	};
 
 </script>
-<nav class="menu-content">
+<nav class="menu-content" aria-label="primary" role="navigation">
 <div class="section">
 <a class="menu-button" href="/about">About</a>
 <a class="menu-button" href="/people">Artists</a>
 <a class="menu-button" href="/everything">Archive</a>
 <a class="menu-button" href="/programs">Programs</a>
 <a class="menu-button" href="/about/support-eyebeam">Join Us</a>
-<a class="menu-button" on:click={toggleSearch}><span class="icon"><SearchIcon /></span> <span class="search-text">Search</span></a>
+<a class="menu-button" href="#search" on:click={toggleSearch}><span class="icon"><SearchIcon /></span> <span class="search-text">Search</span></a>
 </div>
 </nav>
 
@@ -47,6 +47,9 @@
 				}
 			.menu-button {
 				font-size: $font-size-menu;
+				@include screen-size('medium') {
+					font-size: $font-size-medium;
+				}
 				text-transform: uppercase;
 				flex-grow: 1;
 				display: flex;

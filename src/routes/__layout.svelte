@@ -148,6 +148,10 @@
 
 <style lang="scss" global>
 	@import '../variables.scss';
+	@include screen-size('medium') {
+		$SCALE_FACTOR: 0.8;
+	}
+
 
 	:root {
 		--background-color: rgb(245, 244, 238);

@@ -132,14 +132,15 @@
 			<!-- ALPHABETICAL NAVIGATION -->
 			<div class="alphabetical-navigation">
 				{#each ALPHABET as alpha}
-					<div
+					<button
 						class="item"
 						on:click={() => {
 							scrollToSection(alpha);
 						}}
+						aria-label={"Jump to the letter:" + alpha }
 					>
 						{alpha}
-					</div>
+					</button>
 				{/each}
 			</div>
 		{/if}
@@ -191,15 +192,17 @@
 				<div class="filter-header">Show</div>
 				<div class="filter-options">
 					{#each FILTERS as option}
-						<div
+						<button
 							class="filter-option"
 							class:active={activeFilter === option.value}
 							on:click={() => {
 								activeFilter = option.value;
 							}}
+							aria-label={"Filter by: " + option.value}
+aria-selected={activeFilter == option.value ? "true" : "false"}
 						>
 							{option.label}
-						</div>
+						</button>
 					{/each}
 				</div>
 			</div>
@@ -242,6 +245,15 @@
 
 <style lang="scss">
 	@import '../../variables.scss';
+	button {
+		background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	}
 
 	.main-content {
 		float: left;

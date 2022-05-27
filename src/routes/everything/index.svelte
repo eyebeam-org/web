@@ -94,15 +94,17 @@
 			{/if}
 			<section class="filters">
 				{#each FILTERS as filter}
-					<div
+					<button
 						class="filter"
 						class:active={activeFilter == filter.value}
 						on:click={() => {
 							activeFilter = filter.value;
 						}}
+						aria-label={ "Filter by: " + filter.value}
+						aria-selected={activeFilter == filter.value ? "true" : "false"}
 					>
 						{filter.label}
-					</div>
+					</button>
 				{/each}
 			</section>
 
@@ -138,6 +140,15 @@
 
 <style lang="scss">
 	@import '../../variables.scss';
+	button {
+		background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	}
 
 	.main-content {
 		float: left;
