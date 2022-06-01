@@ -159,9 +159,6 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 		width: 50%;
 		display: block;
 		float: left;
-		@include screen-size('medium') {
-			width: 100%;
-		}
 		@include screen-size('small') {
 			width: 100%;
 		}
@@ -191,6 +188,8 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 		border-bottom: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
+		max-height: $HEADER_HEIGHT;
+		overflow: scroll;
 		padding: $NORMAL;
 
 		@include screen-size('small') {
@@ -211,10 +210,9 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 	.header-photo {
 		overflow: none;
 		padding: 0;
-		max-height: $HEADER_HEIGHT;
+		min-height: $HEADER_HEIGHT;
 		border-bottom: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
-		width: 50%;
 		height: $HEADER_HEIGHT;
 		img {
 			width: 100%;
