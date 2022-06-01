@@ -14,11 +14,12 @@
 
 	// __ PROPS
 	export let updatedAt = false;
+	let scrollTop
 
 	const backToTop = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 		document.tabIndex = 0;
-		document.focus();
+		document.getElementsByClassName('main-content')[0].focus()
 	};
 </script>
 
