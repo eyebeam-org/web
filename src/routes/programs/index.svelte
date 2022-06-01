@@ -25,8 +25,21 @@
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	import { goto } from '$app/navigation';
+
 	$: sidebarTitle.set('Programs');
 	$: sidebarToC.set(toc);
+	const handlePseudoLink = (link) => {
+		if (link[0] == '#') {
+			const targetElement = document.querySelector(link);
+			if (targetElement) {
+				targetElement.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else {
+			goto(link);
+		}
+	};
+
 </script>
 
 <!-- METADATA -->
@@ -53,9 +66,12 @@
 		</div>
 				<!-- LIST PROGRAMS -->
 		{#each programs as program}
-			<a class="tile nav-tile" href={'/programs/' + program.slug.current} sveltekit:prefetch>
+<div class="tile nav-tile"
+on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
+					sveltekit:prefetch
+>
 				<!-- TITLE -->
-				<h2>{program.title}</h2>
+			<h2><a href={'/programs/' + program.slug.current} sveltekit:prefetch>{program.title}</a></h2>
 				<!-- DESCRIPTION -->
 				{#if has(program, 'introduction.content')}
 					<div class="introduction-text">
@@ -76,7 +92,7 @@
 						</div>
 					</div>
 				{/if}
-			</a>
+			</div>
 		{/each}
 	</div>
 
