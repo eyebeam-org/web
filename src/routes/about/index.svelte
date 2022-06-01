@@ -228,7 +228,6 @@ on:click={()=> {handlePseudoLink('/about/' + aboutMap[section]._id);}}
 		min-height: $HEADER_HEIGHT;
 		max-height: $HEADER_HEIGHT;
 		overflow: scroll;
-		padding-top: 0;
 		padding-right: $LARGE;
 
 		@include screen-size('small') {
