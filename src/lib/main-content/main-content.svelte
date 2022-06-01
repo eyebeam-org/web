@@ -39,7 +39,7 @@
 	let showPeople = PEOPLE_TYPES.includes(page._type) ? true : false;
 </script>
 
-<div class="main-content" in:fade>
+<div class="main-content" in:fade tabindex=0>
 	<article class="article">
 		{#if page._type == 'videoPost'}
 			<VideoPlayer {page} />

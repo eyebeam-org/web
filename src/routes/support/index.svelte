@@ -63,7 +63,7 @@
 <!-- METADATA -->
 
 <!-- MAIN CONTENT -->
-<div class="main-content">
+<div class="main-content" tabindex=0>
 	<div class="inner">
 		<div class="tile header-photo">
 			<img src="eyebeambox.gif" alt="A gif of a black box with the word 'Eyebeam' on each face, slowly rotating" />

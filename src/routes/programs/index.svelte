@@ -46,7 +46,7 @@
 <Metadata page={{ title: 'Programs' }} />
 
 <!-- MAIN CONTENT -->
-<div class="main-content">
+<div class="main-content" tabindex=0>
 	<div class="inner">
 		<div class="tile header-photo">
 			<img src="ddc_header.jpg" alt="A student sitting at a laptop with headphones around his ears, surrounded by other students deep in thought. He is black, with short, curly hair, wearing a black hoodie." />
@@ -58,10 +58,9 @@
 			<!-- INTRODUCTION -->
 			<div class="description">
 				<p>
-					Programs are the primary way Eyebeam enacts it’s mission. Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit. Curabitur tempor nulla nulla, sit amet efficitur justo
-					vestibulum nec. Donec eget condimentum tortor
-				</p>
+					Eyebeam offers courses, fellowships, and other programs to support artists, technologists, and more.
+		
+	</p>
 			</div>
 		</div>
 				<!-- LIST PROGRAMS -->
