@@ -188,9 +188,9 @@
 				</div>
 			</nav>
 			<!-- FILTER -->
-			<div class="filter">
+			<div class="filter" >
 				<div class="filter-header">Show</div>
-				<div class="filter-options">
+				<div class="filter-options" >
 					{#each FILTERS as option}
 						<button
 							class="filter-option"
@@ -200,6 +200,7 @@
 							}}
 							aria-label={"Filter by: " + option.value}
 aria-selected={activeFilter == option.value ? "true" : "false"}
+role="option"
 						>
 							{option.label}
 						</button>
