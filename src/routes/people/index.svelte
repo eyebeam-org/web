@@ -257,7 +257,7 @@ aria-selected={activeFilter == option.value ? "true" : "false"}
 
 	.main-content {
 		float: left;
-		width: $two-third;
+		width: 100%;
 
 		@include screen-size('small') {
 			width: 100%;

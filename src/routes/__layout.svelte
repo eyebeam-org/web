@@ -100,7 +100,6 @@
 </script>
 
 <!-- HEADER -->
-<Menubar {ready} />
 
 <!-- PHONE HEADER -->
 
@@ -121,8 +120,7 @@
 				<slot />
 			{:else}
 				<div class="navigating" />
-			{/if}
-		{:else}
+			{/if} {:else}
 
 			<Sidebar fullBorders={$navigating !== null} />
 			{#if $navigating == null}
@@ -292,8 +290,7 @@
 		li {
 			padding-left: 1em;
 			text-indent: -1em;
-			&:before {
-				content: '•';
+			&:before { content: '•';
 				padding-right: $TINY;
 				position: relative;
 				top: -1px;

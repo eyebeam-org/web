@@ -25,7 +25,7 @@
       position: relative;
       display: block;
 			width: 100%;
-			padding-top: 50px;
+			padding-top: 20px;
 			text-align: center;
       display:flex;
       text-align: left;

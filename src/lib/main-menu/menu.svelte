@@ -17,8 +17,8 @@
 <a class="menu-button" href="/people">Artists</a>
 <a class="menu-button" href="/everything">Archive</a>
 <a class="menu-button" href="/programs">Programs</a>
-<a class="menu-button" href="/about/support-eyebeam">Join Us</a>
-<a class="menu-button" href="#search" on:click={toggleSearch}><span class="icon"><SearchIcon /></span> <span class="search-text">Search</span></a>
+<a class="menu-button" href="/support">Support</a>
+<a class="menu-button" href="#search" on:click={toggleSearch}><span class="search-text">Search</span> <span class="icon"><SearchIcon /></span></a>
 </div>
 </nav>
 
@@ -48,7 +48,7 @@
 			.menu-button {
 				font-size: $font-size-menu;
 				@include screen-size('medium') {
-					font-size: $font-size-medium;
+					font-size: $font-size-journal;
 				}
 				text-transform: uppercase;
 				flex-grow: 1;
@@ -75,7 +75,10 @@
 					color: $white;
 				}
 				.icon {
-					margin-right: $NORMAL;
+					margin: $TINY 0 0 $SMALL;
+					@include screen-size('medium') {
+						display: none;
+					}
 				}
 				&:last-child {
 					border-bottom: none;

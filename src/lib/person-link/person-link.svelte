@@ -88,6 +88,7 @@
 		sveltekit:prefetch
 		on:mouseenter={show}
 		on:mouseleave={hide}
+		class="person-link"
 	>
 		{#if person.title.length < 20}
 		{@html overrideText ? renderNewLines(overrideText) : person.title}
@@ -160,6 +161,12 @@
 		text-decoration: none;
 		margin-bottom: $TINY;
 		display: inline-block;
+	}
+	.person-link {
+		font-size: $font-size-small;
+		@include screen-size('medium') {
+			font-size: $font-size-extra-small;
+		}
 	}
 
 	.column {

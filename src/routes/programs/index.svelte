@@ -35,6 +35,10 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
+		<div class="tile header-photo">
+			<img src="ddc_header.jpg" alt="A student sitting at a laptop with headphones around his ears, surrounded by other students deep in thought. He is black, with short, curly hair, wearing a black hoodie." />
+		</div>
+
 		<div class="tile introduction">
 			<!-- TITLE -->
 			<h1>Programs</h1>
@@ -47,7 +51,7 @@
 				</p>
 			</div>
 		</div>
-		<!-- LIST PROGRAMS -->
+				<!-- LIST PROGRAMS -->
 		{#each programs as program}
 			<a class="tile nav-tile" href={'/programs/' + program.slug.current} sveltekit:prefetch>
 				<!-- TITLE -->
@@ -82,10 +86,24 @@
 
 <style lang="scss">
 	@import '../../variables.scss';
-
+	h1, h2 {
+		font-family: $ALT_FONT;
+		font-size: $font-size-menu;
+		text-transform: uppercase;
+		padding-right: $LARGE;
+	}
 	.tile {
 		padding: $SMALL;
 		overflow: hidden;
+		width: 50%;
+		display: block;
+		float: left;
+		@include screen-size('medium') {
+			width: 100%;
+		}
+		@include screen-size('small') {
+			width: 100%;
+		}
 	}
 
 	.main-content {
@@ -111,8 +129,7 @@
 	.introduction {
 		border-bottom: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
-		padding-top: 0;
-		padding-right: $LARGE;
+		padding: $LARGE;
 
 		@include screen-size('small') {
 			border-bottom: unset;
@@ -130,19 +147,30 @@
 		}
 	}
 
+	.header-photo {
+		overflow: hidden;
+		padding: 0;
+		max-height: $HEADER_HEIGHT;
+		border-bottom: 1px solid var(--foreground-color);
+		border-right: 1px solid var(--foreground-color);
+		img {
+			max-height: 100%;
+			max-width: 100%;
+		}
+	}
+
 	.nav-tile {
-		width: 50%;
 		min-height: $HEADER_HEIGHT;
 		border-bottom: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
-		display: block;
-		float: left;
-		text-decoration: none;
+				text-decoration: none;
 		cursor: pointer;
-		padding-right: $LARGE;
-
-		&:nth-child(odd) {
+		padding: $LARGE;
+		&:nth-child(even) {
 			border-right: none;
+		}
+		a {
+			text-decoration: none;
 		}
 
 		&:nth-last-child(1) {

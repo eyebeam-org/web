@@ -42,7 +42,7 @@
 
 	<!-- TOC -->
 	{#if hasContent}
-		<nav aria-label="On This Page" class="tile toc">
+		<nav aria-label="Secondary" class="tile toc">
 			<p>{$sidebarTitle}</p>
 			{#if $sidebarToC.length > 0}
 				<ul>

@@ -23,7 +23,7 @@
 
 	svg {
 		 max-height: 100%;
-		 width: $LARGE * 1.2;
+		 width: $LARGE * 1.5;
 		 margin-left: $NORMAL;
 		// background: green;
 		path {

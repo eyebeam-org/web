@@ -76,7 +76,7 @@
 						href={'/people/' + artist.slug.current }
 						sveltekit:prefetch
 						class="featured-artist"
->  <img class="featured-artist-image"alt ="" src={artist.image.url}/><h3>{artist.firstName} {artist.lastName}</h3>
+>  <img class="featured-artist-image"alt ="" src={artist.image.url}/><h3 class="featured-artist-name">{artist.firstName} {artist.lastName}</h3>
 					<h4 class="quote">
 							"{artist.quote}"
 			</h4>
@@ -123,7 +123,7 @@
 						{#if post.people.length <= 1}
 <h4><PersonLinkList people={post.people} /></h4>
 						{:else}
-<h4><PersonLinkList people={post.people.slice(0, 1)} /> & {post.people.length - 1} more</h4>
+<h4><PersonLinkList people={post.people.slice(0, 1)} /> <span class="and-more">& {post.people.length - 1} more</span></h4>
 						{/if}
 							</div>
 					{/if}
@@ -177,7 +177,11 @@
 		all: unset;
 }
 	.accessibility-title {
-		display: none;
+		position: absolute;
+		left: 100000000000000000000000000000px;
+		width: 1px;
+		width: 0px;
+		overflow:hidden;
 	}
 	h2, h3, h4 {
 		all:unset;
@@ -242,12 +246,13 @@
 		&.one {
 			width: $one-sixth;
 			height: 100%;
+			@include screen-size('medium') {
+				width: $one-fourth;
+			}
+
 			@include screen-size('small') {
 				display: none;
 			}
-		@include screen-size('medium') {
-			width: $one-fourth;
-		}
 
 
 		}
@@ -257,14 +262,14 @@
 			width: calc((100%/12)*6);
 			// background: red;
 			height: 100%;
+			@include screen-size('medium') {
+				width: $one-half;
+			}
 
 			@include screen-size('small') {
 				width: 100%;
 				height: auto;
 			}
-		@include screen-size('medium') {
-			width: $one-half;
-		}
 
 		}
 
@@ -273,14 +278,14 @@
 			width: calc((100%/12)*4);
 			height: 100%;
 			border-right: none;
-
+@include screen-size('medium') {
+				width: $one-fourth;
+			}
 			@include screen-size('small') {
 				width: 100%;
 				height: $one-third;
 			}
-			@include screen-size('medium') {
-				width: $one-fourth;
-			}
+			
 
 
 		}
@@ -468,7 +473,7 @@
 		height: calc(50% - (100%/6));
 		flex-flow: row wrap;
 		font-family: $ALT_FONT;
-		font-size: $font-size-h2; 
+		font-size: $font-size-medium; 
 		.tile {
 			height:50%;
 		}
@@ -482,11 +487,16 @@
 			flex-flow: row nowrap;
 			text-align: center;
 		}
+		.featured-artist-name {
+			padding: $TINY;
+		}
 		.quote {
 			width: $two-fifths;
-			font-size: $font-size-small;
+			font-size: $font-size-body;
+			font-family: $SERIF_STACK;
 			@include screen-size('medium') {
 				font-size: $font-size-extra-small;
+				padding: $TINY;
 			}
 
 		}
@@ -642,23 +652,38 @@
 					max-width: 100%;
 					width: 100%;
 					align-items: center;
-					//					object-fit: cover;
+					object-fit: cover;
 				}
 			}
 			.post-content {
 				padding: 0 $SMALL;
 				display: flex;
 				flex-flow: column nowrap;
+				@include screen-size('medium') {
+					padding: $TINY;
+				}
+
 			}
+			.and-more {
+				@include screen-size('medium') {
+					display: none;
+				}
+			}
+
 		}
 
 		.time {
 			margin-bottom: $TINY;
 			font-size: $font-size-extra-small;
+			@include screen-size('medium') {
+				display: none;
+			}
+
 		}
 
 		.title {
 			margin-bottom: $TINY;
+			font-size: $font-size-small;
 			width: 100%;
 			@include screen-size('medium') {
 				font-size: $font-size-extra-small;
