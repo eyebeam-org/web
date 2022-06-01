@@ -29,7 +29,7 @@
 	const BOXED_TYPES = ['program', 'note', 'person'];
 	let boxed = BOXED_TYPES.includes(page._type) ? true : false;
 
-	const INTRO_TYPES = ['program', 'note'];
+	const INTRO_TYPES = ['program', 'note', 'about', 'ourHistory', 'ourMissionAndValues'];
 	let showIntroduction = INTRO_TYPES.includes(page._type) ? true : false;
 
 	const TIGHT_TYPES = ['artists', 'event', 'eyebeamIsChanging', 'news', 'press'];
@@ -37,6 +37,7 @@
 
 	const PEOPLE_TYPES = ['event', 'videoPost'];
 	let showPeople = PEOPLE_TYPES.includes(page._type) ? true : false;
+	console.log('page type: ', page._type)
 </script>
 
 <div class="main-content" in:fade tabindex=0>
@@ -92,7 +93,7 @@
 				</div>
 
 				<!-- MAIN IMAGE -->
-				{#if !showIntroduction && has(page, 'mainImage.asset')}
+				{#if has(page, 'mainImage.asset')}
 					<figure class="image-container">
 						<img
 							class="main-image"

@@ -14,7 +14,7 @@
 <nav class="menu-content" aria-label="primary" role="navigation">
 <div class="section">
 <a class="menu-button" href="/about">About</a>
-<a class="menu-button" href="/people">Artists</a>
+<a class="menu-button" href="/artists">Artists</a>
 <a class="menu-button" href="/everything">Archive</a>
 <a class="menu-button" href="/programs">Programs</a>
 <a class="menu-button" target="_blank" href="https://fold.eyebeam.org/enter/">Membership</a>

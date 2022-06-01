@@ -58,7 +58,7 @@
 			title: 'Staff & Board'
 		},
 		{
-			link: '/about/artists',
+			link: '/people',
 			title: 'Artists'
 		},
 		{
@@ -163,10 +163,10 @@ Eyebeam invites you into the core of what we do where we can imagine a better fu
 				<!-- STANDARD SECTIONS -->
 				<div
 					class="tile nav-tile {section}"
-on:click={()=> {handlePseudoLink('/about/' + aboutMap[section]._id);}}
+on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id);}}
 					sveltekit:prefetch
 				>
-<h2> <a href={'/about/' + aboutMap[section]._id}>{aboutMap[section].title}</a></h2>
+<h2> <a href={ section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id}>{aboutMap[section].title}</a></h2>
 					{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
 							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {

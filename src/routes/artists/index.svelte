@@ -54,29 +54,29 @@
 		'Y',
 		'Z'
 	];
-	const FILTERS = [
-		{
-			label: 'Everyone',
-			value: 'everyone'
-		},
-		{
-			label: 'Artists',
-			value: 'artist'
-		},
-		{
-			label: 'Staff',
-			value: 'staff'
-		},
-		{
-			label: 'Board',
-			value: 'board'
-		},
-		{
-			label: 'Advisory Committee',
-			value: 'advisoryCommittee'
-		}
-	];
-
+	//	const FILTERS = [
+	//		{
+	//			label: 'Everyone',
+	//			value: 'everyone'
+	//		},
+	//		{
+	//			label: 'Artists',
+	//			value: 'artist'
+	//		},
+	//		{
+	//			label: 'Staff',
+	//			value: 'staff'
+	//		},
+	//		{
+	//			label: 'Board',
+	//			value: 'board'
+	//		},
+	//		{
+	//			label: 'Advisory Committee',
+	//			value: 'advisoryCommittee'
+	//		}
+	//	];
+	//
 	const scrollToSection = (alpha) => {
 		const el = document.querySelector('#' + alpha);
 		if (el) {
@@ -103,7 +103,7 @@
 	$: {
 		if (activeFilter === 'everyone') {
 			filteredPeople = people;
-			history.replaceState({}, '', '/people');
+			history.replaceState({}, '', '/artists');
 		} else {
 			filteredPeople = people.filter((p) => p.role === activeFilter);
 			const url = new URL(window.location);
@@ -124,7 +124,7 @@
 </script>
 
 <!-- METADATA -->
-<Metadata page={{ title: 'People' }} />
+<Metadata page={{ title: 'Artists' }} />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
@@ -162,33 +162,40 @@
 
 		<!-- HEADER -->
 		<header class="header">
-			<h1>People</h1>
+			<h1>Artists</h1>
 			<!-- ORDER -->
 			<nav class="order">
 				<div class="order-header">Order by</div>
 				<div class="order-options">
-					<div
+					<button
 						class="order-option alphabetical"
 						class:active={order === 'alphabetical'}
 						on:click={() => {
 							order = 'alphabetical';
 						}}
+						role='option'
+						aria-selected={order == 'alphabetical' ? true : false}
+						aria-label={"Filter by: " + 'alphabetical'}
+
 					>
 						A-Z <span class="icon"><ArrowDown /></span>
-					</div>
+					</button>
 					<div
 						class="order-option chronological"
 						class:active={order === 'chronological'}
 						on:click={() => {
 							order = 'chronological';
 						}}
+						role='option'
+						aria-selected={order == 'chronological' ? true : false}
+							aria-label={"Order by: " + 'chronological'}
 					>
 						Year <span class="icon"><ArrowDown /></span>
 					</div>
 				</div>
 			</nav>
 			<!-- FILTER -->
-			<div class="filter" >
+<!--			<div class="filter" >
 				<div class="filter-header">Show</div>
 				<div class="filter-options" >
 					{#each FILTERS as option}
@@ -206,7 +213,7 @@ role="option"
 						</button>
 					{/each}
 				</div>
-			</div>
+</div> !-->
 		</header>
 
 		<!-- LIST -->
