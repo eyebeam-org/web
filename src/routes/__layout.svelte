@@ -112,7 +112,7 @@
 	<Loading />
 {:else}
 	<!-- MAIN -->
-	<main id="main" class:open={$trayOpen} class:journal={isJournal} class:inversion={$inversion}>
+	<main id="main" role="main" class:open={$trayOpen} class:journal={isJournal} class:inversion={$inversion}>
 
 		<!-- Don't render the sidebar for landing and journal -->
 		{#if $page.url.pathname == '/' || isJournal}

@@ -92,7 +92,7 @@
 					<Blocks blocks={page.content.content} />
 				</div>
 			{/if}
-			<section class="filters">
+			<section class="filters" role="option">
 				{#each FILTERS as filter}
 					<button
 						class="filter"
