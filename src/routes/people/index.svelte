@@ -81,6 +81,7 @@
 		const el = document.querySelector('#' + alpha);
 		if (el) {
 			el.scrollIntoView({ behavior: 'smooth' });
+			el.focus()
 			history.replaceState(null, null, '#' + alpha);
 		}
 	};
@@ -130,7 +131,8 @@
 	<div class="inner">
 		{#if order == 'alphabetical'}
 			<!-- ALPHABETICAL NAVIGATION -->
-			<div class="alphabetical-navigation">
+			<nav role="On this page" class="alphabetical-navigation">
+				<h2 class="accessibility-descriptor">Jump to a letter of the alphabet</h2>
 				{#each ALPHABET as alpha}
 					<button
 						class="item"
@@ -142,7 +144,7 @@
 						{alpha}
 					</button>
 				{/each}
-			</div>
+			</nav>
 		{/if}
 		{#if order == 'chronological'}
 			<!-- CHRONOLOGICAL NAVIGATION -->
@@ -426,4 +428,10 @@ role="option"
 	.supersized {
 		font-size: $font-size-h1;
 	}
+.accessibility-descriptor {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	right: 1000000px;
+}
 </style>

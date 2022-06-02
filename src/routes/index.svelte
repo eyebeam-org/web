@@ -54,10 +54,11 @@
 <Metadata />
 <h1 class="accessibility-title">Eyebeam Home</h1>
 <div class="homepage-menu">
+	<section role="menu">
+	<div class="column one">
+		<Menu />
+	</div>
 	<section>
-		<div class="column one">
-			<Menu />
-		</div>
 		<div class="column two">
 			<div class="tile open-eyebeam">
 				{#if get(stickers, 'stickerLeft.enabled', false)}
