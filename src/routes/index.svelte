@@ -77,9 +77,9 @@
 						sveltekit:prefetch
 						class="featured-artist"
 >  <img class="featured-artist-image"alt ="" src={artist.image.url}/><h3 class="featured-artist-name">{artist.firstName} {artist.lastName}</h3>
-					<h4 class="quote">
+					<div class="quote">
 							"{artist.quote}"
-			</h4>
+			</div>
 	</a>
 
 					</li>
@@ -121,9 +121,9 @@
 					{#if post.people && post.people.length > 0}
 						<div class="event-people">
 						{#if post.people.length <= 1}
-<h4><PersonLinkList people={post.people} /></h4>
+<PersonLinkList people={post.people} />
 						{:else}
-<h4><PersonLinkList people={post.people.slice(0, 1)} /> <span class="and-more">& {post.people.length - 1} more</span></h4>
+<PersonLinkList people={post.people.slice(0, 1)} /> <span class="and-more">& {post.people.length - 1} more</span>
 						{/if}
 							</div>
 					{/if}

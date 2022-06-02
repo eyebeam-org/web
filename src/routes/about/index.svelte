@@ -200,6 +200,11 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 		float: left;
 		@include screen-size('small') {
 			width: 100%;
+			border: 1px solid var(--foreground-color);
+			border-top: none;
+			&:first-child {
+				border-top: 1px solid var(--foreground-color);
+			}
 		}
 	}
 
@@ -251,7 +256,6 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 		max-height: $HEADER_HEIGHT;
 		border-bottom: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
-		width: 50%;
 		height: $HEADER_HEIGHT;
 		img {
 			height: 100%;
@@ -383,10 +387,13 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 			display: flex;
 			margin-top: $NORMAL;
 			padding-bottom: $NORMAL;
+			overflow: hidden;
+			position: relative;
 
 			@include screen-size('small') {
 				flex-wrap: wrap;
 				margin-top: 0;
+				padding-bottom: $LARGE;
 			}
 		}
 

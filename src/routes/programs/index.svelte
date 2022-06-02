@@ -118,6 +118,13 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 		}
 		@include screen-size('small') {
 			width: 100%;
+			border: 1px solid var(--foreground-color);
+			border-top: none;
+			&:first-child {
+				border-top: 1px solid var(--foreground-color);
+			}
+
+
 		}
 	}
 
@@ -147,9 +154,7 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 		padding: $LARGE;
 
 		@include screen-size('small') {
-			border-bottom: unset;
 			min-height: unset;
-			padding: unset;
 		}
 
 		p {
