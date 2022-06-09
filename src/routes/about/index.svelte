@@ -207,6 +207,9 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 			}
 		}
 	}
+	.description {
+		font-size: $font-size-body;
+	}
 
 	.main-content {
 		float: left;

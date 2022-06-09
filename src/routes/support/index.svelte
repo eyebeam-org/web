@@ -189,6 +189,9 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 			}
 		}
 	}
+	.description {
+		font-size: $font-size-body;
+	}
 
 	.introduction {
 		border-bottom: 1px solid var(--foreground-color);

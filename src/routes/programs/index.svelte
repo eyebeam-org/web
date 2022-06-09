@@ -113,6 +113,7 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 		width: 50%;
 		display: block;
 		float: left;
+		font-size: $font-size-body;
 		@include screen-size('medium') {
 			width: 100%;
 		}

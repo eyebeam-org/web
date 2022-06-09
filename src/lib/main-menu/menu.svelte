@@ -17,7 +17,7 @@
 <a class="menu-button" href="/people">Artists</a>
 <a class="menu-button" href="/everything">Archive</a>
 <a class="menu-button" href="/programs">Programs</a>
-<a class="menu-button" target="_blank" href="https://fold.eyebeam.org">Membership</a>
+<a class="menu-button" target="_blank" href="https://fold.eyebeam.org/enter">Membership</a>
 <a class="menu-button" href="/support">Support</a>
 <a class="menu-button" href="#search" on:click={toggleSearch}><span class="search-text">Search</span> <span class="icon"><SearchIcon /></span></a>
 </div>
