@@ -621,7 +621,6 @@
 			@include screen-size('medium') {
 				font-size: $font-size-journal
 			}
-			font-weight: 600;
 			display: flex;
 			align-content: center;
 			align-items: center;
@@ -659,9 +658,14 @@
 			.post-content {
 				padding: 0 $SMALL;
 				display: flex;
+				max-height: 100%;
 				flex-flow: column nowrap;
+				overflow: hidden;
 				@include screen-size('medium') {
-					padding: $TINY;
+					max-height: 98%;
+					&:after {
+//						content: "..."
+					}
 				}
 
 			}
@@ -684,10 +688,11 @@
 
 		.title {
 			margin-bottom: $TINY;
-			font-size: $font-size-small;
+			font-size: $font-size-body;
 			width: 100%;
+			overflow: hidden;
 			@include screen-size('medium') {
-				font-size: $font-size-extra-small;
+				font-size: $font-size-small;
 			}
 
 

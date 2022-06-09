@@ -240,6 +240,7 @@
 
 				.title {
 					margin-bottom: $TINY;
+					font-size: $font-size-pull;
 				}
 
 				.people {

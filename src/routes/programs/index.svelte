@@ -101,7 +101,7 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 
 <style lang="scss">
 	@import '../../variables.scss';
-	h1, h2 {
+	h2 {
 		font-family: $ALT_FONT;
 		font-size: $font-size-menu;
 		text-transform: uppercase;

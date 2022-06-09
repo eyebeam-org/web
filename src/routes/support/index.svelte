@@ -93,7 +93,7 @@
 					class="tile introduction {section}"
 					sveltekit:prefetch
 				>
-			<h2> {aboutMap[section].title}</h2>
+			<h1> {aboutMap[section].title}</h1>
 					{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
 							{@html renderBlockText(aboutMap[section].introduction.content)}
@@ -146,7 +146,7 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 <style lang="scss">
 	@import '../../variables.scss';
 
-	h1, h2 {
+	h2 {
 		font-family: $ALT_FONT;
 		font-size: $font-size-menu;
 		text-transform: uppercase;
@@ -192,7 +192,6 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 
 	.introduction {
 		border-bottom: 1px solid var(--foreground-color);
-		border-right: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
 		max-height: $HEADER_HEIGHT;
 		overflow: scroll;

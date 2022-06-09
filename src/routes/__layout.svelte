@@ -221,6 +221,8 @@
 		font-weight: normal;
 		margin: 0;
 		line-height: 1.2em;
+		font-family: $ALT_FONT;
+		text-transform: uppercase;
 
 		@include screen-size('small') {
 			font-size: $font-size-h2;
@@ -230,6 +232,7 @@
 	h2 {
 		font-size: $font-size-h2;
 		font-weight: normal;
+		letter-spacing: -0.025em;
 		margin: 0;
 		line-height: 1.2em;
 	}
@@ -239,6 +242,7 @@
 		font-weight: bold;
 		margin: 0;
 		line-height: 1.2em;
+		letter-spacing: -0.025em;
 	}
 
 	figure {

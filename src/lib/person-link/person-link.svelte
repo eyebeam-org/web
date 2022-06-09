@@ -164,6 +164,7 @@
 	}
 	.person-link {
 		font-size: $font-size-small;
+		font-weight: 200;
 		@include screen-size('medium') {
 			font-size: $font-size-extra-small;
 		}
