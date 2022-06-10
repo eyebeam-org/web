@@ -68,7 +68,7 @@
 
 					<!-- QUOTE -->
 					{#if page.quote}
-						<div class="quote">{page.quote}</div>
+						<div class="quote">"{page.quote}"</div>
 					{/if}
 
 					{#if page._type == 'note'}
@@ -84,6 +84,22 @@
 								{/each}
 							</div>
 						{/if}
+					{/if}
+				{#if page._type == 'press' || page._type == 'news'}
+					{#if page.source}
+						<div class="published-by">Published by {page.source}</div>
+						<div class="date">{longFormatDate(page._createdAt)}</div>
+					{/if}
+						<!-- AUTHOR -->
+						{#if page.author}
+							<div class="author">{page.author}</div>
+						{/if}
+			{#if page.externalLink}
+				<a href={page.externalLink} class="button read-original" target="_blank"
+					>Read original article on {page.source} <ExternalLink /></a
+				>
+			{/if}
+
 					{/if}
 
 					<!-- INTRODUCTION -->
@@ -131,15 +147,7 @@
 		<!-- PRESS & NEWS SPECIFIC -->
 		{#if page._type === 'press' || page._type === 'news'}
 			<!-- SOURCE -->
-			{#if page.source}
-				<div class="published-by">Published by {page.source}</div>
-			{/if}
 			<!-- DATE -->
-			<div class="date">{longFormatDate(page._createdAt)}</div>
-			<!-- AUTHOR -->
-			{#if page.author}
-				<div class="author">Author</div>
-			{/if}
 			<!-- PEOPLE -->
 			{#if page.people && page.people.length > 0}
 				<div class="including">
@@ -154,11 +162,6 @@
 				<a href="" class="button download-pdf">Download as PDF</a>
 			{/if}
 			<!-- ORIGINAL LINK -->
-			{#if page.externalLink}
-				<a href={page.externalLink} class="button read-original" target="_blank"
-					>Read original article on {page.source} <ExternalLink /></a
-				>
-			{/if}
 		{/if}
 
 		<!-- WEBSITE -->
@@ -286,6 +289,7 @@
 
 			.quote {
 				margin: $NORMAL;
+				font-size: $font-size-body;
 			}
 
 			.badges {
@@ -328,10 +332,10 @@
 			}
 
 			.image-container {
-				max-width: 35%;
-				min-width: 35%;
-				width: 35%;
-				max-height: 100%;
+				max-width: 30%;
+				min-width: 30%;
+				width: 30%;
+				max-height: 400px;
 				margin-right: $NORMAL;
 
 				img {
@@ -351,7 +355,6 @@
 
 			&.boxed {
 				display: flex;
-				height: $HEADER_HEIGHT;
 				border-bottom: 1px solid var(--foreground-color);
 
 				@include screen-size('small') {
