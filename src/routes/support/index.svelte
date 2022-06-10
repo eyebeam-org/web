@@ -13,6 +13,7 @@
 	import Blocks from '$lib/blocks/blocks.svelte';
 
 	// __ COMPONENTS
+	import SupportBlock from './supportBlock.svelte'
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
 	import EmbedContent from '$lib/embed-content/embed-content.svelte';
@@ -30,13 +31,12 @@
 
 	// The order that we want the the posts to be listed, according to the design
 	const ORDER = [
-		'donate',
-		//		'the-fold',
-		//		'join-us',
-		//		'volunteer',
+						['the-fold',
+				'join-us'],
+						['volunteer',
 		//		'interns',
-		//		'supporters',
-		'contact'
+				'supporters'],
+				['contact' ]
 	];
 
 	const toc = [
@@ -65,77 +65,20 @@
 <!-- MAIN CONTENT -->
 <div class="main-content" tabindex=0>
 	<div class="inner">
-		<div class="tile header-photo">
-			<img src="eyebeambox.gif" alt="A gif of a black box with the word 'Eyebeam' on each face, slowly rotating" />
+		<div class="row">
+				<div class="tile header-photo">
+					<img src="eyebeambox.gif" alt="A gif of a black box with the word 'Eyebeam' on each face, slowly rotating" />
+				</div>
+				<SupportBlock section={'donate'} aboutMap={aboutMap} />
 		</div>
 
-
-		{#each ORDER as section}
-
-			{#if section == 'contact'}
-				<!-- CONTACT SECTION -->
-				<div class="tile full-tile contact">
-					<h2>Contact</h2>
-					<div class="bottom-container">
-						<div class="column">{aboutMap['contact'].address}</div>
-						<div class="column">
-							{aboutMap['contact'].phoneNumber}<br />
-							<a href={'mailto:' + aboutMap['contact'].email}>
-								{aboutMap['contact'].email}
-							</a>
-						</div>
-					</div>
-				</div>
-			{:else if section =='donate'}
-				<!-- STANDARD SECTIONS -->
-				
-				<div id={section == 'donate' ? 'donate' : ''}
-					class="tile introduction {section}"
-					sveltekit:prefetch
-				>
-			<h1> {aboutMap[section].title}</h1>
-					{#if has(aboutMap[section], 'introduction.content')}
-						<div class="description">
-							{@html renderBlockText(aboutMap[section].introduction.content)}
-						</div>
-					{/if}
-				</div>
-			{#each aboutMap[section].content as content}
-						<div class="tile nav-tile">
-							<Blocks blocks={content.content} />
-						</div>
-				{/each}
-						<div class="tile nav-tile crypto-widget">
-					<h2>Donate Crypto </h2>
-<p>
-Your cryptocurrency donation is tax-deductible and will support our mission by helping us support artists and bringing their ideas to actionable projects. </p>
-
-<script id="tgb-widget-script"> !function(t,e,i,n,o,c,d,s){t.tgbWidgetOptions={id:o,domain:n},(d=e.createElement(i)).src=[n,"widget/script.js"].join(""),d.async=1,(s=e.getElementById(c)).parentNode.insertBefore(d,s)}(window,document,"script","https://tgbwidget.com/","133952075","tgb-widget-script"); </script>
-</div>
-
-			{:else}
-				<!-- STANDARD SECTIONS -->
-				
-				<div id={section == 'donate' ? 'donate' : ''}
-					class="tile nav-tile {section}"
-					sveltekit:prefetch
-				>
-<h2> {aboutMap[section].title}</h2>
-					{#if has(aboutMap[section], 'introduction.content')}
-						<div class="description">
-							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {
-								length: 600
-							})}
-						</div>
-						<div class="content" >
-							<EmbedContent page={aboutMap[section]} />
-							{#if section == 'donate'}
-<script id="tgb-widget-script"> !function(t,e,i,n,o,c,d,s){t.tgbWidgetOptions={id:o,domain:n},(d=e.createElement(i)).src=[n,"widget/script.js"].join(""),d.async=1,(s=e.getElementById(c)).parentNode.insertBefore(d,s)}(window,document,"script","https://tgbwidget.com/","133952075","tgb-widget-script"); </script>
-							{/if}
-						</div>
-					{/if}
-				</div>
-			{/if}
+		{#each ORDER as section, i}
+			<div class="row">
+				<SupportBlock section={section[0]} aboutMap={aboutMap} />
+				{#if section.length > 1}
+					<SupportBlock section={section[1]} aboutMap={aboutMap}/>
+				{/if}
+			</div>
 		{/each}
 	</div>
 
@@ -152,6 +95,11 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 		text-transform: uppercase;
 		padding-left: 0;
 	}
+
+	.row {
+display: flex;
+flex-flow: row wrap;
+}
 
 	.tile {
 		padding: $NORMAL;

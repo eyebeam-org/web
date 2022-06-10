@@ -62,7 +62,7 @@ Come see what our fellows are up to in our new digital studio space.
 			//			text-transform: uppercase;
 
 			font-family: $SERIF_STACK;
-			font-size: $font-size-journal;
+			font-size: $font-size-body;
 			padding: $SMALL;
 			.open-eyebeam-link {
 				font-family: $ALT_FONT;

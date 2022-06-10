@@ -13,132 +13,21 @@
 	import Blocks from '$lib/blocks/blocks.svelte';
 
 	// __ COMPONENTS
-	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
-	import PressAndNewsItem from '$lib/press-and-news-item/press-and-news-item.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
+	import EmbedContent from '$lib/embed-content/embed-content.svelte';
 
 	// __ PROPS
-	export let about;
-	export let pressAndNews;
+	export let section, aboutMap;
 
 	//STORES
 	import { goto } from '$app/navigation';
 
-	console.log('about', about);
-	console.log('pressAndNews', pressAndNews);
 
-	// Rearrange about posts as a an array of keyed objects
-	const aboutMap = keyBy(about, '_id');
 
 	// The order that we want the the posts to be listed, according to the design
-	const ORDER = [
-		'our-mission-and-values',
-		'our-history',
-		'staff-and-board',
-		'artists',
-		'get-involved',
-		'press-and-news',
-		'our-operating-documents',
-		'media-kit',
-		'contact'
-	];
-
-	const toc = [
-		{
-			link: '/about/our-mission-and-values',
-			title: 'Our Mission and Values'
-		},
-		{
-			link: '/about/our-history',
-			title: 'Our History'
-		},
-		{
-			link: '/about/staff-and-board',
-			title: 'Staff & Board'
-		},
-		{
-			link: '/people',
-			title: 'Artists'
-		},
-		{
-			link: '/about/support-eyebeam',
-			title: 'Support'
-		},
-		{
-			link: '/about/get-involved',
-			title: 'Get involved'
-		},
-		{
-			link: '/press-and-news',
-			title: 'Press & News'
-		},
-		{
-			link: '/about/our-operating-documents',
-			title: 'Our Operating Documents'
-		},
-		{
-			link: '/about/media-kit',
-			title: 'Media Kit'
-		},
-		{
-			link: '/about/contact',
-			title: 'Contact'
-		}
-	];
-
-	// Set sidebar content
-	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
-	$: sidebarTitle.set(aboutMap['what-is-eyebeam'].title);
-	$: sidebarToC.set(toc);
-	//FIXME: this is currently duplicated here and in sidebar (as handleToC), should be in lib
-	const handlePseudoLink = (link) => {
-		if (link[0] == '#') {
-			const targetElement = document.querySelector(link);
-			if (targetElement) {
-				targetElement.scrollIntoView({ behavior: 'smooth' });
-			}
-		} else {
-			goto(link);
-		}
-	};
-
 </script>
 
-<!-- METADATA -->
-<Metadata page={aboutMap['what-is-eyebeam']} />
-
-<!-- MAIN CONTENT -->
-<div class="main-content" tabindex=0>
-	<div class="inner">
-		<div class="tile header-photo">
-			<img src="eyebeambox.gif" alt="A gif of a black box with the word 'Eyebeam' on each face, slowly rotating" />
-		</div>
-		<div class="tile introduction">
-			<!-- TITLE -->
-			<h1>{aboutMap['what-is-eyebeam'].title}</h1>
-			<!-- INTRODUCTION -->
-			{#if has(aboutMap['what-is-eyebeam'], 'introduction.content')}
-				<div class="description">
-					<Blocks blocks={aboutMap['what-is-eyebeam'].introduction.content} />
-				</div>
-			{/if}
-		</div>
-
-		{#each ORDER as section}
-			{#if section == 'press-and-news'}
-				<!-- PRESS & NEWS SECTION -->
-				<div class="tile full-tile press-and-news">
-					<h2>
-						<a href="/press-and-news" sveltekit:prefetch>{aboutMap['press-and-news'].title}</a>
-					</h2>
-					<div class="press-and-news-listing">
-						{#each pressAndNews as post}
-							<PressAndNewsItem {post} />
-						{/each}
-					</div>
-					<a href="/press-and-news" class="see-all" sveltekit:prefetch>See all Press & News</a>
-				</div>
-		{:else if section == 'contact'}
+		{#if section == 'contact'}
 				<!-- CONTACT SECTION -->
 				<div class="tile full-tile contact">
 					<h2>Contact</h2>
@@ -152,29 +41,57 @@
 						</div>
 					</div>
 				</div>
-			{:else}
+			{:else if section =='donate'}
 				<!-- STANDARD SECTIONS -->
-				<div
-					class="tile nav-tile {section}"
-on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id);}}
+				
+				<div id={section == 'donate' ? 'donate' : ''}
+					class="tile introduction {section}"
 					sveltekit:prefetch
 				>
-<h2> <a href={ section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id}>{aboutMap[section].title}</a></h2>
+			<h1> {aboutMap[section].title}</h1>
+					{#if has(aboutMap[section], 'introduction.content')}
+						<div class="description">
+							{@html renderBlockText(aboutMap[section].introduction.content)}
+						</div>
+					{/if}
+				</div>
+			{#each aboutMap[section].content as content}
+						<div class="tile nav-tile">
+							<Blocks blocks={content.content} />
+						</div>
+				{/each}
+						<div class="tile nav-tile crypto-widget">
+					<h2>Donate Crypto </h2>
+<p>
+Your cryptocurrency donation is tax-deductible and will support our mission by helping us support artists and bringing their ideas to actionable projects. </p>
+
+<script id="tgb-widget-script"> !function(t,e,i,n,o,c,d,s){t.tgbWidgetOptions={id:o,domain:n},(d=e.createElement(i)).src=[n,"widget/script.js"].join(""),d.async=1,(s=e.getElementById(c)).parentNode.insertBefore(d,s)}(window,document,"script","https://tgbwidget.com/","133952075","tgb-widget-script"); </script>
+</div>
+
+			{:else}
+				<!-- STANDARD SECTIONS -->
+				
+				<div id={section == 'donate' ? 'donate' : ''}
+					class="tile nav-tile {section}"
+					sveltekit:prefetch
+				>
+<h2> {aboutMap[section].title}</h2>
 					{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
 							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {
 								length: 600
 							})}
 						</div>
+						<div class="content" >
+							<EmbedContent page={aboutMap[section]} />
+							{#if section == 'donate'}
+<script id="tgb-widget-script"> !function(t,e,i,n,o,c,d,s){t.tgbWidgetOptions={id:o,domain:n},(d=e.createElement(i)).src=[n,"widget/script.js"].join(""),d.async=1,(s=e.getElementById(c)).parentNode.insertBefore(d,s)}(window,document,"script","https://tgbwidget.com/","133952075","tgb-widget-script"); </script>
+							{/if}
+						</div>
 					{/if}
 				</div>
 			{/if}
-		{/each}
-	</div>
 
-	<!-- BOTTOM BAR -->
-	<BottomBar />
-</div>
 
 <style lang="scss">
 	@import '../../variables.scss';
@@ -183,10 +100,11 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 		font-family: $ALT_FONT;
 		font-size: $font-size-menu;
 		text-transform: uppercase;
-		padding-right: $LARGE;
+		padding-left: 0;
 	}
+
 	.tile {
-		padding: $SMALL;
+		padding: $NORMAL;
 		overflow: hidden;
 		width: 50%;
 		display: block;
@@ -198,10 +116,8 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 			&:first-child {
 				border-top: 1px solid var(--foreground-color);
 			}
+
 		}
-	}
-	.description {
-		font-size: $font-size-body;
 	}
 
 	.main-content {
@@ -223,19 +139,17 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 			}
 		}
 	}
+	.description {
+		font-size: $font-size-body;
+	}
 
 	.introduction {
 		border-bottom: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
 		max-height: $HEADER_HEIGHT;
 		overflow: scroll;
-		padding-right: $LARGE;
+		padding: $NORMAL;
 
-		@include screen-size('small') {
-			border-bottom: unset;
-			min-height: unset;
-			padding: unset;
-		}
 
 		p {
 			font-style: italic;
@@ -247,53 +161,48 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 		}
 	}
 	.header-photo {
-		overflow: hidden;
+		overflow: none;
 		padding: 0;
-		max-height: $HEADER_HEIGHT;
+		min-height: $HEADER_HEIGHT;
 		border-bottom: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
 		height: $HEADER_HEIGHT;
 		img {
-			height: 100%;
 			width: 100%;
+			height: 100%;
 			object-fit: cover;
 		}
 	}
-
 
 	.nav-tile {
 		width: 50%;
 		min-height: $HEADER_HEIGHT;
 		border-bottom: 1px solid var(--foreground-color);
-		border-right: 1px solid var(--foreground-color);
+		&:nth-child(odd) {
+			border-right: 1px solid var(--foreground-color);
+		}
 		display: block;
 		float: left;
 		text-decoration: none;
-		cursor: pointer;
 		padding-right: $LARGE;
 		a {
 			text-decoration: none;
 		}
-		button {
-			background: $grey;
-			display: block;
-			text-align: center;
-			margin: $SMALL auto;
-		}
+
 
 		&:hover {
-			background: $grey;
-			color: var(--hover-text-color);
+//		background: $grey;
+//			color: var(--hover-text-color);
 		}
 
 		&:active {
-			background: var(--foreground-color);
-			color: $white;
+//			background: var(--foreground-color);
+//			color: $white;
 		}
 
 		&.our-history,
 		&.artists,
-		&.the-fold,
+		&.get-involved,
 		&.media-kit {
 			border-right: none;
 			@include screen-size('small') {
@@ -318,6 +227,11 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 
 			&:first-of-type {
 				border-top: 1px solid var(--foreground-color);
+			}
+		}
+		&.crypto-widget {
+			div {
+				width: 100%;
 			}
 		}
 	}
@@ -383,13 +297,10 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 			display: flex;
 			margin-top: $NORMAL;
 			padding-bottom: $NORMAL;
-			overflow: hidden;
-			position: relative;
 
 			@include screen-size('small') {
 				flex-wrap: wrap;
 				margin-top: 0;
-				padding-bottom: $LARGE;
 			}
 		}
 

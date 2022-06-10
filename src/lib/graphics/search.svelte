@@ -37,5 +37,10 @@
 				stroke: $white;
 			}
 		}
+		&:hover {
+			path {
+				stroke: $white;
+			}
+		}
 	}
 </style>
