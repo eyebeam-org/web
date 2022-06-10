@@ -31,12 +31,12 @@
 
 	// The order that we want the the posts to be listed, according to the design
 	const ORDER = [
-						['the-fold',
-				'join-us'],
-						['volunteer',
+						[
+				'join-us',
+						'volunteer'],
 		//		'interns',
-				'supporters'],
-				['contact' ]
+		['supporters',
+				'contact' ]
 	];
 
 	const toc = [
