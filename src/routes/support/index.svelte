@@ -30,13 +30,13 @@
 	const aboutMap = keyBy(about, '_id');
 
 	// The order that we want the the posts to be listed, according to the design
+	//FIXME this is a dumb brittle setup to deal with external widgets
 	const ORDER = [
 						[
-				'join-us',
-						'volunteer'],
-		//		'interns',
-		['supporters',
-				'contact' ]
+						'volunteer',
+				//		'interns',
+				'supporters'],
+				['contact' ]
 	];
 
 	const toc = [
