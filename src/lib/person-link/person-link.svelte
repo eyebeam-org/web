@@ -16,6 +16,9 @@
 	export let person = false;
 	export let overrideText = false;
 	export let personId = false;
+	export let tiny = false;
+
+	$: tiny, console.log('tiny: ', tiny)
 
 	// __ VARIABLES
 	let linkEl = {};
@@ -89,6 +92,7 @@
 		on:mouseenter={show}
 		on:mouseleave={hide}
 		class="person-link"
+style={tiny ? "font-size: 11px" : ''}
 	>
 		{#if person.title.length < 20}
 		{@html overrideText ? renderNewLines(overrideText) : person.title}
@@ -101,7 +105,7 @@
 		<!-- FIRST COLUMN -->
 		<div class="column first">
 			<!-- NAME -->
-			<div class="name">{person.title}</div>
+			<div class="name" >{person.title}</div>
 			<!-- BADGES -->
 			<div class="badges">
 				{#if person.role}

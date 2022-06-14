@@ -44,14 +44,15 @@
 	@import '../../variables.scss';
 
 	.big-sticker {
+		text-decoration: none;
 		width: 100%;
 		height: 50%;
-		text-decoration: none;
 		display: block;
 		border-bottom: 1px solid var(--foreground-color);
 		img {
 			width: 100%;
 			height: 100%;
+			margin: 0 auto;
 			object-fit: cover;
 		}
 

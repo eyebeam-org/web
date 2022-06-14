@@ -58,7 +58,7 @@
 	<div class="column one">
 		<Menu />
 	</div>
-	<section>
+	<section role="content" class="homepage-content">
 		<div class="column two">
 			<div class="tile open-eyebeam">
 				{#if get(stickers, 'stickerLeft.enabled', false)}
@@ -67,7 +67,7 @@
 					<OpenEyebeam />
 				{/if}
 			</div>
-<h2><a class="sub-tile header" href="/people">FEATURED ARTISTS</a></h2>
+<div class="header-container"><h2><a class="sub-tile header" href="/people">FEATURED ARTISTS</a></h2></div>
 				<div class="featured-artists">
 				<ul>
 				{#each artists as artist}
@@ -77,10 +77,7 @@
 						href={'/people/' + artist.slug.current }
 						sveltekit:prefetch
 						class="featured-artist"
->  <img class="featured-artist-image"alt ="" src={artist.image.url}/><h3 class="featured-artist-name">{artist.firstName} {artist.lastName}</h3>
-					<div class="quote">
-							"{artist.quote}"
-			</div>
+>  <img class="featured-artist-image"alt ="" src={urlFor(artist.image.url).saturation(-100)}/><div class="featured-artist-name"><h3>{artist.firstName} {artist.lastName}</h3></div>
 	</a>
 
 					</li>
@@ -90,7 +87,7 @@
 	</div>
 	</div>
 	<div class="column three">
-<h2><a class="sub-tile header" href="/events">UPCOMING & RECENT</a></h2>
+<div class="header-container"><h2><a class="sub-tile header" href="/events">UPCOMING & RECENT</a></h2></div>
 		{#if get(stickers, 'stickerRight.enabled', false)}
 			{#if get(stickers, 'stickerRight.fullWidth', false) == false}
 					<Sticker sticker={stickers.stickerRight} small={true} />
@@ -98,7 +95,35 @@
 					<Sticker sticker={stickers.stickerRight} small={false} />
 			{/if}
 		{/if}
+
 		<div class:no-sticker={get(stickers, 'stickerRight.enabled', false) == false} class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class="tile events"  >
+	{#if get(stickers, 'stickerRight.enabled', false)}
+	<div class="event socials middle">
+			<ul>
+	<li>		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
+	<div class="icon"><Newsletter /></div>
+			</a>
+	</li>
+	<li>
+			<a href={INSTAGRAM_URL} target="_blank" class="tile social instagram"
+				><div class="icon"><Instagram /></div>
+			</a>
+	</li>
+	<li>
+			<a href={TWITTER_URL} target="_blank" class="tile social twitter"
+				><div class="icon"><Twitter /></div>
+			</a>
+	</li>
+	<li>
+			<a href={YOUTUBE_URL} target="_blank" class="tile social youtube"
+				>
+				<div class="icon"><Youtube /></div>
+			</a>
+		</li>
+	</ul>
+	</div>
+{/if}
+
 {#each newPosts.slice(0, 4) as post}
 				<a
 					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
@@ -122,9 +147,9 @@
 					{#if post.people && post.people.length > 0}
 						<div class="event-people">
 						{#if post.people.length <= 1}
-<PersonLinkList people={post.people} />
+<PersonLinkList people={post.people} tiny={get(stickers, 'stickerRight.enabled', false)} />
 						{:else}
-<PersonLinkList people={post.people.slice(0, 1)} /> <span class="and-more">& {post.people.length - 1} more</span>
+<PersonLinkList people={post.people.slice(0, 1)} tiny={ get(stickers, 'stickerRight.enabled', false) } /> 
 						{/if}
 							</div>
 					{/if}
@@ -132,33 +157,33 @@
 				</a>
 			{/each}
 		</div>
-<div class="socials">
+
+{#if !get(stickers, 'stickerRight.enabled', false)}
+<div class="socials bottom">
 		<ul>
 <li>		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
-			Newsletter
 <div class="icon"><Newsletter /></div>
 		</a>
 </li>
 <li>
 		<a href={INSTAGRAM_URL} target="_blank" class="tile social instagram"
-			>Instagram
-			<div class="icon"><Instagram /></div>
+			>			<div class="icon"><Instagram /></div>
 		</a>
 </li>
 <li>
 		<a href={TWITTER_URL} target="_blank" class="tile social twitter"
-			>Twitter
-			<div class="icon"><Twitter /></div>
+			>			<div class="icon"><Twitter /></div>
 		</a>
 </li>
 <li>
 		<a href={YOUTUBE_URL} target="_blank" class="tile social youtube"
-			>Youtube
+			>
 			<div class="icon"><Youtube /></div>
 		</a>
 	</li>
 </ul>
 </div>
+{/if}
 
 	</div>
 </section>
@@ -174,8 +199,18 @@
 
 	$one-third: calc(100% / 3);
 	$two-third: calc((100% / 3) * 2);
+	$phi: 1.61803398874898482;
 	section {
 		all: unset;
+}
+	.homepage-content {
+		display: flex;
+		width: $five-sixths;
+		height: 100%;
+
+		@include screen-size('small') {
+			width: 100%;
+		}
 }
 	.accessibility-title {
 		position: absolute;
@@ -260,9 +295,12 @@
 
 
 		&.two {
-			width: calc((100%/12)*6);
+			width: 100%/$phi;
 			// background: red;
 			height: 100%;
+			display: flex;
+			flex-flow: column wrap;
+
 			@include screen-size('medium') {
 				width: $one-half;
 			}
@@ -276,10 +314,12 @@
 
 		&.three {
 			// background: blue;
-			width: calc((100%/12)*4);
+			display: flex;
+			flex-flow: column wrap;
+			width: (100%/$phi)/$phi;
 			height: 100%;
 			border-right: none;
-@include screen-size('medium') {
+			@include screen-size('medium') {
 				width: $one-fourth;
 			}
 			@include screen-size('small') {
@@ -292,8 +332,14 @@
 		}
 	}
 	.socials {
-		height: $one-sixth;
-		width: 100%;
+		width: 50%;
+		//	height: $one-sixth;
+		border-right: 1px solid var(--foreground-color);
+		&.bottom {
+			border-top: 1px solid var(--foreground-color);
+		}
+		&.middle {
+		}
 	}
 
 
@@ -380,13 +426,12 @@
 		text-align: center;
 		flex-wrap: nowrap;
 		flex-direction: column;
-		width: 25%;
-		height: 100%;
+		width: 50%;
+		height: 50%;
 		padding: 10px !important;
 		float: left;
-		border-top: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
-
+		border-bottom: 1px solid var(--foreground-color);
 		@include screen-size('small') {
 			width: 50%;
 			height: 85px;
@@ -397,13 +442,11 @@
 
 
 		&.youtube {
-			border-right: none;
+				border-right: none;
 		}
 
 		&.instagram {
-			@include screen-size('small') {
 				border-right: none;
-			}
 		}
 
 		.icon {
@@ -449,19 +492,32 @@
 		align-items: flex-start;
 		align-content: flex-start;
 		justify-content: flex-start;
-		flex-flow: column wrap;
-		width: 100%;
-		float: left;
+		flex-flow: row wrap;
+		max-width: 100%;
+		flex: 1;
+		height: calc((100%/12)*4);
 		&.has-sticker {
-			height: calc(((100%/6)*2) - (100%/12));
 			flex-flow: row wrap;
 			.event {
 					width: 50%;
 					max-width:50%;
-					height: 100%;
+					height: 50%;
 					max-height: 100%;
 					.post-image {
 						display: none;
+					}
+										&:nth-child(odd) {
+											border-right: 1px solid var(--foreground-color);
+										}
+					//					&:nth-child(1) {
+					//						border-bottom: 1px solid var(--foreground-color);
+					//					}
+										&:nth-child(2) {
+											border-bottom: 1px solid var(--foreground-color);
+										}
+
+					.title {
+						font-size: $font-size-small;
 					}
 			}
 		}
@@ -471,14 +527,19 @@
 	}
 
 	.featured-artists {
-		height: calc(50% - (100%/6));
-		flex-flow: row wrap;
+height: calc(50% - (100%/6) - (100%/12));
 		font-family: $ALT_FONT;
 		font-size: $font-size-medium; 
 		.tile {
-			height:50%;
+			height:100%;
+			width: 50%;
+			border-right:1px solid var(--special-text-color);
+			&:last-child {
+			border-right: none;
+			}
+
 		}
-		.featured-artist, .quote {
+		.featured-artist {
 			padding: $SMALL $NORMAL;
 			height: 100%;
 			width: 100%;
@@ -489,7 +550,9 @@
 			text-align: center;
 		}
 		.featured-artist-name {
+			font-size: $font-size-body;
 			padding: $TINY;
+			width: 100%;
 		}
 		.quote {
 			width: $two-fifths;
@@ -501,9 +564,13 @@
 			}
 
 		}
-		.featured-artist-image {
+		ul {
+			display: flex;
 			height: 100%;
-			max-width: 25%;
+				flex-flow: row wnorap;
+			}
+		.featured-artist-image {
+			max-width: 40%;
 		}
 		@include screen-size('small') {
 			border-bottom: 1px solid var(--foreground-color);
@@ -545,7 +612,7 @@
 
 
 	.open-eyebeam {
-		height: calc(50% + (100%/12));
+		height: calc(50% + (100%/12) * 2);
 		background: $grey;
 		width: 100%;
 		border-bottom: 1px solid var(--foreground-color);
@@ -556,7 +623,7 @@
 
 	.half-sticker {
 		padding: 0;
-		height: $three-eighths;
+		height: 50%;
 		width: 50%;
 		float: left;
 		border-bottom: 1px solid var(--foreground-color);
@@ -594,7 +661,14 @@
 		font-size: $font-size-extra-small;
 	}
 
-
+	.header-container {
+			height: calc(100%/12);
+			h2 {
+				display: flex;
+				width: 100%;
+				height: 100%;
+			}
+	}
 	.sub-tile {
 		width: 50%;
 		padding: $SMALL;
@@ -615,19 +689,19 @@
 		}
 
 		&.header {
-			display: block;
 			font-family: $ALT_FONT;
 			font-size: $font-size-medium;
 			@include screen-size('medium') {
 				font-size: $font-size-journal
 			}
+			flex: 1;
 			display: flex;
 			align-content: center;
 			align-items: center;
-			min-height: auto;
 			width: 100%;
+			height: 100%;
+			max-height: 100%;
 			border-bottom: 1px solid var(--foreground-color);
-			height: calc(100%/12);
 			padding: $SMALL;
 		}
 
@@ -670,6 +744,7 @@
 
 			}
 			.and-more {
+				font-size: $font-size-extra-small;
 				@include screen-size('medium') {
 					display: none;
 				}
