@@ -231,12 +231,7 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 		overflow: scroll;
 		padding-right: $LARGE;
 
-		@include screen-size('small') {
-			border-bottom: unset;
-			min-height: unset;
-			padding: unset;
-		}
-
+	
 		p {
 			font-style: italic;
 			font-size: $font-size-medium;

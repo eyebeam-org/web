@@ -190,6 +190,9 @@
 						user-select: none;
 						cursor: pointer;
 						font-size: $font-size-extra-small;
+						@include screen-size('small') {
+							margin-top: 8px;
+						}
 
 						&:hover {
 							background: var(--foreground-color);

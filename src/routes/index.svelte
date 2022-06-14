@@ -46,7 +46,7 @@
 
 	//FIXME: surely there is a less stupid way to do this
 	//CANNOT delete this rn
-	$: featuredArtists, artists = [featuredArtists[0].featuredArtist1, featuredArtists[0].featuredArtist2]
+	$: featuredArtists, artists = [featuredArtists[0].featuredArtist1, featuredArtists[0].featuredArtist2, featuredArtists[0].featuredArtist3]
 	$: artists, console.log('artists: ', artists)
 </script>
 
@@ -95,10 +95,8 @@
 					<Sticker sticker={stickers.stickerRight} small={false} />
 			{/if}
 		{/if}
-
-		<div class:no-sticker={get(stickers, 'stickerRight.enabled', false) == false} class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class="tile events"  >
 	{#if get(stickers, 'stickerRight.enabled', false)}
-	<div class="event socials middle">
+	<div class="socials middle">
 			<ul>
 	<li>		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
 	<div class="icon"><Newsletter /></div>
@@ -106,12 +104,12 @@
 	</li>
 	<li>
 			<a href={INSTAGRAM_URL} target="_blank" class="tile social instagram"
-				><div class="icon"><Instagram /></div>
+				>			<div class="icon"><Instagram /></div>
 			</a>
 	</li>
 	<li>
 			<a href={TWITTER_URL} target="_blank" class="tile social twitter"
-				><div class="icon"><Twitter /></div>
+				>			<div class="icon"><Twitter /></div>
 			</a>
 	</li>
 	<li>
@@ -124,6 +122,7 @@
 	</div>
 {/if}
 
+		<div class:no-sticker={get(stickers, 'stickerRight.enabled', false) == false} class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class="tile events"  >
 {#each newPosts.slice(0, 4) as post}
 				<a
 					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
@@ -210,6 +209,7 @@
 
 		@include screen-size('small') {
 			width: 100%;
+			flex-flow: row wrap;
 		}
 }
 	.accessibility-title {
@@ -282,10 +282,7 @@
 		&.one {
 			width: $one-sixth;
 			height: 100%;
-			@include screen-size('medium') {
-				width: $one-fourth;
-			}
-
+	
 			@include screen-size('small') {
 				display: none;
 			}
@@ -301,9 +298,6 @@
 			display: flex;
 			flex-flow: column wrap;
 
-			@include screen-size('medium') {
-				width: $one-half;
-			}
 
 			@include screen-size('small') {
 				width: 100%;
@@ -319,26 +313,38 @@
 			width: (100%/$phi)/$phi;
 			height: 100%;
 			border-right: none;
-			@include screen-size('medium') {
-				width: $one-fourth;
-			}
 			@include screen-size('small') {
 				width: 100%;
-				height: $one-third;
 			}
 			
 
 
 		}
 	}
+
+	.tile {
+		display: flex;
+		flex-wrap: wrap;
+		overflow: hidden;
+		user-select: none;
+
+		@include screen-size('small') {
+			font-size: $font-size-body;
+		}
+	}
+	
+
 	.socials {
-		width: 50%;
-		//	height: $one-sixth;
-		border-right: 1px solid var(--foreground-color);
+		width: 100%;
+		height: calc(100% / 12);
 		&.bottom {
 			border-top: 1px solid var(--foreground-color);
 		}
 		&.middle {
+			border-bottom: 1px solid var(--foreground-color);
+		}
+		@include screen-size('small') {
+			height: 50px;
 		}
 	}
 
@@ -426,15 +432,14 @@
 		text-align: center;
 		flex-wrap: nowrap;
 		flex-direction: column;
-		width: 50%;
-		height: 50%;
+		width: 25%;
+		height: 100%;
 		padding: 10px !important;
 		float: left;
 		border-right: 1px solid var(--foreground-color);
-		border-bottom: 1px solid var(--foreground-color);
+
 		@include screen-size('small') {
-			width: 50%;
-			height: 85px;
+			width: 25%;
 		}
 		@include screen-size('medium') {
 			font-size: 0px;
@@ -442,11 +447,12 @@
 
 
 		&.youtube {
-				border-right: none;
+			border-right: none;
 		}
 
 		&.instagram {
-				border-right: none;
+			@include screen-size('small') {
+			}
 		}
 
 		.icon {
@@ -492,10 +498,11 @@
 		align-items: flex-start;
 		align-content: flex-start;
 		justify-content: flex-start;
-		flex-flow: row wrap;
-		max-width: 100%;
+		flex-flow: column wrap;
 		flex: 1;
-		height: calc((100%/12)*4);
+		width: 100%;
+		float: left;
+		height: calc((100%/12)*5);
 		&.has-sticker {
 			flex-flow: row wrap;
 			.event {
@@ -506,17 +513,7 @@
 					.post-image {
 						display: none;
 					}
-										&:nth-child(odd) {
-											border-right: 1px solid var(--foreground-color);
-										}
-					//					&:nth-child(1) {
-					//						border-bottom: 1px solid var(--foreground-color);
-					//					}
-										&:nth-child(2) {
-											border-bottom: 1px solid var(--foreground-color);
-										}
-
-					.title {
+				.title {
 						font-size: $font-size-small;
 					}
 			}
@@ -524,7 +521,7 @@
 		&.no-sticker {
 			height: calc((100% - (100%/12)) - (100%/6));
 		}
-	}
+		}
 
 	.featured-artists {
 height: calc(50% - (100%/6) - (100%/12));
@@ -532,7 +529,7 @@ height: calc(50% - (100%/6) - (100%/12));
 		font-size: $font-size-medium; 
 		.tile {
 			height:100%;
-			width: 50%;
+			width: $one-third;
 			border-right:1px solid var(--special-text-color);
 			&:last-child {
 			border-right: none;
@@ -567,24 +564,33 @@ height: calc(50% - (100%/6) - (100%/12));
 		ul {
 			display: flex;
 			height: 100%;
-				flex-flow: row wnorap;
-			}
+			flex-flow: row nowrap;
+}
 		.featured-artist-image {
-			max-width: 40%;
+			max-width: 50%;
 		}
 		@include screen-size('small') {
 			border-bottom: 1px solid var(--foreground-color);
-			.featured-artist {
+			height: 50vh;
+			.tile {
 				width: 100%;
-				justify-content: flex-start;
+				height: $one-third;
+				flex-flow: row wrap;
 				font-size: $font-size-medium;
 			}
-			.featured-artist-image {
-				margin-right: $NORMAL;
+			ul {
+				flex-flow: row wrap;
+			}
+			li {
+				width: 100%;
 			}
 				.quote {
 					display: none;
 				}
+		.featured-artist-image {
+			max-width: 20%;
+		}
+
 
 		}
 
@@ -598,17 +604,6 @@ height: calc(50% - (100%/6) - (100%/12));
 		cursor: pointer;
 		outline: inherit;
 	}
-	.tile {
-		display: flex;
-		flex-wrap: wrap;
-		overflow: hidden;
-		user-select: none;
-
-		@include screen-size('small') {
-			font-size: $font-size-body;
-		}
-	}
-	
 
 
 	.open-eyebeam {
@@ -619,6 +614,10 @@ height: calc(50% - (100%/6) - (100%/12));
 		float: left;
 		position: relative;
 		padding: 0;
+		@include screen-size('small') {
+			flex: 1;
+			height: unset;
+		}
 	}
 
 	.half-sticker {
@@ -769,7 +768,7 @@ height: calc(50% - (100%/6) - (100%/12));
 			@include screen-size('medium') {
 				font-size: $font-size-small;
 			}
-
+		
 
 		}
 

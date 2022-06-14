@@ -75,5 +75,9 @@
 				font-size: $font-size-h2;
 			}
 		}
+
+		@include screen-size('small') {
+			height: 50vh;
+		}
 	}
 </style>

@@ -94,17 +94,22 @@ Come see what our fellows are up to in our new digital studio space.
 		}
 		@include screen-size('small') {
 			flex-wrap: wrap;
+			height: 75vh;
 			.link {
 				display: none;
 			}
 			.frame-container {
 //				display: none;
 				width: 100%;
-				
+				height: 50vh;
 			}
 			.about {
 				width: 100%;
+				height: 25vh;
 			}
+			.open-eyebeam-link {
+				padding: $SMALL;
+}
 		}
 
 	}

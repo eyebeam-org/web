@@ -206,6 +206,7 @@
 			padding-right: 15px;
 			padding-top: 0;
 			max-width: 100%;
+			width: 100%;
 			display: inline-block;
 		}
 

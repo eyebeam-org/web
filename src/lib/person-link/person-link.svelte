@@ -167,11 +167,8 @@ style={tiny ? "font-size: 11px" : ''}
 		display: inline-block;
 	}
 	.person-link {
-		font-size: $font-size-small;
+		font-size: $font-size-body;
 		font-weight: 200;
-		@include screen-size('medium') {
-			font-size: $font-size-extra-small;
-		}
 	}
 
 	.column {
