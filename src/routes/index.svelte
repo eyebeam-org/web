@@ -521,6 +521,10 @@
 		&.no-sticker {
 			height: calc((100% - (100%/12)) - (100%/6));
 		}
+		@include screen-size('small') {
+				height: 40vh;
+				flex: auto;
+			}
 		}
 
 	.featured-artists {
