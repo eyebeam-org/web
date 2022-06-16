@@ -6,8 +6,8 @@ export const get = async (request) => {
     const stickers = await loadData("*[_id == 'stickers']{...}[0]")
     //dereference featured artists
 //    const featuredArtists = await loadData("*[_type == 'featuredArtists']{..., featuredArtist1->, featuredArtist2->}")
-    //FIXME: again, surely there is a less dumb way to do this
-    const featuredArtists = await loadData("*[_type == 'featuredArtists']{..., featuredArtist1->{..., 'image': mainImage.asset->}, featuredArtist2->{..., 'image': mainImage.asset->}}")
+
+    const featuredArtists = await loadData("*[_type == 'featuredArtists']{..., featuredArtist1->{..., 'image': mainImage.asset->}, featuredArtist2->{..., 'image': mainImage.asset->}, featuredArtist3->{..., 'image': mainImage.asset->}}")
     return {
         body: {
             programs: programs.status === 404 ? 'ERROR' : programs,

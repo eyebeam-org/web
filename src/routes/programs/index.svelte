@@ -25,33 +25,52 @@
 
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
+	import { goto } from '$app/navigation';
+
 	$: sidebarTitle.set('Programs');
 	$: sidebarToC.set(toc);
+	const handlePseudoLink = (link) => {
+		if (link[0] == '#') {
+			const targetElement = document.querySelector(link);
+			if (targetElement) {
+				targetElement.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else {
+			goto(link);
+		}
+	};
+
 </script>
 
 <!-- METADATA -->
 <Metadata page={{ title: 'Programs' }} />
 
 <!-- MAIN CONTENT -->
-<div class="main-content">
+<div class="main-content" tabindex=0>
 	<div class="inner">
+		<div class="tile header-photo">
+			<img src="ddc_header.jpg" alt="A student sitting at a laptop with headphones around his ears, surrounded by other students deep in thought. He is black, with short, curly hair, wearing a black hoodie." />
+		</div>
+
 		<div class="tile introduction">
 			<!-- TITLE -->
 			<h1>Programs</h1>
 			<!-- INTRODUCTION -->
 			<div class="description">
 				<p>
-					Programs are the primary way Eyebeam enacts it’s mission. Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit. Curabitur tempor nulla nulla, sit amet efficitur justo
-					vestibulum nec. Donec eget condimentum tortor
-				</p>
+					Eyebeam offers courses, fellowships, and other programs to support artists, technologists, and more.
+		
+	</p>
 			</div>
 		</div>
-		<!-- LIST PROGRAMS -->
+				<!-- LIST PROGRAMS -->
 		{#each programs as program}
-			<a class="tile nav-tile" href={'/programs/' + program.slug.current} sveltekit:prefetch>
+<div class="tile nav-tile"
+on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
+					sveltekit:prefetch
+>
 				<!-- TITLE -->
-				<h2>{program.title}</h2>
+			<h2><a href={'/programs/' + program.slug.current} sveltekit:prefetch>{program.title}</a></h2>
 				<!-- DESCRIPTION -->
 				{#if has(program, 'introduction.content')}
 					<div class="introduction-text">
@@ -72,7 +91,7 @@
 						</div>
 					</div>
 				{/if}
-			</a>
+			</div>
 		{/each}
 	</div>
 
@@ -82,15 +101,37 @@
 
 <style lang="scss">
 	@import '../../variables.scss';
-
+	h2 {
+		font-family: $ALT_FONT;
+		font-size: $font-size-menu;
+		text-transform: uppercase;
+		padding-right: $LARGE;
+	}
 	.tile {
 		padding: $SMALL;
 		overflow: hidden;
+		width: 50%;
+		display: block;
+		float: left;
+		font-size: $font-size-body;
+		@include screen-size('medium') {
+			width: 100%;
+		}
+		@include screen-size('small') {
+			width: 100%;
+			border: 1px solid var(--foreground-color);
+			border-top: none;
+			&:first-child {
+				border-top: 1px solid var(--foreground-color);
+			}
+
+
+		}
 	}
 
 	.main-content {
 		float: left;
-		width: $two-third;
+		width: $five-sixths;
 
 		@include screen-size('small') {
 			width: 100%;
@@ -111,13 +152,10 @@
 	.introduction {
 		border-bottom: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
-		padding-top: 0;
-		padding-right: $LARGE;
+		padding: $LARGE;
 
 		@include screen-size('small') {
-			border-bottom: unset;
 			min-height: unset;
-			padding: unset;
 		}
 
 		p {
@@ -130,19 +168,30 @@
 		}
 	}
 
+	.header-photo {
+		overflow: hidden;
+		padding: 0;
+		max-height: $HEADER_HEIGHT;
+		border-bottom: 1px solid var(--foreground-color);
+		border-right: 1px solid var(--foreground-color);
+		img {
+			max-height: 100%;
+			max-width: 100%;
+		}
+	}
+
 	.nav-tile {
-		width: 50%;
 		min-height: $HEADER_HEIGHT;
 		border-bottom: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
-		display: block;
-		float: left;
-		text-decoration: none;
+				text-decoration: none;
 		cursor: pointer;
-		padding-right: $LARGE;
-
-		&:nth-child(odd) {
+		padding: $LARGE;
+		&:nth-child(even) {
 			border-right: none;
+		}
+		a {
+			text-decoration: none;
 		}
 
 		&:nth-last-child(1) {

@@ -8,9 +8,11 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+    "postbuild": "npx svelte-sitemap --domain https://staging.eyebeam.org"
   },
   "devDependencies": {
+    "@sveltejs/adapter-static": "^1.0.0-next.34",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
@@ -41,6 +43,7 @@
     "node-sass": "^7.0.1",
     "slugify": "^1.6.5",
     "stream": "^0.0.2",
+    "svelte-sitemap": "^2.5.1",
     "tweener": "^0.1.3"
   }
 }

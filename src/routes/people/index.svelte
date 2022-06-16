@@ -54,33 +54,34 @@
 		'Y',
 		'Z'
 	];
-	const FILTERS = [
-		{
-			label: 'Everyone',
-			value: 'everyone'
-		},
-		{
-			label: 'Artists',
-			value: 'artist'
-		},
-		{
-			label: 'Staff',
-			value: 'staff'
-		},
-		{
-			label: 'Board',
-			value: 'board'
-		},
-		{
-			label: 'Advisory Committee',
-			value: 'advisoryCommittee'
-		}
-	];
-
+	//	const FILTERS = [
+	//		{
+	//			label: 'Everyone',
+	//			value: 'everyone'
+	//		},
+	//		{
+	//			label: 'Artists',
+	//			value: 'artist'
+	//		},
+	//		{
+	//			label: 'Staff',
+	//			value: 'staff'
+	//		},
+	//		{
+	//			label: 'Board',
+	//			value: 'board'
+	//		},
+	//		{
+	//			label: 'Advisory Committee',
+	//			value: 'advisoryCommittee'
+	//		}
+	//	];
+	//
 	const scrollToSection = (alpha) => {
 		const el = document.querySelector('#' + alpha);
 		if (el) {
 			el.scrollIntoView({ behavior: 'smooth' });
+			el.focus()
 			history.replaceState(null, null, '#' + alpha);
 		}
 	};
@@ -103,7 +104,7 @@
 	$: {
 		if (activeFilter === 'everyone') {
 			filteredPeople = people;
-			history.replaceState({}, '', '/people');
+			history.replaceState({}, '', '/artists');
 		} else {
 			filteredPeople = people.filter((p) => p.role === activeFilter);
 			const url = new URL(window.location);
@@ -124,24 +125,26 @@
 </script>
 
 <!-- METADATA -->
-<Metadata page={{ title: 'People' }} />
+<Metadata page={{ title: 'Artists' }} />
 <!-- MAIN CONTENT -->
 <div class="main-content">
 	<div class="inner">
 		{#if order == 'alphabetical'}
 			<!-- ALPHABETICAL NAVIGATION -->
-			<div class="alphabetical-navigation">
+			<nav role="On this page" class="alphabetical-navigation">
+				<h2 class="accessibility-descriptor">Jump to a letter of the alphabet</h2>
 				{#each ALPHABET as alpha}
-					<div
+					<button
 						class="item"
 						on:click={() => {
 							scrollToSection(alpha);
 						}}
+						aria-label={"Jump to the letter:" + alpha }
 					>
 						{alpha}
-					</div>
+					</button>
 				{/each}
-			</div>
+			</nav>
 		{/if}
 		{#if order == 'chronological'}
 			<!-- CHRONOLOGICAL NAVIGATION -->
@@ -161,48 +164,58 @@
 
 		<!-- HEADER -->
 		<header class="header">
-			<h1>People</h1>
+			<h1>Artists</h1>
 			<!-- ORDER -->
 			<nav class="order">
 				<div class="order-header">Order by</div>
 				<div class="order-options">
-					<div
+					<button
 						class="order-option alphabetical"
 						class:active={order === 'alphabetical'}
 						on:click={() => {
 							order = 'alphabetical';
 						}}
+						role='option'
+						aria-selected={order == 'alphabetical' ? true : false}
+						aria-label={"Filter by: " + 'alphabetical'}
+
 					>
 						A-Z <span class="icon"><ArrowDown /></span>
-					</div>
+					</button>
 					<div
 						class="order-option chronological"
 						class:active={order === 'chronological'}
 						on:click={() => {
 							order = 'chronological';
 						}}
+						role='option'
+						aria-selected={order == 'chronological' ? true : false}
+							aria-label={"Order by: " + 'chronological'}
 					>
 						Year <span class="icon"><ArrowDown /></span>
 					</div>
 				</div>
 			</nav>
 			<!-- FILTER -->
-			<div class="filter">
+<!--			<div class="filter" >
 				<div class="filter-header">Show</div>
-				<div class="filter-options">
+				<div class="filter-options" >
 					{#each FILTERS as option}
-						<div
+						<button
 							class="filter-option"
 							class:active={activeFilter === option.value}
 							on:click={() => {
 								activeFilter = option.value;
 							}}
+							aria-label={"Filter by: " + option.value}
+aria-selected={activeFilter == option.value ? "true" : "false"}
+role="option"
 						>
 							{option.label}
-						</div>
+						</button>
 					{/each}
 				</div>
-			</div>
+</div> !-->
 		</header>
 
 		<!-- LIST -->
@@ -242,10 +255,19 @@
 
 <style lang="scss">
 	@import '../../variables.scss';
+	button {
+		background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	}
 
 	.main-content {
 		float: left;
-		width: $two-third;
+		width: 100%;
 
 		@include screen-size('small') {
 			width: 100%;
@@ -277,9 +299,6 @@
 				text-decoration: none;
 				cursor: pointer;
 
-				&:first-child {
-					border-top: 1px solid var(--foreground-color);
-				}
 
 				&:hover {
 					background: $grey;
@@ -409,4 +428,10 @@
 	.supersized {
 		font-size: $font-size-h1;
 	}
+.accessibility-descriptor {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	right: 1000000px;
+}
 </style>

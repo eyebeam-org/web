@@ -34,7 +34,7 @@
 	const BLUE = 'rgb(0, 0, 255)';
 	const RGB = [RED, GREEN, BLUE];
 
-	const MAIN_FONT = "'Literata', serif";
+	const MAIN_FONT = "'Work Sans', Arial, sans-serif";
 	const ALT_FONT = "'Eyebeam Sans', sans-serif";
 
 	$: if (root.style) {
@@ -100,7 +100,6 @@
 </script>
 
 <!-- HEADER -->
-<Menubar {ready} />
 
 <!-- PHONE HEADER -->
 
@@ -113,7 +112,7 @@
 	<Loading />
 {:else}
 	<!-- MAIN -->
-	<main id="main" class:open={$trayOpen} class:journal={isJournal} class:inversion={$inversion}>
+	<main id="main" role="main" class:open={$trayOpen} class:journal={isJournal} class:inversion={$inversion}>
 
 		<!-- Don't render the sidebar for landing and journal -->
 		{#if $page.url.pathname == '/' || isJournal}
@@ -121,8 +120,7 @@
 				<slot />
 			{:else}
 				<div class="navigating" />
-			{/if}
-		{:else}
+			{/if} {:else}
 
 			<Sidebar fullBorders={$navigating !== null} />
 			{#if $navigating == null}
@@ -148,6 +146,10 @@
 
 <style lang="scss" global>
 	@import '../variables.scss';
+	@include screen-size('medium') {
+		$SCALE_FACTOR: 0.8;
+	}
+
 
 	:root {
 		--background-color: rgb(245, 244, 238);
@@ -204,6 +206,7 @@
 			padding-right: 15px;
 			padding-top: 0;
 			max-width: 100%;
+			width: 100%;
 			display: inline-block;
 		}
 
@@ -219,6 +222,8 @@
 		font-weight: normal;
 		margin: 0;
 		line-height: 1.2em;
+		font-family: $ALT_FONT;
+		text-transform: uppercase;
 
 		@include screen-size('small') {
 			font-size: $font-size-h2;
@@ -228,6 +233,7 @@
 	h2 {
 		font-size: $font-size-h2;
 		font-weight: normal;
+		letter-spacing: -0.025em;
 		margin: 0;
 		line-height: 1.2em;
 	}
@@ -237,6 +243,7 @@
 		font-weight: bold;
 		margin: 0;
 		line-height: 1.2em;
+		letter-spacing: -0.025em;
 	}
 
 	figure {
@@ -288,8 +295,7 @@
 		li {
 			padding-left: 1em;
 			text-indent: -1em;
-			&:before {
-				content: '•';
+			&:before { content: '•';
 				padding-right: $TINY;
 				position: relative;
 				top: -1px;

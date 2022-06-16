@@ -10,10 +10,11 @@
 
 	// *** PROPS
 	export let people = [];
+	export let tiny = false;
 </script>
 
 {#each people as person, index}
-	<PersonLink {person} />{#if index == people.length - 2}&{/if}
+	<PersonLink {person} tiny={tiny} />{#if index == people.length - 2}&{/if}
 {/each}
 
 <style lang="scss">

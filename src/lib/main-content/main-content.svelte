@@ -29,7 +29,7 @@
 	const BOXED_TYPES = ['program', 'note', 'person'];
 	let boxed = BOXED_TYPES.includes(page._type) ? true : false;
 
-	const INTRO_TYPES = ['program', 'note'];
+	const INTRO_TYPES = ['program', 'note', 'about', 'ourHistory', 'ourMissionAndValues'];
 	let showIntroduction = INTRO_TYPES.includes(page._type) ? true : false;
 
 	const TIGHT_TYPES = ['artists', 'event', 'eyebeamIsChanging', 'news', 'press'];
@@ -37,9 +37,10 @@
 
 	const PEOPLE_TYPES = ['event', 'videoPost'];
 	let showPeople = PEOPLE_TYPES.includes(page._type) ? true : false;
+	console.log('page type: ', page._type)
 </script>
 
-<div class="main-content" in:fade>
+<div class="main-content" in:fade tabindex=0>
 	<article class="article">
 		{#if page._type == 'videoPost'}
 			<VideoPlayer {page} />
@@ -67,7 +68,7 @@
 
 					<!-- QUOTE -->
 					{#if page.quote}
-						<div class="quote">{page.quote}</div>
+						<div class="quote">"{page.quote}"</div>
 					{/if}
 
 					{#if page._type == 'note'}
@@ -84,6 +85,22 @@
 							</div>
 						{/if}
 					{/if}
+				{#if page._type == 'press' || page._type == 'news'}
+					{#if page.source}
+						<div class="published-by">Published by {page.source}</div>
+						<div class="date">{longFormatDate(page._createdAt)}</div>
+					{/if}
+						<!-- AUTHOR -->
+						{#if page.author}
+							<div class="author">{page.author}</div>
+						{/if}
+			{#if page.externalLink}
+				<a href={page.externalLink} class="button read-original" target="_blank"
+					>Read original article on {page.source} <ExternalLink /></a
+				>
+			{/if}
+
+					{/if}
 
 					<!-- INTRODUCTION -->
 					{#if showIntroduction && has(page, 'introduction.content', [])}
@@ -92,11 +109,11 @@
 				</div>
 
 				<!-- MAIN IMAGE -->
-				{#if !showIntroduction && has(page, 'mainImage.asset')}
+				{#if has(page, 'mainImage.asset')}
 					<figure class="image-container">
 						<img
 							class="main-image"
-							alt={page.title}
+							alt={page.mainImage.alt}
 							src={urlFor(page.mainImage).quality(90).saturation(-100).width(400).url()}
 						/>
 						{#if has(page, 'mainImage.caption.content')}
@@ -130,15 +147,7 @@
 		<!-- PRESS & NEWS SPECIFIC -->
 		{#if page._type === 'press' || page._type === 'news'}
 			<!-- SOURCE -->
-			{#if page.source}
-				<div class="published-by">Published by {page.source}</div>
-			{/if}
 			<!-- DATE -->
-			<div class="date">{longFormatDate(page._createdAt)}</div>
-			<!-- AUTHOR -->
-			{#if page.author}
-				<div class="author">Author</div>
-			{/if}
 			<!-- PEOPLE -->
 			{#if page.people && page.people.length > 0}
 				<div class="including">
@@ -153,11 +162,6 @@
 				<a href="" class="button download-pdf">Download as PDF</a>
 			{/if}
 			<!-- ORIGINAL LINK -->
-			{#if page.externalLink}
-				<a href={page.externalLink} class="button read-original" target="_blank"
-					>Read original article on {page.source} <ExternalLink /></a
-				>
-			{/if}
 		{/if}
 
 		<!-- WEBSITE -->
@@ -234,7 +238,7 @@
 	@import '../../variables.scss';
 
 	.main-content {
-		width: $five-sevenths;
+		width: $five-sixths;
 		margin-bottom: $HUGE;
 
 		@include screen-size('small') {
@@ -285,6 +289,7 @@
 
 			.quote {
 				margin: $NORMAL;
+				font-size: $font-size-body;
 			}
 
 			.badges {
@@ -327,10 +332,10 @@
 			}
 
 			.image-container {
-				max-width: 35%;
-				min-width: 35%;
-				width: 35%;
-				max-height: 100%;
+				max-width: 30%;
+				min-width: 30%;
+				width: 30%;
+				max-height: 400px;
 				margin-right: $NORMAL;
 
 				img {
@@ -350,7 +355,6 @@
 
 			&.boxed {
 				display: flex;
-				height: $HEADER_HEIGHT;
 				border-bottom: 1px solid var(--foreground-color);
 
 				@include screen-size('small') {

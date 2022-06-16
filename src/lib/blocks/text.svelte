@@ -43,3 +43,11 @@
 		</p>
 	{/if}
 {/if}
+
+<style lang="scss">
+	@import '../../variables.scss';
+	h2, h3 {
+		font-family: $ALT_FONT;
+		text-transform: uppercase;
+	}
+</style>

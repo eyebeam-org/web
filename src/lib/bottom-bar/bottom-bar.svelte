@@ -14,9 +14,12 @@
 
 	// __ PROPS
 	export let updatedAt = false;
+	let scrollTop
 
 	const backToTop = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
+		document.tabIndex = 0;
+		document.getElementsByClassName('main-content')[0].focus()
 	};
 </script>
 
@@ -26,9 +29,9 @@
 			<span class="icon"><HalfBeam /></span> Last updated: {dotFormatDate(updatedAt)}
 		</div>
 	{/if}
-	<div class="back-to-top" on:click={backToTop}>
+	<a href="#" class="back-to-top" on:click={backToTop}>
 		Back to top <span class="icon"><ArrowUp /></span>
-	</div>
+	</a>
 </div>
 
 <style lang="scss">

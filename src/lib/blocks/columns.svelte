@@ -14,8 +14,9 @@
 
 	// *** PROPS
 	export let b = {};
+	$: b, console.log('columnn block:', b)
 
-	const slug = slugify(b.title, {
+	const slug = slugify(b.title ? b.title : '', {
 		lower: true
 	});
 </script>

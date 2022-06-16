@@ -11,6 +11,7 @@
 
 	// __ PROPS
 	export let posts = [];
+	$: posts, console.log('posts: ', posts)
 </script>
 
 <!-- AT EYEBEAM -->
@@ -26,6 +27,7 @@
 				{#if post.mainImage}
 					<img
 						alt={post.title}
+						aria-describedby="desc"
 						src={urlFor(post.mainImage).quality(90).saturation(-100).width(400).url()}
 					/>
 				{:else}
@@ -37,11 +39,18 @@
 				<span class="title">{post.title}</span>
 			</div>
 		</a>
+
+				{#if post.mainImage}
+					<span id="desc">{post.mainImage.alt}</span>
+				{/if}
 	{/each}
 </div>
 
 <style lang="scss">
 	@import '../../variables.scss';
+	#desc {
+		display: none;
+	}
 
 	.connected-post {
 		margin-bottom: $NORMAL;

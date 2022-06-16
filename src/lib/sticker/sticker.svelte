@@ -21,14 +21,14 @@
 	let url = '';
 
 	if (sticker.externalLink) {
-		url = sticker.externalLink;
+		url = sticker.externalLink;false
 	} else if (has(sticker, 'internalLink.slug.current')) {
 		// TODO
 		url = 'ccccc';
 	}
 </script>
 
-<a href={url} class="big-sticker" class:small class:inverted={sticker.inverted}>
+<a href={url} class="tile big-sticker" class:small class:inverted={sticker.inverted}>
 	{#if has(sticker, 'image.asset')}
 		<img alt="Eyebeam" src={urlFor(sticker.image).quality(90).width(800).url()} />
 	{:else}
@@ -44,14 +44,15 @@
 	@import '../../variables.scss';
 
 	.big-sticker {
-		width: 100%;
-		height: 100%;
 		text-decoration: none;
+		width: 100%;
+		height: 50%;
 		display: block;
-
+		border-bottom: 1px solid var(--foreground-color);
 		img {
 			width: 100%;
 			height: 100%;
+			margin: 0 auto;
 			object-fit: cover;
 		}
 
@@ -66,13 +67,17 @@
 			background: var(--foreground-color);
 			.text {
 				color: var(--background-color);
-			}
+				}
 		}
 
 		&.small {
 			.text {
 				font-size: $font-size-h2;
 			}
+		}
+
+		@include screen-size('small') {
+			height: 50vh;
 		}
 	}
 </style>

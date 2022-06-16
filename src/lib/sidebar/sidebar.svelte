@@ -20,6 +20,7 @@
 
 	let hasContent = false;
 	$: hasContent = $sidebarToC.length > 0;
+	$: console.log('sidebarToc: ', $sidebarToC)
 
 	const handleToC = (link) => {
 		if (link[0] == '#') {
@@ -41,23 +42,23 @@
 
 	<!-- TOC -->
 	{#if hasContent}
-		<div class="tile toc">
+		<nav aria-label="Secondary" class="tile toc">
 			<p>{$sidebarTitle}</p>
 			{#if $sidebarToC.length > 0}
 				<ul>
 					{#each $sidebarToC as item}
 						<li>
-							<span
+							<a
 								class="pseudo-link"
 								on:click={() => {
 									handleToC(item.link);
-								}}>{item.title}</span
+								}}>{item.title}</a
 							>
 						</li>
 					{/each}
 				</ul>
 			{/if}
-		</div>
+		</nav>
 	{/if}
 
 </aside>
@@ -71,10 +72,10 @@
 	}
 
 	.sidebar {
-		width: $two-sevenths;
-		min-width: 400px;
+		width: $one-sixth;
 		border: 1px solid var(--foreground-color);
 		border-right: none;
+		border-bottom: none;
 		font-size: $font-size-small;
 
 		&.full-borders {
@@ -86,10 +87,10 @@
 		}
 
 		.open-eyebeam {
-			height: $HEADER_HEIGHT;
-			background: $grey;
-			width: 100%;
 			border-bottom: 1px solid var(--foreground-color);
+			background: $grey;
+			height: calc(100vh - 130px);
+			width: 100%;
 			float: left;
 			position: relative;
 			padding: 0;
@@ -116,6 +117,7 @@
 
 		.toc {
 			padding-top: 0;
+			border-bottom: 1px solid var(--foreground-color);
 
 			.pseudo-link {
 				text-decoration: none;

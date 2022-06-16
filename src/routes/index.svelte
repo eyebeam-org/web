@@ -46,18 +46,19 @@
 
 	//FIXME: surely there is a less stupid way to do this
 	//CANNOT delete this rn
-	$: featuredArtists, artists = [featuredArtists[0].featuredArtist1, featuredArtists[0].featuredArtist2]
+	$: featuredArtists, artists = [featuredArtists[0].featuredArtist1, featuredArtists[0].featuredArtist2, featuredArtists[0].featuredArtist3]
 	$: artists, console.log('artists: ', artists)
 </script>
 
 <!-- METADATA -->
 <Metadata />
-
+<h1 class="accessibility-title">Eyebeam Home</h1>
 <div class="homepage-menu">
-	<section>
-		<div class="column one">
-			<Menu />
-		</div>
+	<section role="menu">
+	<div class="column one">
+		<Menu />
+	</div>
+	<section role="content" class="homepage-content">
 		<div class="column two">
 			<div class="tile open-eyebeam">
 				{#if get(stickers, 'stickerLeft.enabled', false)}
@@ -66,37 +67,62 @@
 					<OpenEyebeam />
 				{/if}
 			</div>
-				<a class="sub-tile header" href="/people">OUR ARTISTS</a>
+<div class="header-container"><h2><a class="sub-tile header" href="/people">FEATURED ARTISTS</a></h2></div>
 				<div class="featured-artists">
+				<ul>
 				{#each artists as artist}
 					<div class="tile">
-					<a
+<li>
+<a
 						href={'/people/' + artist.slug.current }
 						sveltekit:prefetch
 						class="featured-artist"
-	> <img class="featured-artist-image"alt ="" src={artist.image.url}/>{artist.firstName} {artist.lastName}</a>
-					<div class="quote">
-							"{artist.quote}"
-					</div>
+>  <img class="featured-artist-image"alt ="" src={urlFor(artist.image.url).saturation(-100)}/><div class="featured-artist-name"><h3>{artist.firstName} {artist.lastName}</h3></div>
+	</a>
+
+					</li>
 					</div>
 				{/each}
-</div>
+</ul>
+	</div>
 	</div>
 	<div class="column three">
-<a class="sub-tile header" href="/events">UPCOMING & RECENT</a>
+<div class="header-container"><h2><a class="sub-tile header" href="/events">UPCOMING & RECENT</a></h2></div>
 		{#if get(stickers, 'stickerRight.enabled', false)}
 			{#if get(stickers, 'stickerRight.fullWidth', false) == false}
-				<div class="tile ">
 					<Sticker sticker={stickers.stickerRight} small={true} />
-				</div>
-				<a href="/about/support-eyebeam" class="tile support" sveltekit:prefetch>Support Eyebeam</a>
 			{:else}
-				<div class="tile full-sticker">
-					<Sticker sticker={stickers.stickerRight} small={true} />
-				</div>
+					<Sticker sticker={stickers.stickerRight} small={false} />
 			{/if}
 		{/if}
-		<div class="tile events no-sticker" class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class:large-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == true}>
+	{#if get(stickers, 'stickerRight.enabled', false)}
+	<div class="socials middle">
+			<ul>
+	<li>		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
+	<div class="icon"><Newsletter /></div>
+			</a>
+	</li>
+	<li>
+			<a href={INSTAGRAM_URL} target="_blank" class="tile social instagram"
+				>			<div class="icon"><Instagram /></div>
+			</a>
+	</li>
+	<li>
+			<a href={TWITTER_URL} target="_blank" class="tile social twitter"
+				>			<div class="icon"><Twitter /></div>
+			</a>
+	</li>
+	<li>
+			<a href={YOUTUBE_URL} target="_blank" class="tile social youtube"
+				>
+				<div class="icon"><Youtube /></div>
+			</a>
+		</li>
+	</ul>
+	</div>
+{/if}
+
+		<div class:no-sticker={get(stickers, 'stickerRight.enabled', false) == false} class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class="tile events"  >
 {#each newPosts.slice(0, 4) as post}
 				<a
 					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
@@ -104,9 +130,11 @@
 					sveltekit:prefetch
 				>
 					{#if post.mainImage != undefined && post.mainImage.asset != undefined}
-					<div class="post-image">
-						<img src={urlFor(post.mainImage.asset).width(1000).url()} />
-					</div>
+					{#if get(stickers, 'stickerRight.enabled', false) == false}
+						<div class="post-image">
+							<img src={urlFor(post.mainImage.asset).width(1000).url()} alt={post.mainImage.alt} />
+						</div>
+					{/if}
 					{/if}
 					<div class="post-content">
 						{#if post.startDate}
@@ -114,13 +142,13 @@
 						{:else if post._updatedAt }
 						<div class="time">{distanceToDate(post._updatedAt)}</div>
 					{/if}
-					<div class="title">{truncate(post.title, { length: 72 })}</div>
+<div class="title"><h3>{truncate(post.title, { length: 72 })}</h3></div>
 					{#if post.people && post.people.length > 0}
 						<div class="event-people">
 						{#if post.people.length <= 1}
-							<PersonLinkList people={post.people} />
+<PersonLinkList people={post.people} tiny={get(stickers, 'stickerRight.enabled', false)} />
 						{:else}
-							<PersonLinkList people={post.people.slice(0, 1)} /> & {post.people.length - 1} more
+<PersonLinkList people={post.people.slice(0, 1)} tiny={ get(stickers, 'stickerRight.enabled', false) } /> 
 						{/if}
 							</div>
 					{/if}
@@ -128,24 +156,33 @@
 				</a>
 			{/each}
 		</div>
-<div class="socials">
-		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
-			Newsletter
-			<div class="icon"><Newsletter /></div>
+
+{#if !get(stickers, 'stickerRight.enabled', false)}
+<div class="socials bottom">
+		<ul>
+<li>		<a href="/newsletter" class="tile social newsletter" sveltekit:prefetch>
+<div class="icon"><Newsletter /></div>
 		</a>
+</li>
+<li>
 		<a href={INSTAGRAM_URL} target="_blank" class="tile social instagram"
-			>Instagram
-			<div class="icon"><Instagram /></div>
+			>			<div class="icon"><Instagram /></div>
 		</a>
+</li>
+<li>
 		<a href={TWITTER_URL} target="_blank" class="tile social twitter"
-			>Twitter
-			<div class="icon"><Twitter /></div>
+			>			<div class="icon"><Twitter /></div>
 		</a>
+</li>
+<li>
 		<a href={YOUTUBE_URL} target="_blank" class="tile social youtube"
-			>Youtube
+			>
 			<div class="icon"><Youtube /></div>
 		</a>
+	</li>
+</ul>
 </div>
+{/if}
 
 	</div>
 </section>
@@ -156,13 +193,47 @@
 {/if}
 
 <style lang="scss">
+
 	@import '../variables.scss';
 
 	$one-third: calc(100% / 3);
 	$two-third: calc((100% / 3) * 2);
+	$phi: 1.61803398874898482;
 	section {
 		all: unset;
 }
+	.homepage-content {
+		display: flex;
+		width: $five-sixths;
+		height: 100%;
+
+		@include screen-size('small') {
+			width: 100%;
+			flex-flow: row wrap;
+		}
+}
+	.accessibility-title {
+		position: absolute;
+		left: 100000000000000000000000000000px;
+		width: 1px;
+		width: 0px;
+		overflow:hidden;
+	}
+	h2, h3, h4 {
+		all:unset;
+	}
+	ul, li {
+		all: unset;
+		padding: 0;
+		display: inline;
+		max-height: 100%;
+	}
+	ul:before, li:before {
+		padding: 0;
+		all: unset;
+		list-style: none;
+		content: none;
+	}
 
 	.homepage-menu {
 		border: 1px solid var(--foreground-color);
@@ -172,11 +243,9 @@
 		margin-left: auto;
 		margin-right: auto;
 
-		min-width: 900px;
 		min-height: 520px;
 
-		max-width: 1400px;
-		max-height: 900px;
+		max-width: 100%;
 
 		@include screen-size('small') {
 			height: auto;
@@ -206,41 +275,77 @@
 		
 		border-right:1px solid var(--special-text-color);
 		max-width: 100%;
-		&.one {
-			width: $one-fifth;
-			height: 100%;
 
+		@include screen-size('small') {
+			border-right: none;
+		}
+		&.one {
+			width: $one-sixth;
+			height: 100%;
+	
 			@include screen-size('small') {
 				display: none;
 			}
+
+
 		}
 
 
 		&.two {
-			width: 50%;
+			width: 100%/$phi;
 			// background: red;
 			height: 100%;
+			display: flex;
+			flex-flow: column wrap;
+
 
 			@include screen-size('small') {
 				width: 100%;
 				height: auto;
 			}
+
 		}
 
 		&.three {
-			width: 30%;
 			// background: blue;
+			display: flex;
+			flex-flow: column wrap;
+			width: (100%/$phi)/$phi;
 			height: 100%;
-
+			border-right: none;
 			@include screen-size('small') {
 				width: 100%;
-				height: auto;
 			}
+			
+
+
 		}
 	}
+
+	.tile {
+		display: flex;
+		flex-wrap: wrap;
+		overflow: hidden;
+		user-select: none;
+
+		@include screen-size('small') {
+			font-size: $font-size-body;
+		}
+	}
+	
+
 	.socials {
-		height: $one-sixth;
 		width: 100%;
+		height: calc(100% / 12);
+		&.bottom {
+			border-top: 1px solid var(--foreground-color);
+		}
+		&.middle {
+			border-bottom: 1px solid var(--foreground-color);
+		}
+		@include screen-size('small') {
+			height: 50px;
+		}
 	}
 
 
@@ -322,6 +427,7 @@
 	}
 
 	.social {
+		font-family: $ALT_FONT;
 		justify-content: center;
 		text-align: center;
 		flex-wrap: nowrap;
@@ -330,13 +436,15 @@
 		height: 100%;
 		padding: 10px !important;
 		float: left;
-		border-top: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
 
 		@include screen-size('small') {
-			width: 50%;
-			height: 85px;
+			width: 25%;
 		}
+		@include screen-size('medium') {
+			font-size: 0px;
+		}
+
 
 		&.youtube {
 			border-right: none;
@@ -344,7 +452,6 @@
 
 		&.instagram {
 			@include screen-size('small') {
-				border-right: none;
 			}
 		}
 
@@ -392,55 +499,102 @@
 		align-content: flex-start;
 		justify-content: flex-start;
 		flex-flow: column wrap;
+		flex: 1;
 		width: 100%;
 		float: left;
+		height: calc((100%/12)*5);
 		&.has-sticker {
-			height: calc((((100%/8) * 3) - 40px) - (100%/6));
-		}
-		&.full-sticker {
-			height: calc((25% - 40px) - (100%/6));
+			flex-flow: row wrap;
+			.event {
+					width: 50%;
+					max-width:50%;
+					height: 50%;
+					max-height: 100%;
+					.post-image {
+						display: none;
+					}
+				.title {
+						font-size: $font-size-small;
+					}
+			}
 		}
 		&.no-sticker {
-			height: calc((100% - 40px) - (100%/6));
+			height: calc((100% - (100%/12)) - (100%/6));
 		}
-	}
+		@include screen-size('small') {
+				height: 40vh;
+				flex: auto;
+			}
+		}
 
 	.featured-artists {
-		height: calc((100% /3) - 40px);
-		flex-flow: row wrap;
+height: calc(50% - (100%/6) - (100%/12));
 		font-family: $ALT_FONT;
-		font-size: $font-size-h2; 
+		font-size: $font-size-medium; 
 		.tile {
-			height:50%;
-			padding: $TINY;
+			height:100%;
+			width: $one-third;
+			border-right:1px solid var(--special-text-color);
+			&:last-child {
+			border-right: none;
+			}
+
 		}
-		.featured-artist, .quote {
+		.featured-artist {
+			padding: $SMALL $NORMAL;
 			height: 100%;
-			width: $two-third;
+			width: 100%;
 			display: flex;
 			align-items: center;
-			justify-content: flex-start;
+			justify-content: space-between;
 			flex-flow: row nowrap;
 			text-align: center;
 		}
-		.quote {
-			width: $one-third;
-			//			font-family: $SERIF_STACK; 
-			font-size: $font-size-small;
-			padding: $SMALL; 
+		.featured-artist-name {
+			font-size: $font-size-body;
+			padding: $TINY;
+			width: 100%;
 		}
+		.quote {
+			width: $two-fifths;
+			font-size: $font-size-body;
+			font-family: $SERIF_STACK;
+			@include screen-size('medium') {
+				font-size: $font-size-extra-small;
+				padding: $TINY;
+			}
+
+		}
+		ul {
+			display: flex;
+			height: 100%;
+			flex-flow: row nowrap;
+}
 		.featured-artist-image {
-			height: 85%;
-			max-width: 25%;
-			margin:0 10% 0 $SMALL;
+			max-width: 50%;
 		}
 		@include screen-size('small') {
-			.featured-artist {
+			border-bottom: 1px solid var(--foreground-color);
+			height: 50vh;
+			.tile {
+				width: 100%;
+				height: $one-third;
+				flex-flow: row wrap;
+				font-size: $font-size-medium;
+			}
+			ul {
+				flex-flow: row wrap;
+			}
+			li {
 				width: 100%;
 			}
 				.quote {
 					display: none;
 				}
+		.featured-artist-image {
+			max-width: 20%;
+		}
+
 
 		}
 
@@ -454,33 +608,25 @@
 		cursor: pointer;
 		outline: inherit;
 	}
-	.tile {
-		display: flex;
-		flex-wrap: wrap;
-		padding: $SMALL;
-		overflow: hidden;
-		user-select: none;
-
-		@include screen-size('small') {
-			font-size: $font-size-body;
-		}
-	}
-	
 
 
 	.open-eyebeam {
-		height: $two-third;
+		height: calc(50% + (100%/12) * 2);
 		background: $grey;
 		width: 100%;
 		border-bottom: 1px solid var(--foreground-color);
 		float: left;
 		position: relative;
 		padding: 0;
+		@include screen-size('small') {
+			flex: 1;
+			height: unset;
+		}
 	}
 
 	.half-sticker {
 		padding: 0;
-		height: $three-eighths;
+		height: 50%;
 		width: 50%;
 		float: left;
 		border-bottom: 1px solid var(--foreground-color);
@@ -491,7 +637,6 @@
 
 	.full-sticker {
 		padding: 0;
-		height: calc(40% - 100px);
 		width: 100%;
 		float: left;
 		border-bottom: 1px solid var(--foreground-color);
@@ -519,7 +664,14 @@
 		font-size: $font-size-extra-small;
 	}
 
-
+	.header-container {
+			height: calc(100%/12);
+			h2 {
+				display: flex;
+				width: 100%;
+				height: 100%;
+			}
+	}
 	.sub-tile {
 		width: 50%;
 		padding: $SMALL;
@@ -540,61 +692,88 @@
 		}
 
 		&.header {
-			display: block;
 			font-family: $ALT_FONT;
-			font-size: $font-size-small;
-			font-weight: 600;
+			font-size: $font-size-medium;
+			@include screen-size('medium') {
+				font-size: $font-size-journal
+			}
+			flex: 1;
 			display: flex;
 			align-content: center;
 			align-items: center;
-			min-height: auto;
 			width: 100%;
+			height: 100%;
+			max-height: 100%;
 			border-bottom: 1px solid var(--foreground-color);
-			height: $LARGE;
-			@include screen-size('small') {
-				padding-top: $NORMAL;
-			}
-			}
+			padding: $SMALL;
+		}
 
 
 
 		&.event {
-			padding: 0;
 			width:100%;
-			min-height: calc(100% /4);
+			padding: $TINY $NORMAL;
+			min-height: calc(100% /5);
 			max-height: 25%;
+			height:25%;
 			display: flex;
-			flex: 1;
 			align-content: center;
+			align-items: center;
 			.post-image {
 				height: 80%;
-				width: 25%;
-				margin: $SMALL 0;
-				max-width: 25%;
+				width: 30%;
 				flex: none;
+				display: flex;
 				overflow: hidden;
 				img {
 					max-width: 100%;
 					width: 100%;
-					margin: 0 auto;
+					align-items: center;
 					object-fit: cover;
 				}
 			}
 			.post-content {
 				padding: 0 $SMALL;
 				display: flex;
+				max-height: 100%;
 				flex-flow: column nowrap;
+				overflow: hidden;
+				@include screen-size('medium') {
+					max-height: 98%;
+					&:after {
+//						content: "..."
+					}
+				}
+
 			}
+			.and-more {
+				font-size: $font-size-extra-small;
+				@include screen-size('medium') {
+					display: none;
+				}
+			}
+
 		}
 
 		.time {
 			margin-bottom: $TINY;
 			font-size: $font-size-extra-small;
+			@include screen-size('medium') {
+				display: none;
+			}
+
 		}
 
 		.title {
 			margin-bottom: $TINY;
+			font-size: $font-size-body;
 			width: 100%;
+			overflow: hidden;
+			@include screen-size('medium') {
+				font-size: $font-size-small;
+			}
+		
+
 		}
 
 

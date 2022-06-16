@@ -6,7 +6,7 @@
 
 </script>
 <div class="menu-content" class:open={trayOpen}>
-<div class="home">
+<div class="home" role="header">
 <a href="/" class="eyebeam-text" aria-label="eyebeam-homepage">EYEBEAM<HeaderBeam /></a>
 </div>
 </div>
@@ -25,16 +25,17 @@
       position: relative;
       display: block;
 			width: 100%;
-			padding-top: 50px;
+			padding-top: 20px;
 			text-align: center;
       display:flex;
       text-align: left;
-      margin-left: $LARGE * 1.5;
+      padding-left: $LARGE * 1.5;
       .home {
         font-family: $ALT_FONT;
-        font-size: $font-size-h2;
+        font-size: $font-size-logo;
         .eyebeam-text {
           text-decoration: none;
+          font-weight: 600;
         }
         }
         @include screen-size('small') {

@@ -15,7 +15,7 @@
 	class="open-eyebeam"
 >
 <div class="frame-container">
-<iframe src={import.meta.env.VITE_OPEN_EYEBEAM_EMBED_URL} title="Open Eyebeam"/>
+<iframe src={import.meta.env.VITE_OPEN_EYEBEAM_EMBED_URL} title="Open Eyebeam" aria-label="A live view of Eyebeam's new digital artist studio, Open Eyebeam. This area changes randomly on each page load, but shows a randomized area in The Field of Open Eyebeam, which will show doors to artists' studios."/>
 <a target="_blank" href="https://open-eyebeam.netlify.app">
 	<div class="link"><span class="arrow"><TriangleRight /></span> open.eyebeam.org</div>
 </a>
@@ -61,11 +61,17 @@ Come see what our fellows are up to in our new digital studio space.
 			background-color: $white;
 			//			text-transform: uppercase;
 
-			font-family: $ALT_FONT;
-			font-size: $font-size-medium;
+			font-family: $SERIF_STACK;
+			font-size: $font-size-body;
 			padding: $SMALL;
 			.open-eyebeam-link {
-				font-size: $font-size-h2;
+				font-family: $ALT_FONT;
+				font-size: $font-size-menu;
+				@include screen-size('medium') {
+					font-size: $font-size-journal;
+				}
+
+
 				a {
 					text-decoration: none;
 				}
@@ -87,12 +93,23 @@ Come see what our fellows are up to in our new digital studio space.
 			}
 		}
 		@include screen-size('small') {
-			.frame-container {
+			flex-wrap: wrap;
+			height: 75vh;
+			.link {
 				display: none;
+			}
+			.frame-container {
+//				display: none;
+				width: 100%;
+				height: 50vh;
 			}
 			.about {
 				width: 100%;
+				height: 25vh;
 			}
+			.open-eyebeam-link {
+				padding: $SMALL;
+}
 		}
 
 	}

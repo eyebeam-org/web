@@ -27,4 +27,6 @@
 {:else if c.marks.includes('strong')}
 	<!-- Bold -->
 	<strong>{@html renderNewLines(c.text)}</strong>
+{:else }
+	{@html renderNewLines(c.text)}
 {/if}

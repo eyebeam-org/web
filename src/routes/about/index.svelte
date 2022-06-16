@@ -21,6 +21,9 @@
 	export let about;
 	export let pressAndNews;
 
+	//STORES
+	import { goto } from '$app/navigation';
+
 	console.log('about', about);
 	console.log('pressAndNews', pressAndNews);
 
@@ -33,7 +36,6 @@
 		'our-history',
 		'staff-and-board',
 		'artists',
-		'support-eyebeam',
 		'get-involved',
 		'press-and-news',
 		'our-operating-documents',
@@ -55,7 +57,7 @@
 			title: 'Staff & Board'
 		},
 		{
-			link: '/about/artists',
+			link: '/people',
 			title: 'Artists'
 		},
 		{
@@ -88,14 +90,29 @@
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set(aboutMap['what-is-eyebeam'].title);
 	$: sidebarToC.set(toc);
+	//FIXME: this is currently duplicated here and in sidebar (as handleToC), should be in lib
+	const handlePseudoLink = (link) => {
+		if (link[0] == '#') {
+			const targetElement = document.querySelector(link);
+			if (targetElement) {
+				targetElement.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else {
+			goto(link);
+		}
+	};
+
 </script>
 
 <!-- METADATA -->
 <Metadata page={aboutMap['what-is-eyebeam']} />
 
 <!-- MAIN CONTENT -->
-<div class="main-content">
+<div class="main-content" tabindex=0>
 	<div class="inner">
+		<div class="tile header-photo">
+			<img src="eyebeambox.gif" alt="A gif of a black box with the word 'Eyebeam' on each face, slowly rotating" />
+		</div>
 		<div class="tile introduction">
 			<!-- TITLE -->
 			<h1>{aboutMap['what-is-eyebeam'].title}</h1>
@@ -121,7 +138,7 @@
 					</div>
 					<a href="/press-and-news" class="see-all" sveltekit:prefetch>See all Press & News</a>
 				</div>
-			{:else if section == 'contact'}
+		{:else if section == 'contact'}
 				<!-- CONTACT SECTION -->
 				<div class="tile full-tile contact">
 					<h2>Contact</h2>
@@ -137,12 +154,12 @@
 				</div>
 			{:else}
 				<!-- STANDARD SECTIONS -->
-				<a
+				<div
 					class="tile nav-tile {section}"
-					href={'/about/' + aboutMap[section]._id}
+on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id);}}
 					sveltekit:prefetch
 				>
-					<h2>{aboutMap[section].title}</h2>
+<h2> <a href={ section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id}>{aboutMap[section].title}</a></h2>
 					{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
 							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {
@@ -150,7 +167,7 @@
 							})}
 						</div>
 					{/if}
-				</a>
+				</div>
 			{/if}
 		{/each}
 	</div>
@@ -162,14 +179,34 @@
 <style lang="scss">
 	@import '../../variables.scss';
 
+	h2 {
+		font-family: $ALT_FONT;
+		font-size: $font-size-menu;
+		text-transform: uppercase;
+		padding-right: $LARGE;
+	}
 	.tile {
 		padding: $SMALL;
 		overflow: hidden;
+		width: 50%;
+		display: block;
+		float: left;
+		@include screen-size('small') {
+			width: 100%;
+			border: 1px solid var(--foreground-color);
+			border-top: none;
+			&:first-child {
+				border-top: 1px solid var(--foreground-color);
+			}
+		}
+	}
+	.description {
+		font-size: $font-size-body;
 	}
 
 	.main-content {
 		float: left;
-		width: $two-third;
+		width: 100%;
 
 		@include screen-size('small') {
 			width: 100%;
@@ -190,15 +227,11 @@
 	.introduction {
 		border-bottom: 1px solid var(--foreground-color);
 		min-height: $HEADER_HEIGHT;
-		padding-top: 0;
+		max-height: $HEADER_HEIGHT;
+		overflow: scroll;
 		padding-right: $LARGE;
 
-		@include screen-size('small') {
-			border-bottom: unset;
-			min-height: unset;
-			padding: unset;
-		}
-
+	
 		p {
 			font-style: italic;
 			font-size: $font-size-medium;
@@ -208,6 +241,20 @@
 			}
 		}
 	}
+	.header-photo {
+		overflow: hidden;
+		padding: 0;
+		max-height: $HEADER_HEIGHT;
+		border-bottom: 1px solid var(--foreground-color);
+		border-right: 1px solid var(--foreground-color);
+		height: $HEADER_HEIGHT;
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
 
 	.nav-tile {
 		width: 50%;
@@ -219,6 +266,15 @@
 		text-decoration: none;
 		cursor: pointer;
 		padding-right: $LARGE;
+		a {
+			text-decoration: none;
+		}
+		button {
+			background: $grey;
+			display: block;
+			text-align: center;
+			margin: $SMALL auto;
+		}
 
 		&:hover {
 			background: $grey;
@@ -232,7 +288,7 @@
 
 		&.our-history,
 		&.artists,
-		&.get-involved,
+		&.the-fold,
 		&.media-kit {
 			border-right: none;
 			@include screen-size('small') {
@@ -322,10 +378,13 @@
 			display: flex;
 			margin-top: $NORMAL;
 			padding-bottom: $NORMAL;
+			overflow: hidden;
+			position: relative;
 
 			@include screen-size('small') {
 				flex-wrap: wrap;
 				margin-top: 0;
+				padding-bottom: $LARGE;
 			}
 		}
 

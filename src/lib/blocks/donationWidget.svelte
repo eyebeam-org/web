@@ -20,118 +20,118 @@
 
 <style lang="scss">
 	@import '../../variables.scss';
-
-	.donation-widget {
-		margin-top: $NORMAL;
-		height: 600px;
-		width: 100%;
-
-		@include screen-size('small') {
-			border-right: $border-style;
-			border-left: $border-style;
-		}
-	}
-
-	:global(.donation-widget .gl-widget__frequency-selection-container) {
-		height: 200px;
-		border-top: $border-style;
-	}
-
-	:global(.donation-widget .gl-widget__input-group) {
-		height: 200px;
-		font-size: $font-size-h2 !important;
-		color: var(--foreground-color) !important;
-		padding-top: 75px !important;
-		border: unset !important;
-		border-radius: 0 !important;
-		border-top: $border-style !important;
-	}
-
+//
+//	.donation-widget {
+//		margin-top: $NORMAL;
+//		max-height: 600px;
+//		width: 100%;
+//
+//		@include screen-size('small') {
+//			border-right: $border-style;
+//			border-left: $border-style;
+//		}
+//	}
+//
+//	:global(.donation-widget .gl-widget__frequency-selection-container) {
+//		height: 40px;
+//		border-top: $border-style;
+//	}
+//
+//	:global(.donation-widget .gl-widget__input-group) {
+//		height: 60px;
+//		font-size: $font-size-h2 !important;
+//		color: var(--foreground-color) !important;
+//		padding-top: 75px !important;
+//		border: unset !important;
+//		border-radius: 0 !important;
+//		border-top: $border-style !important;
+//	}
+//
 	:global(.donation-widget .gl-widget__donation-input-field) {
-		font-size: $font-size-h2 !important;
+//		font-size: $font-size-h2 !important;
 		font-family: $SERIF_STACK !important;
-		color: var(--foreground-color) !important;
-		outline: none !important;
-		text-align: center;
-		border-radius: 0 !important;
-		width: 50% !important;
-		border-bottom: 1px solid $grey !important;
-		background: transparent !important;
+//		color: var(--foreground-color) !important;
+//		outline: none !important;
+//		text-align: center;
+//		border-radius: 0 !important;
+//		width: 50% !important;
+//		border-bottom: 1px solid $grey !important;
+//		background: transparent !important;
 	}
-
-	:global(.donation-widget .gl-widget__btn--outline-primary) {
-		background: transparent !important;
-		margin-bottom: 0 !important;
-		padding: 0 !important;
-		color: var(--foreground-color) !important;
-	}
-
+//
+//	:global(.donation-widget .gl-widget__btn--outline-primary) {
+//		background: transparent !important;
+//		margin-bottom: 0 !important;
+//		padding: 0 !important;
+//		color: var(--foreground-color) !important;
+//	}
+//
 	:global(.donation-widget .gl-widget__currency) {
-		top: 75px !important;
-		color: var(--foreground-color) !important;
+//		top: 75px !important;
+//		color: var(--foreground-color) !important;
 		font-family: $SERIF_STACK !important;
-		background: transparent !important;
+//		background: transparent !important;
 	}
-
-	:global(.donation-widget .gl-widget__payment) {
-		border-top: $border-style;
-		height: 200px;
-		margin-top: 0 !important;
-	}
-
+//
+//	:global(.donation-widget .gl-widget__payment) {
+//		border-top: $border-style;
+//		height: 200px;
+//		margin-top: 0 !important;
+//	}
+//
 	:global(.donation-widget .gl-widget__frequency-buttons) {
-		height: 100% !important;
-		text-transform: uppercase;
+//		height: 100% !important;
+//		text-transform: uppercase;
 		font-family: $SERIF_STACK !important;
-		font-size: $font-size-extra-small !important;
+//		font-size: $font-size-extra-small !important;
 	}
-
+//
 	:global(.donation-widget .gl-widget__donation-submit-button) {
-		height: 100% !important;
-		font-size: $font-size-h2 !important;
+//		height: 100% !important;
+//		font-size: $font-size-h2 !important;
 		font-family: $SERIF_STACK !important;
-		background: transparent !important;
-		text-transform: capitalize;
-		color: var(--foreground-color) !important;
-		transition: unset !important;
-
-		&:hover {
-			color: var(--hover-text-color) !important;
-			background: $grey !important;
-		}
+//		background: transparent !important;
+//		text-transform: capitalize;
+//		color: var(--foreground-color) !important;
+//		transition: unset !important;
+//
+//		&:hover {
+//			color: var(--hover-text-color) !important;
+//			background: $grey !important;
+//		}
 	}
-
-	:global(.donation-widget .gl-widget__btn) {
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-		border-radius: 0 !important;
-		border: 0 !important;
-		color: var(--foreground-color);
-
-		&:first-child {
-			border-right: $border-style !important;
-		}
-	}
-
-	:global(.donation-widget .gl-widget__btn--outline-primary) {
-		&:focus {
-			background-color: $grey !important;
-			color: var(--hover-text-color) !important;
-		}
-
-		&:hover {
-			background-color: $grey !important;
-			color: var(--hover-text-color) !important;
-		}
-	}
-
-	:global(.donation-widget .gl-widget--selected-btn) {
-		background-color: $grey !important;
-		color: var(--foreground-color) !important;
-	}
-
-	:global(.donation-widget .gl-widget__btn--outline-primary:hover:not(.gl-widget--selected-btn)) {
-		background: transparent !important;
-		color: var(--foreground-color) !important;
-	}
+//
+//	:global(.donation-widget .gl-widget__btn) {
+//		margin-left: 0 !important;
+//		margin-right: 0 !important;
+//		border-radius: 0 !important;
+//		border: 0 !important;
+//		color: var(--foreground-color);
+//
+//		&:first-child {
+//			border-right: $border-style !important;
+//		}
+//	}
+//
+//	:global(.donation-widget .gl-widget__btn--outline-primary) {
+//		&:focus {
+//			background-color: $grey !important;
+//			color: var(--hover-text-color) !important;
+//		}
+//
+//		&:hover {
+//			background-color: $grey !important;
+//			color: var(--hover-text-color) !important;
+//		}
+//	}
+//
+//	:global(.donation-widget .gl-widget--selected-btn) {
+//		background-color: $grey !important;
+//		color: var(--foreground-color) !important;
+//	}
+//
+//	:global(.donation-widget .gl-widget__btn--outline-primary:hover:not(.gl-widget--selected-btn)) {
+//		background: transparent !important;
+//		color: var(--foreground-color) !important;
+//	}
 </style>

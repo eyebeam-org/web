@@ -36,10 +36,11 @@
 
 	const MENU_ITEMS = [
 		{ label: 'Home', value: '/' },
-		{ label: 'About / What is Eyebeam?', value: '/about' },
+		{ label: 'About Eyebeam', value: '/about' },
 		{ label: 'Programs', value: '/programs' },
 		{ label: 'Artists', value: '/people' },
-		{ label: 'Support Eyebeam', value: '/about/support-eyebeam' },
+		{ label: 'Support Eyebeam', value: '/support' },
+		{ label: 'Archive', value: '/everything' },
 		{ label: 'Newsletter', value: '/newsletter' },
 		{ label: 'Instagram', value: INSTAGRAM_URL },
 		{ label: 'Twitter', value: TWITTER_URL },
@@ -54,7 +55,7 @@
 	{#if $page.url.pathname == '/'}
 		<a href="/" aria-label="The Eyebeam logo: lines spreading out in a half-circle like sun rays." class="logo"><BigBeam /></a>
 	{/if}
-		<div class="wordmark" on:click={toggleMenu}><Logo /></div>
+<div class="wordmark"><a href="/"><Logo /></a></div>
 		<div class="menu-toggle" on:click={toggleMenu}>
 			<span class="menu-toggle-header">Click to {menuOpen ? 'hide' : 'show'} menu</span>
 			<span class="icon">
