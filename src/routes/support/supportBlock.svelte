@@ -29,7 +29,20 @@
 
 
 
-	// The order that we want the the posts to be listed, according to the design
+
+	//FIXME: this is currently duplicated here and in sidebar (as handleToC), should be in lib
+	const handlePseudoLink = (link) => {
+		console.log('foo')
+		if (link[0] == '#') {
+			const targetElement = document.querySelector(link);
+			if (targetElement) {
+				targetElement.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else {
+			goto(link);
+		}
+	};
+
 </script>
 
 		{#if section == 'contact'}
@@ -49,7 +62,7 @@
 			{:else if section =='donate'}
 				<!-- STANDARD SECTIONS -->
 				
-				<div id={section == 'donate' ? 'donate' : ''}
+				<div id='donate'
 					class="tile introduction {section}"
 					sveltekit:prefetch
 				>
@@ -61,9 +74,9 @@
 					{/if}
 				</div>
 			{#each aboutMap[section].content as content}
-						<div class="tile nav-tile">
+<div class="tile nav-tile">
 							<Blocks blocks={content.content} />
-						</div>
+					</div>
 				{/each}
 						<div class="tile nav-tile crypto-widget">
 					<h2>Donate Crypto </h2>
@@ -75,13 +88,13 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 
 			{:else}
 				<!-- STANDARD SECTIONS -->
-				
-				<div id={section == 'donate' ? 'donate' : ''}
+				<div 
 					class="tile nav-tile {section}"
+on:click={()=> {handlePseudoLink('/support/' + aboutMap[section]._id);}}
 					sveltekit:prefetch
 				>
-<h2> {aboutMap[section].title}</h2>
-					{#if has(aboutMap[section], 'introduction.content')}
+<a href={'support/' + aboutMap[section]._id}><h2> {aboutMap[section].title}</h2></a>
+						{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
 							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {
 								length: 600
