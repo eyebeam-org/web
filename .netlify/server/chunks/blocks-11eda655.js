@@ -29,7 +29,7 @@ var import_index_68ac15fd = require("./index-68ac15fd.js");
 var import_slugify = __toESM(require("slugify"));
 var import_get = __toESM(require("lodash/get.js"));
 var import_date_fns = require("date-fns");
-var import_person_link_ca6b4a11 = require("./person-link-ca6b4a11.js");
+var import_person_link_eed93e98 = require("./person-link-eed93e98.js");
 var import_global_61b718ff = require("./global-61b718ff.js");
 var import_sanity_59332496 = require("./sanity-59332496.js");
 var import_has = __toESM(require("lodash/has.js"));
@@ -70,7 +70,7 @@ const Text_mark = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, s
   return `${!currentDefinition ? `${(0, import_index_68ac15fd.v)(Process_text_mark, "ProcessTextMark").$$render($$result, { c, defs }, {}, {})}` : `${currentDefinition._type === "link" && currentDefinition.href ? `${currentDefinition.href.includes("https://eyebeam.org") ? `
 			<a${(0, import_index_68ac15fd.a)("href", currentDefinition.href, 0)}>${(0, import_index_68ac15fd.v)(Process_text_mark, "ProcessTextMark").$$render($$result, { c, defs }, {}, {})}</a>` : `
 		<a${(0, import_index_68ac15fd.a)("href", currentDefinition.href, 0)} target="${"_blank"}">${(0, import_index_68ac15fd.v)(Process_text_mark, "ProcessTextMark").$$render($$result, { c, defs }, {}, {})}			${(0, import_index_68ac15fd.v)(External_link, "ExternalLink").$$render($$result, {}, {}, {})}</a>`}` : `${currentDefinition._type === "person" ? `
-	${(0, import_index_68ac15fd.v)(import_person_link_ca6b4a11.P, "PersonLink").$$render($$result, {
+	${(0, import_index_68ac15fd.v)(import_person_link_eed93e98.P, "PersonLink").$$render($$result, {
     overrideText: c.text,
     personId: (0, import_get.default)(currentDefinition, "link._ref", false)
   }, {}, {})}` : ``}`}`}`;
@@ -310,7 +310,7 @@ const PersonList = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, 
   if ($$props.b === void 0 && $$bindings.b && b !== void 0)
     $$bindings.b(b);
   return `<div class="${"person-list"}"><p>${(0, import_index_68ac15fd.h)(b.persons, (person) => {
-    return `<div>${(0, import_index_68ac15fd.v)(import_person_link_ca6b4a11.P, "PersonLink").$$render($$result, {
+    return `<div>${(0, import_index_68ac15fd.v)(import_person_link_eed93e98.P, "PersonLink").$$render($$result, {
       personId: (0, import_get.default)(person, "personLink._ref", false)
     }, {}, {})}${person.role ? `\u2013 ${(0, import_index_68ac15fd.e)(person.role)}` : ``}
 			</div>`;

@@ -27,9 +27,9 @@ var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
 var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_get = __toESM(require("lodash/get.js"));
-var import_person_link_ca6b4a11 = require("../../../chunks/person-link-ca6b4a11.js");
-var import_blocks_c75ee098 = require("../../../chunks/blocks-c75ee098.js");
-var import_metadata_ef16be06 = require("../../../chunks/metadata-ef16be06.js");
+var import_person_link_eed93e98 = require("../../../chunks/person-link-eed93e98.js");
+var import_blocks_11eda655 = require("../../../chunks/blocks-11eda655.js");
+var import_metadata_a699f85e = require("../../../chunks/metadata-a699f85e.js");
 var import_stores_2672c807 = require("../../../chunks/stores-2672c807.js");
 var import_stores_25b712dd = require("../../../chunks/stores-25b712dd.js");
 var import_slugify = require("slugify");
@@ -43,7 +43,7 @@ var import_get_video_id = require("get-video-id");
 var import_truncate = require("lodash/truncate.js");
 var index_svelte_svelte_type_style_lang = "";
 const css = {
-  code: "button.svelte-lvpagv.svelte-lvpagv{background:none;color:inherit;border:none;padding:0;font:inherit;cursor:pointer;outline:inherit}.main-content.svelte-lvpagv.svelte-lvpagv{float:left;width:100%}.main-content.svelte-lvpagv .inner.svelte-lvpagv{border:1px solid var(--foreground-color);min-height:662px}.main-content.svelte-lvpagv .inner .header.svelte-lvpagv{width:100%;display:inline-block;border-bottom:1px solid var(--foreground-color)}.main-content.svelte-lvpagv .inner .header .description.svelte-lvpagv{margin-left:auto;margin-right:auto;margin-top:40px;margin-bottom:20px}.main-content.svelte-lvpagv .inner .header h1.svelte-lvpagv{margin-right:20px;margin-left:20px}.main-content.svelte-lvpagv .inner .header .filters.svelte-lvpagv{margin-top:40px;display:inline-block;margin-bottom:15px;margin-right:20px;margin-left:20px}.main-content.svelte-lvpagv .inner .header .filters .filter.svelte-lvpagv{padding:8px 15px;border:1px solid var(--foreground-color);margin-right:5px;float:left;user-select:none;cursor:pointer;font-size:11px}.main-content.svelte-lvpagv .inner .header .filters .filter.svelte-lvpagv:hover{background:var(--foreground-color);color:var(--background-color)}.main-content.svelte-lvpagv .inner .header .filters .filter.active.svelte-lvpagv{background:var(--foreground-color);color:var(--background-color)}.main-content.svelte-lvpagv .inner .single-post.svelte-lvpagv{padding:15px;border-bottom:1px solid var(--foreground-color);text-decoration:none;display:block;font-size:14px}.main-content.svelte-lvpagv .inner .single-post.svelte-lvpagv:last-child{border-bottom:unset}.main-content.svelte-lvpagv .inner .single-post.svelte-lvpagv:hover{background:#e0ded7;cursor:pointer;color:var(--hover-text-color)}.main-content.svelte-lvpagv .inner .single-post .top.svelte-lvpagv{width:100%;display:flex;justify-content:space-between}.main-content.svelte-lvpagv .inner .single-post .top .type.svelte-lvpagv{font-size:11px;text-transform:uppercase;letter-spacing:0.5px}.main-content.svelte-lvpagv .inner .single-post .top .date.svelte-lvpagv{float:right;margin-top:5px}.main-content.svelte-lvpagv .inner .single-post .title.svelte-lvpagv{margin-bottom:5px;font-size:20px}.main-content.svelte-lvpagv .inner .single-post .people.svelte-lvpagv{font-style:italic}",
+  code: "button.svelte-1ox3jy3.svelte-1ox3jy3{background:none;color:inherit;border:none;padding:0;font:inherit;cursor:pointer;outline:inherit}.main-content.svelte-1ox3jy3.svelte-1ox3jy3{float:left;width:100%}.main-content.svelte-1ox3jy3 .inner.svelte-1ox3jy3{border:1px solid var(--foreground-color);min-height:662px}.main-content.svelte-1ox3jy3 .inner .header.svelte-1ox3jy3{width:100%;display:inline-block;border-bottom:1px solid var(--foreground-color)}.main-content.svelte-1ox3jy3 .inner .header .description.svelte-1ox3jy3{margin-left:auto;margin-right:auto;margin-top:40px;margin-bottom:20px}.main-content.svelte-1ox3jy3 .inner .header h1.svelte-1ox3jy3{margin-right:20px;margin-left:20px}.main-content.svelte-1ox3jy3 .inner .header .filters.svelte-1ox3jy3{margin-top:40px;display:inline-block;margin-bottom:15px;margin-right:20px;margin-left:20px}.main-content.svelte-1ox3jy3 .inner .header .filters .filter.svelte-1ox3jy3{padding:8px 15px;border:1px solid var(--foreground-color);margin-right:5px;float:left;user-select:none;cursor:pointer;font-size:11px}@media(max-width: 800px){.main-content.svelte-1ox3jy3 .inner .header .filters .filter.svelte-1ox3jy3{margin-top:8px}}.main-content.svelte-1ox3jy3 .inner .header .filters .filter.svelte-1ox3jy3:hover{background:var(--foreground-color);color:var(--background-color)}.main-content.svelte-1ox3jy3 .inner .header .filters .filter.active.svelte-1ox3jy3{background:var(--foreground-color);color:var(--background-color)}.main-content.svelte-1ox3jy3 .inner .single-post.svelte-1ox3jy3{padding:15px;border-bottom:1px solid var(--foreground-color);text-decoration:none;display:block;font-size:14px}.main-content.svelte-1ox3jy3 .inner .single-post.svelte-1ox3jy3:last-child{border-bottom:unset}.main-content.svelte-1ox3jy3 .inner .single-post.svelte-1ox3jy3:hover{background:#e0ded7;cursor:pointer;color:var(--hover-text-color)}.main-content.svelte-1ox3jy3 .inner .single-post .top.svelte-1ox3jy3{width:100%;display:flex;justify-content:space-between}.main-content.svelte-1ox3jy3 .inner .single-post .top .type.svelte-1ox3jy3{font-size:11px;text-transform:uppercase;letter-spacing:0.5px}.main-content.svelte-1ox3jy3 .inner .single-post .top .date.svelte-1ox3jy3{float:right;margin-top:5px}.main-content.svelte-1ox3jy3 .inner .single-post .title.svelte-1ox3jy3{margin-bottom:5px;font-size:20px}.main-content.svelte-1ox3jy3 .inner .single-post .people.svelte-1ox3jy3{font-style:italic}",
   map: null
 };
 const Everything = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots) => {
@@ -86,27 +86,27 @@ const Everything = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, 
   }
   $$unsubscribe_pageStore();
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_ef16be06.M, "Metadata").$$render($$result, { page: page$1 }, {}, {})}
+${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render($$result, { page: page$1 }, {}, {})}
 
 
-<div class="${"main-content svelte-lvpagv"}"><div class="${"inner svelte-lvpagv"}"><header class="${"header svelte-lvpagv"}"><h1 class="${"svelte-lvpagv"}">${(0, import_index_68ac15fd.e)(page$1.title)}</h1>
+<div class="${"main-content svelte-1ox3jy3"}"><div class="${"inner svelte-1ox3jy3"}"><header class="${"header svelte-1ox3jy3"}"><h1 class="${"svelte-1ox3jy3"}">${(0, import_index_68ac15fd.e)(page$1.title)}</h1>
 			
-			${(0, import_has.default)(page$1, "content.content") ? `<div class="${"description svelte-lvpagv"}">${(0, import_index_68ac15fd.v)(import_blocks_c75ee098.B, "Blocks").$$render($$result, { blocks: page$1.content.content }, {}, {})}</div>` : ``}
-			<section class="${"filters svelte-lvpagv"}" role="${"option"}">${(0, import_index_68ac15fd.h)(FILTERS, (filter) => {
-    return `<button class="${["filter svelte-lvpagv", activeFilter == filter.value ? "active" : ""].join(" ").trim()}"${(0, import_index_68ac15fd.a)("aria-label", "Filter by: " + filter.value, 0)}${(0, import_index_68ac15fd.a)("aria-selected", activeFilter == filter.value ? "true" : "false", 0)}>${(0, import_index_68ac15fd.e)(filter.label)}
+			${(0, import_has.default)(page$1, "content.content") ? `<div class="${"description svelte-1ox3jy3"}">${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, { blocks: page$1.content.content }, {}, {})}</div>` : ``}
+			<section class="${"filters svelte-1ox3jy3"}" role="${"option"}">${(0, import_index_68ac15fd.h)(FILTERS, (filter) => {
+    return `<button class="${["filter svelte-1ox3jy3", activeFilter == filter.value ? "active" : ""].join(" ").trim()}"${(0, import_index_68ac15fd.a)("aria-label", "Filter by: " + filter.value, 0)}${(0, import_index_68ac15fd.a)("aria-selected", activeFilter == filter.value ? "true" : "false", 0)}>${(0, import_index_68ac15fd.e)(filter.label)}
 					</button>`;
   })}</section></header>
 		<section>${(0, import_index_68ac15fd.h)(filteredPosts, (post) => {
-    return `<a${(0, import_index_68ac15fd.a)("href", "/" + import_global_61b718ff.a[post._type] + "/" + (0, import_get.default)(post, "slug.current"), 0)} class="${"single-post svelte-lvpagv"}"><div class="${"top svelte-lvpagv"}">
-					<div class="${"type svelte-lvpagv"}">${(0, import_index_68ac15fd.e)(import_global_61b718ff.b[post._type])}</div>
+    return `<a${(0, import_index_68ac15fd.a)("href", "/" + import_global_61b718ff.a[post._type] + "/" + (0, import_get.default)(post, "slug.current"), 0)} class="${"single-post svelte-1ox3jy3"}"><div class="${"top svelte-1ox3jy3"}">
+					<div class="${"type svelte-1ox3jy3"}">${(0, import_index_68ac15fd.e)(import_global_61b718ff.b[post._type])}</div>
 					
-					<div class="${"date svelte-lvpagv"}">${(0, import_index_68ac15fd.e)((0, import_global_61b718ff.l)(post._createdAt))}</div></div>
+					<div class="${"date svelte-1ox3jy3"}">${(0, import_index_68ac15fd.e)((0, import_global_61b718ff.l)(post._createdAt))}</div></div>
 				
-				<div class="${"title svelte-lvpagv"}">${(0, import_index_68ac15fd.e)(post.title)}</div>
+				<div class="${"title svelte-1ox3jy3"}">${(0, import_index_68ac15fd.e)(post.title)}</div>
 				
-				${post.people && post.people.length > 0 ? `<div class="${"people svelte-lvpagv"}">Including
+				${post.people && post.people.length > 0 ? `<div class="${"people svelte-1ox3jy3"}">Including
 						${(0, import_index_68ac15fd.h)(post.people, (person) => {
-      return `${(0, import_index_68ac15fd.v)(import_person_link_ca6b4a11.P, "PersonLink").$$render($$result, { person }, {}, {})}`;
+      return `${(0, import_index_68ac15fd.v)(import_person_link_eed93e98.P, "PersonLink").$$render($$result, { person }, {}, {})}`;
     })}
 					</div>` : ``}
 			</a>`;

@@ -18,10 +18,12 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var stdin_exports = {};
 __export(stdin_exports, {
   default: () => Events,
-  load: () => load
+  load: () => load,
+  prerender: () => prerender
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
+const prerender = false;
 async function load() {
   return {
     status: 302,

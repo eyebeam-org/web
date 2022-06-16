@@ -27,8 +27,8 @@ var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
 var import_groupBy = __toESM(require("lodash/groupBy.js"));
 var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
 var import_bottom_bar_9ab2e699 = require("../../../chunks/bottom-bar-9ab2e699.js");
-var import_person_link_ca6b4a11 = require("../../../chunks/person-link-ca6b4a11.js");
-var import_metadata_ef16be06 = require("../../../chunks/metadata-ef16be06.js");
+var import_person_link_eed93e98 = require("../../../chunks/person-link-eed93e98.js");
+var import_metadata_a699f85e = require("../../../chunks/metadata-a699f85e.js");
 var import_stores_2672c807 = require("../../../chunks/stores-2672c807.js");
 var import_stores_25b712dd = require("../../../chunks/stores-25b712dd.js");
 var import_slugify = require("slugify");
@@ -124,7 +124,7 @@ const People = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slot
   }
   $$unsubscribe_pageStore();
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_ef16be06.M, "Metadata").$$render($$result, { page: { title: "Artists" } }, {}, {})}
+${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render($$result, { page: { title: "Artists" } }, {}, {})}
 
 <div class="${"main-content svelte-lkp3hv"}"><div class="${"inner svelte-lkp3hv"}">${`
 			<nav role="${"On this page"}" class="${"alphabetical-navigation svelte-lkp3hv"}"><h2 class="${"accessibility-descriptor svelte-lkp3hv"}">Jump to a letter of the alphabet</h2>
@@ -153,7 +153,7 @@ ${(0, import_index_68ac15fd.v)(import_metadata_ef16be06.M, "Metadata").$$render(
 		${`${(0, import_index_68ac15fd.h)(ALPHABET, (alpha) => {
     return `<section class="${"sub-section svelte-lkp3hv"}"${(0, import_index_68ac15fd.a)("id", alpha, 0)}><h2 class="${"supersized svelte-lkp3hv"}">${(0, import_index_68ac15fd.e)(alpha)}</h2>
 					${groupedPeopleAlpha[alpha] ? `<ul class="${"svelte-lkp3hv"}">${(0, import_index_68ac15fd.h)(groupedPeopleAlpha[alpha], (person) => {
-      return `<li class="${"svelte-lkp3hv"}">${(0, import_index_68ac15fd.v)(import_person_link_ca6b4a11.P, "PersonLink").$$render($$result, { person }, {}, {})}</li>`;
+      return `<li class="${"svelte-lkp3hv"}">${(0, import_index_68ac15fd.v)(import_person_link_eed93e98.P, "PersonLink").$$render($$result, { person }, {}, {})}</li>`;
     })}
 						</ul>` : ``}
 				</section>`;

@@ -28,13 +28,13 @@ var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_keyBy = require("lodash/keyBy.js");
 var import_truncate = __toESM(require("lodash/truncate.js"));
-var import_blocks_c75ee098 = require("../../../chunks/blocks-c75ee098.js");
+var import_blocks_11eda655 = require("../../../chunks/blocks-11eda655.js");
 var import_get = __toESM(require("lodash/get.js"));
 var import_stores_25b712dd = require("../../../chunks/stores-25b712dd.js");
 var import_slugify = require("slugify");
 var import_date_fns = require("date-fns");
 var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
-var import_person_link_ca6b4a11 = require("../../../chunks/person-link-ca6b4a11.js");
+var import_person_link_eed93e98 = require("../../../chunks/person-link-eed93e98.js");
 var import_get_video_id = require("get-video-id");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
@@ -63,7 +63,7 @@ const Embed_content = (0, import_index_68ac15fd.c)(($$result, $$props, $$binding
 		${page._type === "event" ? `<div class="${"event-info svelte-gjqyw"}">${page.startDate ? `<div class="${"dates svelte-gjqyw"}"><h3>Dates</h3>
 						${(0, import_index_68ac15fd.e)((0, import_global_61b718ff.l)(page.startDate))}</div>` : ``}
 				${(0, import_has.default)(page, "location.content") ? `<div class="${"location"}"><h3>Location</h3>
-						${(0, import_index_68ac15fd.v)(import_blocks_c75ee098.B, "Blocks").$$render($$result, { blocks: page.location.content }, {}, {})}</div>` : ``}</div>` : ``}
+						${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, { blocks: page.location.content }, {}, {})}</div>` : ``}</div>` : ``}
 
 		
 		${page._type === "press" || page._type === "news" ? `
@@ -75,23 +75,23 @@ const Embed_content = (0, import_index_68ac15fd.c)(($$result, $$props, $$binding
 			
 			${page.people && page.people.length > 0 ? `<div class="${"including svelte-gjqyw"}">Including:
 					${(0, import_index_68ac15fd.h)(page.people, (person) => {
-    return `${(0, import_index_68ac15fd.v)(import_person_link_ca6b4a11.P, "PersonLink").$$render($$result, { person }, {}, {})}`;
+    return `${(0, import_index_68ac15fd.v)(import_person_link_eed93e98.P, "PersonLink").$$render($$result, { person }, {}, {})}`;
   })}</div>` : ``}
 			
 			${page.pdfFile ? `<a href="${""}" class="${"button download-pdf svelte-gjqyw"}">Download as PDF</a>` : ``}
 			
-			${page.externalLink ? `<a${(0, import_index_68ac15fd.a)("href", page.externalLink, 0)} class="${"button read-original svelte-gjqyw"}" target="${"_blank"}">Read original article on ${(0, import_index_68ac15fd.e)(page.source)} ${(0, import_index_68ac15fd.v)(import_blocks_c75ee098.E, "ExternalLink").$$render($$result, {}, {}, {})}</a>` : ``}` : ``}
+			${page.externalLink ? `<a${(0, import_index_68ac15fd.a)("href", page.externalLink, 0)} class="${"button read-original svelte-gjqyw"}" target="${"_blank"}">Read original article on ${(0, import_index_68ac15fd.e)(page.source)} ${(0, import_index_68ac15fd.v)(import_blocks_11eda655.E, "ExternalLink").$$render($$result, {}, {}, {})}</a>` : ``}` : ``}
 
 		
 		${page.website ? `<div class="${"website svelte-gjqyw"}" id="${"website"}"><h3>Website</h3>
-				<p><a${(0, import_index_68ac15fd.a)("href", page.website, 0)} target="${"_blank"}">${(0, import_index_68ac15fd.e)(page.website)} ${(0, import_index_68ac15fd.v)(import_blocks_c75ee098.E, "ExternalLink").$$render($$result, {}, {}, {})}</a></p></div>` : ``}
+				<p><a${(0, import_index_68ac15fd.a)("href", page.website, 0)} target="${"_blank"}">${(0, import_index_68ac15fd.e)(page.website)} ${(0, import_index_68ac15fd.v)(import_blocks_11eda655.E, "ExternalLink").$$render($$result, {}, {}, {})}</a></p></div>` : ``}
 
 		
 		${(0, import_has.default)(page, "bio.content") ? `<div class="${"bio svelte-gjqyw"}" id="${"bio"}"><h3>Bio</h3>
-				${(0, import_index_68ac15fd.v)(import_blocks_c75ee098.B, "Blocks").$$render($$result, { blocks: page.bio.content }, {}, {})}</div>` : ``}
+				${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, { blocks: page.bio.content }, {}, {})}</div>` : ``}
 
 		
-		${(0, import_has.default)(page, "content.content") ? `${(0, import_index_68ac15fd.v)(import_blocks_c75ee098.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}
+		${(0, import_has.default)(page, "content.content") ? `${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}
 
 		
 		${page.transcript && page.transcript.asset && page.transcript.asset._ref ? `<div class="${"transcript svelte-gjqyw"}" id="${"transcript"}"><h2>Transcript</h2>
@@ -129,7 +129,7 @@ const SupportBlock = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings
 				<div${(0, import_index_68ac15fd.a)("id", section == "donate" ? "donate" : "", 0)} class="${"tile introduction " + (0, import_index_68ac15fd.e)(section) + " svelte-1vl71hy"}" sveltekit:prefetch><h1>${(0, import_index_68ac15fd.e)(aboutMap[section].title)}</h1>
 					${(0, import_has.default)(aboutMap[section], "introduction.content") ? `<div class="${"description svelte-1vl71hy"}"><!-- HTML_TAG_START -->${(0, import_sanity_59332496.r)(aboutMap[section].introduction.content)}<!-- HTML_TAG_END --></div>` : ``}</div>
 			${(0, import_index_68ac15fd.h)(aboutMap[section].content, (content) => {
-    return `<div class="${"tile nav-tile svelte-1vl71hy"}">${(0, import_index_68ac15fd.v)(import_blocks_c75ee098.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
+    return `<div class="${"tile nav-tile svelte-1vl71hy"}">${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
 						</div>`;
   })}
 						<div class="${"tile nav-tile crypto-widget svelte-1vl71hy"}"><h2 class="${"svelte-1vl71hy"}">Donate Crypto </h2>

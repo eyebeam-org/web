@@ -30,7 +30,7 @@ var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
 var import_get = __toESM(require("lodash/get.js"));
 var import_truncate = __toESM(require("lodash/truncate.js"));
 var import_bottom_bar_9ab2e699 = require("../../../chunks/bottom-bar-9ab2e699.js");
-var import_metadata_ef16be06 = require("../../../chunks/metadata-ef16be06.js");
+var import_metadata_a699f85e = require("../../../chunks/metadata-a699f85e.js");
 var import_stores_25b712dd = require("../../../chunks/stores-25b712dd.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
@@ -62,7 +62,7 @@ const Programs = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, sl
     import_stores_25b712dd.b.set(toc);
   }
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_ef16be06.M, "Metadata").$$render($$result, { page: { title: "Programs" } }, {}, {})}
+${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render($$result, { page: { title: "Programs" } }, {}, {})}
 
 
 <div class="${"main-content svelte-1ihhav2"}" tabindex="${"0"}"><div class="${"inner svelte-1ihhav2"}"><div class="${"tile header-photo svelte-1ihhav2"}"><img src="${"ddc_header.jpg"}" alt="${"A student sitting at a laptop with headphones around his ears, surrounded by other students deep in thought. He is black, with short, curly hair, wearing a black hoodie."}" class="${"svelte-1ihhav2"}"></div>

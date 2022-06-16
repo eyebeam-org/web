@@ -30,7 +30,7 @@ const get = async (request) => {
   const programs = await (0, import_sanity_59332496.l)("*[_type == 'program']");
   const newPosts = await (0, import_sanity_59332496.l)("*[_type in ['event', 'press', 'news', 'note', 'videoPost', 'journalPost']]{..., people[]->{...}} | order(_createdAt desc)");
   const stickers = await (0, import_sanity_59332496.l)("*[_id == 'stickers']{...}[0]");
-  const featuredArtists = await (0, import_sanity_59332496.l)("*[_type == 'featuredArtists']{..., featuredArtist1->{..., 'image': mainImage.asset->}, featuredArtist2->{..., 'image': mainImage.asset->}}");
+  const featuredArtists = await (0, import_sanity_59332496.l)("*[_type == 'featuredArtists']{..., featuredArtist1->{..., 'image': mainImage.asset->}, featuredArtist2->{..., 'image': mainImage.asset->}, featuredArtist3->{..., 'image': mainImage.asset->}}");
   return {
     body: {
       programs: programs.status === 404 ? "ERROR" : programs,

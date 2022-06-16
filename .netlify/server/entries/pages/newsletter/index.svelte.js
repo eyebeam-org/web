@@ -25,14 +25,14 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
 var import_has = __toESM(require("lodash/has.js"));
-var import_blocks_c75ee098 = require("../../../chunks/blocks-c75ee098.js");
+var import_blocks_11eda655 = require("../../../chunks/blocks-11eda655.js");
 var import_bottom_bar_9ab2e699 = require("../../../chunks/bottom-bar-9ab2e699.js");
-var import_metadata_ef16be06 = require("../../../chunks/metadata-ef16be06.js");
+var import_metadata_a699f85e = require("../../../chunks/metadata-a699f85e.js");
 var import_stores_25b712dd = require("../../../chunks/stores-25b712dd.js");
 var import_slugify = require("slugify");
 var import_get = require("lodash/get.js");
 var import_date_fns = require("date-fns");
-var import_person_link_ca6b4a11 = require("../../../chunks/person-link-ca6b4a11.js");
+var import_person_link_eed93e98 = require("../../../chunks/person-link-eed93e98.js");
 var import_core = require("@popperjs/core");
 var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
 var import_client = require("@sanity/client");
@@ -60,14 +60,14 @@ const Newsletter = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, 
     import_stores_25b712dd.b.set([]);
   }
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_ef16be06.M, "Metadata").$$render($$result, { page }, {}, {})}
+${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render($$result, { page }, {}, {})}
 
 
 <div class="${"main-content svelte-bj8d6r"}"><div class="${"inner svelte-bj8d6r"}">
 		<h1 class="${"svelte-bj8d6r"}">${(0, import_index_68ac15fd.e)(page.title)}</h1>
 
 		
-		${(0, import_has.default)(page, "content.content") ? `<div class="${"body-content svelte-bj8d6r"}">${(0, import_index_68ac15fd.v)(import_blocks_c75ee098.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
+		${(0, import_has.default)(page, "content.content") ? `<div class="${"body-content svelte-bj8d6r"}">${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
 
 		
 
