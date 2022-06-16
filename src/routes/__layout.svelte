@@ -16,7 +16,6 @@
 	import Footer from '$lib/footer/footer.svelte';
 	import PhoneMenubar from '$lib/phone/menubar/menubar.svelte';
 	import PhoneFooter from '$lib/phone/footer/footer.svelte';
-	import Loading from '$lib/loading/loading.svelte';
 	import Sidebar from '$lib/sidebar/sidebar.svelte';
 
 	// __ STORES
@@ -107,10 +106,6 @@
 <LogoHeader trayOpen = {$trayOpen} />
 
 
-{#if !ready}
-	<!-- LOADING -->
-	<Loading />
-{:else}
 	<!-- MAIN -->
 	<main id="main" role="main" class:open={$trayOpen} class:journal={isJournal} class:inversion={$inversion}>
 
@@ -130,7 +125,6 @@
 			{/if}
 		{/if}
 	</main>
-{/if}
 
 
 <!-- FOOTER -->
