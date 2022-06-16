@@ -1,4 +1,9 @@
+<script context="module">
+	export const prerender = false
+</script>
+
 <script>
+	//FIXME: this needs to live in lib somewhere
 	// # # # # # # # # # # # # #
 	//
 	//  What is Eyebeam?

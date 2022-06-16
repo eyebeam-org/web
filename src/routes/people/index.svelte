@@ -1,3 +1,7 @@
+<script context="module">
+	export const prerender = false
+</script>
+
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -100,18 +104,19 @@
 		? $pageStore.url.searchParams.get('filter')
 		: 'everyone';
 	let order = 'alphabetical';
-
-	$: {
-		if (activeFilter === 'everyone') {
-			filteredPeople = people;
-			history.replaceState({}, '', '/artists');
-		} else {
-			filteredPeople = people.filter((p) => p.role === activeFilter);
-			const url = new URL(window.location);
-			url.searchParams.set('filter', activeFilter);
-			history.replaceState({}, '', url);
+	//FIXME: history stuff doesn't work with SSR, probably should be functionized and run on interaction with filters
+		$: {
+			if (activeFilter === 'everyone') {
+				console.log('people:"')
+				filteredPeople = people;
+	//			history.replaceState({}, '', '/artists');
+			} else {
+				filteredPeople = people.filter((p) => p.role === activeFilter);
+	//			const url = new URL(window.location);
+	//			url.searchParams.set('filter', activeFilter);
+	//			history.replaceState({}, '', url);
+			}
 		}
-	}
 
 	$: {
 		groupedPeopleAlpha = groupBy(filteredPeople, (p) => p.lastName.charAt(0));
@@ -166,6 +171,7 @@
 		<header class="header">
 			<h1>Artists</h1>
 			<!-- ORDER -->
+<!-- NOT IN USE UNTIL WE ACTUALLY HAVE DATES ASSIGNED FOR CHRON ORDER  
 			<nav class="order">
 				<div class="order-header">Order by</div>
 				<div class="order-options">
@@ -196,6 +202,7 @@
 					</div>
 				</div>
 			</nav>
+!-->
 			<!-- FILTER -->
 <!--			<div class="filter" >
 				<div class="filter-header">Show</div>

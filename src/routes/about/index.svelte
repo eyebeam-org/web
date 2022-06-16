@@ -159,7 +159,7 @@
 on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id);}}
 					sveltekit:prefetch
 				>
-<h2> <a href={ section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id}>{aboutMap[section].title}</a></h2>
+<h2> <a href={ section == 'artists' ? '/people' : '/about/' + aboutMap[section]._id}>{aboutMap[section].title}</a></h2>
 					{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
 							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {

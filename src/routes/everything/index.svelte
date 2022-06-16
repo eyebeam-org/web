@@ -1,3 +1,6 @@
+<script context="module">
+	export const prerender = false
+</script>
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -64,18 +67,18 @@
 		? $pageStore.url.searchParams.get('filter')
 		: 'everything';
 	let filteredPosts = [];
-
-	$: {
+	//FIXME: url updates don't work with SSR, need better solution
+		$: {
 		if (activeFilter === 'everything') {
-			filteredPosts = posts;
-			history.replaceState({}, '', '/everything');
-		} else {
-			filteredPosts = posts.filter((p) => p._type === activeFilter);
-			const url = new URL(window.location);
-			url.searchParams.set('filter', activeFilter);
-			history.replaceState({}, '', url);
+				filteredPosts = posts;
+	//			url.searchParams.set.replaceState({}, '', '/everything');
+			} else {
+				filteredPosts = posts.filter((p) => p._type === activeFilter);
+	//			const url = new URL(window.location);
+	//			url.searchParams.set('filter', activeFilter);
+	//			history.replaceState({},'', url);
+			}
 		}
-	}
 </script>
 
 <!-- METADATA -->
