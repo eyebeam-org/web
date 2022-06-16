@@ -14,7 +14,7 @@
 	export let c = {};
 
 	let currentDefinition = c.marks && c.marks[0] ? defs.find((m) => m._key === c.marks[0]) : null;
-	console.log('c: ', c)
+	$: c, console.log('c: ', c)
 	console.log('defs:', defs)
 </script>
 

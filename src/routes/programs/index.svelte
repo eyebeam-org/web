@@ -26,6 +26,7 @@
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	import { goto } from '$app/navigation';
+	$: programs, console.log('programs: ', programs)
 
 	$: sidebarTitle.set('Programs');
 	$: sidebarToC.set(toc);
@@ -74,9 +75,8 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 				<!-- DESCRIPTION -->
 				{#if has(program, 'introduction.content')}
 					<div class="introduction-text">
-						{@html truncate(renderBlockText(program.introduction.content), {
-							length: 600
-						})}
+						<!-- FIXME: truncating this text using `@html truncate` cuts off the ending html marks, which breaks the entire page. Currently just not truncating but would be nice to resolve, either in renderBlockText or elsewhere. !-->
+						{@html (renderBlockText(program.introduction.content)						)}
 					</div>
 				{/if}
 
@@ -182,9 +182,11 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 
 	.nav-tile {
 		min-height: $HEADER_HEIGHT;
+		max-height: $HEADER_HEIGHT;
 		border-bottom: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
 				text-decoration: none;
+		overflow: scroll;
 		cursor: pointer;
 		padding: $LARGE;
 		&:nth-child(even) {

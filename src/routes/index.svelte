@@ -124,7 +124,7 @@
 
 		<div class:no-sticker={get(stickers, 'stickerRight.enabled', false) == false} class:has-sticker={get(stickers, 'stickerRight.enabled', false) && get(stickers, 'stickerRight.fullWidth', false) == false} class="tile events"  >
 {#each newPosts.slice(0, 4) as post}
-				<a
+			<a
 					href={'/' + post.route + '/' + get(post, 'slug.current', '')}
 					class="sub-tile event"
 					sveltekit:prefetch
