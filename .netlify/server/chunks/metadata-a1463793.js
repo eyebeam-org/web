@@ -27,7 +27,7 @@ var import_index_68ac15fd = require("./index-68ac15fd.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_get = __toESM(require("lodash/get.js"));
 var import_truncate = __toESM(require("lodash/truncate.js"));
-var import_sanity_59332496 = require("./sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("./sanity-bf41d9e1.js");
 var import_stores_25b712dd = require("./stores-25b712dd.js");
 var import_stores_2672c807 = require("./stores-2672c807.js");
 var import_global_61b718ff = require("./global-61b718ff.js");
@@ -39,14 +39,14 @@ const Metadata = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, sl
   const title = page$1.title ? page$1.title : "eyebeam.org";
   let description = "";
   if ((0, import_has.default)(page$1, "content.content")) {
-    description = (0, import_truncate.default)((0, import_sanity_59332496.t)(page$1.content.content), { length: 160 });
+    description = (0, import_truncate.default)((0, import_sanity_bf41d9e1.t)(page$1.content.content), { length: 160 });
   } else if ((0, import_has.default)(page$1, "introduction.content")) {
-    description = (0, import_truncate.default)((0, import_sanity_59332496.t)(page$1.introduction.content), { length: 160 });
+    description = (0, import_truncate.default)((0, import_sanity_bf41d9e1.t)(page$1.introduction.content), { length: 160 });
   } else {
     description = import_global_61b718ff.f;
   }
   const url = import_global_61b718ff.B + $pageStore.url.pathname;
-  const image = (0, import_has.default)(page$1, "mainImage.asset") ? (0, import_sanity_59332496.u)(page$1.mainImage) : import_global_61b718ff.D;
+  const image = (0, import_has.default)(page$1, "mainImage.asset") ? (0, import_sanity_bf41d9e1.u)(page$1.mainImage) : import_global_61b718ff.D;
   if (isSingle) {
     import_stores_25b712dd.c.set({
       slug: (0, import_get.default)(page$1, "slug.current", ""),

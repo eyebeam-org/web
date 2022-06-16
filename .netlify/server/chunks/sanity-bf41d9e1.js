@@ -36,7 +36,7 @@ const client = (0, import_client.default)({
   projectId: SANITY_ID,
   dataset: "production",
   apiVersion: "2021-10-05",
-  useCdn: false
+  useCdn: true
 });
 const h = import_block_content_to_html.default.h;
 const prepareTextElements = (props) => {

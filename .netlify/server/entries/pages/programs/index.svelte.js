@@ -24,13 +24,13 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
-var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("../../../chunks/sanity-bf41d9e1.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
 var import_get = __toESM(require("lodash/get.js"));
 var import_truncate = __toESM(require("lodash/truncate.js"));
 var import_bottom_bar_9ab2e699 = require("../../../chunks/bottom-bar-9ab2e699.js");
-var import_metadata_a699f85e = require("../../../chunks/metadata-a699f85e.js");
+var import_metadata_a1463793 = require("../../../chunks/metadata-a1463793.js");
 var import_stores_25b712dd = require("../../../chunks/stores-25b712dd.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
@@ -62,7 +62,7 @@ const Programs = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, sl
     import_stores_25b712dd.b.set(toc);
   }
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render($$result, { page: { title: "Programs" } }, {}, {})}
+${(0, import_index_68ac15fd.v)(import_metadata_a1463793.M, "Metadata").$$render($$result, { page: { title: "Programs" } }, {}, {})}
 
 
 <div class="${"main-content svelte-1ihhav2"}" tabindex="${"0"}"><div class="${"inner svelte-1ihhav2"}"><div class="${"tile header-photo svelte-1ihhav2"}"><img src="${"ddc_header.jpg"}" alt="${"A student sitting at a laptop with headphones around his ears, surrounded by other students deep in thought. He is black, with short, curly hair, wearing a black hoodie."}" class="${"svelte-1ihhav2"}"></div>
@@ -78,7 +78,7 @@ ${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render(
     return `<div class="${"tile nav-tile svelte-1ihhav2"}" sveltekit:prefetch>
 			<h2 class="${"svelte-1ihhav2"}"><a${(0, import_index_68ac15fd.a)("href", "/programs/" + program.slug.current, 0)} sveltekit:prefetch class="${"svelte-1ihhav2"}">${(0, import_index_68ac15fd.e)(program.title)}</a></h2>
 				
-				${(0, import_has.default)(program, "introduction.content") ? `<div class="${"introduction-text"}"><!-- HTML_TAG_START -->${(0, import_truncate.default)((0, import_sanity_59332496.r)(program.introduction.content), { length: 600 })}<!-- HTML_TAG_END -->
+				${(0, import_has.default)(program, "introduction.content") ? `<div class="${"introduction-text"}"><!-- HTML_TAG_START -->${(0, import_truncate.default)((0, import_sanity_bf41d9e1.r)(program.introduction.content), { length: 600 })}<!-- HTML_TAG_END -->
 					</div>` : ``}
 
 				${program.applicationsOpen ? `<div class="${"application-container svelte-1ihhav2"}"><div class="${"circle svelte-1ihhav2"}"></div>

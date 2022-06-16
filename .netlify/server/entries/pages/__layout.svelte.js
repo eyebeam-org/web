@@ -27,7 +27,7 @@ var import_index_68ac15fd = require("../../chunks/index-68ac15fd.js");
 var import_sample = __toESM(require("lodash/sample.js"));
 var import_js_cookie = require("js-cookie");
 var import_menu_svelte_svelte_type_style_lang_0e67a6a2 = require("../../chunks/menu.svelte_svelte_type_style_lang-0e67a6a2.js");
-var import_sanity_59332496 = require("../../chunks/sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("../../chunks/sanity-bf41d9e1.js");
 var import_has = require("lodash/has.js");
 var import_slugify = require("slugify");
 var import_get = require("lodash/get.js");
@@ -85,7 +85,7 @@ const css$6 = {
   map: null
 };
 const Footer$1 = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots) => {
-  const contact = (0, import_sanity_59332496.l)("*[_id == 'contact'][0]");
+  const contact = (0, import_sanity_bf41d9e1.l)("*[_id == 'contact'][0]");
   $$result.css.add(css$6);
   return `${function(__value) {
     if ((0, import_index_68ac15fd.i)(__value)) {
@@ -155,7 +155,7 @@ const css$3 = {
   map: null
 };
 const Footer = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots) => {
-  const contact = (0, import_sanity_59332496.l)("*[_id == 'contact'][0]");
+  const contact = (0, import_sanity_bf41d9e1.l)("*[_id == 'contact'][0]");
   $$result.css.add(css$3);
   return `${function(__value) {
     if ((0, import_index_68ac15fd.i)(__value)) {

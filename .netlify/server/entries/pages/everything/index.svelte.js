@@ -27,15 +27,15 @@ var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
 var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_get = __toESM(require("lodash/get.js"));
-var import_person_link_eed93e98 = require("../../../chunks/person-link-eed93e98.js");
-var import_blocks_11eda655 = require("../../../chunks/blocks-11eda655.js");
-var import_metadata_a699f85e = require("../../../chunks/metadata-a699f85e.js");
+var import_person_link_82d12ee3 = require("../../../chunks/person-link-82d12ee3.js");
+var import_blocks_7e60b135 = require("../../../chunks/blocks-7e60b135.js");
+var import_metadata_a1463793 = require("../../../chunks/metadata-a1463793.js");
 var import_stores_2672c807 = require("../../../chunks/stores-2672c807.js");
 var import_stores_25b712dd = require("../../../chunks/stores-25b712dd.js");
 var import_slugify = require("slugify");
 var import_date_fns = require("date-fns");
 var import_core = require("@popperjs/core");
-var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("../../../chunks/sanity-bf41d9e1.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
@@ -86,12 +86,12 @@ const Everything = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, 
   }
   $$unsubscribe_pageStore();
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render($$result, { page: page$1 }, {}, {})}
+${(0, import_index_68ac15fd.v)(import_metadata_a1463793.M, "Metadata").$$render($$result, { page: page$1 }, {}, {})}
 
 
 <div class="${"main-content svelte-1ox3jy3"}"><div class="${"inner svelte-1ox3jy3"}"><header class="${"header svelte-1ox3jy3"}"><h1 class="${"svelte-1ox3jy3"}">${(0, import_index_68ac15fd.e)(page$1.title)}</h1>
 			
-			${(0, import_has.default)(page$1, "content.content") ? `<div class="${"description svelte-1ox3jy3"}">${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, { blocks: page$1.content.content }, {}, {})}</div>` : ``}
+			${(0, import_has.default)(page$1, "content.content") ? `<div class="${"description svelte-1ox3jy3"}">${(0, import_index_68ac15fd.v)(import_blocks_7e60b135.B, "Blocks").$$render($$result, { blocks: page$1.content.content }, {}, {})}</div>` : ``}
 			<section class="${"filters svelte-1ox3jy3"}" role="${"option"}">${(0, import_index_68ac15fd.h)(FILTERS, (filter) => {
     return `<button class="${["filter svelte-1ox3jy3", activeFilter == filter.value ? "active" : ""].join(" ").trim()}"${(0, import_index_68ac15fd.a)("aria-label", "Filter by: " + filter.value, 0)}${(0, import_index_68ac15fd.a)("aria-selected", activeFilter == filter.value ? "true" : "false", 0)}>${(0, import_index_68ac15fd.e)(filter.label)}
 					</button>`;
@@ -106,7 +106,7 @@ ${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render(
 				
 				${post.people && post.people.length > 0 ? `<div class="${"people svelte-1ox3jy3"}">Including
 						${(0, import_index_68ac15fd.h)(post.people, (person) => {
-      return `${(0, import_index_68ac15fd.v)(import_person_link_eed93e98.P, "PersonLink").$$render($$result, { person }, {}, {})}`;
+      return `${(0, import_index_68ac15fd.v)(import_person_link_82d12ee3.P, "PersonLink").$$render($$result, { person }, {}, {})}`;
     })}
 					</div>` : ``}
 			</a>`;

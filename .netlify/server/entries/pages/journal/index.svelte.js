@@ -28,12 +28,12 @@ var import_get = __toESM(require("lodash/get.js"));
 var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
 var import_big_beam_b40565b9 = require("../../../chunks/big-beam-b40565b9.js");
 var import_logo_000a5202 = require("../../../chunks/logo-000a5202.js");
-var import_person_link_list_08cbb675 = require("../../../chunks/person-link-list-08cbb675.js");
+var import_person_link_list_34ecb06a = require("../../../chunks/person-link-list-34ecb06a.js");
 var import_slugify = require("slugify");
 var import_date_fns = require("date-fns");
-var import_person_link_eed93e98 = require("../../../chunks/person-link-eed93e98.js");
+var import_person_link_82d12ee3 = require("../../../chunks/person-link-82d12ee3.js");
 var import_core = require("@popperjs/core");
-var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("../../../chunks/sanity-bf41d9e1.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
@@ -56,7 +56,7 @@ const Journal = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slo
 	<div class="${"listing"}">${(0, import_index_68ac15fd.h)(journal, (post) => {
     return `<a class="${"item svelte-1qgpf1v"}"${(0, import_index_68ac15fd.a)("href", "/journal/" + (0, import_get.default)(post, "slug.current", ""), 0)} sveltekit:prefetch><div class="${"title svelte-1qgpf1v"}">${(0, import_index_68ac15fd.e)(post.title)}</div>
 				<div class="${"authors svelte-1qgpf1v"}"><i>by</i>
-					${(0, import_index_68ac15fd.v)(import_person_link_list_08cbb675.P, "PersonLinkList").$$render($$result, { people: post.people }, {}, {})}</div>
+					${(0, import_index_68ac15fd.v)(import_person_link_list_34ecb06a.P, "PersonLinkList").$$render($$result, { people: post.people }, {}, {})}</div>
 				<div class="${"date svelte-1qgpf1v"}">${(0, import_index_68ac15fd.e)((0, import_global_61b718ff.l)(post._updatedAt))}</div>
 			</a>`;
   })}</div>

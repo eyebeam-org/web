@@ -24,14 +24,14 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
-var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("../../../chunks/sanity-bf41d9e1.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_keyBy = __toESM(require("lodash/keyBy.js"));
 var import_truncate = __toESM(require("lodash/truncate.js"));
-var import_blocks_11eda655 = require("../../../chunks/blocks-11eda655.js");
+var import_blocks_7e60b135 = require("../../../chunks/blocks-7e60b135.js");
 var import_bottom_bar_9ab2e699 = require("../../../chunks/bottom-bar-9ab2e699.js");
 var import_press_and_news_item_7ee66134 = require("../../../chunks/press-and-news-item-7ee66134.js");
-var import_metadata_a699f85e = require("../../../chunks/metadata-a699f85e.js");
+var import_metadata_a1463793 = require("../../../chunks/metadata-a1463793.js");
 var import_stores_25b712dd = require("../../../chunks/stores-25b712dd.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
@@ -40,7 +40,7 @@ var import_get_video_id = require("get-video-id");
 var import_slugify = require("slugify");
 var import_get = require("lodash/get.js");
 var import_date_fns = require("date-fns");
-var import_person_link_eed93e98 = require("../../../chunks/person-link-eed93e98.js");
+var import_person_link_82d12ee3 = require("../../../chunks/person-link-82d12ee3.js");
 var import_core = require("@popperjs/core");
 var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
 var import_stores_2672c807 = require("../../../chunks/stores-2672c807.js");
@@ -114,14 +114,14 @@ const About = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots
     import_stores_25b712dd.b.set(toc);
   }
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render($$result, { page: aboutMap["what-is-eyebeam"] }, {}, {})}
+${(0, import_index_68ac15fd.v)(import_metadata_a1463793.M, "Metadata").$$render($$result, { page: aboutMap["what-is-eyebeam"] }, {}, {})}
 
 
 <div class="${"main-content svelte-h6kq6p"}" tabindex="${"0"}"><div class="${"inner svelte-h6kq6p"}"><div class="${"tile header-photo svelte-h6kq6p"}"><img src="${"eyebeambox.gif"}" alt="${"A gif of a black box with the word 'Eyebeam' on each face, slowly rotating"}" class="${"svelte-h6kq6p"}"></div>
 		<div class="${"tile introduction svelte-h6kq6p"}">
 			<h1>${(0, import_index_68ac15fd.e)(aboutMap["what-is-eyebeam"].title)}</h1>
 			
-			${(0, import_has.default)(aboutMap["what-is-eyebeam"], "introduction.content") ? `<div class="${"description svelte-h6kq6p"}">${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, {
+			${(0, import_has.default)(aboutMap["what-is-eyebeam"], "introduction.content") ? `<div class="${"description svelte-h6kq6p"}">${(0, import_index_68ac15fd.v)(import_blocks_7e60b135.B, "Blocks").$$render($$result, {
     blocks: aboutMap["what-is-eyebeam"].introduction.content
   }, {}, {})}</div>` : ``}</div>
 
@@ -140,7 +140,7 @@ ${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render(
 						</div></div>
 				</div>` : `
 				<div class="${"tile nav-tile " + (0, import_index_68ac15fd.e)(section) + " svelte-h6kq6p"}" sveltekit:prefetch><h2 class="${"svelte-h6kq6p"}"><a${(0, import_index_68ac15fd.a)("href", section == "artists" ? "/artists" : "/about/" + aboutMap[section]._id, 0)} class="${"svelte-h6kq6p"}">${(0, import_index_68ac15fd.e)(aboutMap[section].title)}</a></h2>
-					${(0, import_has.default)(aboutMap[section], "introduction.content") ? `<div class="${"description svelte-h6kq6p"}"><!-- HTML_TAG_START -->${(0, import_truncate.default)((0, import_sanity_59332496.r)(aboutMap[section].introduction.content), { length: 600 })}<!-- HTML_TAG_END -->
+					${(0, import_has.default)(aboutMap[section], "introduction.content") ? `<div class="${"description svelte-h6kq6p"}"><!-- HTML_TAG_START -->${(0, import_truncate.default)((0, import_sanity_bf41d9e1.r)(aboutMap[section].introduction.content), { length: 600 })}<!-- HTML_TAG_END -->
 						</div>` : ``}
 				</div>`}`}`;
   })}</div>

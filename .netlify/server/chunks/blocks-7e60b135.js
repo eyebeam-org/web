@@ -29,9 +29,9 @@ var import_index_68ac15fd = require("./index-68ac15fd.js");
 var import_slugify = __toESM(require("slugify"));
 var import_get = __toESM(require("lodash/get.js"));
 var import_date_fns = require("date-fns");
-var import_person_link_eed93e98 = require("./person-link-eed93e98.js");
+var import_person_link_82d12ee3 = require("./person-link-82d12ee3.js");
 var import_global_61b718ff = require("./global-61b718ff.js");
-var import_sanity_59332496 = require("./sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("./sanity-bf41d9e1.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_get_video_id = __toESM(require("get-video-id"));
 var import_core = require("@popperjs/core");
@@ -70,7 +70,7 @@ const Text_mark = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, s
   return `${!currentDefinition ? `${(0, import_index_68ac15fd.v)(Process_text_mark, "ProcessTextMark").$$render($$result, { c, defs }, {}, {})}` : `${currentDefinition._type === "link" && currentDefinition.href ? `${currentDefinition.href.includes("https://eyebeam.org") ? `
 			<a${(0, import_index_68ac15fd.a)("href", currentDefinition.href, 0)}>${(0, import_index_68ac15fd.v)(Process_text_mark, "ProcessTextMark").$$render($$result, { c, defs }, {}, {})}</a>` : `
 		<a${(0, import_index_68ac15fd.a)("href", currentDefinition.href, 0)} target="${"_blank"}">${(0, import_index_68ac15fd.v)(Process_text_mark, "ProcessTextMark").$$render($$result, { c, defs }, {}, {})}			${(0, import_index_68ac15fd.v)(External_link, "ExternalLink").$$render($$result, {}, {}, {})}</a>`}` : `${currentDefinition._type === "person" ? `
-	${(0, import_index_68ac15fd.v)(import_person_link_eed93e98.P, "PersonLink").$$render($$result, {
+	${(0, import_index_68ac15fd.v)(import_person_link_82d12ee3.P, "PersonLink").$$render($$result, {
     overrideText: c.text,
     personId: (0, import_get.default)(currentDefinition, "link._ref", false)
   }, {}, {})}` : ``}`}`}`;
@@ -119,7 +119,7 @@ const Image = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots
   return `<figure class="${[
     "svelte-1obst7m",
     (b.layout == "left" ? "left" : "") + " " + (b.layout == "right" ? "right" : "") + " " + (b.fullWidth ? "full" : "") + " " + (b.coverAndCrop ? "cover" : "")
-  ].join(" ").trim()}"><img${(0, import_index_68ac15fd.a)("src", (0, import_sanity_59332496.u)(b.asset).quality(90).saturation(-100).width(1e3).url(), 0)}${(0, import_index_68ac15fd.a)("alt", b.alt ? b.alt : "", 0)} class="${"svelte-1obst7m"}">
+  ].join(" ").trim()}"><img${(0, import_index_68ac15fd.a)("src", (0, import_sanity_bf41d9e1.u)(b.asset).quality(90).saturation(-100).width(1e3).url(), 0)}${(0, import_index_68ac15fd.a)("alt", b.alt ? b.alt : "", 0)} class="${"svelte-1obst7m"}">
 	${(0, import_has.default)(b, "caption.content") ? `<figcaption class="${"svelte-1obst7m"}">${(0, import_index_68ac15fd.v)(Blocks, "Blocks").$$render($$result, { blocks: b.caption.content }, {}, {})}</figcaption>` : ``}
 </figure>`;
 });
@@ -286,7 +286,7 @@ const css = {
 };
 const Video = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots) => {
   let { b = {} } = $$props;
-  const videoPost = (0, import_sanity_59332496.l)("*[_id == $id][0]", { id: b.videoPost._ref });
+  const videoPost = (0, import_sanity_bf41d9e1.l)("*[_id == $id][0]", { id: b.videoPost._ref });
   if ($$props.b === void 0 && $$bindings.b && b !== void 0)
     $$bindings.b(b);
   $$result.css.add(css);
@@ -297,7 +297,7 @@ const Video = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots
     }
     return function(videoPost2) {
       return `
-	<a${(0, import_index_68ac15fd.a)("href", "/videos/" + (0, import_get.default)(videoPost2, "slug.current"), 0)} class="${"video-block svelte-177xqdd"}"><div class="${"embed svelte-177xqdd"}">${videoPost2.mainImage ? `<img${(0, import_index_68ac15fd.a)("alt", videoPost2.title, 0)}${(0, import_index_68ac15fd.a)("src", (0, import_sanity_59332496.u)(videoPost2.mainImage).quality(90).saturation(-100).width(400).url(), 0)} class="${"svelte-177xqdd"}">` : ``}
+	<a${(0, import_index_68ac15fd.a)("href", "/videos/" + (0, import_get.default)(videoPost2, "slug.current"), 0)} class="${"video-block svelte-177xqdd"}"><div class="${"embed svelte-177xqdd"}">${videoPost2.mainImage ? `<img${(0, import_index_68ac15fd.a)("alt", videoPost2.title, 0)}${(0, import_index_68ac15fd.a)("src", (0, import_sanity_bf41d9e1.u)(videoPost2.mainImage).quality(90).saturation(-100).width(400).url(), 0)} class="${"svelte-177xqdd"}">` : ``}
 			<div class="${"icon svelte-177xqdd"}">${(0, import_index_68ac15fd.v)(Play_arrow, "PlayArrow").$$render($$result, {}, {}, {})}</div>
 			<div class="${"title svelte-177xqdd"}">${(0, import_index_68ac15fd.e)(videoPost2.title)}
 				${videoPost2.runtime ? `(${(0, import_index_68ac15fd.e)(videoPost2.runtime)})` : ``}</div></div></a>
@@ -310,7 +310,7 @@ const PersonList = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, 
   if ($$props.b === void 0 && $$bindings.b && b !== void 0)
     $$bindings.b(b);
   return `<div class="${"person-list"}"><p>${(0, import_index_68ac15fd.h)(b.persons, (person) => {
-    return `<div>${(0, import_index_68ac15fd.v)(import_person_link_eed93e98.P, "PersonLink").$$render($$result, {
+    return `<div>${(0, import_index_68ac15fd.v)(import_person_link_82d12ee3.P, "PersonLink").$$render($$result, {
       personId: (0, import_get.default)(person, "personLink._ref", false)
     }, {}, {})}${person.role ? `\u2013 ${(0, import_index_68ac15fd.e)(person.role)}` : ``}
 			</div>`;

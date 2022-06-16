@@ -25,15 +25,15 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
 var import_has = __toESM(require("lodash/has.js"));
-var import_blocks_11eda655 = require("../../../chunks/blocks-11eda655.js");
-var import_metadata_a699f85e = require("../../../chunks/metadata-a699f85e.js");
-var import_person_link_list_08cbb675 = require("../../../chunks/person-link-list-08cbb675.js");
+var import_blocks_7e60b135 = require("../../../chunks/blocks-7e60b135.js");
+var import_metadata_a1463793 = require("../../../chunks/metadata-a1463793.js");
+var import_person_link_list_34ecb06a = require("../../../chunks/person-link-list-34ecb06a.js");
 var import_slugify = require("slugify");
 var import_get = require("lodash/get.js");
 var import_date_fns = require("date-fns");
-var import_person_link_eed93e98 = require("../../../chunks/person-link-eed93e98.js");
+var import_person_link_82d12ee3 = require("../../../chunks/person-link-82d12ee3.js");
 var import_core = require("@popperjs/core");
-var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("../../../chunks/sanity-bf41d9e1.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
@@ -53,13 +53,13 @@ const U5Bslugu5D = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, 
     $$bindings.page(page);
   $$result.css.add(css);
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render($$result, { page }, {}, {})}
+${(0, import_index_68ac15fd.v)(import_metadata_a1463793.M, "Metadata").$$render($$result, { page }, {}, {})}
 
 <div class="${"journal svelte-281o9u"}"><header class="${"header svelte-281o9u"}">
 		<h1 class="${"svelte-281o9u"}">${(0, import_index_68ac15fd.e)(page.title)}</h1>
 		${page.subtitle ? `<div class="${"subtitle svelte-281o9u"}">${(0, import_index_68ac15fd.e)(page.subtitle)}</div>` : ``}
-		<div class="${"authors svelte-281o9u"}">${(0, import_index_68ac15fd.v)(import_person_link_list_08cbb675.P, "PersonLinkList").$$render($$result, { people: page.people }, {}, {})}</div></header>
+		<div class="${"authors svelte-281o9u"}">${(0, import_index_68ac15fd.v)(import_person_link_list_34ecb06a.P, "PersonLinkList").$$render($$result, { people: page.people }, {}, {})}</div></header>
 
-	<article class="${"content svelte-281o9u"}">${(0, import_has.default)(page, "content.content") ? `${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}</article>
+	<article class="${"content svelte-281o9u"}">${(0, import_has.default)(page, "content.content") ? `${(0, import_index_68ac15fd.v)(import_blocks_7e60b135.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}</article>
 </div>`;
 });

@@ -26,7 +26,7 @@ module.exports = __toCommonJS(stdin_exports);
 var import_index_68ac15fd = require("./index-68ac15fd.js");
 var import_global_61b718ff = require("./global-61b718ff.js");
 var import_get = __toESM(require("lodash/get.js"));
-var import_blocks_11eda655 = require("./blocks-11eda655.js");
+var import_blocks_7e60b135 = require("./blocks-7e60b135.js");
 const css = {
   code: ".see-also.svelte-rp6j0l.svelte-rp6j0l{width:100%;background:#e0ded7;padding:20px;font-size:16px;border-top:1px solid var(--foreground-color)}ul.svelte-rp6j0l li a.svelte-rp6j0l{text-decoration:none}ul.svelte-rp6j0l li a.svelte-rp6j0l:hover{text-decoration:underline}",
   map: null
@@ -49,7 +49,7 @@ const See_also = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, sl
   })}` : ``}
 		
 		${externalLinks ? `${(0, import_index_68ac15fd.h)(externalLinks, (link) => {
-    return `<li><a${(0, import_index_68ac15fd.a)("href", link.linkUrl, 0)} target="${"_blank"}" class="${"svelte-rp6j0l"}">${(0, import_index_68ac15fd.e)(link.linkText)} ${(0, import_index_68ac15fd.v)(import_blocks_11eda655.E, "ExternalLink").$$render($$result, {}, {}, {})}</a>
+    return `<li><a${(0, import_index_68ac15fd.a)("href", link.linkUrl, 0)} target="${"_blank"}" class="${"svelte-rp6j0l"}">${(0, import_index_68ac15fd.e)(link.linkText)} ${(0, import_index_68ac15fd.v)(import_blocks_7e60b135.E, "ExternalLink").$$render($$result, {}, {}, {})}</a>
 				</li>`;
   })}` : ``}</ul>
 </div>`;

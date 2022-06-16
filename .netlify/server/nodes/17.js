@@ -27,6 +27,6 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/press-and-news/index.svelte.js"));
-const entry = "pages/press-and-news/index.svelte-77631427.js";
-const js = ["pages/press-and-news/index.svelte-77631427.js", "chunks/index-14ce4b0f.js", "chunks/global-3195947e.js", "chunks/bottom-bar-b430d7ae.js", "chunks/press-and-news-item-d36c14fb.js", "chunks/blocks-597de267.js", "chunks/person-link-f604f6d8.js", "chunks/index-52c45369.js", "chunks/arrow-down-623c2197.js", "chunks/see-also-070ef02c.js", "chunks/metadata-e990fe39.js", "chunks/truncate-b4b93b01.js", "chunks/stores-00d488aa.js", "chunks/index-d2fd927e.js", "chunks/stores-486f37f6.js"];
+const entry = "pages/press-and-news/index.svelte-9de52002.js";
+const js = ["pages/press-and-news/index.svelte-9de52002.js", "chunks/index-14ce4b0f.js", "chunks/global-378aa713.js", "chunks/bottom-bar-e4969e69.js", "chunks/press-and-news-item-64a73e5e.js", "chunks/blocks-9950cf52.js", "chunks/person-link-cfd49f0c.js", "chunks/index-52c45369.js", "chunks/arrow-down-623c2197.js", "chunks/see-also-e61bc376.js", "chunks/metadata-53a2c992.js", "chunks/truncate-80d8da77.js", "chunks/stores-6abad719.js", "chunks/index-d2fd927e.js", "chunks/stores-486f37f6.js"];
 const css = ["assets/pages/press-and-news/index.svelte-be3c8ebd.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-b6bc2bf1.css", "assets/person-link.svelte_svelte_type_style_lang-9ffd8c60.css", "assets/video.svelte_svelte_type_style_lang-abb89f3d.css", "assets/arrow-down.svelte_svelte_type_style_lang-03ad6b2e.css", "assets/see-also.svelte_svelte_type_style_lang-5e3f31da.css", "assets/press-and-news-item-a30268e0.css"];

@@ -15,7 +15,7 @@
     "src": "src/routes/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/about/index.js": {
@@ -23,7 +23,7 @@
     "src": "src/routes/about/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/everything/index.js": {
@@ -31,7 +31,7 @@
     "src": "src/routes/everything/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/eyebeam-is-changing/index.js": {
@@ -39,7 +39,7 @@
     "src": "src/routes/eyebeam-is-changing/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/journal/index.js": {
@@ -47,7 +47,7 @@
     "src": "src/routes/journal/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/newsletter/index.js": {
@@ -55,7 +55,7 @@
     "src": "src/routes/newsletter/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/people/index.js": {
@@ -63,7 +63,7 @@
     "src": "src/routes/people/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/press-and-news/index.js": {
@@ -71,7 +71,7 @@
     "src": "src/routes/press-and-news/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/programs/index.js": {
@@ -79,7 +79,7 @@
     "src": "src/routes/programs/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/statements/index.js": {
@@ -87,7 +87,7 @@
     "src": "src/routes/statements/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/support/index.js": {
@@ -95,7 +95,7 @@
     "src": "src/routes/support/index.js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/about/[slug].js": {
@@ -103,7 +103,7 @@
     "src": "src/routes/about/[slug].js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/events/[slug].js": {
@@ -111,7 +111,7 @@
     "src": "src/routes/events/[slug].js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/journal/[slug].js": {
@@ -119,7 +119,7 @@
     "src": "src/routes/journal/[slug].js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/notes/[slug].js": {
@@ -127,7 +127,7 @@
     "src": "src/routes/notes/[slug].js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/people/[slug].js": {
@@ -135,7 +135,7 @@
     "src": "src/routes/people/[slug].js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/press-and-news/[slug].js": {
@@ -143,7 +143,7 @@
     "src": "src/routes/press-and-news/[slug].js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/programs/[slug].js": {
@@ -151,7 +151,7 @@
     "src": "src/routes/programs/[slug].js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/projects/[slug].js": {
@@ -159,7 +159,7 @@
     "src": "src/routes/projects/[slug].js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/videos/[slug].js": {
@@ -167,7 +167,7 @@
     "src": "src/routes/videos/[slug].js",
     "isEntry": true,
     "imports": [
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ]
   },
   "src/routes/__layout.svelte": {
@@ -177,7 +177,7 @@
     "imports": [
       "_index-68ac15fd.js",
       "_menu.svelte_svelte_type_style_lang-0e67a6a2.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_stores-25b712dd.js",
       "_big-beam-b40565b9.js",
       "_logo-000a5202.js",
@@ -200,7 +200,7 @@
     "imports": [
       "_index-68ac15fd.js",
       "_bottom-bar-9ab2e699.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_stores-2672c807.js",
       "_global-61b718ff.js"
     ],
@@ -218,13 +218,13 @@
     "imports": [
       "_index-68ac15fd.js",
       "_global-61b718ff.js",
-      "_main-content-dc163981.js",
-      "_metadata-a699f85e.js",
+      "_main-content-ef07923f.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
-      "_see-also-43ac7363.js",
+      "_sanity-bf41d9e1.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js",
       "_stores-2672c807.js"
     ],
@@ -244,13 +244,13 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_sanity-59332496.js",
-      "_blocks-11eda655.js",
+      "_sanity-bf41d9e1.js",
+      "_blocks-7e60b135.js",
       "_bottom-bar-9ab2e699.js",
       "_press-and-news-item-7ee66134.js",
-      "_metadata-a699f85e.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_person-link-eed93e98.js",
+      "_person-link-82d12ee3.js",
       "_global-61b718ff.js",
       "_stores-2672c807.js"
     ],
@@ -270,13 +270,13 @@
     "imports": [
       "_index-68ac15fd.js",
       "_global-61b718ff.js",
-      "_main-content-dc163981.js",
-      "_metadata-a699f85e.js",
+      "_main-content-ef07923f.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
-      "_see-also-43ac7363.js",
+      "_sanity-bf41d9e1.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js",
       "_stores-2672c807.js"
     ],
@@ -305,12 +305,12 @@
     "imports": [
       "_index-68ac15fd.js",
       "_global-61b718ff.js",
-      "_person-link-eed93e98.js",
-      "_blocks-11eda655.js",
-      "_metadata-a699f85e.js",
+      "_person-link-82d12ee3.js",
+      "_blocks-7e60b135.js",
+      "_metadata-a1463793.js",
       "_stores-2672c807.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ],
     "css": [
       "assets/entries/pages/everything/index.svelte-a8288eff.css",
@@ -325,14 +325,14 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_main-content-dc163981.js",
-      "_metadata-a699f85e.js",
+      "_main-content-ef07923f.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_global-61b718ff.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
-      "_see-also-43ac7363.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js",
       "_stores-2672c807.js"
     ],
@@ -353,12 +353,12 @@
     "imports": [
       "_index-68ac15fd.js",
       "_global-61b718ff.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_menu.svelte_svelte_type_style_lang-0e67a6a2.js",
-      "_person-link-list-08cbb675.js",
-      "_blocks-11eda655.js",
-      "_metadata-a699f85e.js",
-      "_person-link-eed93e98.js",
+      "_person-link-list-34ecb06a.js",
+      "_blocks-7e60b135.js",
+      "_metadata-a1463793.js",
+      "_person-link-82d12ee3.js",
       "_stores-25b712dd.js",
       "_stores-2672c807.js"
     ],
@@ -378,11 +378,11 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_blocks-11eda655.js",
-      "_metadata-a699f85e.js",
-      "_person-link-list-08cbb675.js",
-      "_person-link-eed93e98.js",
-      "_sanity-59332496.js",
+      "_blocks-7e60b135.js",
+      "_metadata-a1463793.js",
+      "_person-link-list-34ecb06a.js",
+      "_person-link-82d12ee3.js",
+      "_sanity-bf41d9e1.js",
       "_global-61b718ff.js",
       "_stores-25b712dd.js",
       "_stores-2672c807.js"
@@ -403,9 +403,9 @@
       "_global-61b718ff.js",
       "_big-beam-b40565b9.js",
       "_logo-000a5202.js",
-      "_person-link-list-08cbb675.js",
-      "_person-link-eed93e98.js",
-      "_sanity-59332496.js"
+      "_person-link-list-34ecb06a.js",
+      "_person-link-82d12ee3.js",
+      "_sanity-bf41d9e1.js"
     ],
     "css": [
       "assets/entries/pages/journal/index.svelte-ab178570.css",
@@ -419,12 +419,12 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_blocks-11eda655.js",
+      "_blocks-7e60b135.js",
       "_bottom-bar-9ab2e699.js",
-      "_metadata-a699f85e.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_person-link-eed93e98.js",
-      "_sanity-59332496.js",
+      "_person-link-82d12ee3.js",
+      "_sanity-bf41d9e1.js",
       "_global-61b718ff.js",
       "_stores-2672c807.js"
     ],
@@ -444,13 +444,13 @@
     "imports": [
       "_index-68ac15fd.js",
       "_global-61b718ff.js",
-      "_main-content-dc163981.js",
-      "_metadata-a699f85e.js",
+      "_main-content-ef07923f.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
-      "_see-also-43ac7363.js",
+      "_sanity-bf41d9e1.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js",
       "_stores-2672c807.js"
     ],
@@ -478,15 +478,15 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_metadata-a699f85e.js",
-      "_main-content-dc163981.js",
+      "_metadata-a1463793.js",
+      "_main-content-ef07923f.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_stores-2672c807.js",
       "_global-61b718ff.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
-      "_see-also-43ac7363.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js"
     ],
     "css": [
@@ -507,11 +507,11 @@
       "_index-68ac15fd.js",
       "_global-61b718ff.js",
       "_bottom-bar-9ab2e699.js",
-      "_person-link-eed93e98.js",
-      "_metadata-a699f85e.js",
+      "_person-link-82d12ee3.js",
+      "_metadata-a1463793.js",
       "_stores-2672c807.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ],
     "css": [
       "assets/entries/pages/people/index.svelte-212e2e9e.css",
@@ -527,14 +527,14 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_main-content-dc163981.js",
-      "_metadata-a699f85e.js",
+      "_main-content-ef07923f.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_global-61b718ff.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
-      "_see-also-43ac7363.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js",
       "_stores-2672c807.js"
     ],
@@ -556,13 +556,13 @@
       "_index-68ac15fd.js",
       "_bottom-bar-9ab2e699.js",
       "_press-and-news-item-7ee66134.js",
-      "_blocks-11eda655.js",
-      "_see-also-43ac7363.js",
-      "_metadata-a699f85e.js",
+      "_blocks-7e60b135.js",
+      "_see-also-81d75722.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
       "_global-61b718ff.js",
-      "_person-link-eed93e98.js",
-      "_sanity-59332496.js",
+      "_person-link-82d12ee3.js",
+      "_sanity-bf41d9e1.js",
       "_stores-2672c807.js"
     ],
     "css": [
@@ -582,13 +582,13 @@
     "imports": [
       "_index-68ac15fd.js",
       "_global-61b718ff.js",
-      "_main-content-dc163981.js",
-      "_metadata-a699f85e.js",
+      "_main-content-ef07923f.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
-      "_see-also-43ac7363.js",
+      "_sanity-bf41d9e1.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js",
       "_stores-2672c807.js"
     ],
@@ -608,10 +608,10 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_global-61b718ff.js",
       "_bottom-bar-9ab2e699.js",
-      "_metadata-a699f85e.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
       "_stores-2672c807.js"
     ],
@@ -628,13 +628,13 @@
     "imports": [
       "_index-68ac15fd.js",
       "_global-61b718ff.js",
-      "_main-content-dc163981.js",
-      "_metadata-a699f85e.js",
+      "_main-content-ef07923f.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
-      "_see-also-43ac7363.js",
+      "_sanity-bf41d9e1.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js",
       "_stores-2672c807.js"
     ],
@@ -662,11 +662,11 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_global-61b718ff.js",
       "_bottom-bar-9ab2e699.js",
-      "_person-link-eed93e98.js",
-      "_metadata-a699f85e.js",
+      "_person-link-82d12ee3.js",
+      "_metadata-a1463793.js",
       "_big-beam-b40565b9.js",
       "_stores-25b712dd.js",
       "_stores-2672c807.js"
@@ -684,12 +684,12 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "src/routes/support/supportBlock.svelte",
       "_bottom-bar-9ab2e699.js",
       "_stores-25b712dd.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
       "_global-61b718ff.js",
       "_stores-2672c807.js"
     ],
@@ -710,11 +710,11 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_sanity-59332496.js",
-      "_blocks-11eda655.js",
+      "_sanity-bf41d9e1.js",
+      "_blocks-7e60b135.js",
       "_stores-25b712dd.js",
       "_global-61b718ff.js",
-      "_person-link-eed93e98.js",
+      "_person-link-82d12ee3.js",
       "_stores-2672c807.js"
     ],
     "css": [
@@ -734,14 +734,14 @@
     "isEntry": true,
     "imports": [
       "_index-68ac15fd.js",
-      "_main-content-dc163981.js",
-      "_metadata-a699f85e.js",
+      "_main-content-ef07923f.js",
+      "_metadata-a1463793.js",
       "_stores-25b712dd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_global-61b718ff.js",
-      "_blocks-11eda655.js",
-      "_person-link-eed93e98.js",
-      "_see-also-43ac7363.js",
+      "_blocks-7e60b135.js",
+      "_person-link-82d12ee3.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js",
       "_stores-2672c807.js"
     ],
@@ -766,8 +766,8 @@
   "_index-68ac15fd.js": {
     "file": "chunks/index-68ac15fd.js"
   },
-  "_sanity-59332496.js": {
-    "file": "chunks/sanity-59332496.js"
+  "_sanity-bf41d9e1.js": {
+    "file": "chunks/sanity-bf41d9e1.js"
   },
   "_stores-25b712dd.js": {
     "file": "chunks/stores-25b712dd.js",
@@ -824,39 +824,39 @@
       "assets/bottom-bar.svelte_svelte_type_style_lang-5f082eaf.css"
     ]
   },
-  "_main-content-dc163981.js": {
-    "file": "chunks/main-content-dc163981.js",
+  "_main-content-ef07923f.js": {
+    "file": "chunks/main-content-ef07923f.js",
     "imports": [
       "_index-68ac15fd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_global-61b718ff.js",
-      "_blocks-11eda655.js",
-      "_see-also-43ac7363.js",
+      "_blocks-7e60b135.js",
+      "_see-also-81d75722.js",
       "_bottom-bar-9ab2e699.js",
-      "_person-link-eed93e98.js"
+      "_person-link-82d12ee3.js"
     ],
     "css": [
       "assets/main-content-1585cde4.css",
       "assets/at-eyebeam.svelte_svelte_type_style_lang-e2d2db55.css"
     ]
   },
-  "_metadata-a699f85e.js": {
-    "file": "chunks/metadata-a699f85e.js",
+  "_metadata-a1463793.js": {
+    "file": "chunks/metadata-a1463793.js",
     "imports": [
       "_index-68ac15fd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_stores-25b712dd.js",
       "_stores-2672c807.js",
       "_global-61b718ff.js"
     ]
   },
-  "_blocks-11eda655.js": {
-    "file": "chunks/blocks-11eda655.js",
+  "_blocks-7e60b135.js": {
+    "file": "chunks/blocks-7e60b135.js",
     "imports": [
       "_index-68ac15fd.js",
-      "_person-link-eed93e98.js",
+      "_person-link-82d12ee3.js",
       "_global-61b718ff.js",
-      "_sanity-59332496.js"
+      "_sanity-bf41d9e1.js"
     ],
     "css": [
       "assets/video.svelte_svelte_type_style_lang-465bf322.css",
@@ -864,22 +864,22 @@
       "assets/arrow-down.svelte_svelte_type_style_lang-e3a0fc64.css"
     ]
   },
-  "_see-also-43ac7363.js": {
-    "file": "chunks/see-also-43ac7363.js",
+  "_see-also-81d75722.js": {
+    "file": "chunks/see-also-81d75722.js",
     "imports": [
       "_index-68ac15fd.js",
       "_global-61b718ff.js",
-      "_blocks-11eda655.js"
+      "_blocks-7e60b135.js"
     ],
     "css": [
       "assets/see-also.svelte_svelte_type_style_lang-53753873.css"
     ]
   },
-  "_person-link-eed93e98.js": {
-    "file": "chunks/person-link-eed93e98.js",
+  "_person-link-82d12ee3.js": {
+    "file": "chunks/person-link-82d12ee3.js",
     "imports": [
       "_index-68ac15fd.js",
-      "_sanity-59332496.js",
+      "_sanity-bf41d9e1.js",
       "_global-61b718ff.js"
     ],
     "css": [
@@ -896,11 +896,11 @@
       "assets/press-and-news-item-7c87b22c.css"
     ]
   },
-  "_person-link-list-08cbb675.js": {
-    "file": "chunks/person-link-list-08cbb675.js",
+  "_person-link-list-34ecb06a.js": {
+    "file": "chunks/person-link-list-34ecb06a.js",
     "imports": [
       "_index-68ac15fd.js",
-      "_person-link-eed93e98.js"
+      "_person-link-82d12ee3.js"
     ]
   },
   ".svelte-kit/build/hooks.js": {

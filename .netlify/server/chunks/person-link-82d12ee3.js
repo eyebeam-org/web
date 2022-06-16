@@ -25,7 +25,7 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_68ac15fd = require("./index-68ac15fd.js");
 var import_core = require("@popperjs/core");
-var import_sanity_59332496 = require("./sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("./sanity-bf41d9e1.js");
 var import_global_61b718ff = require("./global-61b718ff.js");
 var import_get = __toESM(require("lodash/get.js"));
 const css = {
@@ -52,7 +52,7 @@ const Person_link = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings,
     });
   };
   if (personId) {
-    (0, import_sanity_59332496.l)('*[_id == "' + personId + '"][0]').then((p) => {
+    (0, import_sanity_bf41d9e1.l)('*[_id == "' + personId + '"][0]').then((p) => {
       person = p;
       setTimeout(initPopper, 1e3);
     });
@@ -81,5 +81,5 @@ const Person_link = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings,
   })}` : ``}</div></div>
 		
 		<div class="${"column second"}">
-			${person.mainImage ? `<img class="${"image"}"${(0, import_index_68ac15fd.a)("alt", person.title, 0)}${(0, import_index_68ac15fd.a)("src", (0, import_sanity_59332496.u)(person.mainImage).quality(90).saturation(-100).width(100).height(100).url(), 0)}>` : ``}</div></div>` : ``}`;
+			${person.mainImage ? `<img class="${"image"}"${(0, import_index_68ac15fd.a)("alt", person.title, 0)}${(0, import_index_68ac15fd.a)("src", (0, import_sanity_bf41d9e1.u)(person.mainImage).quality(90).saturation(-100).width(100).height(100).url(), 0)}>` : ``}</div></div>` : ``}`;
 });

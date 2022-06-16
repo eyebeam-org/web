@@ -27,21 +27,21 @@ var import_index_68ac15fd = require("../../chunks/index-68ac15fd.js");
 var import_truncate = __toESM(require("lodash/truncate.js"));
 var import_get = __toESM(require("lodash/get.js"));
 var import_global_61b718ff = require("../../chunks/global-61b718ff.js");
-var import_sanity_59332496 = require("../../chunks/sanity-59332496.js");
+var import_sanity_bf41d9e1 = require("../../chunks/sanity-bf41d9e1.js");
 var import_menu_svelte_svelte_type_style_lang_0e67a6a2 = require("../../chunks/menu.svelte_svelte_type_style_lang-0e67a6a2.js");
 var import_sample = require("lodash/sample.js");
 var import_core = require("@popperjs/core");
 var import_slugify = require("slugify");
 var import_date_fns = require("date-fns");
-var import_person_link_list_08cbb675 = require("../../chunks/person-link-list-08cbb675.js");
+var import_person_link_list_34ecb06a = require("../../chunks/person-link-list-34ecb06a.js");
 var import_has = __toESM(require("lodash/has.js"));
-var import_blocks_11eda655 = require("../../chunks/blocks-11eda655.js");
-var import_metadata_a699f85e = require("../../chunks/metadata-a699f85e.js");
+var import_blocks_7e60b135 = require("../../chunks/blocks-7e60b135.js");
+var import_metadata_a1463793 = require("../../chunks/metadata-a1463793.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
 var import_get_video_id = require("get-video-id");
-var import_person_link_eed93e98 = require("../../chunks/person-link-eed93e98.js");
+var import_person_link_82d12ee3 = require("../../chunks/person-link-82d12ee3.js");
 var import_stores_25b712dd = require("../../chunks/stores-25b712dd.js");
 var import_stores_2672c807 = require("../../chunks/stores-2672c807.js");
 const css$6 = {
@@ -125,7 +125,7 @@ const Sticker = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slo
   return `<a${(0, import_index_68ac15fd.a)("href", url, 0)} class="${[
     "tile big-sticker svelte-1mmaen3",
     (small ? "small" : "") + " " + (sticker.inverted ? "inverted" : "")
-  ].join(" ").trim()}">${(0, import_has.default)(sticker, "image.asset") ? `<img alt="${"Eyebeam"}"${(0, import_index_68ac15fd.a)("src", (0, import_sanity_59332496.u)(sticker.image).quality(90).width(800).url(), 0)} class="${"svelte-1mmaen3"}">` : `<div class="${"text svelte-1mmaen3"}">${(0, import_has.default)(sticker, "text.content") ? `${(0, import_index_68ac15fd.v)(import_blocks_11eda655.B, "Blocks").$$render($$result, { blocks: sticker.text.content }, {}, {})}` : ``}</div>`}
+  ].join(" ").trim()}">${(0, import_has.default)(sticker, "image.asset") ? `<img alt="${"Eyebeam"}"${(0, import_index_68ac15fd.a)("src", (0, import_sanity_bf41d9e1.u)(sticker.image).quality(90).width(800).url(), 0)} class="${"svelte-1mmaen3"}">` : `<div class="${"text svelte-1mmaen3"}">${(0, import_has.default)(sticker, "text.content") ? `${(0, import_index_68ac15fd.v)(import_blocks_7e60b135.B, "Blocks").$$render($$result, { blocks: sticker.text.content }, {}, {})}` : ``}</div>`}
 </a>`;
 });
 var index_svelte_svelte_type_style_lang = "";
@@ -159,13 +159,13 @@ const Routes = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slot
     console.log("artists: ", artists);
   }
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render($$result, {}, {}, {})}
+${(0, import_index_68ac15fd.v)(import_metadata_a1463793.M, "Metadata").$$render($$result, {}, {}, {})}
 <h1 class="${"accessibility-title svelte-np13dg"}">Eyebeam Home</h1>
 <div class="${"homepage-menu svelte-np13dg"}"><section role="${"menu"}" class="${"svelte-np13dg"}"><div class="${"column one svelte-np13dg"}">${(0, import_index_68ac15fd.v)(Menu, "Menu").$$render($$result, {}, {}, {})}</div>
 	<section role="${"content"}" class="${"homepage-content svelte-np13dg"}"><div class="${"column two svelte-np13dg"}"><div class="${"tile open-eyebeam svelte-np13dg"}">${(0, import_get.default)(stickers, "stickerLeft.enabled", false) ? `${(0, import_index_68ac15fd.v)(Sticker, "Sticker").$$render($$result, { sticker: stickers.stickerLeft }, {}, {})}` : `${(0, import_index_68ac15fd.v)(Open_eyebeam, "OpenEyebeam").$$render($$result, {}, {}, {})}`}</div>
 <div class="${"header-container svelte-np13dg"}"><h2 class="${"svelte-np13dg"}"><a class="${"sub-tile header svelte-np13dg"}" href="${"/people"}">FEATURED ARTISTS</a></h2></div>
 				<div class="${"featured-artists svelte-np13dg"}"><ul class="${"svelte-np13dg"}">${(0, import_index_68ac15fd.h)(artists, (artist) => {
-    return `<div class="${"tile svelte-np13dg"}"><li class="${"svelte-np13dg"}"><a${(0, import_index_68ac15fd.a)("href", "/people/" + artist.slug.current, 0)} sveltekit:prefetch class="${"featured-artist svelte-np13dg"}"><img class="${"featured-artist-image svelte-np13dg"}" alt="${""}"${(0, import_index_68ac15fd.a)("src", (0, import_sanity_59332496.u)(artist.image.url).saturation(-100), 0)}><div class="${"featured-artist-name svelte-np13dg"}"><h3 class="${"svelte-np13dg"}">${(0, import_index_68ac15fd.e)(artist.firstName)} ${(0, import_index_68ac15fd.e)(artist.lastName)}</h3></div>
+    return `<div class="${"tile svelte-np13dg"}"><li class="${"svelte-np13dg"}"><a${(0, import_index_68ac15fd.a)("href", "/people/" + artist.slug.current, 0)} sveltekit:prefetch class="${"featured-artist svelte-np13dg"}"><img class="${"featured-artist-image svelte-np13dg"}" alt="${""}"${(0, import_index_68ac15fd.a)("src", (0, import_sanity_bf41d9e1.u)(artist.image.url).saturation(-100), 0)}><div class="${"featured-artist-name svelte-np13dg"}"><h3 class="${"svelte-np13dg"}">${(0, import_index_68ac15fd.e)(artist.firstName)} ${(0, import_index_68ac15fd.e)(artist.lastName)}</h3></div>
 	</a></li>
 					</div>`;
   })}</ul></div></div>
@@ -186,14 +186,14 @@ ${(0, import_index_68ac15fd.v)(import_metadata_a699f85e.M, "Metadata").$$render(
     "tile events svelte-np13dg",
     ((0, import_get.default)(stickers, "stickerRight.enabled", false) == false ? "no-sticker" : "") + " " + ((0, import_get.default)(stickers, "stickerRight.enabled", false) && (0, import_get.default)(stickers, "stickerRight.fullWidth", false) == false ? "has-sticker" : "")
   ].join(" ").trim()}">${(0, import_index_68ac15fd.h)(newPosts.slice(0, 4), (post) => {
-    return `<a${(0, import_index_68ac15fd.a)("href", "/" + post.route + "/" + (0, import_get.default)(post, "slug.current", ""), 0)} class="${"sub-tile event svelte-np13dg"}" sveltekit:prefetch>${post.mainImage != void 0 && post.mainImage.asset != void 0 ? `${(0, import_get.default)(stickers, "stickerRight.enabled", false) == false ? `<div class="${"post-image svelte-np13dg"}"><img${(0, import_index_68ac15fd.a)("src", (0, import_sanity_59332496.u)(post.mainImage.asset).width(1e3).url(), 0)}${(0, import_index_68ac15fd.a)("alt", post.mainImage.alt, 0)} class="${"svelte-np13dg"}">
+    return `<a${(0, import_index_68ac15fd.a)("href", "/" + post.route + "/" + (0, import_get.default)(post, "slug.current", ""), 0)} class="${"sub-tile event svelte-np13dg"}" sveltekit:prefetch>${post.mainImage != void 0 && post.mainImage.asset != void 0 ? `${(0, import_get.default)(stickers, "stickerRight.enabled", false) == false ? `<div class="${"post-image svelte-np13dg"}"><img${(0, import_index_68ac15fd.a)("src", (0, import_sanity_bf41d9e1.u)(post.mainImage.asset).width(1e3).url(), 0)}${(0, import_index_68ac15fd.a)("alt", post.mainImage.alt, 0)} class="${"svelte-np13dg"}">
 						</div>` : ``}` : ``}
 					<div class="${"post-content svelte-np13dg"}">${post.startDate ? `<div class="${"time svelte-np13dg"}">${(0, import_index_68ac15fd.e)((0, import_global_61b718ff.h)(post.startDate))}</div>` : `${post._updatedAt ? `<div class="${"time svelte-np13dg"}">${(0, import_index_68ac15fd.e)((0, import_global_61b718ff.h)(post._updatedAt))}</div>` : ``}`}
 <div class="${"title svelte-np13dg"}"><h3 class="${"svelte-np13dg"}">${(0, import_index_68ac15fd.e)((0, import_truncate.default)(post.title, { length: 72 }))}</h3></div>
-					${post.people && post.people.length > 0 ? `<div class="${"event-people"}">${post.people.length <= 1 ? `${(0, import_index_68ac15fd.v)(import_person_link_list_08cbb675.P, "PersonLinkList").$$render($$result, {
+					${post.people && post.people.length > 0 ? `<div class="${"event-people"}">${post.people.length <= 1 ? `${(0, import_index_68ac15fd.v)(import_person_link_list_34ecb06a.P, "PersonLinkList").$$render($$result, {
       people: post.people,
       tiny: (0, import_get.default)(stickers, "stickerRight.enabled", false)
-    }, {}, {})}` : `${(0, import_index_68ac15fd.v)(import_person_link_list_08cbb675.P, "PersonLinkList").$$render($$result, {
+    }, {}, {})}` : `${(0, import_index_68ac15fd.v)(import_person_link_list_34ecb06a.P, "PersonLinkList").$$render($$result, {
       people: post.people.slice(0, 1),
       tiny: (0, import_get.default)(stickers, "stickerRight.enabled", false)
     }, {}, {})}`}
