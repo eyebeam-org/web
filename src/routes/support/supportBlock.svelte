@@ -42,6 +42,7 @@
 			goto(link);
 		}
 	};
+	$: aboutMap, console.log('aboutMap: ', aboutMap)
 
 </script>
 
@@ -74,9 +75,19 @@
 					{/if}
 				</div>
 			{#each aboutMap[section].content as content}
-<div class="tile nav-tile">
+						{#if content.content[0].children[0].text == 'THE FOLD'} 
+							<div class="tile nav-tile has-link"
+							>
+							
+<a href="https://fold.eyebeam.org/enter" target="_blank">
+							<Blocks blocks={content.content} />
+					</a>
+					</div>
+					{:else }
+						<div class="tile nav-tile">
 							<Blocks blocks={content.content} />
 					</div>
+{/if}
 				{/each}
 						<div class="tile nav-tile crypto-widget">
 					<h2>Donate Crypto </h2>
@@ -89,19 +100,16 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 			{:else}
 				<!-- STANDARD SECTIONS -->
 				<div 
-					class="tile nav-tile {section}"
+					class="tile nav-tile has-link {section}"
 on:click={()=> {handlePseudoLink('/support/' + aboutMap[section]._id);}}
 					sveltekit:prefetch
 				>
 <a href={'support/' + aboutMap[section]._id}><h2> {aboutMap[section].title}</h2></a>
 						{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
-							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {
-								length: 600
-							})}
+							{@html renderBlockText(aboutMap[section].introduction.content)}
 						</div>
 						<div class="content" >
-							<EmbedContent page={aboutMap[section]} />
 							{#if section == 'donate'}
 <script id="tgb-widget-script"> !function(t,e,i,n,o,c,d,s){t.tgbWidgetOptions={id:o,domain:n},(d=e.createElement(i)).src=[n,"widget/script.js"].join(""),d.async=1,(s=e.getElementById(c)).parentNode.insertBefore(d,s)}(window,document,"script","https://tgbwidget.com/","133952075","tgb-widget-script"); </script>
 							{/if}
@@ -208,9 +216,12 @@ on:click={()=> {handlePseudoLink('/support/' + aboutMap[section]._id);}}
 		}
 
 
+		&.has-link {
 		&:hover {
-//		background: $grey;
-//			color: var(--hover-text-color);
+			background: $grey;
+			color: var(--hover-text-color);
+			cursor: pointer;
+		}
 		}
 
 		&:active {

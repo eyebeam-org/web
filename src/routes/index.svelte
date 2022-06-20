@@ -47,7 +47,7 @@
 	//FIXME: surely there is a less stupid way to do this
 	//CANNOT delete this rn
 	$: featuredArtists, artists = [featuredArtists[0].featuredArtist1, featuredArtists[0].featuredArtist2, featuredArtists[0].featuredArtist3]
-	$: artists, console.log('artists: ', artists)
+	$: newPosts, console.log('posts: ', newPosts)
 </script>
 
 <!-- METADATA -->
