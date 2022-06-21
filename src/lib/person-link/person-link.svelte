@@ -11,6 +11,7 @@
 	import { loadData, urlFor } from '$lib/sanity.js';
 	import { roleToRoleName, renderNewLines } from '$lib/global.js';
 	import get from 'lodash/get.js';
+	import Blocks from '$lib/blocks/blocks.svelte';
 
 	// __ PROPS
 	export let person = false;
@@ -117,6 +118,9 @@ style={tiny ? "font-size: 11px" : ''}
 					{/each}
 				{/if}
 			</div>
+			{#if person.shortBio}
+			<div class="bio"><Blocks blocks={person.shortBio.content} /> </div>
+			{/if}
 		</div>
 		<!-- SECOND COLUMN -->
 		<div class="column second">
