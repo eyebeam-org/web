@@ -1,5 +1,4 @@
 <script context="module">
-	export const prerender = false
 </script>
 
 <script>
@@ -100,9 +99,10 @@
 	let groupedPeopleAlpha = {};
 	let groupedPeopleChrono = {};
 
-	let activeFilter = $pageStore.url.searchParams.get('filter')
-		? $pageStore.url.searchParams.get('filter')
-		: 'everyone';
+	let activeFilter = 'everyone'
+	//	$pageStore.url.searchParams.get('filter')
+	//		? $pageStore.url.searchParams.get('filter')
+	//		: 'everyone';
 	let order = 'alphabetical';
 	//FIXME: history stuff doesn't work with SSR, probably should be functionized and run on interaction with filters
 		$: {
