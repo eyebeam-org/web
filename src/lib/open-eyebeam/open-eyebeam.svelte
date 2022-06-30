@@ -16,14 +16,14 @@
 >
 <div class="frame-container">
 <iframe src={import.meta.env.VITE_OPEN_EYEBEAM_EMBED_URL} title="Open Eyebeam" aria-label="A live view of Eyebeam's new digital artist studio, Open Eyebeam. This area changes randomly on each page load, but shows a randomized area in The Field of Open Eyebeam, which will show doors to artists' studios."/>
-<a target="_blank" href="https://open-eyebeam.netlify.app">
+<a target="_blank" href="https://open.eyebeam.org">
 	<div class="link"><span class="arrow"><TriangleRight /></span> open.eyebeam.org</div>
 </a>
 </div>
 <div class="about">
 Come see what our fellows are up to in our new digital studio space.
 	<div class="open-eyebeam-link">
-<a target="_blank" href="https://open-eyebeam.netlify.app">OPEN EYEBEAM <ArrowRight /></a>
+<a target="_blank" href="https://open.eyebeam.org">OPEN EYEBEAM <ArrowRight /></a>
 	</div>
 </div>
 </div>
