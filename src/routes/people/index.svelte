@@ -104,14 +104,20 @@
 	//		? $pageStore.url.searchParams.get('filter')
 	//		: 'everyone';
 	let order = 'alphabetical';
+	const flagEmpty = (person) => {
+		if (person.bio == undefined || person.bio.content == undefined || person.bio.content[0].children == undefined || (person.bio.content[0].children.length <= 1 && person.bio.content[0].children[0].text === "")) {
+						person.isEmpty = true
+		}
+		return person;
+	}
 	//FIXME: history stuff doesn't work with SSR, probably should be functionized and run on interaction with filters
 		$: {
 			if (activeFilter === 'everyone') {
-				console.log('people:"')
-				filteredPeople = people;
+				filteredPeople = people.map(flagEmpty);
+				console.log('people: ', filteredPeople)
 	//			history.replaceState({}, '', '/artists');
 			} else {
-				filteredPeople = people.filter((p) => p.role === activeFilter);
+				filteredPeople = people.map(flagEmpty).filter((p) => p.role === activeFilter);
 	//			const url = new URL(window.location);
 	//			url.searchParams.set('filter', activeFilter);
 	//			history.replaceState({}, '', url);
@@ -233,7 +239,11 @@ role="option"
 					{#if groupedPeopleAlpha[alpha]}
 						<ul>
 							{#each groupedPeopleAlpha[alpha] as person}
-								<li><PersonLink {person} /></li>
+								{#if !person.isEmpty}
+									<li><PersonLink {person} /></li>
+								{:else }
+									<li>{person.title}</li>
+								{/if}
 							{/each}
 						</ul>
 					{/if}
@@ -247,7 +257,11 @@ role="option"
 					{#if groupedPeopleChrono[year]}
 						<ul>
 							{#each groupedPeopleChrono[year] as person}
-								<li><PersonLink {person} /></li>
+								{#if !person.isEmpty}
+									<li><PersonLink {person} /></li>
+								{:else }
+									<li>{person}</li>
+								{/if}
 							{/each}
 						</ul>
 					{/if}
