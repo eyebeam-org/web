@@ -156,7 +156,7 @@
 				<!-- STANDARD SECTIONS -->
 				<div
 					class="tile nav-tile {section}"
-on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id);}}
+on:click={()=> {handlePseudoLink(section == 'artists' ? '/people' : '/about/' + aboutMap[section]._id);}}
 					sveltekit:prefetch
 				>
 <h2> <a href={ section == 'artists' ? '/people' : '/about/' + aboutMap[section]._id}>{aboutMap[section].title}</a></h2>

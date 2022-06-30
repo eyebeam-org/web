@@ -132,11 +132,9 @@
 	{#if $page.url.pathname !== '/' && !isJournal}
 		<Footer />
 	{/if}
-	<!-- PHONE FOOTER -->
-	{#if !isJournal}
-		<PhoneFooter />
-	{/if}
 {/if}
+	<!-- PHONE FOOTER -->
+<PhoneFooter />
 
 <style lang="scss" global>
 	@import '../variables.scss';

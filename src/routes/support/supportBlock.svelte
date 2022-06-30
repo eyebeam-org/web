@@ -32,7 +32,6 @@
 
 	//FIXME: this is currently duplicated here and in sidebar (as handleToC), should be in lib
 	const handlePseudoLink = (link) => {
-		console.log('foo')
 		if (link[0] == '#') {
 			const targetElement = document.querySelector(link);
 			if (targetElement) {
@@ -206,7 +205,11 @@ on:click={()=> {handlePseudoLink('/support/' + aboutMap[section]._id);}}
 		border-bottom: 1px solid var(--foreground-color);
 		&:nth-child(odd) {
 			border-right: 1px solid var(--foreground-color);
+			@include screen-size('small') {
+			border-right: none;
 		}
+		}
+		font-size: $font-size-body;
 		display: block;
 		float: left;
 		text-decoration: none;
@@ -251,7 +254,8 @@ on:click={()=> {handlePseudoLink('/support/' + aboutMap[section]._id);}}
 			}
 
 			&:last-child {
-				border-bottom: 1px solid var(--foreground-color);
+				border-bottom: none;
+				
 			}
 
 			&:first-of-type {

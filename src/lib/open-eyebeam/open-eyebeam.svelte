@@ -94,22 +94,33 @@ Come see what our fellows are up to in our new digital studio space.
 		}
 		@include screen-size('small') {
 			flex-wrap: wrap;
-			height: 75vh;
+			height: 65vh;
 			.link {
 				display: none;
 			}
+			iframe {
+				width: 100%;
+				height: 100%;
+			}
 			.frame-container {
 //				display: none;
+				border-right: none;
 				width: 100%;
-				height: 50vh;
+				height: 40vh;
 			}
 			.about {
 				width: 100%;
 				height: 25vh;
-			}
+				justify-content: flex-start;
+				align-items: flex-start;
 			.open-eyebeam-link {
-				padding: $SMALL;
-}
+				font-size: $font-size-h2;
+				padding-bottom: $SMALL;
+				max-width: 60%;
+				order: -1;
+			}
+
+			}
 		}
 
 	}

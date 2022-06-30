@@ -10,12 +10,14 @@
 
 	// __ IMPORTS
 	import groupBy from 'lodash/groupBy.js';
+	import has from 'lodash/has.js';
 	import { getCurrentYear } from '$lib/global.js';
 
 	// __ COMPONENTS
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
+	import LogoBlock from '$lib/blocks/logoBlock.svelte'
 
 	// __ GRAPHICS
 	import ArrowDown from '$lib/graphics/arrow-down.svelte';
@@ -25,6 +27,7 @@
 
 	// __ PROPS
 	export let people;
+	let pageData = {children: [{ text: "Eyebeam is in the process of uploading an archive of all our artists and their work over the years."}], markDefs: ''}
 
 	// __ VARIABLES
 	const START_YEAR = 1997;
@@ -176,6 +179,11 @@
 		<!-- HEADER -->
 		<header class="header">
 			<h1>Artists</h1>
+			<div class="description">
+				<LogoBlock b={pageData}/>
+			</div>
+
+
 			<!-- ORDER -->
 <!-- NOT IN USE UNTIL WE ACTUALLY HAVE DATES ASSIGNED FOR CHRON ORDER  
 			<nav class="order">
@@ -455,4 +463,11 @@ role="option"
 	height: 1px;
 	right: 1000000px;
 }
+	.description {
+		margin-left: auto;
+		margin-right: $NORMAL;
+		margin-top: $LARGE;
+		margin-bottom: $NORMAL;
+	}
+
 </style>

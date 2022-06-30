@@ -191,6 +191,10 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 		padding: $LARGE;
 		&:nth-child(even) {
 			border-right: none;
+			@include screen-size('small') {
+				border-right: 1px solid var(--foreground-color);
+			}
+
 		}
 		a {
 			text-decoration: none;

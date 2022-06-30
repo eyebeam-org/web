@@ -77,7 +77,7 @@
 		}
 
 		@include screen-size('small') {
-			height: 50vh;
+			max-height: 40vh;
 		}
 	}
 </style>
