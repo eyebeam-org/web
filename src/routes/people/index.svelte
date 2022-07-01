@@ -27,7 +27,8 @@
 
 	// __ PROPS
 	export let people;
-	let pageData = {children: [{ text: "Eyebeam is in the process of uploading an archive of all our artists and their work over the years."}], markDefs: ''}
+	//FIXME: hardcoded page data for now, should (obviously) be its own field/page in Sanity
+	let pageData = {children: [{ text: "Eyebeam is in the process of uploading an archive of all our artists and their work over the years. If you see something that doesn't look right, please contact us at "}, {text: "info@eyebeam.org.", marks: ["0"]}], markDefs: [{_key: '0', _type: "link", href: "mailto:info@eyebeam.org"}]}
 
 	// __ VARIABLES
 	const START_YEAR = 1997;

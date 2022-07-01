@@ -20,7 +20,7 @@
 	// __ COMPONENTS
 	import Metadata from '$lib/metadata/metadata.svelte';
 	import EmbedContent from '$lib/embed-content/embed-content.svelte';
-
+	import ArrowLink from '$lib/graphics/arrow-link.svelte'
 	// __ PROPS
 	export let section, aboutMap;
 
@@ -78,9 +78,9 @@
 							<div class="tile nav-tile has-link"
 							>
 							
-<a href="https://fold.eyebeam.org/enter" target="_blank">
 							<Blocks blocks={content.content} />
-					</a>
+
+							<ArrowLink link={'https://fold.eyebeam.org/enter'} />
 					</div>
 					{:else }
 						<div class="tile nav-tile">
@@ -111,8 +111,14 @@ on:click={()=> {handlePseudoLink('/support/' + aboutMap[section]._id);}}
 						<div class="content" >
 							{#if section == 'donate'}
 <script id="tgb-widget-script"> !function(t,e,i,n,o,c,d,s){t.tgbWidgetOptions={id:o,domain:n},(d=e.createElement(i)).src=[n,"widget/script.js"].join(""),d.async=1,(s=e.getElementById(c)).parentNode.insertBefore(d,s)}(window,document,"script","https://tgbwidget.com/","133952075","tgb-widget-script"); </script>
-							{/if}
+
+{/if}
+			
 						</div>
+						{#if section != 'donate'}
+	
+				<ArrowLink link={'/support/' + aboutMap[section]._id} />
+						{/if}
 					{/if}
 				</div>
 			{/if}
@@ -202,6 +208,8 @@ on:click={()=> {handlePseudoLink('/support/' + aboutMap[section]._id);}}
 	.nav-tile {
 		width: 50%;
 		min-height: $HEADER_HEIGHT;
+		display: flex;
+		flex-flow: column nowrap;
 		border-bottom: 1px solid var(--foreground-color);
 		&:nth-child(odd) {
 			border-right: 1px solid var(--foreground-color);
@@ -210,7 +218,6 @@ on:click={()=> {handlePseudoLink('/support/' + aboutMap[section]._id);}}
 		}
 		}
 		font-size: $font-size-body;
-		display: block;
 		float: left;
 		text-decoration: none;
 		padding-right: $LARGE;

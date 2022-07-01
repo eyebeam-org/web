@@ -162,6 +162,9 @@ flex-flow: row wrap;
 	.nav-tile {
 		width: 50%;
 		min-height: $HEADER_HEIGHT;
+		display: flex;
+		flex-flow: column nowrap;
+
 		border-bottom: 1px solid var(--foreground-color);
 		&:nth-child(odd) {
 			border-right: 1px solid var(--foreground-color);
