@@ -78,6 +78,9 @@
 
 		@include screen-size('small') {
 			max-height: 40vh;
+			.big-sticker {
+				overflow: none;
+			}
 		}
 	}
 </style>
