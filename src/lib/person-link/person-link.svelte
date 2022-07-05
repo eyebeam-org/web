@@ -12,7 +12,6 @@
 	import { roleToRoleName, renderNewLines } from '$lib/global.js';
 	import Blocks from '$lib/blocks/blocks.svelte'
 	import get from 'lodash/get.js';
-	import Blocks from '$lib/blocks/blocks.svelte';
 
 	// __ PROPS
 	export let person = false;
