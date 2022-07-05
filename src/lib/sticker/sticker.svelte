@@ -52,6 +52,8 @@
 		img {
 			width: 100%;
 			height: 100%;
+			max-height: 100%;
+			max-width: 100%;
 			margin: 0 auto;
 			object-fit: cover;
 		}
@@ -78,9 +80,7 @@
 
 		@include screen-size('small') {
 			max-height: 40vh;
-			.big-sticker {
-				overflow: hidden;
-			}
+			overflow: hidden;
 		}
 	}
 </style>
