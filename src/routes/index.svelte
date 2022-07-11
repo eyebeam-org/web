@@ -600,7 +600,7 @@ height: calc(50% - (100%/6) - (100%/12));
 					display: none;
 				}
 		.featured-artist-image {
-			max-width: 30%;
+			max-width: 25%;
 		}
 
 

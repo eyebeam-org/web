@@ -15,10 +15,15 @@
 	class="open-eyebeam"
 >
 <div class="frame-container">
+<!-- iframe embed
 <iframe src={import.meta.env.VITE_OPEN_EYEBEAM_EMBED_URL} title="Open Eyebeam" aria-label="A live view of Eyebeam's new digital artist studio, Open Eyebeam. This area changes randomly on each page load, but shows a randomized area in The Field of Open Eyebeam, which will show doors to artists' studios."/>
 <a target="_blank" href="https://open.eyebeam.org">
 	<div class="link"><span class="arrow"><TriangleRight /></span> open.eyebeam.org</div>
 </a>
+!-->
+	<a href="https://open.eyebeam.org">
+<img src="/OE_front_4.png" />
+	</a>
 </div>
 <div class="about">
 Come see what our fellows are up to in our new digital studio space.
@@ -42,6 +47,11 @@ Come see what our fellows are up to in our new digital studio space.
 			width: $two-third;
 			overflow: hidden;
 			border-right: $border-style;
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+}
 		}
 
 		iframe {
@@ -114,9 +124,9 @@ Come see what our fellows are up to in our new digital studio space.
 				justify-content: flex-start;
 				align-items: flex-start;
 			.open-eyebeam-link {
-				font-size: $font-size-h2;
+				font-size: $font-size-medium;
 				padding-bottom: $SMALL;
-				max-width: 60%;
+				max-width: 100%;
 				order: -1;
 			}
 
