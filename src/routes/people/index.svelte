@@ -1,5 +1,5 @@
 <script context="module">
-	export const prender = false;
+	export const router = false
 </script>
 
 <script>

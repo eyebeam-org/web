@@ -1,5 +1,4 @@
 <script context="module">
-	export const preprocess = true;
 	export const router = false;
 </script>
 <script>
