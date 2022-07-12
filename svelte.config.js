@@ -1,5 +1,6 @@
 import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-netlify';
+import adapter from '@sveltejs/adapter-static';
+import netlify-adapter from '@sveltejs/adapter-netlify';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,7 +11,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		prerender: {
-			default: false
+			default: true
 		}
 	}
 };
