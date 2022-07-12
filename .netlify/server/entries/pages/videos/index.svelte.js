@@ -22,7 +22,7 @@ __export(stdin_exports, {
   prerender: () => prerender
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
+var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 const prerender = false;
 async function load() {
   return {
@@ -30,6 +30,6 @@ async function load() {
     redirect: "/everything?filter=videoPost"
   };
 }
-const Videos = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots) => {
+const Videos = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   return ``;
 });

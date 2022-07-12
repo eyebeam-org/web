@@ -28,7 +28,7 @@ const manifest = {
   assets: /* @__PURE__ */ new Set(["ddc_header.jpg", "eyebeambox.gif", "favicon.png", "fonts/EyebeamSans-Medium.woff", "fonts/EyebeamSans-Medium.woff2", "stock.svg", "support_header.jpg"]),
   mimeTypes: { ".jpg": "image/jpeg", ".gif": "image/gif", ".png": "image/png", ".woff": "font/woff", ".woff2": "font/woff2", ".svg": "image/svg+xml" },
   _: {
-    entry: { "file": "start-92aa4db2.js", "js": ["start-92aa4db2.js", "chunks/index-14ce4b0f.js", "chunks/index-d2fd927e.js", "chunks/singletons-d1fb5791.js"], "css": [] },
+    entry: { "file": "start-e7000c38.js", "js": ["start-e7000c38.js", "chunks/index-fa94c728.js", "chunks/index-6da00ed5.js", "chunks/singletons-d1fb5791.js"], "css": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),

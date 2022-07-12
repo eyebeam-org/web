@@ -27,6 +27,6 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/journal/index.svelte.js"));
-const entry = "pages/journal/index.svelte-e2b41e3d.js";
-const js = ["pages/journal/index.svelte-e2b41e3d.js", "chunks/index-14ce4b0f.js", "chunks/global-378aa713.js", "chunks/index-52c45369.js", "chunks/big-beam-8d45624e.js", "chunks/logo-48dface4.js", "chunks/person-link-list-93094303.js", "chunks/person-link-cfd49f0c.js"];
+const entry = "pages/journal/index.svelte-5254305b.js";
+const js = ["pages/journal/index.svelte-5254305b.js", "chunks/index-fa94c728.js", "chunks/global-3195947e.js", "chunks/index-fe7c00d7.js", "chunks/big-beam-95938540.js", "chunks/logo-3fd4c93e.js", "chunks/person-link-list-77ae2dad.js", "chunks/person-link-8c2f8958.js"];
 const css = ["assets/pages/journal/index.svelte-06c0856b.css", "assets/logo.svelte_svelte_type_style_lang-091ab07e.css", "assets/person-link.svelte_svelte_type_style_lang-9ffd8c60.css", "assets/big-beam-9f57e0f8.css"];

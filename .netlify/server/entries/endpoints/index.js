@@ -20,17 +20,17 @@ __export(stdin_exports, {
   get: () => get
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_sanity_bf41d9e1 = require("../../chunks/sanity-bf41d9e1.js");
+var import_sanity_59332496 = require("../../chunks/sanity-59332496.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
 var import_get_video_id = require("get-video-id");
 var import_has = require("lodash/has.js");
 const get = async (request) => {
-  const programs = await (0, import_sanity_bf41d9e1.l)("*[_type == 'program']");
-  const newPosts = await (0, import_sanity_bf41d9e1.l)("*[_type in ['event', 'press', 'news', 'note', 'videoPost', 'journalPost']]{..., people[]->{...}} | order(_createdAt desc)");
-  const stickers = await (0, import_sanity_bf41d9e1.l)("*[_id == 'stickers']{...}[0]");
-  const featuredArtists = await (0, import_sanity_bf41d9e1.l)("*[_type == 'featuredArtists']{..., featuredArtist1->{..., 'image': mainImage.asset->}, featuredArtist2->{..., 'image': mainImage.asset->}, featuredArtist3->{..., 'image': mainImage.asset->}}");
+  const programs = await (0, import_sanity_59332496.l)("*[_type == 'program']");
+  const newPosts = await (0, import_sanity_59332496.l)("*[_type in ['event', 'press', 'news', 'note', 'videoPost', 'journalPost']]{..., people[]->{...}} | order(_createdAt desc)");
+  const stickers = await (0, import_sanity_59332496.l)("*[_id == 'stickers']{...}[0]");
+  const featuredArtists = await (0, import_sanity_59332496.l)("*[_type == 'featuredArtists']{..., featuredArtist1->{..., 'image': mainImage.asset->}, featuredArtist2->{..., 'image': mainImage.asset->}, featuredArtist3->{..., 'image': mainImage.asset->}}");
   return {
     body: {
       programs: programs.status === 404 ? "ERROR" : programs,

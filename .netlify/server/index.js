@@ -41,7 +41,7 @@ __export(stdin_exports, {
   override: () => override
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_68ac15fd = require("./chunks/index-68ac15fd.js");
+var import_index_277e1cdb = require("./chunks/index-277e1cdb.js");
 var __accessCheck = (obj, member, msg) => {
   if (!member.has(obj))
     throw TypeError("Cannot " + msg);
@@ -63,14 +63,14 @@ var __privateSet = (obj, member, value, setter) => {
 var _use_hashes, _dev, _script_needs_csp, _style_needs_csp, _directives, _script_src, _style_src;
 function afterUpdate() {
 }
-const Root = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots) => {
+const Root = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   let { stores } = $$props;
   let { page } = $$props;
   let { components } = $$props;
   let { props_0 = null } = $$props;
   let { props_1 = null } = $$props;
   let { props_2 = null } = $$props;
-  (0, import_index_68ac15fd.s)("__svelte__", stores);
+  (0, import_index_277e1cdb.s)("__svelte__", stores);
   afterUpdate(stores.page.notify);
   if ($$props.stores === void 0 && $$bindings.stores && stores !== void 0)
     $$bindings.stores(stores);
@@ -90,15 +90,15 @@ const Root = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots)
   return `
 
 
-${components[1] ? `${(0, import_index_68ac15fd.v)(components[0] || import_index_68ac15fd.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {
+${components[1] ? `${(0, import_index_277e1cdb.v)(components[0] || import_index_277e1cdb.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {
     default: () => {
-      return `${components[2] ? `${(0, import_index_68ac15fd.v)(components[1] || import_index_68ac15fd.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
+      return `${components[2] ? `${(0, import_index_277e1cdb.v)(components[1] || import_index_277e1cdb.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
         default: () => {
-          return `${(0, import_index_68ac15fd.v)(components[2] || import_index_68ac15fd.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`;
+          return `${(0, import_index_277e1cdb.v)(components[2] || import_index_277e1cdb.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`;
         }
-      })}` : `${(0, import_index_68ac15fd.v)(components[1] || import_index_68ac15fd.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
+      })}` : `${(0, import_index_277e1cdb.v)(components[1] || import_index_277e1cdb.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
     }
-  })}` : `${(0, import_index_68ac15fd.v)(components[0] || import_index_68ac15fd.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {})}`}
+  })}` : `${(0, import_index_277e1cdb.v)(components[0] || import_index_277e1cdb.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {})}`}
 
 ${``}`;
 });
@@ -2035,7 +2035,7 @@ class Server {
       read,
       root: Root,
       service_worker: null,
-      router: true,
+      router: false,
       template,
       template_contains_nonce: false,
       trailing_slash: "never"

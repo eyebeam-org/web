@@ -20,12 +20,12 @@ __export(stdin_exports, {
   L: () => Logo
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_68ac15fd = require("./index-68ac15fd.js");
+var import_index_277e1cdb = require("./index-277e1cdb.js");
 const css = {
   code: "svg.svelte-1wy8bq.svelte-1wy8bq{width:100%}svg.svelte-1wy8bq path.svelte-1wy8bq{fill:var(--foreground-color)}",
   map: null
 };
-const Logo = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots) => {
+const Logo = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
   return `<span class="${"nodisplay"}">Eyebeam</span>
 

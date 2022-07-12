@@ -17,16 +17,16 @@ var __copyProps = (to, from, except, desc) => {
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  a: () => trayOpen,
-  b: () => sidebarToC,
+  a: () => sidebarTitle,
+  b: () => trayOpen,
   c: () => currentPage,
   i: () => inversion,
-  s: () => sidebarTitle,
+  s: () => sidebarToC,
   t: () => theme
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_68ac15fd = require("./index-68ac15fd.js");
-var import_stores_2672c807 = require("./stores-2672c807.js");
+var import_index_277e1cdb = require("./index-277e1cdb.js");
+var import_stores_b7bb0fad = require("./stores-b7bb0fad.js");
 var import_global_61b718ff = require("./global-61b718ff.js");
 const subscriber_queue = [];
 function readable(value, start) {
@@ -34,11 +34,11 @@ function readable(value, start) {
     subscribe: writable(value, start).subscribe
   };
 }
-function writable(value, start = import_index_68ac15fd.n) {
+function writable(value, start = import_index_277e1cdb.n) {
   let stop;
   const subscribers = /* @__PURE__ */ new Set();
   function set(new_value) {
-    if ((0, import_index_68ac15fd.d)(value, new_value)) {
+    if ((0, import_index_277e1cdb.g)(value, new_value)) {
       value = new_value;
       if (stop) {
         const run_queue = !subscriber_queue.length;
@@ -58,11 +58,11 @@ function writable(value, start = import_index_68ac15fd.n) {
   function update(fn) {
     set(fn(value));
   }
-  function subscribe2(run, invalidate = import_index_68ac15fd.n) {
+  function subscribe2(run, invalidate = import_index_277e1cdb.n) {
     const subscriber = [run, invalidate];
     subscribers.add(subscriber);
     if (subscribers.size === 1) {
-      stop = start(set) || import_index_68ac15fd.n;
+      stop = start(set) || import_index_277e1cdb.n;
     }
     run(value);
     return () => {
@@ -83,7 +83,7 @@ function derived(stores, fn, initial_value) {
     let inited = false;
     const values = [];
     let pending = 0;
-    let cleanup = import_index_68ac15fd.n;
+    let cleanup = import_index_277e1cdb.n;
     const sync = () => {
       if (pending) {
         return;
@@ -93,10 +93,10 @@ function derived(stores, fn, initial_value) {
       if (auto) {
         set(result);
       } else {
-        cleanup = (0, import_index_68ac15fd.f)(result) ? result : import_index_68ac15fd.n;
+        cleanup = (0, import_index_277e1cdb.h)(result) ? result : import_index_277e1cdb.n;
       }
     };
-    const unsubscribers = stores_array.map((store, i) => (0, import_index_68ac15fd.b)(store, (value) => {
+    const unsubscribers = stores_array.map((store, i) => (0, import_index_277e1cdb.b)(store, (value) => {
       values[i] = value;
       pending &= ~(1 << i);
       if (inited) {
@@ -108,7 +108,7 @@ function derived(stores, fn, initial_value) {
     inited = true;
     sync();
     return function stop() {
-      (0, import_index_68ac15fd.r)(unsubscribers);
+      (0, import_index_277e1cdb.r)(unsubscribers);
       cleanup();
     };
   });
@@ -119,7 +119,7 @@ const inversion = writable(false);
 const sidebarTitle = writable("");
 const sidebarToC = writable([]);
 const currentPage = writable(null);
-derived(import_stores_2672c807.p, ($page) => {
+derived(import_stores_b7bb0fad.p, ($page) => {
   let pathArray = $page.url.pathname.split("/").filter((p) => p);
   if (pathArray[0] && import_global_61b718ff.c[pathArray[0]]) {
     return { slug: pathArray[0], name: import_global_61b718ff.c[pathArray[0]] };

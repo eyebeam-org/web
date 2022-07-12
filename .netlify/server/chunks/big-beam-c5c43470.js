@@ -20,13 +20,13 @@ __export(stdin_exports, {
   B: () => Big_beam
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_68ac15fd = require("./index-68ac15fd.js");
+var import_index_277e1cdb = require("./index-277e1cdb.js");
 var bigBeam_svelte_svelte_type_style_lang = "";
 const css = {
   code: "svg.svelte-1ovq7du.svelte-1ovq7du{height:90%}svg.svelte-1ovq7du path.svelte-1ovq7du{fill:none;stroke:var(--foreground-color);stroke-width:1px;stroke-miterlimit:10}svg.flipped.svelte-1ovq7du.svelte-1ovq7du{transform:rotate(180deg)}",
   map: null
 };
-const Big_beam = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots) => {
+const Big_beam = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   let { flipped = false } = $$props;
   if ($$props.flipped === void 0 && $$bindings.flipped && flipped !== void 0)
     $$bindings.flipped(flipped);
