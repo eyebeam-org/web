@@ -15,7 +15,7 @@ console.log('env: ', process.env.NODE_ENV)
 
 export const client = sanityClient({
     projectId: SANITY_ID,
-    dataset: process.env.NODE_ENV == 'development' ? 'test' : 'production',
+    dataset: process.env.NODE_ENV == 'development' ? 'production' : 'production',
     apiVersion: '2021-10-05', // use a UTC date string
     useCdn: false // `false` if you want to ensure fresh data
 })

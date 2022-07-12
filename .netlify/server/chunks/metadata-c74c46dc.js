@@ -27,10 +27,10 @@ var import_index_277e1cdb = require("./index-277e1cdb.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_get = __toESM(require("lodash/get.js"));
 var import_truncate = __toESM(require("lodash/truncate.js"));
-var import_sanity_59332496 = require("./sanity-59332496.js");
-var import_stores_effda588 = require("./stores-effda588.js");
+var import_sanity_1a8ac269 = require("./sanity-1a8ac269.js");
+var import_stores_f9761b8b = require("./stores-f9761b8b.js");
 var import_stores_b7bb0fad = require("./stores-b7bb0fad.js");
-var import_global_61b718ff = require("./global-61b718ff.js");
+var import_global_eadaa9b6 = require("./global-eadaa9b6.js");
 const Metadata = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   let $pageStore, $$unsubscribe_pageStore;
   $$unsubscribe_pageStore = (0, import_index_277e1cdb.b)(import_stores_b7bb0fad.p, (value) => $pageStore = value);
@@ -39,23 +39,23 @@ const Metadata = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, sl
   const title = page$1.title ? page$1.title : "eyebeam.org";
   let description = "";
   if ((0, import_has.default)(page$1, "content.content")) {
-    description = (0, import_truncate.default)((0, import_sanity_59332496.t)(page$1.content.content), { length: 160 });
+    description = (0, import_truncate.default)((0, import_sanity_1a8ac269.t)(page$1.content.content), { length: 160 });
   } else if ((0, import_has.default)(page$1, "introduction.content")) {
-    description = (0, import_truncate.default)((0, import_sanity_59332496.t)(page$1.introduction.content), { length: 160 });
+    description = (0, import_truncate.default)((0, import_sanity_1a8ac269.t)(page$1.introduction.content), { length: 160 });
   } else {
-    description = import_global_61b718ff.f;
+    description = import_global_eadaa9b6.f;
   }
-  const url = import_global_61b718ff.B + $pageStore.url.pathname;
-  const image = (0, import_has.default)(page$1, "mainImage.asset") ? (0, import_sanity_59332496.u)(page$1.mainImage) : import_global_61b718ff.D;
+  const url = import_global_eadaa9b6.B + $pageStore.url.pathname;
+  const image = (0, import_has.default)(page$1, "mainImage.asset") ? (0, import_sanity_1a8ac269.u)(page$1.mainImage) : import_global_eadaa9b6.D;
   if (isSingle) {
-    import_stores_effda588.c.set({
+    import_stores_f9761b8b.c.set({
       slug: (0, import_get.default)(page$1, "slug.current", ""),
       title: page$1.title
     });
   }
   (0, import_index_277e1cdb.o)(() => {
     if (isSingle) {
-      import_stores_effda588.c.set(null);
+      import_stores_f9761b8b.c.set(null);
     }
   });
   if ($$props.page === void 0 && $$bindings.page && page$1 !== void 0)

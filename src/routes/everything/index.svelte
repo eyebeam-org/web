@@ -7,7 +7,7 @@
 	//
 	// # # # # # # # # # # # # #
 
-	export const router = false;
+	export const preprocess = true;
 	// __ IMPORTS
 	import { longFormatDate } from '$lib/global.js';
 	import { postTypeToName, postTypeToCategory } from '$lib/global.js';

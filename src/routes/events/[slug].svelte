@@ -18,7 +18,7 @@
 	export let page;
 
 	let toc = parseToc(get(page, 'content.content'));
-	if (get(page, 'people', []).length > 0) {
+	if (get(page, 'people', []) != null && get(page, 'people', []).length > 0) {
 		toc.push({ title: 'People', link: '#people' });
 	}
 

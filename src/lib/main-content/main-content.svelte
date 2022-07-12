@@ -37,7 +37,6 @@
 
 	const PEOPLE_TYPES = ['event', 'videoPost'];
 	let showPeople = PEOPLE_TYPES.includes(page._type) ? true : false;
-	console.log('page type: ', page._type)
 </script>
 
 <div class="main-content" in:fade tabindex=0>

@@ -32,9 +32,10 @@ var import_image_url = __toESM(require("@sanity/image-url"));
 var import_get_video_id = __toESM(require("get-video-id"));
 var import_has = __toESM(require("lodash/has.js"));
 const SANITY_ID = "3knpqano";
+console.log("env: ", process.env.NODE_ENV);
 const client = (0, import_client.default)({
   projectId: SANITY_ID,
-  dataset: "production",
+  dataset: process.env.NODE_ENV == "development" ? "test" : "production",
   apiVersion: "2021-10-05",
   useCdn: false
 });

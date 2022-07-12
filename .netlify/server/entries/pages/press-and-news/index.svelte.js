@@ -25,19 +25,18 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 var import_has = __toESM(require("lodash/has.js"));
-var import_bottom_bar_2d2f7e63 = require("../../../chunks/bottom-bar-2d2f7e63.js");
-var import_press_and_news_item_b87b6e1e = require("../../../chunks/press-and-news-item-b87b6e1e.js");
-var import_blocks_57d28cdb = require("../../../chunks/blocks-57d28cdb.js");
-var import_see_also_9d92a075 = require("../../../chunks/see-also-9d92a075.js");
-var import_metadata_2f61a1e2 = require("../../../chunks/metadata-2f61a1e2.js");
-var import_stores_effda588 = require("../../../chunks/stores-effda588.js");
-var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
+var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
+var import_press_and_news_item_cbbd7c00 = require("../../../chunks/press-and-news-item-cbbd7c00.js");
+var import_blocks_4014f298 = require("../../../chunks/blocks-4014f298.js");
+var import_see_also_b2303e09 = require("../../../chunks/see-also-b2303e09.js");
+var import_metadata_c74c46dc = require("../../../chunks/metadata-c74c46dc.js");
+var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
+var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
 var import_slugify = require("slugify");
 var import_date_fns = require("date-fns");
 var import_get = require("lodash/get.js");
-var import_person_link_7a5675bf = require("../../../chunks/person-link-7a5675bf.js");
 var import_core = require("@popperjs/core");
-var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
+var import_sanity_1a8ac269 = require("../../../chunks/sanity-1a8ac269.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
@@ -46,7 +45,7 @@ var import_truncate = require("lodash/truncate.js");
 var import_stores_b7bb0fad = require("../../../chunks/stores-b7bb0fad.js");
 var index_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ".main-content.svelte-13y0sjo.svelte-13y0sjo{float:left;width:calc((100% / 3) * 2)}@media(max-width: 800px){.main-content.svelte-13y0sjo.svelte-13y0sjo{width:100%}}.main-content.svelte-13y0sjo .inner.svelte-13y0sjo{width:100%;border:1px solid var(--foreground-color);min-height:100vh;display:inline-block}.main-content.svelte-13y0sjo .inner h1.svelte-13y0sjo{padding:20px}.press-and-news-listing.svelte-13y0sjo.svelte-13y0sjo{width:100%;display:flex;margin-top:20px;flex-wrap:wrap}.bottom-divider.svelte-13y0sjo.svelte-13y0sjo{width:100%;border-bottom:1px solid var(--foreground-color);margin-top:40px}.section.svelte-13y0sjo.svelte-13y0sjo{margin-top:40px}.section.svelte-13y0sjo h2.svelte-13y0sjo{padding-left:20px;padding-right:20px}.text-content.svelte-13y0sjo.svelte-13y0sjo{padding:20px}",
+  code: ".main-content.svelte-1n16gad.svelte-1n16gad{float:left;width:calc((100% / 3) * 2)}@media(max-width: 800px), screen and (orientation: portrait){.main-content.svelte-1n16gad.svelte-1n16gad{width:100%}}.main-content.svelte-1n16gad .inner.svelte-1n16gad{width:100%;border:1px solid var(--foreground-color);min-height:100vh;display:inline-block}.main-content.svelte-1n16gad .inner h1.svelte-1n16gad{padding:20px}.press-and-news-listing.svelte-1n16gad.svelte-1n16gad{width:100%;display:flex;margin-top:20px;flex-wrap:wrap}.bottom-divider.svelte-1n16gad.svelte-1n16gad{width:100%;border-bottom:1px solid var(--foreground-color);margin-top:40px}.section.svelte-1n16gad.svelte-1n16gad{margin-top:40px}.section.svelte-1n16gad h2.svelte-1n16gad{padding-left:20px;padding-right:20px}.text-content.svelte-1n16gad.svelte-1n16gad{padding:20px}",
   map: null
 };
 const Press_and_news = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
@@ -72,43 +71,43 @@ const Press_and_news = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindin
     $$bindings.news(news);
   $$result.css.add(css);
   {
-    import_stores_effda588.a.set("Press & News");
+    import_stores_f9761b8b.a.set("Press & News");
   }
   {
-    import_stores_effda588.s.set(toc);
+    import_stores_f9761b8b.s.set(toc);
   }
   return `
-${(0, import_index_277e1cdb.v)(import_metadata_2f61a1e2.M, "Metadata").$$render($$result, { page: { title: "Press & News" } }, {}, {})}
+${(0, import_index_277e1cdb.v)(import_metadata_c74c46dc.M, "Metadata").$$render($$result, { page: { title: "Press & News" } }, {}, {})}
 
 
-<div class="${"main-content svelte-13y0sjo"}"><div class="${"inner svelte-13y0sjo"}"><h1 class="${"svelte-13y0sjo"}">Press &amp; News</h1>
+<div class="${"main-content svelte-1n16gad"}"><div class="${"inner svelte-1n16gad"}"><h1 class="${"svelte-1n16gad"}">Press &amp; News</h1>
 
-		${(0, import_has.default)(page, "content.content") ? `<div>${(0, import_index_277e1cdb.v)(import_blocks_57d28cdb.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
+		${(0, import_has.default)(page, "content.content") ? `<div>${(0, import_index_277e1cdb.v)(import_blocks_4014f298.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
 
-		<div class="${"section svelte-13y0sjo"}" id="${"news"}"><h2 class="${"svelte-13y0sjo"}">News</h2>
-			<div class="${"press-and-news-listing svelte-13y0sjo"}">${(0, import_index_277e1cdb.d)(news, (post) => {
-    return `${(0, import_index_277e1cdb.v)(import_press_and_news_item_b87b6e1e.P, "PressAndNewsItem").$$render($$result, { post }, {}, {})}`;
+		<div class="${"section svelte-1n16gad"}" id="${"news"}"><h2 class="${"svelte-1n16gad"}">News</h2>
+			<div class="${"press-and-news-listing svelte-1n16gad"}">${(0, import_index_277e1cdb.d)(news, (post) => {
+    return `${(0, import_index_277e1cdb.v)(import_press_and_news_item_cbbd7c00.P, "PressAndNewsItem").$$render($$result, { post }, {}, {})}`;
   })}</div>
 			
-			<div class="${"bottom-divider svelte-13y0sjo"}"></div></div>
+			<div class="${"bottom-divider svelte-1n16gad"}"></div></div>
 
-		<div class="${"section svelte-13y0sjo"}" id="${"press-releases"}"><h2 class="${"svelte-13y0sjo"}">Press releases</h2>
-			<div class="${"press-and-news-listing svelte-13y0sjo"}">${(0, import_index_277e1cdb.d)(press, (post) => {
-    return `${(0, import_index_277e1cdb.v)(import_press_and_news_item_b87b6e1e.P, "PressAndNewsItem").$$render($$result, { post }, {}, {})}`;
+		<div class="${"section svelte-1n16gad"}" id="${"press-releases"}"><h2 class="${"svelte-1n16gad"}">Press releases</h2>
+			<div class="${"press-and-news-listing svelte-1n16gad"}">${(0, import_index_277e1cdb.d)(press, (post) => {
+    return `${(0, import_index_277e1cdb.v)(import_press_and_news_item_cbbd7c00.P, "PressAndNewsItem").$$render($$result, { post }, {}, {})}`;
   })}</div>
 			
-			<div class="${"bottom-divider svelte-13y0sjo"}"></div></div>
+			<div class="${"bottom-divider svelte-1n16gad"}"></div></div>
 
-		<div class="${"section svelte-13y0sjo"}" id="${"press-contact"}"><h2 class="${"svelte-13y0sjo"}">Press contact</h2>
-			${(0, import_has.default)(page, "pressContact.content") ? `<div class="${"text-content svelte-13y0sjo"}">${(0, import_index_277e1cdb.v)(import_blocks_57d28cdb.B, "Blocks").$$render($$result, { blocks: page.pressContact.content }, {}, {})}</div>` : ``}</div>
+		<div class="${"section svelte-1n16gad"}" id="${"press-contact"}"><h2 class="${"svelte-1n16gad"}">Press contact</h2>
+			${(0, import_has.default)(page, "pressContact.content") ? `<div class="${"text-content svelte-1n16gad"}">${(0, import_index_277e1cdb.v)(import_blocks_4014f298.B, "Blocks").$$render($$result, { blocks: page.pressContact.content }, {}, {})}</div>` : ``}</div>
 
 		
-		${page.internalLinks && page.internalLinks.length > 0 || page.externalLinks && page.externalLinks.length > 0 ? `${(0, import_index_277e1cdb.v)(import_see_also_9d92a075.S, "SeeAlso").$$render($$result, {
+		${page.internalLinks && page.internalLinks.length > 0 || page.externalLinks && page.externalLinks.length > 0 ? `${(0, import_index_277e1cdb.v)(import_see_also_b2303e09.S, "SeeAlso").$$render($$result, {
     externalLinks: page.externalLinks,
     internalLinks: page.internalLinks
   }, {}, {})}` : ``}</div>
 
 	
-	${(0, import_index_277e1cdb.v)(import_bottom_bar_2d2f7e63.B, "BottomBar").$$render($$result, {}, {}, {})}
+	${(0, import_index_277e1cdb.v)(import_bottom_bar_168e682a.B, "BottomBar").$$render($$result, {}, {}, {})}
 </div>`;
 });

@@ -27,7 +27,7 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("./index-277e1cdb.js");
 var import_stores_b7bb0fad = require("./stores-b7bb0fad.js");
-var import_global_61b718ff = require("./global-61b718ff.js");
+var import_global_eadaa9b6 = require("./global-eadaa9b6.js");
 const subscriber_queue = [];
 function readable(value, start) {
   return {
@@ -121,8 +121,8 @@ const sidebarToC = writable([]);
 const currentPage = writable(null);
 derived(import_stores_b7bb0fad.p, ($page) => {
   let pathArray = $page.url.pathname.split("/").filter((p) => p);
-  if (pathArray[0] && import_global_61b718ff.c[pathArray[0]]) {
-    return { slug: pathArray[0], name: import_global_61b718ff.c[pathArray[0]] };
+  if (pathArray[0] && import_global_eadaa9b6.c[pathArray[0]]) {
+    return { slug: pathArray[0], name: import_global_eadaa9b6.c[pathArray[0]] };
   } else {
     return null;
   }

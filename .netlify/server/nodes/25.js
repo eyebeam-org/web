@@ -26,7 +26,7 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/videos/_slug_.svelte.js"));
-const entry = "pages/videos/_slug_.svelte-4e9b207c.js";
-const js = ["pages/videos/_slug_.svelte-4e9b207c.js", "chunks/index-fa94c728.js", "chunks/main-content-d6040f48.js", "chunks/global-3195947e.js", "chunks/index-fe7c00d7.js", "chunks/blocks-1b1d061c.js", "chunks/person-link-8c2f8958.js", "chunks/see-also-f54e603b.js", "chunks/bottom-bar-52c4fd69.js", "chunks/metadata-b3716863.js", "chunks/truncate-1b2ae9f2.js", "chunks/stores-b9ad7b44.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js"];
-const css = ["assets/person-link.svelte_svelte_type_style_lang-9ffd8c60.css", "assets/video.svelte_svelte_type_style_lang-abb89f3d.css", "assets/arrow-down.svelte_svelte_type_style_lang-03ad6b2e.css", "assets/see-also.svelte_svelte_type_style_lang-5e3f31da.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-b6bc2bf1.css", "assets/at-eyebeam.svelte_svelte_type_style_lang-ffec05cd.css", "assets/main-content-e13afb15.css"];
+var module2 = __toESM(require("../entries/pages/support/supportBlock.svelte.js"));
+const entry = "pages/support/supportBlock.svelte-baec8423.js";
+const js = ["pages/support/supportBlock.svelte-baec8423.js", "chunks/index-fa94c728.js", "chunks/global-d9c97fe1.js", "chunks/_getTag-b9c3dce1.js", "chunks/isTypedArray-bc0a9c6b.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/isRegExp-66a22565.js", "chunks/blocks-f0e42b03.js", "chunks/index-fe7c00d7.js", "chunks/arrow-link-569070d3.js", "chunks/navigation-0e6511d1.js", "chunks/singletons-d1fb5791.js"];
+const css = ["assets/pages/support/supportBlock.svelte-314728a0.css", "assets/video.svelte_svelte_type_style_lang-8e5e4d97.css", "assets/see-also.svelte_svelte_type_style_lang-5e3f31da.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-2135bef0.css", "assets/at-eyebeam.svelte_svelte_type_style_lang-863df973.css", "assets/arrow-link-1e83f335.css"];

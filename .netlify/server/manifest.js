@@ -25,10 +25,10 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 const manifest = {
   appDir: "_app",
-  assets: /* @__PURE__ */ new Set(["ddc_header.jpg", "eyebeambox.gif", "favicon.png", "fonts/EyebeamSans-Medium.woff", "fonts/EyebeamSans-Medium.woff2", "stock.svg", "support_header.jpg"]),
-  mimeTypes: { ".jpg": "image/jpeg", ".gif": "image/gif", ".png": "image/png", ".woff": "font/woff", ".woff2": "font/woff2", ".svg": "image/svg+xml" },
+  assets: /* @__PURE__ */ new Set(["OE_front_2.png", "OE_front_4.png", "ddc_header.jpg", "eyebeambox.gif", "favicon.png", "fonts/EyebeamSans-Medium.woff", "fonts/EyebeamSans-Medium.woff2", "stock.svg", "support_header.jpg"]),
+  mimeTypes: { ".png": "image/png", ".jpg": "image/jpeg", ".gif": "image/gif", ".woff": "font/woff", ".woff2": "font/woff2", ".svg": "image/svg+xml" },
   _: {
-    entry: { "file": "start-e7000c38.js", "js": ["start-e7000c38.js", "chunks/index-fa94c728.js", "chunks/index-6da00ed5.js", "chunks/singletons-d1fb5791.js"], "css": [] },
+    entry: { "file": "start-d4f69e5f.js", "js": ["start-d4f69e5f.js", "chunks/index-fa94c728.js", "chunks/index-6da00ed5.js", "chunks/singletons-d1fb5791.js"], "css": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
@@ -45,9 +45,9 @@ const manifest = {
       () => Promise.resolve().then(() => __toESM(require("./nodes/19.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/21.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/22.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/23.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/26.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/24.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/27.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/25.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/2.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/4.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/9.js"))),
@@ -56,7 +56,8 @@ const manifest = {
       () => Promise.resolve().then(() => __toESM(require("./nodes/16.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/18.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/20.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/25.js")))
+      () => Promise.resolve().then(() => __toESM(require("./nodes/23.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/26.js")))
     ],
     routes: [
       {
@@ -325,13 +326,24 @@ const manifest = {
       },
       {
         type: "page",
+        id: "support/[slug]",
+        pattern: /^\/support\/([^/]+?)\/?$/,
+        names: ["slug"],
+        types: [null],
+        path: null,
+        shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/support/_slug_.js"))),
+        a: [0, 26],
+        b: [1]
+      },
+      {
+        type: "page",
         id: "videos/[slug]",
         pattern: /^\/videos\/([^/]+?)\/?$/,
         names: ["slug"],
         types: [null],
         path: null,
         shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/videos/_slug_.js"))),
-        a: [0, 26],
+        a: [0, 27],
         b: [1]
       }
     ],

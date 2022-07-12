@@ -25,7 +25,7 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("./index-277e1cdb.js");
-var import_sanity_59332496 = require("./sanity-59332496.js");
+var import_sanity_1a8ac269 = require("./sanity-1a8ac269.js");
 var import_slugify = require("slugify");
 var import_date_fns = require("date-fns");
 var import_get = require("lodash/get.js");

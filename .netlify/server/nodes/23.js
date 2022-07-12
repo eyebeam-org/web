@@ -26,7 +26,7 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/support/index.svelte.js"));
-const entry = "pages/support/index.svelte-b8aa5ce7.js";
-const js = ["pages/support/index.svelte-b8aa5ce7.js", "chunks/index-fa94c728.js", "chunks/global-3195947e.js", "chunks/keyBy-d2730ced.js", "chunks/_createAggregator-1031d439.js", "chunks/_getTag-683a1b86.js", "chunks/keys-4de0e9bb.js", "chunks/isTypedArray-dfab850d.js", "chunks/stores-b9ad7b44.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/truncate-1b2ae9f2.js", "pages/support/supportBlock.svelte-de35885a.js", "chunks/blocks-1b1d061c.js", "chunks/person-link-8c2f8958.js", "chunks/index-fe7c00d7.js", "chunks/navigation-0e6511d1.js", "chunks/singletons-d1fb5791.js", "chunks/bottom-bar-52c4fd69.js"];
-const css = ["assets/pages/support/index.svelte-da63ade2.css", "assets/person-link.svelte_svelte_type_style_lang-9ffd8c60.css", "assets/video.svelte_svelte_type_style_lang-abb89f3d.css", "assets/arrow-down.svelte_svelte_type_style_lang-03ad6b2e.css", "assets/see-also.svelte_svelte_type_style_lang-5e3f31da.css", "assets/at-eyebeam.svelte_svelte_type_style_lang-ffec05cd.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-b6bc2bf1.css", "assets/pages/support/supportBlock.svelte-331c70a2.css"];
+var module2 = __toESM(require("../entries/pages/support/_slug_.svelte.js"));
+const entry = "pages/support/_slug_.svelte-271ee040.js";
+const js = ["pages/support/_slug_.svelte-271ee040.js", "chunks/index-fa94c728.js", "chunks/global-d9c97fe1.js", "chunks/main-content-e43232bf.js", "chunks/index-fe7c00d7.js", "chunks/blocks-f0e42b03.js", "chunks/see-also-a9aacc8e.js", "chunks/bottom-bar-ad4eb8c3.js", "chunks/metadata-696931e7.js", "chunks/isRegExp-66a22565.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/_baseProperty-74c54ba2.js"];
+const css = ["assets/video.svelte_svelte_type_style_lang-8e5e4d97.css", "assets/see-also.svelte_svelte_type_style_lang-5e3f31da.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-2135bef0.css", "assets/at-eyebeam.svelte_svelte_type_style_lang-863df973.css", "assets/main-content-583f79e3.css"];

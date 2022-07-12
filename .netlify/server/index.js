@@ -2035,7 +2035,7 @@ class Server {
       read,
       root: Root,
       service_worker: null,
-      router: false,
+      router: true,
       template,
       template_contains_nonce: false,
       trailing_slash: "never"
