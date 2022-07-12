@@ -6,6 +6,7 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
+	export const router = false;
 	import { renderBlockText } from '$lib/sanity.js';
 	import has from 'lodash/has.js';
 	import keyBy from 'lodash/keyBy.js';

@@ -5,6 +5,7 @@
 	//
 	// # # # # # # # # # # # # #
 
+	export const router = false;
 	// __ IMPORTS
 	import { renderBlockText } from '$lib/sanity.js';
 	import has from 'lodash/has.js';

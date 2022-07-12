@@ -5,6 +5,7 @@
 	//
 	// # # # # # # # # # # # # #
 
+	export const router = false;
 	// __ COMPONENTS
 	import MainContent from '$lib/main-content/main-content.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
