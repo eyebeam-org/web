@@ -20,12 +20,13 @@ __export(stdin_exports, {
   a: () => add_attribute,
   b: () => subscribe,
   c: () => create_ssr_component,
-  d: () => safe_not_equal,
+  d: () => each,
   e: () => escape,
-  f: () => is_function,
-  g: () => getContext,
-  h: () => each,
+  f: () => add_classes,
+  g: () => safe_not_equal,
+  h: () => is_function,
   i: () => is_promise,
+  j: () => getContext,
   m: () => missing_component,
   n: () => noop,
   o: () => onDestroy,
@@ -151,4 +152,7 @@ function add_attribute(name, value, boolean) {
     return "";
   const assignment = boolean && value === true ? "" : `="${escape_attribute_value(value.toString())}"`;
   return ` ${name}${assignment}`;
+}
+function add_classes(classes) {
+  return classes ? ` class="${classes}"` : "";
 }

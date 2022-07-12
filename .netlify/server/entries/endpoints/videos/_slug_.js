@@ -21,7 +21,7 @@ __export(stdin_exports, {
   prerender: () => prerender
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_sanity_bf41d9e1 = require("../../../chunks/sanity-bf41d9e1.js");
+var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
@@ -29,6 +29,6 @@ var import_get_video_id = require("get-video-id");
 var import_has = require("lodash/has.js");
 const prerender = false;
 const get = async (request) => {
-  const page = await (0, import_sanity_bf41d9e1.l)("*[_type == 'videoPost' && slug.current == $slug]{...,'transcriptUrl': transcript.asset->url,people[]->{...}, internalLinks[]->{...}}[0]", { slug: request.params.slug });
+  const page = await (0, import_sanity_59332496.l)("*[_type == 'videoPost' && slug.current == $slug]{...,'transcriptUrl': transcript.asset->url,people[]->{...}, internalLinks[]->{...}}[0]", { slug: request.params.slug });
   return { body: { page: page.status === 404 ? "ERROR" : page } };
 };

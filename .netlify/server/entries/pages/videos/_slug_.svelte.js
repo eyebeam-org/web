@@ -20,11 +20,11 @@ __export(stdin_exports, {
   default: () => U5Bslugu5D
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_68ac15fd = require("../../../chunks/index-68ac15fd.js");
-var import_main_content_ef07923f = require("../../../chunks/main-content-ef07923f.js");
-var import_metadata_a1463793 = require("../../../chunks/metadata-a1463793.js");
-var import_stores_25b712dd = require("../../../chunks/stores-25b712dd.js");
-var import_sanity_bf41d9e1 = require("../../../chunks/sanity-bf41d9e1.js");
+var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
+var import_main_content_a169f1d7 = require("../../../chunks/main-content-a169f1d7.js");
+var import_metadata_2f61a1e2 = require("../../../chunks/metadata-2f61a1e2.js");
+var import_stores_effda588 = require("../../../chunks/stores-effda588.js");
+var import_sanity_59332496 = require("../../../chunks/sanity-59332496.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
@@ -34,14 +34,14 @@ var import_get = require("lodash/get.js");
 var import_global_61b718ff = require("../../../chunks/global-61b718ff.js");
 var import_slugify = require("slugify");
 var import_date_fns = require("date-fns");
-var import_blocks_7e60b135 = require("../../../chunks/blocks-7e60b135.js");
-var import_person_link_82d12ee3 = require("../../../chunks/person-link-82d12ee3.js");
+var import_blocks_57d28cdb = require("../../../chunks/blocks-57d28cdb.js");
+var import_person_link_7a5675bf = require("../../../chunks/person-link-7a5675bf.js");
 var import_core = require("@popperjs/core");
-var import_see_also_81d75722 = require("../../../chunks/see-also-81d75722.js");
-var import_bottom_bar_9ab2e699 = require("../../../chunks/bottom-bar-9ab2e699.js");
+var import_see_also_9d92a075 = require("../../../chunks/see-also-9d92a075.js");
+var import_bottom_bar_2d2f7e63 = require("../../../chunks/bottom-bar-2d2f7e63.js");
 var import_truncate = require("lodash/truncate.js");
-var import_stores_2672c807 = require("../../../chunks/stores-2672c807.js");
-const U5Bslugu5D = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, slots) => {
+var import_stores_b7bb0fad = require("../../../chunks/stores-b7bb0fad.js");
+const U5Bslugu5D = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   let { page } = $$props;
   const toc = [
     { link: "#transcript", title: "Transcript" },
@@ -50,14 +50,14 @@ const U5Bslugu5D = (0, import_index_68ac15fd.c)(($$result, $$props, $$bindings, 
   if ($$props.page === void 0 && $$bindings.page && page !== void 0)
     $$bindings.page(page);
   {
-    import_stores_25b712dd.s.set(page.title);
+    import_stores_effda588.a.set(page.title);
   }
   {
-    import_stores_25b712dd.b.set(toc);
+    import_stores_effda588.s.set(toc);
   }
   return `
-${(0, import_index_68ac15fd.v)(import_metadata_a1463793.M, "Metadata").$$render($$result, { page }, {}, {})}
+${(0, import_index_277e1cdb.v)(import_metadata_2f61a1e2.M, "Metadata").$$render($$result, { page }, {}, {})}
 
 
-${(0, import_index_68ac15fd.v)(import_main_content_ef07923f.M, "MainContent").$$render($$result, { page }, {}, {})}`;
+${(0, import_index_277e1cdb.v)(import_main_content_a169f1d7.M, "MainContent").$$render($$result, { page }, {}, {})}`;
 });

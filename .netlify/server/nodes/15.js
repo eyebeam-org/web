@@ -27,6 +27,6 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/people/index.svelte.js"));
-const entry = "pages/people/index.svelte-07462a86.js";
-const js = ["pages/people/index.svelte-07462a86.js", "chunks/index-14ce4b0f.js", "chunks/_createAggregator-b6fc4186.js", "chunks/_getTag-bb5b88bc.js", "chunks/global-378aa713.js", "chunks/keys-39ee7c50.js", "chunks/isTypedArray-dc4e3cf9.js", "chunks/stores-6abad719.js", "chunks/index-d2fd927e.js", "chunks/stores-486f37f6.js", "chunks/truncate-80d8da77.js", "chunks/bottom-bar-e4969e69.js", "chunks/person-link-cfd49f0c.js", "chunks/metadata-53a2c992.js", "chunks/arrow-down-623c2197.js"];
-const css = ["assets/pages/people/index.svelte-417ee0bb.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-b6bc2bf1.css", "assets/person-link.svelte_svelte_type_style_lang-9ffd8c60.css", "assets/arrow-down.svelte_svelte_type_style_lang-03ad6b2e.css"];
+const entry = "pages/people/index.svelte-ecd85d97.js";
+const js = ["pages/people/index.svelte-ecd85d97.js", "chunks/index-fa94c728.js", "chunks/_createAggregator-1031d439.js", "chunks/_getTag-683a1b86.js", "chunks/global-3195947e.js", "chunks/keys-4de0e9bb.js", "chunks/isTypedArray-dfab850d.js", "chunks/stores-b9ad7b44.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/truncate-1b2ae9f2.js", "chunks/bottom-bar-52c4fd69.js", "chunks/person-link-8c2f8958.js", "chunks/metadata-b3716863.js"];
+const css = ["assets/pages/people/index.svelte-3f4841ec.css", "assets/arrow-down.svelte_svelte_type_style_lang-03ad6b2e.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-b6bc2bf1.css", "assets/person-link.svelte_svelte_type_style_lang-9ffd8c60.css"];

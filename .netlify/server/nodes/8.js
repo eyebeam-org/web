@@ -27,6 +27,6 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/index.svelte.js"));
-const entry = "pages/index.svelte-e97d7988.js";
-const js = ["pages/index.svelte-e97d7988.js", "chunks/index-14ce4b0f.js", "chunks/truncate-80d8da77.js", "chunks/global-378aa713.js", "chunks/stores-6abad719.js", "chunks/index-d2fd927e.js", "chunks/stores-486f37f6.js", "chunks/menu-ead79b0a.js", "chunks/search-a229e8be.js", "chunks/index-52c45369.js", "chunks/navigation-0e6511d1.js", "chunks/singletons-d1fb5791.js", "chunks/isTypedArray-dc4e3cf9.js", "chunks/person-link-list-93094303.js", "chunks/person-link-cfd49f0c.js", "chunks/blocks-9950cf52.js", "chunks/arrow-down-623c2197.js", "chunks/metadata-53a2c992.js"];
+const entry = "pages/index.svelte-a7172e34.js";
+const js = ["pages/index.svelte-a7172e34.js", "chunks/index-fa94c728.js", "chunks/truncate-1b2ae9f2.js", "chunks/global-3195947e.js", "chunks/stores-b9ad7b44.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/menu-5f693429.js", "chunks/search-33973060.js", "chunks/index-fe7c00d7.js", "chunks/navigation-0e6511d1.js", "chunks/singletons-d1fb5791.js", "chunks/isTypedArray-dfab850d.js", "chunks/person-link-list-77ae2dad.js", "chunks/person-link-8c2f8958.js", "chunks/blocks-1b1d061c.js", "chunks/metadata-b3716863.js"];
 const css = ["assets/pages/index.svelte-1a487d17.css", "assets/logo.svelte_svelte_type_style_lang-091ab07e.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/person-link.svelte_svelte_type_style_lang-9ffd8c60.css", "assets/video.svelte_svelte_type_style_lang-abb89f3d.css", "assets/arrow-down.svelte_svelte_type_style_lang-03ad6b2e.css", "assets/menu-a7563fc0.css", "assets/search-5659f6b9.css"];
