@@ -1,4 +1,5 @@
 <script context="module">
+	export const prender = false;
 </script>
 
 <script>

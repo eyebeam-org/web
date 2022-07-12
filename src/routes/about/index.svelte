@@ -1,5 +1,7 @@
-<script>
+<script context="module">
 	export const router = false;
+</script>
+<script>
 	// # # # # # # # # # # # # #
 	//
 	//  What is Eyebeam?

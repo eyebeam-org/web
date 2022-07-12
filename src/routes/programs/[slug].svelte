@@ -1,3 +1,6 @@
+<script context="module">
+	export const router = false;
+	</script>
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -6,7 +9,6 @@
 	// # # # # # # # # # # # # #
 
 	// __ IMPORTS
-	export const router = false;
 	import get from 'lodash/get.js';
 	import { parseToc } from '$lib/global.js';
 

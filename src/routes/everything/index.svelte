@@ -1,4 +1,6 @@
 <script context="module">
+	export const preprocess = true;
+	export const router = false;
 </script>
 <script>
 	// # # # # # # # # # # # # #
@@ -7,7 +9,6 @@
 	//
 	// # # # # # # # # # # # # #
 
-	export const preprocess = true;
 	// __ IMPORTS
 	import { longFormatDate } from '$lib/global.js';
 	import { postTypeToName, postTypeToCategory } from '$lib/global.js';
