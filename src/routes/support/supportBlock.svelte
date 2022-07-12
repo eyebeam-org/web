@@ -20,7 +20,7 @@
 	// __ COMPONENTS
 	import Metadata from '$lib/metadata/metadata.svelte';
 	import EmbedContent from '$lib/embed-content/embed-content.svelte';
-
+	import ArrowLink from '$lib/graphics/arrow-link.svelte'
 	// __ PROPS
 	export let section, aboutMap;
 
@@ -29,7 +29,20 @@
 
 
 
-	// The order that we want the the posts to be listed, according to the design
+
+	//FIXME: this is currently duplicated here and in sidebar (as handleToC), should be in lib
+	const handlePseudoLink = (link) => {
+		if (link[0] == '#') {
+			const targetElement = document.querySelector(link);
+			if (targetElement) {
+				targetElement.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else {
+			goto(link);
+		}
+	};
+	$: aboutMap, console.log('aboutMap: ', aboutMap)
+
 </script>
 
 		{#if section == 'contact'}
@@ -49,7 +62,7 @@
 			{:else if section =='donate'}
 				<!-- STANDARD SECTIONS -->
 				
-				<div id={section == 'donate' ? 'donate' : ''}
+				<div id='donate'
 					class="tile introduction {section}"
 					sveltekit:prefetch
 				>
@@ -61,9 +74,19 @@
 					{/if}
 				</div>
 			{#each aboutMap[section].content as content}
+						{#if content.content[0].children[0].text == 'THE FOLD'} 
+							<div class="tile nav-tile has-link"
+							>
+							
+							<Blocks blocks={content.content} />
+
+							<ArrowLink link={'https://fold.eyebeam.org/enter'} />
+					</div>
+					{:else }
 						<div class="tile nav-tile">
 							<Blocks blocks={content.content} />
-						</div>
+					</div>
+{/if}
 				{/each}
 						<div class="tile nav-tile crypto-widget">
 					<h2>Donate Crypto </h2>
@@ -75,24 +98,27 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 
 			{:else}
 				<!-- STANDARD SECTIONS -->
-				
-				<div id={section == 'donate' ? 'donate' : ''}
-					class="tile nav-tile {section}"
+				<div 
+					class="tile nav-tile has-link {section}"
+on:click={()=> {handlePseudoLink('/support/' + aboutMap[section]._id);}}
 					sveltekit:prefetch
 				>
-<h2> {aboutMap[section].title}</h2>
-					{#if has(aboutMap[section], 'introduction.content')}
+<a href={'support/' + aboutMap[section]._id}><h2> {aboutMap[section].title}</h2></a>
+						{#if has(aboutMap[section], 'introduction.content')}
 						<div class="description">
-							{@html truncate(renderBlockText(aboutMap[section].introduction.content), {
-								length: 600
-							})}
+							{@html renderBlockText(aboutMap[section].introduction.content)}
 						</div>
 						<div class="content" >
-							<EmbedContent page={aboutMap[section]} />
 							{#if section == 'donate'}
 <script id="tgb-widget-script"> !function(t,e,i,n,o,c,d,s){t.tgbWidgetOptions={id:o,domain:n},(d=e.createElement(i)).src=[n,"widget/script.js"].join(""),d.async=1,(s=e.getElementById(c)).parentNode.insertBefore(d,s)}(window,document,"script","https://tgbwidget.com/","133952075","tgb-widget-script"); </script>
-							{/if}
+
+{/if}
+			
 						</div>
+						{#if section != 'donate'}
+	
+				<ArrowLink link={'/support/' + aboutMap[section]._id} />
+						{/if}
 					{/if}
 				</div>
 			{/if}
@@ -182,11 +208,16 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 	.nav-tile {
 		width: 50%;
 		min-height: $HEADER_HEIGHT;
+		display: flex;
+		flex-flow: column nowrap;
 		border-bottom: 1px solid var(--foreground-color);
 		&:nth-child(odd) {
 			border-right: 1px solid var(--foreground-color);
+			@include screen-size('small') {
+			border-right: none;
 		}
-		display: block;
+		}
+		font-size: $font-size-body;
 		float: left;
 		text-decoration: none;
 		padding-right: $LARGE;
@@ -195,9 +226,12 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 		}
 
 
+		&.has-link {
 		&:hover {
-//		background: $grey;
-//			color: var(--hover-text-color);
+			background: $grey;
+			color: var(--hover-text-color);
+			cursor: pointer;
+		}
 		}
 
 		&:active {
@@ -227,7 +261,8 @@ Your cryptocurrency donation is tax-deductible and will support our mission by h
 			}
 
 			&:last-child {
-				border-bottom: 1px solid var(--foreground-color);
+				border-bottom: none;
+				
 			}
 
 			&:first-of-type {

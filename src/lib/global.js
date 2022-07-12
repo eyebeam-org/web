@@ -8,7 +8,7 @@ export const INSTAGRAM_URL = 'https://www.instagram.com/eyebeamnyc/';
 export const TWITTER_URL = 'https://twitter.com/eyebeamnyc';
 export const YOUTUBE_URL = 'https://www.youtube.com/channel/UCoTYylvEkyd5sv1ZIQJIVeg';
 export const BASE_URL = 'https://eyebeam.org';
-export const DEFAULT_DESCRIPTION = 'Eyebeam is lorem ipsum...';
+export const DEFAULT_DESCRIPTION = 'Eyebeam provides both space and support for a community of diverse, justice-driven artists. Our annual fellowship program, highly engaged community of alumni, advanced tools and resources, shows, and events help our artists bring their work to life and out into the world. Eyebeam enables people to think creatively and critically about technology’s effect on society, with the mission of revealing new paths toward a better future for all.';
 export const DEFAULT_IMAGE = 'https://eyebeam.netlify.com/img/eyebeam-logo.png';
 
 // ____

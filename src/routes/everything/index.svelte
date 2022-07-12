@@ -1,5 +1,4 @@
 <script context="module">
-	export const prerender = false
 </script>
 <script>
 	// # # # # # # # # # # # # #
@@ -63,12 +62,14 @@
 			value: 'news'
 		}
 	];
-	let activeFilter = $pageStore.url.searchParams.get('filter')
-		? $pageStore.url.searchParams.get('filter')
-		: 'everything';
 	let filteredPosts = [];
+	let activeFilter = 'everything'
 	//FIXME: url updates don't work with SSR, need better solution
 		$: {
+			//		let activeFilter = $pageStore.url.searchParams.get('filter')
+			//? $pageStore.url.searchParams.get('filter')
+			//: 'everything';
+
 		if (activeFilter === 'everything') {
 				filteredPosts = posts;
 	//			url.searchParams.set.replaceState({}, '', '/everything');

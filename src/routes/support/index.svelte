@@ -22,7 +22,6 @@
 	export let about;
 
 	//STORES
-	import { goto } from '$app/navigation';
 
 	console.log('about', about);
 
@@ -34,7 +33,6 @@
 	const ORDER = [
 						[
 						'volunteer',
-				//		'interns',
 				'supporters'],
 				['contact' ]
 	];
@@ -46,17 +44,6 @@
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	$: sidebarTitle.set('Join Us');
 	$: sidebarToC.set(toc);
-	//FIXME: this is currently duplicated here and in sidebar (as handleToC), should be in lib
-	const handlePseudoLink = (link) => {
-		if (link[0] == '#') {
-			const targetElement = document.querySelector(link);
-			if (targetElement) {
-				targetElement.scrollIntoView({ behavior: 'smooth' });
-			}
-		} else {
-			goto(link);
-		}
-	};
 
 </script>
 
@@ -175,6 +162,9 @@ flex-flow: row wrap;
 	.nav-tile {
 		width: 50%;
 		min-height: $HEADER_HEIGHT;
+		display: flex;
+		flex-flow: column nowrap;
+
 		border-bottom: 1px solid var(--foreground-color);
 		&:nth-child(odd) {
 			border-right: 1px solid var(--foreground-color);

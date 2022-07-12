@@ -15,6 +15,7 @@
 	// __ COMPONENTS
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
+	import ArrowLink from '$lib/graphics/arrow-link.svelte'
 
 	// __ PROPS
 	export let programs;
@@ -75,8 +76,8 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 				<!-- DESCRIPTION -->
 				{#if has(program, 'introduction.content')}
 					<div class="introduction-text">
-						<!-- FIXME: truncating this text using `@html truncate` cuts off the ending html marks, which breaks the entire page. Currently just not truncating but would be nice to resolve, either in renderBlockText or elsewhere. !-->
-						{@html (renderBlockText(program.introduction.content)						)}
+<!-- FIXME some issue with truncation length on DDC/Rapid Response breaks layout, but only sometimes - page double renders, first render is broken -->
+{@html renderBlockText(program.introduction.content)}
 					</div>
 				{/if}
 
@@ -91,6 +92,8 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 						</div>
 					</div>
 				{/if}
+
+			<ArrowLink link={'/programs/' + program.slug.current} />
 			</div>
 		{/each}
 	</div>
@@ -187,10 +190,16 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 		border-right: 1px solid var(--foreground-color);
 				text-decoration: none;
 		overflow: scroll;
+		display: flex;
+		flex-flow: column nowrap;
 		cursor: pointer;
 		padding: $LARGE;
 		&:nth-child(even) {
 			border-right: none;
+			@include screen-size('small') {
+				border-right: 1px solid var(--foreground-color);
+			}
+
 		}
 		a {
 			text-decoration: none;

@@ -16,6 +16,7 @@
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PressAndNewsItem from '$lib/press-and-news-item/press-and-news-item.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
+	import ArrowLink from '$lib/graphics/arrow-link.svelte'
 
 	// __ PROPS
 	export let about;
@@ -156,7 +157,7 @@
 				<!-- STANDARD SECTIONS -->
 				<div
 					class="tile nav-tile {section}"
-on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' + aboutMap[section]._id);}}
+on:click={()=> {handlePseudoLink(section == 'artists' ? '/people' : '/about/' + aboutMap[section]._id);}}
 					sveltekit:prefetch
 				>
 <h2> <a href={ section == 'artists' ? '/people' : '/about/' + aboutMap[section]._id}>{aboutMap[section].title}</a></h2>
@@ -166,6 +167,7 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 								length: 600
 							})}
 						</div>
+<ArrowLink link={'/about/' + aboutMap[section]._id} />
 					{/if}
 				</div>
 			{/if}
@@ -261,7 +263,8 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/artists' : '/about/' +
 		min-height: $HEADER_HEIGHT;
 		border-bottom: 1px solid var(--foreground-color);
 		border-right: 1px solid var(--foreground-color);
-		display: block;
+		display: flex;
+		flex-flow: column nowrap;
 		float: left;
 		text-decoration: none;
 		cursor: pointer;

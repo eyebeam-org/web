@@ -1,5 +1,4 @@
 <script context="module">
-	export const prerender = false
 </script>
 
 <script>
@@ -11,12 +10,14 @@
 
 	// __ IMPORTS
 	import groupBy from 'lodash/groupBy.js';
+	import has from 'lodash/has.js';
 	import { getCurrentYear } from '$lib/global.js';
 
 	// __ COMPONENTS
 	import BottomBar from '$lib/bottom-bar/bottom-bar.svelte';
 	import PersonLink from '$lib/person-link/person-link.svelte';
 	import Metadata from '$lib/metadata/metadata.svelte';
+	import LogoBlock from '$lib/blocks/logoBlock.svelte'
 
 	// __ GRAPHICS
 	import ArrowDown from '$lib/graphics/arrow-down.svelte';
@@ -26,6 +27,8 @@
 
 	// __ PROPS
 	export let people;
+	//FIXME: hardcoded page data for now, should (obviously) be its own field/page in Sanity
+	let pageData = {children: [{ text: "Eyebeam is in the process of uploading an archive of all our artists and their work over the years. If you see something that doesn't look right, please contact us at "}, {text: "info@eyebeam.org.", marks: ["0"]}], markDefs: [{_key: '0', _type: "link", href: "mailto:info@eyebeam.org"}]}
 
 	// __ VARIABLES
 	const START_YEAR = 1997;
@@ -100,18 +103,25 @@
 	let groupedPeopleAlpha = {};
 	let groupedPeopleChrono = {};
 
-	let activeFilter = $pageStore.url.searchParams.get('filter')
-		? $pageStore.url.searchParams.get('filter')
-		: 'everyone';
+	let activeFilter = 'everyone'
+	//	$pageStore.url.searchParams.get('filter')
+	//		? $pageStore.url.searchParams.get('filter')
+	//		: 'everyone';
 	let order = 'alphabetical';
+	const flagEmpty = (person) => {
+		if (person.bio == undefined || person.bio.content == undefined || person.bio.content[0].children == undefined || (person.bio.content[0].children.length <= 1 && person.bio.content[0].children[0].text === "")) {
+						person.isEmpty = true
+		}
+		return person;
+	}
 	//FIXME: history stuff doesn't work with SSR, probably should be functionized and run on interaction with filters
 		$: {
 			if (activeFilter === 'everyone') {
-				console.log('people:"')
-				filteredPeople = people;
+				filteredPeople = people.map(flagEmpty);
+				console.log('people: ', filteredPeople)
 	//			history.replaceState({}, '', '/artists');
 			} else {
-				filteredPeople = people.filter((p) => p.role === activeFilter);
+				filteredPeople = people.map(flagEmpty).filter((p) => p.role === activeFilter);
 	//			const url = new URL(window.location);
 	//			url.searchParams.set('filter', activeFilter);
 	//			history.replaceState({}, '', url);
@@ -170,6 +180,11 @@
 		<!-- HEADER -->
 		<header class="header">
 			<h1>Artists</h1>
+			<div class="description">
+				<LogoBlock b={pageData}/>
+			</div>
+
+
 			<!-- ORDER -->
 <!-- NOT IN USE UNTIL WE ACTUALLY HAVE DATES ASSIGNED FOR CHRON ORDER  
 			<nav class="order">
@@ -233,7 +248,11 @@ role="option"
 					{#if groupedPeopleAlpha[alpha]}
 						<ul>
 							{#each groupedPeopleAlpha[alpha] as person}
-								<li><PersonLink {person} /></li>
+								{#if !person.isEmpty}
+									<li><PersonLink {person} /></li>
+								{:else }
+									<li>{person.title}</li>
+								{/if}
 							{/each}
 						</ul>
 					{/if}
@@ -247,7 +266,11 @@ role="option"
 					{#if groupedPeopleChrono[year]}
 						<ul>
 							{#each groupedPeopleChrono[year] as person}
-								<li><PersonLink {person} /></li>
+								{#if !person.isEmpty}
+									<li><PersonLink {person} /></li>
+								{:else }
+									<li>{person}</li>
+								{/if}
 							{/each}
 						</ul>
 					{/if}
@@ -441,4 +464,11 @@ role="option"
 	height: 1px;
 	right: 1000000px;
 }
+	.description {
+		margin-left: auto;
+		margin-right: $NORMAL;
+		margin-top: $LARGE;
+		margin-bottom: $NORMAL;
+	}
+
 </style>

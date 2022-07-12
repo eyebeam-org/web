@@ -52,6 +52,8 @@
 		img {
 			width: 100%;
 			height: 100%;
+			max-height: 100%;
+			max-width: 100%;
 			margin: 0 auto;
 			object-fit: cover;
 		}
@@ -77,7 +79,8 @@
 		}
 
 		@include screen-size('small') {
-			height: 50vh;
+			max-height: 40vh;
+			overflow: hidden;
 		}
 	}
 </style>

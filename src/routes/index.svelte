@@ -47,7 +47,7 @@
 	//FIXME: surely there is a less stupid way to do this
 	//CANNOT delete this rn
 	$: featuredArtists, artists = [featuredArtists[0].featuredArtist1, featuredArtists[0].featuredArtist2, featuredArtists[0].featuredArtist3]
-	$: artists, console.log('artists: ', artists)
+	$: newPosts, console.log('posts: ', newPosts)
 </script>
 
 <!-- METADATA -->
@@ -345,6 +345,9 @@
 		}
 		@include screen-size('small') {
 			height: 50px;
+			order: 1;
+			border-top: 1px solid var(--foreground-color);
+			border-bottom: none !important;
 		}
 	}
 
@@ -522,7 +525,7 @@
 			height: calc((100% - (100%/12)) - (100%/6));
 		}
 		@include screen-size('small') {
-				height: 40vh;
+				height: 30vh;
 				flex: auto;
 			}
 		}
@@ -554,6 +557,10 @@ height: calc(50% - (100%/6) - (100%/12));
 			font-size: $font-size-body;
 			padding: $TINY;
 			width: 100%;
+			@include screen-size('small') {
+				font-size: $font-size-medium;
+			}
+
 		}
 		.quote {
 			width: $two-fifths;
@@ -575,12 +582,13 @@ height: calc(50% - (100%/6) - (100%/12));
 		}
 		@include screen-size('small') {
 			border-bottom: 1px solid var(--foreground-color);
-			height: 50vh;
+			height: 40vh;
 			.tile {
 				width: 100%;
 				height: $one-third;
 				flex-flow: row wrap;
 				font-size: $font-size-medium;
+				border-right: none;
 			}
 			ul {
 				flex-flow: row wrap;
@@ -592,7 +600,7 @@ height: calc(50% - (100%/6) - (100%/12));
 					display: none;
 				}
 		.featured-artist-image {
-			max-width: 20%;
+			max-width: 25%;
 		}
 
 
@@ -671,6 +679,10 @@ height: calc(50% - (100%/6) - (100%/12));
 				width: 100%;
 				height: 100%;
 			}
+
+		@include screen-size('small') {
+			height: auto;
+		}
 	}
 	.sub-tile {
 		width: 50%;
@@ -751,6 +763,10 @@ height: calc(50% - (100%/6) - (100%/12));
 				@include screen-size('medium') {
 					display: none;
 				}
+			}
+
+			@include screen-size('small') {
+				padding: 0;
 			}
 
 		}

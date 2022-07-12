@@ -10,6 +10,7 @@
 	import { onMount } from 'svelte';
 	import { loadData, urlFor } from '$lib/sanity.js';
 	import { roleToRoleName, renderNewLines } from '$lib/global.js';
+	import Blocks from '$lib/blocks/blocks.svelte'
 	import get from 'lodash/get.js';
 
 	// __ PROPS
@@ -116,7 +117,13 @@ style={tiny ? "font-size: 11px" : ''}
 						<div class="badge">{tag.label}</div>
 					{/each}
 				{/if}
+{#if person.shortBio}
+<div class="bio"><Blocks blocks={person.shortBio.content} /> </div>
+				{/if}
 			</div>
+			{#if person.shortBio}
+			<div class="bio"><Blocks blocks={person.shortBio.content} /> </div>
+			{/if}
 		</div>
 		<!-- SECOND COLUMN -->
 		<div class="column second">

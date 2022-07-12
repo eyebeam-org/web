@@ -12,6 +12,8 @@
 
 	// *** PROPS
 	export let b = {};
+
+	console.log('b: ', b)
 </script>
 
 <div class="logo-block">
@@ -40,6 +42,7 @@
 		@include screen-size('small') {
 			margin-left: 0;
 			margin-right: 0;
+			padding: 0 $SMALL;
 		}
 
 		.top-row {
