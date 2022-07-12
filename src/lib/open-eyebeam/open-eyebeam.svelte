@@ -28,7 +28,7 @@
 <div class="about">
 Come see what our fellows are up to in our new digital studio space.
 	<div class="open-eyebeam-link">
-<a target="_blank" href="https://open.eyebeam.org">OPEN EYEBEAM <ArrowRight /></a>
+<a target="_blank" href="https://open.eyebeam.org" alt="A pixelated drawing of a root network in a spiral, pastel on white background. Throughout the spiral are scattered seashells and a small planet, and at its center are two figures holding hands like skydivers.">OPEN EYEBEAM <ArrowRight /></a>
 	</div>
 </div>
 </div>
