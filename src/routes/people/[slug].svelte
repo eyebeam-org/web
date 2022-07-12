@@ -5,6 +5,7 @@
 	//
 	// # # # # # # # # # # # # #
 
+	export const prerender = false;
 	// __ IMPORTS
 	import has from 'lodash/has.js';
 

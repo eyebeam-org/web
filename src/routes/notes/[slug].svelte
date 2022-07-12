@@ -5,6 +5,7 @@
 	//
 	// # # # # # # # # # # # # #
 
+	export const prerender = false;
 	// __ IMPORTS
 	import get from 'lodash/get.js';
 	import { parseToc } from '$lib/global.js';
