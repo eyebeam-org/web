@@ -32,11 +32,16 @@
 	const submitSearch = async () => {
 		console.log('searching bing bong')
 		searchResults = await loadData(
-			'*[_type in ["note", "event", "project", "program", "person", "videoPost", "journalPost", "press", "news"] && [title, name, pt::text(content.content), pt::text(introduction.content)] match $searchTerm]{...} && [bio.content[0].children[0].text != ""]',
+			'*[_type in ["note", "event", "project", "program", "person", "videoPost", "journalPost", "press", "news"] && [title, name, pt::text(content.content), pt::text(introduction.content)] match $searchTerm]{...}',
 			{ searchTerm: searchTerm }
 		);
-
-	console.log('search results: ', searchResults)
+		//FIXME: easy fix because i couldn't figure out database query for this one
+		searchResults = searchResults.filter(result => {
+			if (result._type == "person" && result.bio.content[0].children[0].text.length < 1) {
+				return false
+			}
+			return true
+		})
 	};
 
 	onMount(async () => {
@@ -60,7 +65,7 @@
 			bind:this={inputEl}
 			bind:value={searchTerm}
 			on:keyup={(e) => {
-				submitSearch();
+submitSearch().then(results => console.log('results:', results));
 			}}
 		/>
 	</div>
