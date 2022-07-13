@@ -21,7 +21,7 @@
 </script>
 
 <div class="see-also">
-	<div class="header">See also:</div>
+<div class="header">Read more:</div>
 	<ul>
 		<!-- INTERNAL LINKS -->
 		{#if internalLinks}

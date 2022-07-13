@@ -31,7 +31,15 @@
 	// __ STORES
 	import { sidebarTitle, sidebarToC } from '$lib/stores.js';
 	import { goto } from '$app/navigation';
-	$: programs, console.log('programs: ', programs)
+	$: programs, (() => {
+		console.log('programs', programs)
+		for (let [index, value] of programs.entries()) {
+			if (value.slug.current == 'event-archive') {
+				programs.splice(index, 1)
+				programs.push(value)
+			}
+		}
+	})()
 
 	$: sidebarTitle.set('Programs');
 	$: sidebarToC.set(toc);
@@ -72,16 +80,16 @@
 				<!-- LIST PROGRAMS -->
 		{#each programs as program}
 <div class="tile nav-tile"
-on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
+on:click={()=> {handlePseudoLink( program.slug.current != 'event-archive' ? ('/programs/' + program.slug.current) : '/events');}}
 					sveltekit:prefetch
 >
 				<!-- TITLE -->
-			<h2><a href={'/programs/' + program.slug.current} sveltekit:prefetch>{program.title}</a></h2>
+			<h2><a href={program.slug.current != 'event-archive' ? ('/programs/' + program.slug.current) : '/events'} sveltekit:prefetch>{program.title}</a></h2>
 				<!-- DESCRIPTION -->
 				{#if has(program, 'introduction.content')}
 					<div class="introduction-text">
 <!-- FIXME some issue with truncation length on DDC/Rapid Response breaks layout, but only sometimes - page double renders, first render is broken -->
-{@html renderBlockText(program.introduction.content)}
+					{@html renderBlockText(program.introduction.content)}
 					</div>
 				{/if}
 
@@ -97,7 +105,7 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 					</div>
 				{/if}
 
-			<ArrowLink link={'/programs/' + program.slug.current} />
+			<ArrowLink link={program.slug.current != 'event-archive' ? ('/programs/' + program.slug.current) : '/events'} />
 			</div>
 		{/each}
 	</div>
@@ -209,7 +217,7 @@ on:click={()=> {handlePseudoLink('/programs/' + program.slug.current);}}
 			text-decoration: none;
 		}
 
-		&:nth-last-child(1) {
+		&:nth-last-child(1), &:nth-last-child(2) {
 			border-bottom: none;
 		}
 

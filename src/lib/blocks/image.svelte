@@ -41,6 +41,7 @@
 		margin-right: $NORMAL;
 		float: left;
 		border: 1px solid var(--foreground-color);
+		display: flex;
 		float: left;
 		max-width: 50%;
 
@@ -85,11 +86,11 @@
 		}
 
 		&.cover {
-			float: unset;
+//			float: unset;
 
 			img {
 				width: 100%;
-				height: 600px;
+				max-height: 500px;
 				object-fit: cover;
 				object-position: center;
 

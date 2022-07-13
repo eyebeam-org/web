@@ -12,10 +12,18 @@
 </script>
 
 {#if b.children && b.children.length > 0}
+<style>
+		.html-content img {
+			display: block;
+			margin: 12px auto;
+		}
+
+</style>
+
 	<div class="html-content">
 		{#each b.children as c}
 			{#if c.text != ""}
-{@html c.text.replace(/<\/strong>/g, "</strong><br/><br/>").replace(/<strong>/g, "<br/><br/><strong>").replace('<a href="/', '<a href="https://old.eyebeam.org/"') }
+{@html c.text.replace(/<\/strong>/g, "</strong><br/><br/>").replace(/<strong>/g, "<br/><br/><strong>").replace('<a href="/', '<a href="https://old.eyebeam.org/"').replace(/style=".*?"/, "").replace(/width=".*?"/, "").replace(/height=".*?"/, "").replace('alt=" ">', 'alt=""><br/>') }
 			{/if}
 		{/each}
 	</div>
@@ -25,9 +33,9 @@
 <style lang="scss">
 	@import '../../variables.scss';
 	.html-content {
-		padding: $SMALL;
+		padding: $NORMAL;
 		.text {
-			margin: $SMALL;
+			margin: $NORMAL;
 		}
 	}
 </style>

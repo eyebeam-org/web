@@ -49,6 +49,10 @@
 
 	const toc = [
 		{
+			link: '/about/what-is-eyebeam',
+			title: 'What Is Eyebeam'
+		},
+		{
 			link: '/about/our-mission-and-values',
 			title: 'Our Mission and Values'
 		},
@@ -117,15 +121,18 @@
 		<div class="tile header-photo">
 			<img src="eyebeambox.gif" alt="A gif of a black box with the word 'Eyebeam' on each face, slowly rotating" />
 		</div>
-		<div class="tile introduction">
+<div class="tile nav-tile introduction" on:click={() => {handlePseudoLink('/about/' + aboutMap['what-is-eyebeam']._id)}}>
 			<!-- TITLE -->
-			<h1>{aboutMap['what-is-eyebeam'].title}</h1>
+<h1><a href={'/about/' + aboutMap['what-is-eyebeam']._id}>{aboutMap['what-is-eyebeam'].title}</a></h1>
 			<!-- INTRODUCTION -->
-			{#if has(aboutMap['what-is-eyebeam'], 'introduction.content')}
-				<div class="description">
-					<Blocks blocks={aboutMap['what-is-eyebeam'].introduction.content} />
-				</div>
-			{/if}
+					{#if has(aboutMap['what-is-eyebeam'], 'introduction.content')}
+						<div class="description">
+							{@html truncate(renderBlockText(aboutMap['what-is-eyebeam'].introduction.content), {
+								length: 500
+							})}
+						</div>
+						<ArrowLink link={'/about/' + aboutMap['what-is-eyebeam']._id} />
+				{/if}
 		</div>
 
 		{#each ORDER as section}
@@ -183,6 +190,9 @@ on:click={()=> {handlePseudoLink(section == 'artists' ? '/people' : '/about/' + 
 
 <style lang="scss">
 	@import '../../variables.scss';
+	h1 a {
+		text-decoration: none;
+	}
 
 	h2 {
 		font-family: $ALT_FONT;

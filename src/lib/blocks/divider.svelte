@@ -19,6 +19,8 @@
 		margin-bottom: $NORMAL;
 		height: 1px;
 		border-top: 1px solid var(--foreground-color);
+		display: block;
 		width: 100%;
+min-width: 100%;
 	}
 </style>

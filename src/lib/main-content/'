@@ -29,7 +29,7 @@
 	const BOXED_TYPES = ['program', 'note', 'person'];
 	let boxed = BOXED_TYPES.includes(page._type) ? true : false;
 
-	const INTRO_TYPES = ['program', 'note', 'about', 'ourHistory', 'ourMissionAndValues', 'whatIsEyebeam'];
+	const INTRO_TYPES = ['program', 'note', 'about', 'ourHistory', 'ourMissionAndValues'];
 	let showIntroduction = INTRO_TYPES.includes(page._type) ? true : false;
 
 	const TIGHT_TYPES = ['artists', 'event', 'eyebeamIsChanging', 'news', 'press'];
