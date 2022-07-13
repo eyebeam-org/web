@@ -15,7 +15,7 @@
 	<div class="html-content">
 		{#each b.children as c}
 			{#if c.text != ""}
-{@html c.text.replace(/<\/strong>/g, "</strong><br/>").replace(/<\/b>/g, "</b><br/>").replace(/<strong>/g, "<br/><strong>").replace(/<b>/g, "<br/><b>") }
+{@html c.text.replace(/<\/strong>/g, "</strong><br/><br/>").replace(/<strong>/g, "<br/><br/><strong>") }
 			{/if}
 		{/each}
 	</div>

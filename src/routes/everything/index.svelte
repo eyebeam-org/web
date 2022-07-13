@@ -65,21 +65,23 @@
 		}
 	];
 	let filteredPosts = [];
-	let activeFilter = 'everything'
+	let activeFilter = $pageStore.url.searchParams.get('filter')
+		? $pageStore.url.searchParams.get('filter')
+		: 'everything';
 	//FIXME: url updates don't work with SSR, need better solution
 		$: {
-			//		let activeFilter = $pageStore.url.searchParams.get('filter')
-			//? $pageStore.url.searchParams.get('filter')
-			//: 'everything';
+			let activeFilter = $pageStore.url.searchParams.get('filter')
+			? $pageStore.url.searchParams.get('filter')
+			: 'everything';
 
 		if (activeFilter === 'everything') {
 				filteredPosts = posts;
-	//			url.searchParams.set.replaceState({}, '', '/everything');
+				history.replaceState({}, '', '/everything');
 			} else {
 				filteredPosts = posts.filter((p) => p._type === activeFilter);
-	//			const url = new URL(window.location);
-	//			url.searchParams.set('filter', activeFilter);
-	//			history.replaceState({},'', url);
+				const url = new URL(window.location);
+				url.searchParams.set('filter', activeFilter);
+				history.replaceState({},'', url);
 			}
 		}
 </script>
