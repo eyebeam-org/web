@@ -28,7 +28,7 @@ const manifest = {
   assets: /* @__PURE__ */ new Set(["OE_front_2.png", "OE_front_4.png", "ddc_header.jpg", "eyebeambox.gif", "favicon.png", "fonts/EyebeamSans-Medium.woff", "fonts/EyebeamSans-Medium.woff2", "stock.svg", "support_header.jpg"]),
   mimeTypes: { ".png": "image/png", ".jpg": "image/jpeg", ".gif": "image/gif", ".woff": "font/woff", ".woff2": "font/woff2", ".svg": "image/svg+xml" },
   _: {
-    entry: { "file": "start-caed2f7d.js", "js": ["start-caed2f7d.js", "chunks/index-fa94c728.js", "chunks/index-6da00ed5.js", "chunks/singletons-d1fb5791.js"], "css": [] },
+    entry: { "file": "start-26485ba3.js", "js": ["start-26485ba3.js", "chunks/index-fa94c728.js", "chunks/index-6da00ed5.js", "chunks/singletons-d1fb5791.js"], "css": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),

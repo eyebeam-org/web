@@ -21,6 +21,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var stdin_exports = {};
 __export(stdin_exports, {
   default: () => Everything,
+  prerender: () => prerender,
   router: () => router
 });
 module.exports = __toCommonJS(stdin_exports);
@@ -47,6 +48,7 @@ const css = {
   map: null
 };
 const router = false;
+const prerender = false;
 const Everything = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   let { page } = $$props;
   let { posts } = $$props;
