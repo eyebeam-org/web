@@ -29,7 +29,7 @@ var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_keyBy = __toESM(require("lodash/keyBy.js"));
 var import_truncate = __toESM(require("lodash/truncate.js"));
-var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
+var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
 var import_press_and_news_item_cbbd7c00 = require("../../../chunks/press-and-news-item-cbbd7c00.js");
 var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
@@ -123,7 +123,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
 		<div class="${"tile introduction svelte-ntbddt"}">
 			<h1>${(0, import_index_277e1cdb.e)(aboutMap["what-is-eyebeam"].title)}</h1>
 			
-			${(0, import_has.default)(aboutMap["what-is-eyebeam"], "introduction.content") ? `<div class="${"description svelte-ntbddt"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, {
+			${(0, import_has.default)(aboutMap["what-is-eyebeam"], "introduction.content") ? `<div class="${"description svelte-ntbddt"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, {
     blocks: aboutMap["what-is-eyebeam"].introduction.content
   }, {}, {})}</div>` : ``}</div>
 

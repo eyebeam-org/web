@@ -15,7 +15,7 @@
 	<div class="html-content">
 		{#each b.children as c}
 			{#if c.text != ""}
-{@html c.text.replace(/<\/strong>/g, "</strong><br/><br/>").replace(/<strong>/g, "<br/><br/><strong>") }
+{@html c.text.replace(/<\/strong>/g, "</strong><br/><br/>").replace(/<strong>/g, "<br/><br/><strong>").replace('<a href="/', '<a href="https://old.eyebeam.org/"') }
 			{/if}
 		{/each}
 	</div>

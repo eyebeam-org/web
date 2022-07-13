@@ -29,7 +29,7 @@ var import_groupBy = __toESM(require("lodash/groupBy.js"));
 var import_has = require("lodash/has.js");
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
-var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
+var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
 var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_slugify = require("slugify");
@@ -139,7 +139,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
 
 		
 		<header class="${"header svelte-1eu4bly"}"><h1>Artists</h1>
-			<div class="${"description svelte-1eu4bly"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.L, "LogoBlock").$$render($$result, { b: pageData }, {}, {})}</div>
+			<div class="${"description svelte-1eu4bly"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.L, "LogoBlock").$$render($$result, { b: pageData }, {}, {})}</div>
 
 
 			
@@ -151,7 +151,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
 		${`${(0, import_index_277e1cdb.d)(ALPHABET, (alpha) => {
     return `<section class="${"sub-section svelte-1eu4bly"}"${(0, import_index_277e1cdb.a)("id", alpha, 0)}><h2 class="${"supersized svelte-1eu4bly"}">${(0, import_index_277e1cdb.e)(alpha)}</h2>
 					${groupedPeopleAlpha[alpha] ? `<ul class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.d)(groupedPeopleAlpha[alpha], (person) => {
-      return `${!person.isEmpty ? `<li class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.a, "PersonLink").$$render($$result, { person }, {}, {})}</li>` : `<li class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.e)(person.title)}</li>`}`;
+      return `${!person.isEmpty ? `<li class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.a, "PersonLink").$$render($$result, { person }, {}, {})}</li>` : `<li class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.e)(person.title)}</li>`}`;
     })}
 						</ul>` : ``}
 				</section>`;

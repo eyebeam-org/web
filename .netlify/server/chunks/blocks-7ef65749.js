@@ -164,7 +164,7 @@ const Html = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots)
     $$bindings.b(b);
   $$result.css.add(css$e);
   return `${b.children && b.children.length > 0 ? `<div class="${"html-content svelte-102ncnr"}">${(0, import_index_277e1cdb.d)(b.children, (c) => {
-    return `${c.text != "" ? `<!-- HTML_TAG_START -->${c.text.replace(/<\/strong>/g, "</strong><br/>").replace(/<\/b>/g, "</b><br/>").replace(/<strong>/g, "<br/><strong>").replace(/<b>/g, "<br/><b>")}<!-- HTML_TAG_END -->` : ``}`;
+    return `${c.text != "" ? `<!-- HTML_TAG_START -->${c.text.replace(/<\/strong>/g, "</strong><br/><br/>").replace(/<strong>/g, "<br/><br/><strong>").replace('<a href="/', '<a href="https://old.eyebeam.org/"')}<!-- HTML_TAG_END -->` : ``}`;
   })}</div>` : ``}`;
 });
 const css$d = {

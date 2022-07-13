@@ -25,9 +25,9 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 var import_has = __toESM(require("lodash/has.js"));
-var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
+var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
 var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
-var import_person_link_list_71a9e6f6 = require("../../../chunks/person-link-list-71a9e6f6.js");
+var import_person_link_list_f1941039 = require("../../../chunks/person-link-list-f1941039.js");
 var import_slugify = require("slugify");
 var import_get = require("lodash/get.js");
 var import_date_fns = require("date-fns");
@@ -57,8 +57,8 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
 <div class="${"journal svelte-12xrj4v"}"><header class="${"header svelte-12xrj4v"}">
 		<h1 class="${"svelte-12xrj4v"}">${(0, import_index_277e1cdb.e)(page.title)}</h1>
 		${page.subtitle ? `<div class="${"subtitle svelte-12xrj4v"}">${(0, import_index_277e1cdb.e)(page.subtitle)}</div>` : ``}
-		<div class="${"authors svelte-12xrj4v"}">${(0, import_index_277e1cdb.v)(import_person_link_list_71a9e6f6.P, "PersonLinkList").$$render($$result, { people: page.people }, {}, {})}</div></header>
+		<div class="${"authors svelte-12xrj4v"}">${(0, import_index_277e1cdb.v)(import_person_link_list_f1941039.P, "PersonLinkList").$$render($$result, { people: page.people }, {}, {})}</div></header>
 
-	<article class="${"content svelte-12xrj4v"}">${(0, import_has.default)(page, "content.content") ? `${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}</article>
+	<article class="${"content svelte-12xrj4v"}">${(0, import_has.default)(page, "content.content") ? `${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}</article>
 </div>`;
 });
