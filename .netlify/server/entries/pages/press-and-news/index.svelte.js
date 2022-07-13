@@ -27,8 +27,8 @@ var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
 var import_press_and_news_item_cbbd7c00 = require("../../../chunks/press-and-news-item-cbbd7c00.js");
-var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
-var import_see_also_47f32c41 = require("../../../chunks/see-also-47f32c41.js");
+var import_blocks_9c29c100 = require("../../../chunks/blocks-9c29c100.js");
+var import_see_also_0890c1bb = require("../../../chunks/see-also-0890c1bb.js");
 var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
@@ -82,7 +82,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
 
 <div class="${"main-content svelte-1n16gad"}"><div class="${"inner svelte-1n16gad"}"><h1 class="${"svelte-1n16gad"}">Press &amp; News</h1>
 
-		${(0, import_has.default)(page, "content.content") ? `<div>${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
+		${(0, import_has.default)(page, "content.content") ? `<div>${(0, import_index_277e1cdb.v)(import_blocks_9c29c100.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
 
 		<div class="${"section svelte-1n16gad"}" id="${"news"}"><h2 class="${"svelte-1n16gad"}">News</h2>
 			<div class="${"press-and-news-listing svelte-1n16gad"}">${(0, import_index_277e1cdb.d)(news, (post) => {
@@ -99,10 +99,10 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
 			<div class="${"bottom-divider svelte-1n16gad"}"></div></div>
 
 		<div class="${"section svelte-1n16gad"}" id="${"press-contact"}"><h2 class="${"svelte-1n16gad"}">Press contact</h2>
-			${(0, import_has.default)(page, "pressContact.content") ? `<div class="${"text-content svelte-1n16gad"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page.pressContact.content }, {}, {})}</div>` : ``}</div>
+			${(0, import_has.default)(page, "pressContact.content") ? `<div class="${"text-content svelte-1n16gad"}">${(0, import_index_277e1cdb.v)(import_blocks_9c29c100.B, "Blocks").$$render($$result, { blocks: page.pressContact.content }, {}, {})}</div>` : ``}</div>
 
 		
-		${page.internalLinks && page.internalLinks.length > 0 || page.externalLinks && page.externalLinks.length > 0 ? `${(0, import_index_277e1cdb.v)(import_see_also_47f32c41.S, "SeeAlso").$$render($$result, {
+		${page.internalLinks && page.internalLinks.length > 0 || page.externalLinks && page.externalLinks.length > 0 ? `${(0, import_index_277e1cdb.v)(import_see_also_0890c1bb.S, "SeeAlso").$$render($$result, {
     externalLinks: page.externalLinks,
     internalLinks: page.internalLinks
   }, {}, {})}` : ``}</div>

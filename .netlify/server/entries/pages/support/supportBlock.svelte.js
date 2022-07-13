@@ -29,7 +29,7 @@ var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_keyBy = require("lodash/keyBy.js");
 var import_truncate = require("lodash/truncate.js");
-var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
+var import_blocks_9c29c100 = require("../../../chunks/blocks-9c29c100.js");
 var import_get = require("lodash/get.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_slugify = require("slugify");
@@ -68,10 +68,10 @@ const SupportBlock = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings
 				<div id="${"donate"}" class="${"tile introduction " + (0, import_index_277e1cdb.e)(section) + " svelte-y3ui1o"}" sveltekit:prefetch><h1>${(0, import_index_277e1cdb.e)(aboutMap[section].title)}</h1>
 					${(0, import_has.default)(aboutMap[section], "introduction.content") ? `<div class="${"description svelte-y3ui1o"}"><!-- HTML_TAG_START -->${(0, import_sanity_bfd50d1d.r)(aboutMap[section].introduction.content)}<!-- HTML_TAG_END --></div>` : ``}</div>
 			${(0, import_index_277e1cdb.d)(aboutMap[section].content, (content) => {
-    return `${content.content[0].children[0].text == "THE FOLD" ? `<div class="${"tile nav-tile has-link svelte-y3ui1o"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
+    return `${content.content[0].children[0].text == "THE FOLD" ? `<div class="${"tile nav-tile has-link svelte-y3ui1o"}">${(0, import_index_277e1cdb.v)(import_blocks_9c29c100.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
 
 							${(0, import_index_277e1cdb.v)(import_arrow_link_ef752029.A, "ArrowLink").$$render($$result, { link: "https://fold.eyebeam.org/enter" }, {}, {})}
-					</div>` : `<div class="${"tile nav-tile svelte-y3ui1o"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
+					</div>` : `<div class="${"tile nav-tile svelte-y3ui1o"}">${(0, import_index_277e1cdb.v)(import_blocks_9c29c100.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
 					</div>`}`;
   })}
 						<div class="${"tile nav-tile crypto-widget svelte-y3ui1o"}"><h2 class="${"svelte-y3ui1o"}">Donate Crypto </h2>

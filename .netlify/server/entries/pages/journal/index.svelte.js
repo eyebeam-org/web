@@ -28,10 +28,10 @@ var import_get = __toESM(require("lodash/get.js"));
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
 var import_big_beam_c5c43470 = require("../../../chunks/big-beam-c5c43470.js");
 var import_logo_255ac452 = require("../../../chunks/logo-255ac452.js");
-var import_person_link_list_f1941039 = require("../../../chunks/person-link-list-f1941039.js");
+var import_person_link_list_66a83380 = require("../../../chunks/person-link-list-66a83380.js");
 var import_slugify = require("slugify");
 var import_date_fns = require("date-fns");
-var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
+var import_blocks_9c29c100 = require("../../../chunks/blocks-9c29c100.js");
 var import_core = require("@popperjs/core");
 var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_client = require("@sanity/client");
@@ -56,7 +56,7 @@ const Journal = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slo
 	<div class="${"listing"}">${(0, import_index_277e1cdb.d)(journal, (post) => {
     return `<a class="${"item svelte-1uz8uqo"}"${(0, import_index_277e1cdb.a)("href", "/journal/" + (0, import_get.default)(post, "slug.current", ""), 0)} sveltekit:prefetch><div class="${"title svelte-1uz8uqo"}">${(0, import_index_277e1cdb.e)(post.title)}</div>
 				<div class="${"authors svelte-1uz8uqo"}"><i>by</i>
-					${(0, import_index_277e1cdb.v)(import_person_link_list_f1941039.P, "PersonLinkList").$$render($$result, { people: post.people }, {}, {})}</div>
+					${(0, import_index_277e1cdb.v)(import_person_link_list_66a83380.P, "PersonLinkList").$$render($$result, { people: post.people }, {}, {})}</div>
 				<div class="${"date svelte-1uz8uqo"}">${(0, import_index_277e1cdb.e)((0, import_global_eadaa9b6.l)(post._updatedAt))}</div>
 			</a>`;
   })}</div>

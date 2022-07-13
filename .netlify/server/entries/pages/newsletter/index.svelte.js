@@ -25,7 +25,7 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 var import_has = __toESM(require("lodash/has.js"));
-var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
+var import_blocks_9c29c100 = require("../../../chunks/blocks-9c29c100.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
 var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
@@ -66,7 +66,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
 		<h1 class="${"svelte-di92ot"}">${(0, import_index_277e1cdb.e)(page.title)}</h1>
 
 		
-		${(0, import_has.default)(page, "content.content") ? `<div class="${"body-content svelte-di92ot"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
+		${(0, import_has.default)(page, "content.content") ? `<div class="${"body-content svelte-di92ot"}">${(0, import_index_277e1cdb.v)(import_blocks_9c29c100.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
 
 		
 

@@ -28,7 +28,7 @@ var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_get = __toESM(require("lodash/get.js"));
-var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
+var import_blocks_9c29c100 = require("../../../chunks/blocks-9c29c100.js");
 var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_stores_b7bb0fad = require("../../../chunks/stores-b7bb0fad.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
@@ -79,7 +79,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
 
 <div class="${"main-content svelte-ne7u20"}"><div class="${"inner svelte-ne7u20"}"><header class="${"header svelte-ne7u20"}"><h1 class="${"svelte-ne7u20"}">${(0, import_index_277e1cdb.e)(page$1.title)}</h1>
 			
-			${(0, import_has.default)(page$1, "content.content") ? `<div class="${"description svelte-ne7u20"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page$1.content.content }, {}, {})}</div>` : ``}
+			${(0, import_has.default)(page$1, "content.content") ? `<div class="${"description svelte-ne7u20"}">${(0, import_index_277e1cdb.v)(import_blocks_9c29c100.B, "Blocks").$$render($$result, { blocks: page$1.content.content }, {}, {})}</div>` : ``}
 			<section class="${"filters svelte-ne7u20"}" role="${"option"}">${(0, import_index_277e1cdb.d)(FILTERS, (filter) => {
     return `<button class="${["filter svelte-ne7u20", activeFilter == filter.value ? "active" : ""].join(" ").trim()}"${(0, import_index_277e1cdb.a)("aria-label", "Filter by: " + filter.value, 0)}${(0, import_index_277e1cdb.a)("aria-selected", activeFilter == filter.value ? "true" : "false", 0)}>${(0, import_index_277e1cdb.e)(filter.label)}
 					</button>`;
@@ -94,7 +94,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
 				
 				${post.people && post.people.length > 0 ? `<div class="${"people svelte-ne7u20"}">Including
 						${(0, import_index_277e1cdb.d)(post.people, (person) => {
-      return `${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.a, "PersonLink").$$render($$result, { person }, {}, {})}`;
+      return `${(0, import_index_277e1cdb.v)(import_blocks_9c29c100.a, "PersonLink").$$render($$result, { person }, {}, {})}`;
     })}
 					</div>` : ``}
 			</a>`;

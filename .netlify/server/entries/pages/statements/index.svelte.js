@@ -24,7 +24,7 @@ var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
-var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
+var import_blocks_9c29c100 = require("../../../chunks/blocks-9c29c100.js");
 var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_big_beam_c5c43470 = require("../../../chunks/big-beam-c5c43470.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
@@ -64,7 +64,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render(
     return `<div class="${"single-statement svelte-5wdn90"}">
 				<div class="${"text svelte-5wdn90"}"><!-- HTML_TAG_START -->${(0, import_sanity_bfd50d1d.r)(statement.content.content)}<!-- HTML_TAG_END --></div>
 				
-				${statement.person ? `<div class="${"person svelte-5wdn90"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.a, "PersonLink").$$render($$result, { person: statement.person }, {}, {})}</div>` : ``}
+				${statement.person ? `<div class="${"person svelte-5wdn90"}">${(0, import_index_277e1cdb.v)(import_blocks_9c29c100.a, "PersonLink").$$render($$result, { person: statement.person }, {}, {})}</div>` : ``}
 				
 				${statement.date ? `<div class="${"date svelte-5wdn90"}">${(0, import_index_277e1cdb.e)((0, import_global_eadaa9b6.l)(statement.date))}</div>` : ``}
 			</div>`;

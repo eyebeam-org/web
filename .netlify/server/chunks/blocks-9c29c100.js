@@ -155,7 +155,7 @@ const Text = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots)
   })}</p>`}`}` : ``}`;
 });
 const css$e = {
-  code: ".html-content.svelte-102ncnr{padding:15px}",
+  code: ".html-content.svelte-1p9fi0z{padding:20px}",
   map: null
 };
 const Html = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
@@ -163,12 +163,19 @@ const Html = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots)
   if ($$props.b === void 0 && $$bindings.b && b !== void 0)
     $$bindings.b(b);
   $$result.css.add(css$e);
-  return `${b.children && b.children.length > 0 ? `<div class="${"html-content svelte-102ncnr"}">${(0, import_index_277e1cdb.d)(b.children, (c) => {
-    return `${c.text != "" ? `<!-- HTML_TAG_START -->${c.text.replace(/<\/strong>/g, "</strong><br/><br/>").replace(/<strong>/g, "<br/><br/><strong>").replace('<a href="/', '<a href="https://old.eyebeam.org/"')}<!-- HTML_TAG_END -->` : ``}`;
+  return `${b.children && b.children.length > 0 ? `<style>.html-content img {
+			display: block;
+			margin: 12px auto;
+		}
+
+</style>
+
+	<div class="${"html-content svelte-1p9fi0z"}">${(0, import_index_277e1cdb.d)(b.children, (c) => {
+    return `${c.text != "" ? `<!-- HTML_TAG_START -->${c.text.replace(/<\/strong>/g, "</strong><br/><br/>").replace(/<strong>/g, "<br/><br/><strong>").replace('<a href="/', '<a href="https://old.eyebeam.org/"').replace(/style=".*?"/, "").replace(/width=".*?"/, "").replace(/height=".*?"/, "").replace('alt=" ">', 'alt=""><br/>')}<!-- HTML_TAG_END -->` : ``}`;
   })}</div>` : ``}`;
 });
 const css$d = {
-  code: "figure.svelte-dh5oee.svelte-dh5oee{margin-left:20px;margin-right:20px;float:left;border:1px solid var(--foreground-color);float:left;max-width:50%}@media(max-width: 800px), screen and (orientation: portrait){figure.svelte-dh5oee.svelte-dh5oee{margin-left:0}}figure.right.svelte-dh5oee.svelte-dh5oee{float:right;max-width:50%}@media(max-width: 800px), screen and (orientation: portrait){figure.right.svelte-dh5oee.svelte-dh5oee{margin-left:20px}}figure.full.svelte-dh5oee.svelte-dh5oee{float:unset;margin-left:0;margin-right:0;margin-top:0;border:unset;max-width:unset;width:100%}figure.full.svelte-dh5oee img.svelte-dh5oee{display:block;margin-left:auto;margin-right:auto}figure.full.svelte-dh5oee figcaption.svelte-dh5oee{padding:20px;border-top:1px solid var(--foreground-color);border-bottom:1px solid var(--foreground-color)}figure.cover.svelte-dh5oee.svelte-dh5oee{float:unset}figure.cover.svelte-dh5oee img.svelte-dh5oee{width:100%;height:600px;object-fit:cover;object-position:center}@media(max-width: 800px), screen and (orientation: portrait){figure.cover.svelte-dh5oee img.svelte-dh5oee{height:300px}}figure.cover.svelte-dh5oee figcaption.svelte-dh5oee{padding:20px;border-top:1px solid var(--foreground-color);border-bottom:1px solid var(--foreground-color)}@media(max-width: 800px), screen and (orientation: portrait){figure.cover.svelte-dh5oee figcaption.svelte-dh5oee{padding-left:0;padding-right:0}}.article figcaption p{margin-bottom:0;margin-left:0;margin-right:0;font-size:14px !important}",
+  code: "figure.svelte-16k1mtz.svelte-16k1mtz{margin-left:20px;margin-right:20px;float:left;border:1px solid var(--foreground-color);display:flex;float:left;max-width:50%}@media(max-width: 800px), screen and (orientation: portrait){figure.svelte-16k1mtz.svelte-16k1mtz{margin-left:0}}figure.right.svelte-16k1mtz.svelte-16k1mtz{float:right;max-width:50%}@media(max-width: 800px), screen and (orientation: portrait){figure.right.svelte-16k1mtz.svelte-16k1mtz{margin-left:20px}}figure.full.svelte-16k1mtz.svelte-16k1mtz{float:unset;margin-left:0;margin-right:0;margin-top:0;border:unset;max-width:unset;width:100%}figure.full.svelte-16k1mtz img.svelte-16k1mtz{display:block;margin-left:auto;margin-right:auto}figure.full.svelte-16k1mtz figcaption.svelte-16k1mtz{padding:20px;border-top:1px solid var(--foreground-color);border-bottom:1px solid var(--foreground-color)}figure.cover.svelte-16k1mtz img.svelte-16k1mtz{width:100%;max-height:500px;object-fit:cover;object-position:center}@media(max-width: 800px), screen and (orientation: portrait){figure.cover.svelte-16k1mtz img.svelte-16k1mtz{height:300px}}figure.cover.svelte-16k1mtz figcaption.svelte-16k1mtz{padding:20px;border-top:1px solid var(--foreground-color);border-bottom:1px solid var(--foreground-color)}@media(max-width: 800px), screen and (orientation: portrait){figure.cover.svelte-16k1mtz figcaption.svelte-16k1mtz{padding-left:0;padding-right:0}}.article figcaption p{margin-bottom:0;margin-left:0;margin-right:0;font-size:14px !important}",
   map: null
 };
 const Image = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
@@ -177,10 +184,10 @@ const Image = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots
     $$bindings.b(b);
   $$result.css.add(css$d);
   return `<figure class="${[
-    "svelte-dh5oee",
+    "svelte-16k1mtz",
     (b.layout == "left" ? "left" : "") + " " + (b.layout == "right" ? "right" : "") + " " + (b.fullWidth ? "full" : "") + " " + (b.coverAndCrop ? "cover" : "")
-  ].join(" ").trim()}"><img${(0, import_index_277e1cdb.a)("src", (0, import_sanity_bfd50d1d.u)(b.asset).quality(90).saturation(-100).width(1e3).url(), 0)}${(0, import_index_277e1cdb.a)("alt", b.alt ? b.alt : "", 0)} class="${"svelte-dh5oee"}">
-	${(0, import_has.default)(b, "caption.content") ? `<figcaption class="${"svelte-dh5oee"}">${(0, import_index_277e1cdb.v)(Blocks, "Blocks").$$render($$result, { blocks: b.caption.content }, {}, {})}</figcaption>` : ``}
+  ].join(" ").trim()}"><img${(0, import_index_277e1cdb.a)("src", (0, import_sanity_bfd50d1d.u)(b.asset).quality(90).saturation(-100).width(1e3).url(), 0)}${(0, import_index_277e1cdb.a)("alt", b.alt ? b.alt : "", 0)} class="${"svelte-16k1mtz"}">
+	${(0, import_has.default)(b, "caption.content") ? `<figcaption class="${"svelte-16k1mtz"}">${(0, import_index_277e1cdb.v)(Blocks, "Blocks").$$render($$result, { blocks: b.caption.content }, {}, {})}</figcaption>` : ``}
 </figure>`;
 });
 const css$c = {
@@ -233,7 +240,7 @@ const Embed = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots
 ${(0, import_has.default)(b, "caption.content") ? `<figcaption>${(0, import_index_277e1cdb.v)(Blocks, "Blocks").$$render($$result, { blocks: b.caption.content }, {}, {})}</figcaption>` : ``}`;
 });
 const css$8 = {
-  code: ".divider.svelte-1lj7bsm{margin-top:20px;margin-bottom:20px;height:1px;border-top:1px solid var(--foreground-color);width:100%}",
+  code: ".divider.svelte-12n4epy{margin-top:20px;margin-bottom:20px;height:1px;border-top:1px solid var(--foreground-color);display:block;width:100%;min-width:100%}",
   map: null
 };
 const Divider = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
@@ -241,7 +248,7 @@ const Divider = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slo
   if ($$props.b === void 0 && $$bindings.b && b !== void 0)
     $$bindings.b(b);
   $$result.css.add(css$8);
-  return `<div class="${"divider svelte-1lj7bsm"}"></div>`;
+  return `<div class="${"divider svelte-12n4epy"}"></div>`;
 });
 const css$7 = {
   code: ".columns.svelte-1djwm6v h2.svelte-1djwm6v{padding-top:20px;padding-bottom:20px}.columns.svelte-1djwm6v .inner.svelte-1djwm6v{width:100%;column-count:2;column-fill:balance;column-width:50%}@media(max-width: 800px), screen and (orientation: portrait){.columns .inner p{font-size:14px}}",
