@@ -22,7 +22,7 @@
 </a>
 !-->
 	<a href="https://open.eyebeam.org">
-<img src="/OE_front_4.png" />
+<img src="/open_eyebeam.png" />
 	</a>
 </div>
 <div class="about">
