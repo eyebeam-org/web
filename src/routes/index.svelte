@@ -1,3 +1,6 @@
+<script context="module">
+	export const router = false
+</script>
 <script>
 	// # # # # # # # # # # # # #
 	//
@@ -139,8 +142,8 @@
 					<div class="post-content">
 						{#if post.startDate}
 						<div class="time">{distanceToDate(post.startDate)}</div>
-						{:else if post._updatedAt }
-						<div class="time">{distanceToDate(post._updatedAt)}</div>
+						{:else if post._createdAt }
+						<div class="time">{distanceToDate(post._createdAt)}</div>
 					{/if}
 <div class="title"><h3>{truncate(post.title, { length: 72 })}</h3></div>
 					{#if post.people && post.people.length > 0}
