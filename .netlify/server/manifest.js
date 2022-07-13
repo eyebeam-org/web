@@ -28,36 +28,36 @@ const manifest = {
   assets: /* @__PURE__ */ new Set(["OE_front_2.png", "OE_front_4.png", "ddc_header.jpg", "eyebeambox.gif", "favicon.png", "fonts/EyebeamSans-Medium.woff", "fonts/EyebeamSans-Medium.woff2", "stock.svg", "support_header.jpg"]),
   mimeTypes: { ".png": "image/png", ".jpg": "image/jpeg", ".gif": "image/gif", ".woff": "font/woff", ".woff2": "font/woff2", ".svg": "image/svg+xml" },
   _: {
-    entry: { "file": "start-dc3a2561.js", "js": ["start-dc3a2561.js", "chunks/index-fa94c728.js", "chunks/index-6da00ed5.js", "chunks/singletons-d1fb5791.js"], "css": [] },
+    entry: { "file": "start-f7cb6c5a.js", "js": ["start-f7cb6c5a.js", "chunks/index-fa94c728.js", "chunks/index-6da00ed5.js", "chunks/singletons-d1fb5791.js"], "css": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/8.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/7.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/3.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/5.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/6.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/7.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/10.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/11.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/13.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/15.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/17.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/19.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/21.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/22.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/24.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/27.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/25.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/2.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/4.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/9.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/10.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/12.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/14.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/16.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/18.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/20.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/21.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/23.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/26.js")))
+      () => Promise.resolve().then(() => __toESM(require("./nodes/26.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/27.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/24.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/2.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/4.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/8.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/11.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/13.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/15.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/17.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/19.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/22.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/25.js")))
     ],
     routes: [
       {
@@ -106,24 +106,13 @@ const manifest = {
       },
       {
         type: "page",
-        id: "eyebeam-is-changing",
-        pattern: /^\/eyebeam-is-changing\/?$/,
-        names: [],
-        types: [],
-        path: "/eyebeam-is-changing",
-        shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/eyebeam-is-changing/index.js"))),
-        a: [0, 6],
-        b: [1]
-      },
-      {
-        type: "page",
         id: "journal",
         pattern: /^\/journal\/?$/,
         names: [],
         types: [],
         path: "/journal",
         shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/journal/index.js"))),
-        a: [0, 7],
+        a: [0, 6],
         b: [1]
       },
       {
@@ -134,7 +123,7 @@ const manifest = {
         types: [],
         path: "/newsletter",
         shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/newsletter/index.js"))),
-        a: [0, 8],
+        a: [0, 7],
         b: [1]
       },
       {
@@ -145,7 +134,7 @@ const manifest = {
         types: [],
         path: "/notes",
         shadow: null,
-        a: [0, 9],
+        a: [0, 8],
         b: [1]
       },
       {
@@ -156,7 +145,7 @@ const manifest = {
         types: [],
         path: "/people",
         shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/people/index.js"))),
-        a: [0, 10],
+        a: [0, 9],
         b: [1]
       },
       {
@@ -167,7 +156,7 @@ const manifest = {
         types: [],
         path: "/press-and-news",
         shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/press-and-news/index.js"))),
-        a: [0, 11],
+        a: [0, 10],
         b: [1]
       },
       {
@@ -178,7 +167,7 @@ const manifest = {
         types: [],
         path: "/programs",
         shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/programs/index.js"))),
-        a: [0, 12],
+        a: [0, 11],
         b: [1]
       },
       {
@@ -189,7 +178,7 @@ const manifest = {
         types: [],
         path: "/projects",
         shadow: null,
-        a: [0, 13],
+        a: [0, 12],
         b: [1]
       },
       {
@@ -200,7 +189,7 @@ const manifest = {
         types: [],
         path: "/statements",
         shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/statements/index.js"))),
-        a: [0, 14],
+        a: [0, 13],
         b: [1]
       },
       {
@@ -211,7 +200,7 @@ const manifest = {
         types: [],
         path: "/support",
         shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/support/index.js"))),
-        a: [0, 15],
+        a: [0, 14],
         b: [1]
       },
       {
@@ -222,6 +211,17 @@ const manifest = {
         types: [],
         path: "/videos",
         shadow: null,
+        a: [0, 15],
+        b: [1]
+      },
+      {
+        type: "page",
+        id: "vip-event",
+        pattern: /^\/vip-event\/?$/,
+        names: [],
+        types: [],
+        path: "/vip-event",
+        shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/vip-event/index.js"))),
         a: [0, 16],
         b: [1]
       },

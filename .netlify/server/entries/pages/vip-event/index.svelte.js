@@ -17,7 +17,7 @@ var __copyProps = (to, from, except, desc) => {
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  default: () => Eyebeam_is_changing
+  default: () => Vip_event
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
@@ -40,7 +40,7 @@ var import_see_also_4afb53ce = require("../../../chunks/see-also-4afb53ce.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
 var import_truncate = require("lodash/truncate.js");
 var import_stores_b7bb0fad = require("../../../chunks/stores-b7bb0fad.js");
-const Eyebeam_is_changing = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
+const Vip_event = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   const router = false;
   let { page } = $$props;
   if ($$props.router === void 0 && $$bindings.router && router !== void 0)

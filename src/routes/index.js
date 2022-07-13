@@ -2,7 +2,7 @@ import { loadData } from "$lib/sanity.js"
 
 export const get = async (request) => {
     const programs = await loadData("*[_type == 'program']")
-    const newPosts = await loadData("*[_type in ['event', 'press', 'news', 'note', 'videoPost', 'journalPost']]{..., people[]->{...}} | order(_updatedAt desc)")
+    const newPosts = await loadData("*[_type in ['event', 'press', 'news', 'note', 'videoPost', 'journalPost']]{..., people[]->{...}} | order(_createdAt desc)")
     const stickers = await loadData("*[_id == 'stickers']{...}[0]")
     //dereference featured artists
 //    const featuredArtists = await loadData("*[_type == 'featuredArtists']{..., featuredArtist1->, featuredArtist2->}")

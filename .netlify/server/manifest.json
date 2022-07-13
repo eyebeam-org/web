@@ -34,14 +34,6 @@
       "_sanity-bfd50d1d.js"
     ]
   },
-  "src/routes/eyebeam-is-changing/index.js": {
-    "file": "entries/endpoints/eyebeam-is-changing/index.js",
-    "src": "src/routes/eyebeam-is-changing/index.js",
-    "isEntry": true,
-    "imports": [
-      "_sanity-bfd50d1d.js"
-    ]
-  },
   "src/routes/journal/index.js": {
     "file": "entries/endpoints/journal/index.js",
     "src": "src/routes/journal/index.js",
@@ -93,6 +85,14 @@
   "src/routes/support/index.js": {
     "file": "entries/endpoints/support/index.js",
     "src": "src/routes/support/index.js",
+    "isEntry": true,
+    "imports": [
+      "_sanity-bfd50d1d.js"
+    ]
+  },
+  "src/routes/vip-event/index.js": {
+    "file": "entries/endpoints/vip-event/index.js",
+    "src": "src/routes/vip-event/index.js",
     "isEntry": true,
     "imports": [
       "_sanity-bfd50d1d.js"
@@ -312,30 +312,6 @@
     "css": [
       "assets/entries/pages/everything/index.svelte-5994e905.css",
       "assets/video.svelte_svelte_type_style_lang-23e78c5e.css"
-    ]
-  },
-  "src/routes/eyebeam-is-changing/index.svelte": {
-    "file": "entries/pages/eyebeam-is-changing/index.svelte.js",
-    "src": "src/routes/eyebeam-is-changing/index.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-277e1cdb.js",
-      "_main-content-2f4b077f.js",
-      "_metadata-08e68bb9.js",
-      "_stores-f9761b8b.js",
-      "_sanity-bfd50d1d.js",
-      "_global-eadaa9b6.js",
-      "_blocks-c7be9ebc.js",
-      "_see-also-4afb53ce.js",
-      "_bottom-bar-168e682a.js",
-      "_stores-b7bb0fad.js"
-    ],
-    "css": [
-      "assets/video.svelte_svelte_type_style_lang-23e78c5e.css",
-      "assets/see-also.svelte_svelte_type_style_lang-53753873.css",
-      "assets/half-beam.svelte_svelte_type_style_lang-35d8eb79.css",
-      "assets/bottom-bar.svelte_svelte_type_style_lang-3a2af989.css",
-      "assets/at-eyebeam.svelte_svelte_type_style_lang-cbf26c70.css"
     ]
   },
   "src/routes/index.svelte": {
@@ -743,6 +719,30 @@
     "isEntry": true,
     "imports": [
       "_index-277e1cdb.js"
+    ]
+  },
+  "src/routes/vip-event/index.svelte": {
+    "file": "entries/pages/vip-event/index.svelte.js",
+    "src": "src/routes/vip-event/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-277e1cdb.js",
+      "_main-content-2f4b077f.js",
+      "_metadata-08e68bb9.js",
+      "_stores-f9761b8b.js",
+      "_sanity-bfd50d1d.js",
+      "_global-eadaa9b6.js",
+      "_blocks-c7be9ebc.js",
+      "_see-also-4afb53ce.js",
+      "_bottom-bar-168e682a.js",
+      "_stores-b7bb0fad.js"
+    ],
+    "css": [
+      "assets/video.svelte_svelte_type_style_lang-23e78c5e.css",
+      "assets/see-also.svelte_svelte_type_style_lang-53753873.css",
+      "assets/half-beam.svelte_svelte_type_style_lang-35d8eb79.css",
+      "assets/bottom-bar.svelte_svelte_type_style_lang-3a2af989.css",
+      "assets/at-eyebeam.svelte_svelte_type_style_lang-cbf26c70.css"
     ]
   },
   "_index-277e1cdb.js": {

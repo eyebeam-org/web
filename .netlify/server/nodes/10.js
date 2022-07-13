@@ -26,7 +26,7 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/journal/index.svelte.js"));
-const entry = "pages/journal/index.svelte-45232ea3.js";
-const js = ["pages/journal/index.svelte-45232ea3.js", "chunks/index-fa94c728.js", "chunks/global-d9c97fe1.js", "chunks/index-fe7c00d7.js", "chunks/big-beam-95938540.js", "chunks/logo-3fd4c93e.js", "chunks/person-link-list-3a82e719.js", "chunks/blocks-b0f3bc4f.js"];
-const css = ["assets/pages/journal/index.svelte-570bf69c.css", "assets/logo.svelte_svelte_type_style_lang-091ab07e.css", "assets/video.svelte_svelte_type_style_lang-8e5e4d97.css", "assets/big-beam-9f57e0f8.css"];
+var module2 = __toESM(require("../entries/pages/newsletter/index.svelte.js"));
+const entry = "pages/newsletter/index.svelte-128a05f0.js";
+const js = ["pages/newsletter/index.svelte-128a05f0.js", "chunks/index-fa94c728.js", "chunks/global-d9c97fe1.js", "chunks/blocks-b0f3bc4f.js", "chunks/index-fe7c00d7.js", "chunks/bottom-bar-ad4eb8c3.js", "chunks/metadata-696931e7.js", "chunks/isRegExp-66a22565.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/_baseProperty-74c54ba2.js"];
+const css = ["assets/pages/newsletter/index.svelte-3e1ea3ff.css", "assets/video.svelte_svelte_type_style_lang-8e5e4d97.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-2135bef0.css"];

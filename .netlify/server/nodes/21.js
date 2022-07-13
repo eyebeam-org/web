@@ -26,7 +26,7 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/projects/index.svelte.js"));
-const entry = "pages/projects/index.svelte-e2d8e97f.js";
-const js = ["pages/projects/index.svelte-e2d8e97f.js", "chunks/index-fa94c728.js"];
-const css = [];
+var module2 = __toESM(require("../entries/pages/statements/index.svelte.js"));
+const entry = "pages/statements/index.svelte-26c743eb.js";
+const js = ["pages/statements/index.svelte-26c743eb.js", "chunks/index-fa94c728.js", "chunks/global-d9c97fe1.js", "chunks/bottom-bar-ad4eb8c3.js", "chunks/blocks-b0f3bc4f.js", "chunks/index-fe7c00d7.js", "chunks/metadata-696931e7.js", "chunks/isRegExp-66a22565.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/_baseProperty-74c54ba2.js", "chunks/big-beam-95938540.js"];
+const css = ["assets/pages/statements/index.svelte-caccb2c1.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-2135bef0.css", "assets/video.svelte_svelte_type_style_lang-8e5e4d97.css", "assets/big-beam-9f57e0f8.css"];
