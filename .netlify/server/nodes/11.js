@@ -27,6 +27,6 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/newsletter/index.svelte.js"));
-const entry = "pages/newsletter/index.svelte-84476bc9.js";
-const js = ["pages/newsletter/index.svelte-84476bc9.js", "chunks/index-fa94c728.js", "chunks/global-d9c97fe1.js", "chunks/blocks-f0e42b03.js", "chunks/index-fe7c00d7.js", "chunks/bottom-bar-ad4eb8c3.js", "chunks/metadata-696931e7.js", "chunks/isRegExp-66a22565.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/_baseProperty-74c54ba2.js"];
+const entry = "pages/newsletter/index.svelte-128a05f0.js";
+const js = ["pages/newsletter/index.svelte-128a05f0.js", "chunks/index-fa94c728.js", "chunks/global-d9c97fe1.js", "chunks/blocks-b0f3bc4f.js", "chunks/index-fe7c00d7.js", "chunks/bottom-bar-ad4eb8c3.js", "chunks/metadata-696931e7.js", "chunks/isRegExp-66a22565.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/_baseProperty-74c54ba2.js"];
 const css = ["assets/pages/newsletter/index.svelte-3e1ea3ff.css", "assets/video.svelte_svelte_type_style_lang-8e5e4d97.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/bottom-bar.svelte_svelte_type_style_lang-2135bef0.css"];

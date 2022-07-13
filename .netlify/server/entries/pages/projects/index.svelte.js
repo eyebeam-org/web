@@ -18,12 +18,10 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var stdin_exports = {};
 __export(stdin_exports, {
   default: () => Projects,
-  load: () => load,
-  prerender: () => prerender
+  load: () => load
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
-const prerender = false;
 async function load() {
   return {
     status: 302,

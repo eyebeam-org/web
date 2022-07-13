@@ -26,8 +26,8 @@ module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../chunks/index-277e1cdb.js");
 var import_sample = __toESM(require("lodash/sample.js"));
 var import_js_cookie = require("js-cookie");
-var import_menu_1006d4ca = require("../../chunks/menu-1006d4ca.js");
-var import_sanity_1a8ac269 = require("../../chunks/sanity-1a8ac269.js");
+var import_menu_9f832952 = require("../../chunks/menu-9f832952.js");
+var import_sanity_bfd50d1d = require("../../chunks/sanity-bfd50d1d.js");
 var import_has = require("lodash/has.js");
 var import_slugify = require("slugify");
 var import_get = require("lodash/get.js");
@@ -84,7 +84,7 @@ const css$5 = {
   map: null
 };
 const Footer$1 = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
-  const contact = (0, import_sanity_1a8ac269.l)("*[_id == 'contact'][0]");
+  const contact = (0, import_sanity_bfd50d1d.l)("*[_id == 'contact'][0]");
   $$result.css.add(css$5);
   return `${function(__value) {
     if ((0, import_index_277e1cdb.i)(__value)) {
@@ -109,10 +109,10 @@ const Footer$1 = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, sl
 		
 		<div class="${"line address svelte-zxatyl"}">${(0, import_index_277e1cdb.e)(contact2.address)}</div>
 		
-		<div class="${"line social svelte-zxatyl"}"><span class="${"social-link svelte-zxatyl"}">${(0, import_index_277e1cdb.v)(import_menu_1006d4ca.N, "Newsletter").$$render($$result, {}, {}, {})}</span>
-			<a${(0, import_index_277e1cdb.a)("href", import_global_eadaa9b6.I, 0)} target="${"_blank"}" class="${"social-link svelte-zxatyl"}">${(0, import_index_277e1cdb.v)(import_menu_1006d4ca.I, "Instagram").$$render($$result, {}, {}, {})}</a>
-			<a${(0, import_index_277e1cdb.a)("href", import_global_eadaa9b6.T, 0)} target="${"_blank"}" class="${"social-link svelte-zxatyl"}">${(0, import_index_277e1cdb.v)(import_menu_1006d4ca.T, "Twitter").$$render($$result, {}, {}, {})}</a>
-			<a${(0, import_index_277e1cdb.a)("href", import_global_eadaa9b6.Y, 0)} target="${"_blank"}" class="${"social-link svelte-zxatyl"}">${(0, import_index_277e1cdb.v)(import_menu_1006d4ca.Y, "Youtube").$$render($$result, {}, {}, {})}</a></div></footer>
+		<div class="${"line social svelte-zxatyl"}"><span class="${"social-link svelte-zxatyl"}">${(0, import_index_277e1cdb.v)(import_menu_9f832952.N, "Newsletter").$$render($$result, {}, {}, {})}</span>
+			<a${(0, import_index_277e1cdb.a)("href", import_global_eadaa9b6.I, 0)} target="${"_blank"}" class="${"social-link svelte-zxatyl"}">${(0, import_index_277e1cdb.v)(import_menu_9f832952.I, "Instagram").$$render($$result, {}, {}, {})}</a>
+			<a${(0, import_index_277e1cdb.a)("href", import_global_eadaa9b6.T, 0)} target="${"_blank"}" class="${"social-link svelte-zxatyl"}">${(0, import_index_277e1cdb.v)(import_menu_9f832952.T, "Twitter").$$render($$result, {}, {}, {})}</a>
+			<a${(0, import_index_277e1cdb.a)("href", import_global_eadaa9b6.Y, 0)} target="${"_blank"}" class="${"social-link svelte-zxatyl"}">${(0, import_index_277e1cdb.v)(import_menu_9f832952.Y, "Youtube").$$render($$result, {}, {}, {})}</a></div></footer>
 `;
     }(__value);
   }(contact)}
@@ -154,7 +154,7 @@ const css$2 = {
   map: null
 };
 const Footer = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
-  const contact = (0, import_sanity_1a8ac269.l)("*[_id == 'contact'][0]");
+  const contact = (0, import_sanity_bfd50d1d.l)("*[_id == 'contact'][0]");
   $$result.css.add(css$2);
   return `${function(__value) {
     if ((0, import_index_277e1cdb.i)(__value)) {
@@ -193,7 +193,7 @@ const Sidebar = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slo
   $$unsubscribe_sidebarToC();
   $$unsubscribe_sidebarTitle();
   return `
-<aside class="${["sidebar svelte-1cupfzd", fullBorders ? "full-borders" : ""].join(" ").trim()}"><div class="${"tile open-eyebeam svelte-1cupfzd"}">${(0, import_index_277e1cdb.v)(import_menu_1006d4ca.M, "Menu").$$render($$result, {}, {}, {})}</div>
+<aside class="${["sidebar svelte-1cupfzd", fullBorders ? "full-borders" : ""].join(" ").trim()}"><div class="${"tile open-eyebeam svelte-1cupfzd"}">${(0, import_index_277e1cdb.v)(import_menu_9f832952.M, "Menu").$$render($$result, {}, {}, {})}</div>
 
 	
 	${hasContent ? `<nav aria-label="${"Secondary"}" class="${"tile toc svelte-1cupfzd"}"><p>${(0, import_index_277e1cdb.e)($sidebarTitle)}</p>

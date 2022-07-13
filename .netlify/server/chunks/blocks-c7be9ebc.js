@@ -32,7 +32,7 @@ var import_slugify = __toESM(require("slugify"));
 var import_get = __toESM(require("lodash/get.js"));
 var import_date_fns = require("date-fns");
 var import_core = require("@popperjs/core");
-var import_sanity_1a8ac269 = require("./sanity-1a8ac269.js");
+var import_sanity_bfd50d1d = require("./sanity-bfd50d1d.js");
 var import_global_eadaa9b6 = require("./global-eadaa9b6.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_get_video_id = __toESM(require("get-video-id"));
@@ -60,7 +60,7 @@ const Person_link = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings,
     });
   };
   if (personId) {
-    (0, import_sanity_1a8ac269.l)('*[_id == "' + personId + '"][0]').then((p) => {
+    (0, import_sanity_bfd50d1d.l)('*[_id == "' + personId + '"][0]').then((p) => {
       person = p;
       setTimeout(initPopper, 1e3);
     });
@@ -91,7 +91,7 @@ ${person.shortBio ? `<div class="${"bio"}">${(0, import_index_277e1cdb.v)(Blocks
 			${person.shortBio ? `<div class="${"bio"}">${(0, import_index_277e1cdb.v)(Blocks, "Blocks").$$render($$result, { blocks: person.shortBio.content }, {}, {})}</div>` : ``}</div>
 		
 		<div class="${"column second"}">
-			${person.mainImage ? `<img class="${"image"}"${(0, import_index_277e1cdb.a)("alt", person.title, 0)}${(0, import_index_277e1cdb.a)("src", (0, import_sanity_1a8ac269.u)(person.mainImage).quality(90).saturation(-100).width(100).height(100).url(), 0)}>` : ``}</div></div>` : ``}`;
+			${person.mainImage ? `<img class="${"image"}"${(0, import_index_277e1cdb.a)("alt", person.title, 0)}${(0, import_index_277e1cdb.a)("src", (0, import_sanity_bfd50d1d.u)(person.mainImage).quality(90).saturation(-100).width(100).height(100).url(), 0)}>` : ``}</div></div>` : ``}`;
 });
 const css$g = {
   code: "svg.svelte-12vfqt3.svelte-12vfqt3{margin-left:3px}svg.svelte-12vfqt3 path.svelte-12vfqt3{fill:var(--foreground-color)}",
@@ -164,7 +164,7 @@ const Html = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots)
     $$bindings.b(b);
   $$result.css.add(css$e);
   return `${b.children && b.children.length > 0 ? `<div class="${"html-content svelte-102ncnr"}">${(0, import_index_277e1cdb.d)(b.children, (c) => {
-    return `<!-- HTML_TAG_START -->${c.text.replace(/<\/strong>/g, "</strong><br/>").replace(/<\/b>/g, "</b><br/>").replace(/<strong>/g, "<br/><strong>").replace(/<b>/g, "<br/><b>").replace(/<\/span>/g, "</span><br/>")}<!-- HTML_TAG_END -->`;
+    return `${c.text != "" ? `<!-- HTML_TAG_START -->${c.text.replace(/<\/strong>/g, "</strong><br/>").replace(/<\/b>/g, "</b><br/>").replace(/<strong>/g, "<br/><strong>").replace(/<b>/g, "<br/><b>")}<!-- HTML_TAG_END -->` : ``}`;
   })}</div>` : ``}`;
 });
 const css$d = {
@@ -179,7 +179,7 @@ const Image = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots
   return `<figure class="${[
     "svelte-dh5oee",
     (b.layout == "left" ? "left" : "") + " " + (b.layout == "right" ? "right" : "") + " " + (b.fullWidth ? "full" : "") + " " + (b.coverAndCrop ? "cover" : "")
-  ].join(" ").trim()}"><img${(0, import_index_277e1cdb.a)("src", (0, import_sanity_1a8ac269.u)(b.asset).quality(90).saturation(-100).width(1e3).url(), 0)}${(0, import_index_277e1cdb.a)("alt", b.alt ? b.alt : "", 0)} class="${"svelte-dh5oee"}">
+  ].join(" ").trim()}"><img${(0, import_index_277e1cdb.a)("src", (0, import_sanity_bfd50d1d.u)(b.asset).quality(90).saturation(-100).width(1e3).url(), 0)}${(0, import_index_277e1cdb.a)("alt", b.alt ? b.alt : "", 0)} class="${"svelte-dh5oee"}">
 	${(0, import_has.default)(b, "caption.content") ? `<figcaption class="${"svelte-dh5oee"}">${(0, import_index_277e1cdb.v)(Blocks, "Blocks").$$render($$result, { blocks: b.caption.content }, {}, {})}</figcaption>` : ``}
 </figure>`;
 });
@@ -347,7 +347,7 @@ const css = {
 };
 const Video = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   let { b = {} } = $$props;
-  const videoPost = (0, import_sanity_1a8ac269.l)("*[_id == $id][0]", { id: b.videoPost._ref });
+  const videoPost = (0, import_sanity_bfd50d1d.l)("*[_id == $id][0]", { id: b.videoPost._ref });
   if ($$props.b === void 0 && $$bindings.b && b !== void 0)
     $$bindings.b(b);
   $$result.css.add(css);
@@ -358,7 +358,7 @@ const Video = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots
     }
     return function(videoPost2) {
       return `
-	<a${(0, import_index_277e1cdb.a)("href", "/videos/" + (0, import_get.default)(videoPost2, "slug.current"), 0)} class="${"video-block svelte-hbikqk"}"><div class="${"embed svelte-hbikqk"}">${videoPost2.mainImage ? `<img${(0, import_index_277e1cdb.a)("alt", videoPost2.title, 0)}${(0, import_index_277e1cdb.a)("src", (0, import_sanity_1a8ac269.u)(videoPost2.mainImage).quality(90).saturation(-100).width(400).url(), 0)} class="${"svelte-hbikqk"}">` : ``}
+	<a${(0, import_index_277e1cdb.a)("href", "/videos/" + (0, import_get.default)(videoPost2, "slug.current"), 0)} class="${"video-block svelte-hbikqk"}"><div class="${"embed svelte-hbikqk"}">${videoPost2.mainImage ? `<img${(0, import_index_277e1cdb.a)("alt", videoPost2.title, 0)}${(0, import_index_277e1cdb.a)("src", (0, import_sanity_bfd50d1d.u)(videoPost2.mainImage).quality(90).saturation(-100).width(400).url(), 0)} class="${"svelte-hbikqk"}">` : ``}
 			<div class="${"icon svelte-hbikqk"}">${(0, import_index_277e1cdb.v)(Play_arrow, "PlayArrow").$$render($$result, {}, {}, {})}</div>
 			<div class="${"title svelte-hbikqk"}">${(0, import_index_277e1cdb.e)(videoPost2.title)}
 				${videoPost2.runtime ? `(${(0, import_index_277e1cdb.e)(videoPost2.runtime)})` : ``}</div></div></a>

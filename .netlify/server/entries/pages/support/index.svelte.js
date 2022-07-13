@@ -20,11 +20,12 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  default: () => Support
+  default: () => Support,
+  router: () => router
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
-var import_sanity_1a8ac269 = require("../../../chunks/sanity-1a8ac269.js");
+var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_has = require("lodash/has.js");
 var import_keyBy = __toESM(require("lodash/keyBy.js"));
 var import_truncate = require("lodash/truncate.js");
@@ -39,7 +40,7 @@ var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
-var import_blocks_4014f298 = require("../../../chunks/blocks-4014f298.js");
+var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
 var import_arrow_link_ef752029 = require("../../../chunks/arrow-link-ef752029.js");
 var import_stores_b7bb0fad = require("../../../chunks/stores-b7bb0fad.js");
@@ -48,15 +49,16 @@ const css = {
   code: ".row.svelte-1j8e4rt.svelte-1j8e4rt{display:flex;flex-flow:row wrap}.tile.svelte-1j8e4rt.svelte-1j8e4rt{padding:20px;overflow:hidden;width:50%;display:block;float:left}@media(max-width: 800px), screen and (orientation: portrait){.tile.svelte-1j8e4rt.svelte-1j8e4rt{width:100%;border:1px solid var(--foreground-color);border-top:none}.tile.svelte-1j8e4rt.svelte-1j8e4rt:first-child{border-top:1px solid var(--foreground-color)}}.main-content.svelte-1j8e4rt.svelte-1j8e4rt{float:left;width:100%}@media(max-width: 800px), screen and (orientation: portrait){.main-content.svelte-1j8e4rt.svelte-1j8e4rt{width:100%}}.main-content.svelte-1j8e4rt .inner.svelte-1j8e4rt{width:100%;border:1px solid var(--foreground-color);min-height:100vh;display:inline-block}@media(max-width: 800px), screen and (orientation: portrait){.main-content.svelte-1j8e4rt .inner.svelte-1j8e4rt{border:unset}}@media(max-width: 800px), screen and (orientation: portrait){}.header-photo.svelte-1j8e4rt.svelte-1j8e4rt{overflow:none;padding:0;min-height:440px;border-bottom:1px solid var(--foreground-color);border-right:1px solid var(--foreground-color);height:440px}.header-photo.svelte-1j8e4rt img.svelte-1j8e4rt{width:100%;height:100%;object-fit:cover}@media(max-width: 800px), screen and (orientation: portrait){}@media(max-width: 800px), screen and (orientation: portrait){}@media(max-width: 800px), screen and (orientation: portrait){}@media(max-width: 800px), screen and (orientation: portrait){}@media(max-width: 800px), screen and (orientation: portrait){}@media(max-width: 800px), screen and (orientation: portrait){}",
   map: null
 };
+const router = false;
 const Support = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
-  const router = false;
+  const router2 = false;
   let { about } = $$props;
   console.log("about", about);
   const aboutMap = (0, import_keyBy.default)(about, "_id");
   const ORDER = [["volunteer", "supporters"], ["contact"]];
   const toc = [];
-  if ($$props.router === void 0 && $$bindings.router && router !== void 0)
-    $$bindings.router(router);
+  if ($$props.router === void 0 && $$bindings.router && router2 !== void 0)
+    $$bindings.router(router2);
   if ($$props.about === void 0 && $$bindings.about && about !== void 0)
     $$bindings.about(about);
   $$result.css.add(css);

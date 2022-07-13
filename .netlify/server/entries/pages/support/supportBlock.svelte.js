@@ -25,11 +25,11 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
-var import_sanity_1a8ac269 = require("../../../chunks/sanity-1a8ac269.js");
+var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_keyBy = require("lodash/keyBy.js");
 var import_truncate = require("lodash/truncate.js");
-var import_blocks_4014f298 = require("../../../chunks/blocks-4014f298.js");
+var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
 var import_get = require("lodash/get.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_slugify = require("slugify");
@@ -66,12 +66,12 @@ const SupportBlock = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings
 							<a${(0, import_index_277e1cdb.a)("href", "mailto:" + aboutMap["contact"].email, 0)}>${(0, import_index_277e1cdb.e)(aboutMap["contact"].email)}</a></div></div></div>` : `${section == "donate" ? `
 				
 				<div id="${"donate"}" class="${"tile introduction " + (0, import_index_277e1cdb.e)(section) + " svelte-y3ui1o"}" sveltekit:prefetch><h1>${(0, import_index_277e1cdb.e)(aboutMap[section].title)}</h1>
-					${(0, import_has.default)(aboutMap[section], "introduction.content") ? `<div class="${"description svelte-y3ui1o"}"><!-- HTML_TAG_START -->${(0, import_sanity_1a8ac269.r)(aboutMap[section].introduction.content)}<!-- HTML_TAG_END --></div>` : ``}</div>
+					${(0, import_has.default)(aboutMap[section], "introduction.content") ? `<div class="${"description svelte-y3ui1o"}"><!-- HTML_TAG_START -->${(0, import_sanity_bfd50d1d.r)(aboutMap[section].introduction.content)}<!-- HTML_TAG_END --></div>` : ``}</div>
 			${(0, import_index_277e1cdb.d)(aboutMap[section].content, (content) => {
-    return `${content.content[0].children[0].text == "THE FOLD" ? `<div class="${"tile nav-tile has-link svelte-y3ui1o"}">${(0, import_index_277e1cdb.v)(import_blocks_4014f298.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
+    return `${content.content[0].children[0].text == "THE FOLD" ? `<div class="${"tile nav-tile has-link svelte-y3ui1o"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
 
 							${(0, import_index_277e1cdb.v)(import_arrow_link_ef752029.A, "ArrowLink").$$render($$result, { link: "https://fold.eyebeam.org/enter" }, {}, {})}
-					</div>` : `<div class="${"tile nav-tile svelte-y3ui1o"}">${(0, import_index_277e1cdb.v)(import_blocks_4014f298.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
+					</div>` : `<div class="${"tile nav-tile svelte-y3ui1o"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: content.content }, {}, {})}
 					</div>`}`;
   })}
 						<div class="${"tile nav-tile crypto-widget svelte-y3ui1o"}"><h2 class="${"svelte-y3ui1o"}">Donate Crypto </h2>
@@ -79,7 +79,7 @@ const SupportBlock = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings
 
 <script id="${"tgb-widget-script"}">!function(t,e,i,n,o,c,d,s){t.tgbWidgetOptions={id:o,domain:n},(d=e.createElement(i)).src=[n,"widget/script.js"].join(""),d.async=1,(s=e.getElementById(c)).parentNode.insertBefore(d,s)}(window,document,"script","https://tgbwidget.com/","133952075","tgb-widget-script"); <\/script></div>` : `
 				<div class="${"tile nav-tile has-link " + (0, import_index_277e1cdb.e)(section) + " svelte-y3ui1o"}" sveltekit:prefetch><a${(0, import_index_277e1cdb.a)("href", "support/" + aboutMap[section]._id, 0)} class="${"svelte-y3ui1o"}"><h2 class="${"svelte-y3ui1o"}">${(0, import_index_277e1cdb.e)(aboutMap[section].title)}</h2></a>
-						${(0, import_has.default)(aboutMap[section], "introduction.content") ? `<div class="${"description svelte-y3ui1o"}"><!-- HTML_TAG_START -->${(0, import_sanity_1a8ac269.r)(aboutMap[section].introduction.content)}<!-- HTML_TAG_END --></div>
+						${(0, import_has.default)(aboutMap[section], "introduction.content") ? `<div class="${"description svelte-y3ui1o"}"><!-- HTML_TAG_START -->${(0, import_sanity_bfd50d1d.r)(aboutMap[section].introduction.content)}<!-- HTML_TAG_END --></div>
 						<div class="${"content svelte-y3ui1o"}">${section == "donate" ? `<script id="${"tgb-widget-script"}">!function(t,e,i,n,o,c,d,s){t.tgbWidgetOptions={id:o,domain:n},(d=e.createElement(i)).src=[n,"widget/script.js"].join(""),d.async=1,(s=e.getElementById(c)).parentNode.insertBefore(d,s)}(window,document,"script","https://tgbwidget.com/","133952075","tgb-widget-script"); <\/script>` : ``}</div>
 						${section != "donate" ? `${(0, import_index_277e1cdb.v)(import_arrow_link_ef752029.A, "ArrowLink").$$render($$result, {
     link: "/support/" + aboutMap[section]._id

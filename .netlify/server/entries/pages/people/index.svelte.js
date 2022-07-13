@@ -20,7 +20,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  default: () => People
+  default: () => People,
+  router: () => router
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
@@ -28,14 +29,14 @@ var import_groupBy = __toESM(require("lodash/groupBy.js"));
 var import_has = require("lodash/has.js");
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
-var import_blocks_4014f298 = require("../../../chunks/blocks-4014f298.js");
-var import_metadata_c74c46dc = require("../../../chunks/metadata-c74c46dc.js");
+var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
+var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_slugify = require("slugify");
 var import_date_fns = require("date-fns");
 var import_get = require("lodash/get.js");
 var import_core = require("@popperjs/core");
-var import_sanity_1a8ac269 = require("../../../chunks/sanity-1a8ac269.js");
+var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
@@ -47,6 +48,7 @@ const css = {
   code: "button.svelte-1eu4bly.svelte-1eu4bly{background:none;color:inherit;border:none;padding:0;font:inherit;cursor:pointer;outline:inherit}.main-content.svelte-1eu4bly.svelte-1eu4bly{float:left;width:100%}@media(max-width: 800px), screen and (orientation: portrait){.main-content.svelte-1eu4bly.svelte-1eu4bly{width:100%}}.main-content.svelte-1eu4bly .alphabetical-navigation.svelte-1eu4bly{background:var(--background-color);color:var(--foreground-color);display:flex;flex-direction:column;float:right;top:80px;right:100px;width:40px;user-select:none}@media(max-width: 800px), screen and (orientation: portrait){.main-content.svelte-1eu4bly .alphabetical-navigation.svelte-1eu4bly{display:none}}.main-content.svelte-1eu4bly .alphabetical-navigation .item.svelte-1eu4bly{height:40px;line-height:40px;text-align:center;display:block;width:40px;border-bottom:1px solid var(--foreground-color);border-left:1px solid var(--foreground-color);text-decoration:none;cursor:pointer}.main-content.svelte-1eu4bly .alphabetical-navigation .item.svelte-1eu4bly:hover{background:#e0ded7;color:var(--hover-text-color)}.main-content.svelte-1eu4bly .inner.svelte-1eu4bly{border:1px solid var(--foreground-color);min-height:100vh}.main-content.svelte-1eu4bly .inner .header.svelte-1eu4bly{border-bottom:1px solid var(--foreground-color);padding-left:15px;padding-right:15px;padding-bottom:20px}@media(max-width: 800px), screen and (orientation: portrait){}.main-content.svelte-1eu4bly .inner .sub-section.svelte-1eu4bly{border-bottom:1px solid var(--foreground-color);padding:15px}.main-content.svelte-1eu4bly .inner .sub-section.svelte-1eu4bly:last-child{border-bottom:none}ul.svelte-1eu4bly.svelte-1eu4bly{padding:0}ul.svelte-1eu4bly li.svelte-1eu4bly{list-style:none;margin-bottom:5px;font-size:16px;padding-left:0;text-indent:0}ul.svelte-1eu4bly li.svelte-1eu4bly:before{content:unset;padding-right:0;position:static;top:unset}.supersized.svelte-1eu4bly.svelte-1eu4bly{font-size:54px}.accessibility-descriptor.svelte-1eu4bly.svelte-1eu4bly{position:absolute;width:1px;height:1px;right:1000000px}.description.svelte-1eu4bly.svelte-1eu4bly{margin-left:auto;margin-right:20px;margin-top:40px;margin-bottom:20px}",
   map: null
 };
+const router = false;
 const People = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   let { people } = $$props;
   let pageData = {
@@ -125,7 +127,7 @@ const People = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slot
     import_stores_f9761b8b.s.set([]);
   }
   return `
-${(0, import_index_277e1cdb.v)(import_metadata_c74c46dc.M, "Metadata").$$render($$result, { page: { title: "Artists" } }, {}, {})}
+${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render($$result, { page: { title: "Artists" } }, {}, {})}
 
 <div class="${"main-content svelte-1eu4bly"}"><div class="${"inner svelte-1eu4bly"}">${`
 			<nav role="${"On this page"}" class="${"alphabetical-navigation svelte-1eu4bly"}"><h2 class="${"accessibility-descriptor svelte-1eu4bly"}">Jump to a letter of the alphabet</h2>
@@ -137,7 +139,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_c74c46dc.M, "Metadata").$$render(
 
 		
 		<header class="${"header svelte-1eu4bly"}"><h1>Artists</h1>
-			<div class="${"description svelte-1eu4bly"}">${(0, import_index_277e1cdb.v)(import_blocks_4014f298.L, "LogoBlock").$$render($$result, { b: pageData }, {}, {})}</div>
+			<div class="${"description svelte-1eu4bly"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.L, "LogoBlock").$$render($$result, { b: pageData }, {}, {})}</div>
 
 
 			
@@ -149,7 +151,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_c74c46dc.M, "Metadata").$$render(
 		${`${(0, import_index_277e1cdb.d)(ALPHABET, (alpha) => {
     return `<section class="${"sub-section svelte-1eu4bly"}"${(0, import_index_277e1cdb.a)("id", alpha, 0)}><h2 class="${"supersized svelte-1eu4bly"}">${(0, import_index_277e1cdb.e)(alpha)}</h2>
 					${groupedPeopleAlpha[alpha] ? `<ul class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.d)(groupedPeopleAlpha[alpha], (person) => {
-      return `${!person.isEmpty ? `<li class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.v)(import_blocks_4014f298.a, "PersonLink").$$render($$result, { person }, {}, {})}</li>` : `<li class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.e)(person.title)}</li>`}`;
+      return `${!person.isEmpty ? `<li class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.a, "PersonLink").$$render($$result, { person }, {}, {})}</li>` : `<li class="${"svelte-1eu4bly"}">${(0, import_index_277e1cdb.e)(person.title)}</li>`}`;
     })}
 						</ul>` : ``}
 				</section>`;

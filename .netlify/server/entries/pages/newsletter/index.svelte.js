@@ -25,15 +25,15 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 var import_has = __toESM(require("lodash/has.js"));
-var import_blocks_4014f298 = require("../../../chunks/blocks-4014f298.js");
+var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
-var import_metadata_c74c46dc = require("../../../chunks/metadata-c74c46dc.js");
+var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_slugify = require("slugify");
 var import_get = require("lodash/get.js");
 var import_date_fns = require("date-fns");
 var import_core = require("@popperjs/core");
-var import_sanity_1a8ac269 = require("../../../chunks/sanity-1a8ac269.js");
+var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
@@ -59,14 +59,14 @@ const Newsletter = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, 
     import_stores_f9761b8b.s.set([]);
   }
   return `
-${(0, import_index_277e1cdb.v)(import_metadata_c74c46dc.M, "Metadata").$$render($$result, { page }, {}, {})}
+${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render($$result, { page }, {}, {})}
 
 
 <div class="${"main-content svelte-di92ot"}"><div class="${"inner svelte-di92ot"}">
 		<h1 class="${"svelte-di92ot"}">${(0, import_index_277e1cdb.e)(page.title)}</h1>
 
 		
-		${(0, import_has.default)(page, "content.content") ? `<div class="${"body-content svelte-di92ot"}">${(0, import_index_277e1cdb.v)(import_blocks_4014f298.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
+		${(0, import_has.default)(page, "content.content") ? `<div class="${"body-content svelte-di92ot"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}</div>` : ``}
 
 		
 

@@ -27,6 +27,6 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/journal/_slug_.svelte.js"));
-const entry = "pages/journal/_slug_.svelte-e8e4a8eb.js";
-const js = ["pages/journal/_slug_.svelte-e8e4a8eb.js", "chunks/index-fa94c728.js", "chunks/global-d9c97fe1.js", "chunks/index-fe7c00d7.js", "chunks/blocks-f0e42b03.js", "chunks/metadata-696931e7.js", "chunks/isRegExp-66a22565.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/_baseProperty-74c54ba2.js", "chunks/person-link-list-f05fd22d.js"];
+const entry = "pages/journal/_slug_.svelte-83c9fc56.js";
+const js = ["pages/journal/_slug_.svelte-83c9fc56.js", "chunks/index-fa94c728.js", "chunks/global-d9c97fe1.js", "chunks/index-fe7c00d7.js", "chunks/blocks-b0f3bc4f.js", "chunks/metadata-696931e7.js", "chunks/isRegExp-66a22565.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/_baseProperty-74c54ba2.js", "chunks/person-link-list-3a82e719.js"];
 const css = ["assets/pages/journal/_slug_.svelte-4300a688.css", "assets/video.svelte_svelte_type_style_lang-8e5e4d97.css"];

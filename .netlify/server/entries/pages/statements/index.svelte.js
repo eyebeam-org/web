@@ -21,11 +21,11 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
-var import_sanity_1a8ac269 = require("../../../chunks/sanity-1a8ac269.js");
+var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
-var import_blocks_4014f298 = require("../../../chunks/blocks-4014f298.js");
-var import_metadata_c74c46dc = require("../../../chunks/metadata-c74c46dc.js");
+var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
+var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_big_beam_c5c43470 = require("../../../chunks/big-beam-c5c43470.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_client = require("@sanity/client");
@@ -56,15 +56,15 @@ const Statements = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, 
     import_stores_f9761b8b.s.set([]);
   }
   return `
-${(0, import_index_277e1cdb.v)(import_metadata_c74c46dc.M, "Metadata").$$render($$result, { page: { title: "Statements" } }, {}, {})}
+${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render($$result, { page: { title: "Statements" } }, {}, {})}
 
 
 <div class="${"main-content svelte-5wdn90"}"><div class="${"inner svelte-5wdn90"}"><div class="${"header svelte-5wdn90"}">${(0, import_index_277e1cdb.v)(import_big_beam_c5c43470.B, "BigBeam").$$render($$result, {}, {}, {})}</div>
 		${(0, import_index_277e1cdb.d)(statements, (statement) => {
     return `<div class="${"single-statement svelte-5wdn90"}">
-				<div class="${"text svelte-5wdn90"}"><!-- HTML_TAG_START -->${(0, import_sanity_1a8ac269.r)(statement.content.content)}<!-- HTML_TAG_END --></div>
+				<div class="${"text svelte-5wdn90"}"><!-- HTML_TAG_START -->${(0, import_sanity_bfd50d1d.r)(statement.content.content)}<!-- HTML_TAG_END --></div>
 				
-				${statement.person ? `<div class="${"person svelte-5wdn90"}">${(0, import_index_277e1cdb.v)(import_blocks_4014f298.a, "PersonLink").$$render($$result, { person: statement.person }, {}, {})}</div>` : ``}
+				${statement.person ? `<div class="${"person svelte-5wdn90"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.a, "PersonLink").$$render($$result, { person: statement.person }, {}, {})}</div>` : ``}
 				
 				${statement.date ? `<div class="${"date svelte-5wdn90"}">${(0, import_index_277e1cdb.e)((0, import_global_eadaa9b6.l)(statement.date))}</div>` : ``}
 			</div>`;

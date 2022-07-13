@@ -17,18 +17,16 @@ var __copyProps = (to, from, except, desc) => {
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  get: () => get,
-  prerender: () => prerender
+  get: () => get
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_sanity_1a8ac269 = require("../../../chunks/sanity-1a8ac269.js");
+var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
 var import_get_video_id = require("get-video-id");
 var import_has = require("lodash/has.js");
-const prerender = false;
 const get = async (request) => {
-  const page = await (0, import_sanity_1a8ac269.l)("*[_type == 'person' && slug.current == $slug]{..., internalLinks[]->{...},'connectedPosts': *[_type in ['event', 'press', 'program', 'project', 'note', 'videoPost', 'news', 'journalPost'] && references(^._id)]{...}}[0]", { slug: request.params.slug });
+  const page = await (0, import_sanity_bfd50d1d.l)("*[_type == 'person' && slug.current == $slug]{..., internalLinks[]->{...},'connectedPosts': *[_type in ['event', 'press', 'program', 'project', 'note', 'videoPost', 'news', 'journalPost'] && references(^._id)]{...}}[0]", { slug: request.params.slug });
   return { body: { page: page.status === 404 ? "ERROR" : page } };
 };

@@ -20,17 +20,18 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  default: () => Programs
+  default: () => Programs,
+  router: () => router
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
-var import_sanity_1a8ac269 = require("../../../chunks/sanity-1a8ac269.js");
+var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
 var import_get = __toESM(require("lodash/get.js"));
 var import_truncate = require("lodash/truncate.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
-var import_metadata_c74c46dc = require("../../../chunks/metadata-c74c46dc.js");
+var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_arrow_link_ef752029 = require("../../../chunks/arrow-link-ef752029.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_client = require("@sanity/client");
@@ -45,8 +46,8 @@ const css = {
   code: 'h2.svelte-1koaaol.svelte-1koaaol{font-family:"Eyebeam sans", Arial, sans-serif;font-size:32px;text-transform:uppercase;padding-right:40px}.tile.svelte-1koaaol.svelte-1koaaol{padding:15px;overflow:hidden;width:50%;display:block;float:left;font-size:16px}@media(max-width: 1400px){.tile.svelte-1koaaol.svelte-1koaaol{width:100%}}@media(max-width: 800px), screen and (orientation: portrait){.tile.svelte-1koaaol.svelte-1koaaol{width:100%;border:1px solid var(--foreground-color);border-top:none}.tile.svelte-1koaaol.svelte-1koaaol:first-child{border-top:1px solid var(--foreground-color)}}.main-content.svelte-1koaaol.svelte-1koaaol{float:left;width:calc((100% / 6) * 5)}@media(max-width: 800px), screen and (orientation: portrait){.main-content.svelte-1koaaol.svelte-1koaaol{width:100%}}.main-content.svelte-1koaaol .inner.svelte-1koaaol{width:100%;min-height:100vh;border:1px solid var(--foreground-color);display:inline-block}@media(max-width: 800px), screen and (orientation: portrait){.main-content.svelte-1koaaol .inner.svelte-1koaaol{border:unset}}.introduction.svelte-1koaaol.svelte-1koaaol{border-bottom:1px solid var(--foreground-color);min-height:440px;padding:40px}@media(max-width: 800px), screen and (orientation: portrait){.introduction.svelte-1koaaol.svelte-1koaaol{min-height:unset}}.introduction.svelte-1koaaol p.svelte-1koaaol{font-style:italic;font-size:27px}@media(max-width: 800px), screen and (orientation: portrait){.introduction.svelte-1koaaol p.svelte-1koaaol{font-size:14px}}.header-photo.svelte-1koaaol.svelte-1koaaol{overflow:hidden;padding:0;max-height:440px;border-bottom:1px solid var(--foreground-color);border-right:1px solid var(--foreground-color)}.header-photo.svelte-1koaaol img.svelte-1koaaol{max-height:100%;max-width:100%}.nav-tile.svelte-1koaaol.svelte-1koaaol{min-height:440px;max-height:440px;border-bottom:1px solid var(--foreground-color);border-right:1px solid var(--foreground-color);text-decoration:none;overflow:scroll;display:flex;flex-flow:column nowrap;cursor:pointer;padding:40px}.nav-tile.svelte-1koaaol.svelte-1koaaol:nth-child(even){border-right:none}@media(max-width: 800px), screen and (orientation: portrait){.nav-tile.svelte-1koaaol.svelte-1koaaol:nth-child(even){border-right:1px solid var(--foreground-color)}}.nav-tile.svelte-1koaaol a.svelte-1koaaol{text-decoration:none}.nav-tile.svelte-1koaaol.svelte-1koaaol:nth-last-child(1){border-bottom:none}.nav-tile.svelte-1koaaol.svelte-1koaaol:hover{background:#e0ded7;color:var(--hover-text-color)}.nav-tile.svelte-1koaaol.svelte-1koaaol:active{background:var(--foreground-color);color:var(--background-color)}@media(max-width: 800px), screen and (orientation: portrait){.nav-tile.svelte-1koaaol.svelte-1koaaol{width:100%;border-left:1px solid var(--foreground-color);border-right:1px solid var(--foreground-color);border-bottom:1px solid var(--foreground-color);min-height:33vh}.nav-tile.svelte-1koaaol.svelte-1koaaol:nth-child(odd){border-right:1px solid var(--foreground-color)}.nav-tile.svelte-1koaaol.svelte-1koaaol:nth-last-child(1){border-bottom:1px solid var(--foreground-color)}.nav-tile.svelte-1koaaol.svelte-1koaaol:first-of-type{border-top:1px solid var(--foreground-color)}}.application-container.svelte-1koaaol.svelte-1koaaol{display:flex;align-items:center;background:#e0ded7;padding:15px}.application-container.svelte-1koaaol .circle.svelte-1koaaol{width:20px;height:20px;border-radius:50%;background:var(--foreground-color)}.application-container.svelte-1koaaol .text.svelte-1koaaol{margin-left:15px}.application-container.svelte-1koaaol .text .applications-open.svelte-1koaaol{font-size:11px}',
   map: null
 };
+const router = false;
 const Programs = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
-  const router = false;
   let { programs } = $$props;
   const toc = programs.map((p) => {
     return {
@@ -54,8 +55,6 @@ const Programs = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, sl
       link: "/programs/" + (0, import_get.default)(p, "slug.current", "")
     };
   });
-  if ($$props.router === void 0 && $$bindings.router && router !== void 0)
-    $$bindings.router(router);
   if ($$props.programs === void 0 && $$bindings.programs && programs !== void 0)
     $$bindings.programs(programs);
   $$result.css.add(css);
@@ -69,7 +68,7 @@ const Programs = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, sl
     import_stores_f9761b8b.s.set(toc);
   }
   return `
-${(0, import_index_277e1cdb.v)(import_metadata_c74c46dc.M, "Metadata").$$render($$result, { page: { title: "Programs" } }, {}, {})}
+${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render($$result, { page: { title: "Programs" } }, {}, {})}
 
 
 <div class="${"main-content svelte-1koaaol"}" tabindex="${"0"}"><div class="${"inner svelte-1koaaol"}"><div class="${"tile header-photo svelte-1koaaol"}"><img src="${"ddc_header.jpg"}" alt="${"A student sitting at a laptop with headphones around his ears, surrounded by other students deep in thought. He is black, with short, curly hair, wearing a black hoodie."}" class="${"svelte-1koaaol"}"></div>
@@ -86,7 +85,7 @@ ${(0, import_index_277e1cdb.v)(import_metadata_c74c46dc.M, "Metadata").$$render(
 			<h2 class="${"svelte-1koaaol"}"><a${(0, import_index_277e1cdb.a)("href", "/programs/" + program.slug.current, 0)} sveltekit:prefetch class="${"svelte-1koaaol"}">${(0, import_index_277e1cdb.e)(program.title)}</a></h2>
 				
 				${(0, import_has.default)(program, "introduction.content") ? `<div class="${"introduction-text"}">
-<!-- HTML_TAG_START -->${(0, import_sanity_1a8ac269.r)(program.introduction.content)}<!-- HTML_TAG_END -->
+<!-- HTML_TAG_START -->${(0, import_sanity_bfd50d1d.r)(program.introduction.content)}<!-- HTML_TAG_END -->
 					</div>` : ``}
 
 				${program.applicationsOpen ? `<div class="${"application-container svelte-1koaaol"}"><div class="${"circle svelte-1koaaol"}"></div>

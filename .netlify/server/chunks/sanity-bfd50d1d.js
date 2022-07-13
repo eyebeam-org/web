@@ -35,7 +35,7 @@ const SANITY_ID = "3knpqano";
 console.log("env: ", process.env.NODE_ENV);
 const client = (0, import_client.default)({
   projectId: SANITY_ID,
-  dataset: process.env.NODE_ENV == "development" ? "test" : "production",
+  dataset: process.env.NODE_ENV == "development" ? "production" : "production",
   apiVersion: "2021-10-05",
   useCdn: false
 });

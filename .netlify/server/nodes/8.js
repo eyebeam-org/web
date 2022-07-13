@@ -27,6 +27,6 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/index.svelte.js"));
-const entry = "pages/index.svelte-95e24829.js";
-const js = ["pages/index.svelte-95e24829.js", "chunks/index-fa94c728.js", "chunks/metadata-696931e7.js", "chunks/global-d9c97fe1.js", "chunks/isRegExp-66a22565.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/_baseProperty-74c54ba2.js", "chunks/menu-dd51bf8d.js", "chunks/search-ec44a58e.js", "chunks/index-fe7c00d7.js", "chunks/navigation-0e6511d1.js", "chunks/singletons-d1fb5791.js", "chunks/isTypedArray-bc0a9c6b.js", "chunks/person-link-list-f05fd22d.js", "chunks/blocks-f0e42b03.js"];
+const entry = "pages/index.svelte-92a2af21.js";
+const js = ["pages/index.svelte-92a2af21.js", "chunks/index-fa94c728.js", "chunks/metadata-696931e7.js", "chunks/global-d9c97fe1.js", "chunks/isRegExp-66a22565.js", "chunks/stores-4df8d53f.js", "chunks/index-6da00ed5.js", "chunks/stores-384d37bf.js", "chunks/_baseProperty-74c54ba2.js", "chunks/menu-6108ba38.js", "chunks/search-447c90cd.js", "chunks/index-fe7c00d7.js", "chunks/navigation-0e6511d1.js", "chunks/singletons-d1fb5791.js", "chunks/isTypedArray-bc0a9c6b.js", "chunks/person-link-list-3a82e719.js", "chunks/blocks-b0f3bc4f.js"];
 const css = ["assets/pages/index.svelte-df442ff2.css", "assets/logo.svelte_svelte_type_style_lang-091ab07e.css", "assets/half-beam.svelte_svelte_type_style_lang-274e9185.css", "assets/video.svelte_svelte_type_style_lang-8e5e4d97.css", "assets/menu-a7563fc0.css", "assets/search-38db8ca0.css"];

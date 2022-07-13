@@ -25,14 +25,14 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 var import_has = __toESM(require("lodash/has.js"));
-var import_blocks_4014f298 = require("../../../chunks/blocks-4014f298.js");
-var import_metadata_c74c46dc = require("../../../chunks/metadata-c74c46dc.js");
-var import_person_link_list_a501f5d9 = require("../../../chunks/person-link-list-a501f5d9.js");
+var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
+var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
+var import_person_link_list_71a9e6f6 = require("../../../chunks/person-link-list-71a9e6f6.js");
 var import_slugify = require("slugify");
 var import_get = require("lodash/get.js");
 var import_date_fns = require("date-fns");
 var import_core = require("@popperjs/core");
-var import_sanity_1a8ac269 = require("../../../chunks/sanity-1a8ac269.js");
+var import_sanity_bfd50d1d = require("../../../chunks/sanity-bfd50d1d.js");
 var import_client = require("@sanity/client");
 var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
@@ -52,13 +52,13 @@ const U5Bslugu5D = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, 
     $$bindings.page(page);
   $$result.css.add(css);
   return `
-${(0, import_index_277e1cdb.v)(import_metadata_c74c46dc.M, "Metadata").$$render($$result, { page }, {}, {})}
+${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render($$result, { page }, {}, {})}
 
 <div class="${"journal svelte-12xrj4v"}"><header class="${"header svelte-12xrj4v"}">
 		<h1 class="${"svelte-12xrj4v"}">${(0, import_index_277e1cdb.e)(page.title)}</h1>
 		${page.subtitle ? `<div class="${"subtitle svelte-12xrj4v"}">${(0, import_index_277e1cdb.e)(page.subtitle)}</div>` : ``}
-		<div class="${"authors svelte-12xrj4v"}">${(0, import_index_277e1cdb.v)(import_person_link_list_a501f5d9.P, "PersonLinkList").$$render($$result, { people: page.people }, {}, {})}</div></header>
+		<div class="${"authors svelte-12xrj4v"}">${(0, import_index_277e1cdb.v)(import_person_link_list_71a9e6f6.P, "PersonLinkList").$$render($$result, { people: page.people }, {}, {})}</div></header>
 
-	<article class="${"content svelte-12xrj4v"}">${(0, import_has.default)(page, "content.content") ? `${(0, import_index_277e1cdb.v)(import_blocks_4014f298.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}</article>
+	<article class="${"content svelte-12xrj4v"}">${(0, import_has.default)(page, "content.content") ? `${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}</article>
 </div>`;
 });
