@@ -27,7 +27,7 @@ module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("../../../chunks/index-277e1cdb.js");
 var import_get = __toESM(require("lodash/get.js"));
 var import_global_eadaa9b6 = require("../../../chunks/global-eadaa9b6.js");
-var import_main_content_2f4b077f = require("../../../chunks/main-content-2f4b077f.js");
+var import_main_content_5b81c89b = require("../../../chunks/main-content-5b81c89b.js");
 var import_metadata_08e68bb9 = require("../../../chunks/metadata-08e68bb9.js");
 var import_stores_f9761b8b = require("../../../chunks/stores-f9761b8b.js");
 var import_slugify = require("slugify");
@@ -38,9 +38,9 @@ var import_block_content_to_html = require("@sanity/block-content-to-html");
 var import_image_url = require("@sanity/image-url");
 var import_get_video_id = require("get-video-id");
 var import_has = require("lodash/has.js");
-var import_blocks_c7be9ebc = require("../../../chunks/blocks-c7be9ebc.js");
+var import_blocks_7ef65749 = require("../../../chunks/blocks-7ef65749.js");
 var import_core = require("@popperjs/core");
-var import_see_also_4afb53ce = require("../../../chunks/see-also-4afb53ce.js");
+var import_see_also_47f32c41 = require("../../../chunks/see-also-47f32c41.js");
 var import_bottom_bar_168e682a = require("../../../chunks/bottom-bar-168e682a.js");
 var import_truncate = require("lodash/truncate.js");
 var import_stores_b7bb0fad = require("../../../chunks/stores-b7bb0fad.js");
@@ -59,5 +59,5 @@ const U5Bslugu5D = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, 
   return `
 ${(0, import_index_277e1cdb.v)(import_metadata_08e68bb9.M, "Metadata").$$render($$result, { page }, {}, {})}
 
-${(0, import_index_277e1cdb.v)(import_main_content_2f4b077f.M, "MainContent").$$render($$result, { page }, {}, {})}`;
+${(0, import_index_277e1cdb.v)(import_main_content_5b81c89b.M, "MainContent").$$render($$result, { page }, {}, {})}`;
 });

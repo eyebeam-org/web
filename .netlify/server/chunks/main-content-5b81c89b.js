@@ -28,8 +28,8 @@ var import_sanity_bfd50d1d = require("./sanity-bfd50d1d.js");
 var import_has = __toESM(require("lodash/has.js"));
 var import_get = __toESM(require("lodash/get.js"));
 var import_global_eadaa9b6 = require("./global-eadaa9b6.js");
-var import_blocks_c7be9ebc = require("./blocks-c7be9ebc.js");
-var import_see_also_4afb53ce = require("./see-also-4afb53ce.js");
+var import_blocks_7ef65749 = require("./blocks-7ef65749.js");
+var import_see_also_47f32c41 = require("./see-also-47f32c41.js");
 var import_bottom_bar_168e682a = require("./bottom-bar-168e682a.js");
 var import_get_video_id = require("get-video-id");
 const css$2 = {
@@ -44,7 +44,7 @@ const Video_player = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings
   return `
 <div class="${"video-block svelte-q3dcfc"}"><div class="${"embed svelte-q3dcfc"}">${`
 			${page.mainImage ? `<img${(0, import_index_277e1cdb.a)("alt", page.title, 0)}${(0, import_index_277e1cdb.a)("src", (0, import_sanity_bfd50d1d.u)(page.mainImage).quality(90).saturation(-100).width(400).url(), 0)} class="${"svelte-q3dcfc"}">` : ``}
-			<div class="${"icon svelte-q3dcfc"}">${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.P, "PlayArrow").$$render($$result, {}, {}, {})}</div>
+			<div class="${"icon svelte-q3dcfc"}">${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.P, "PlayArrow").$$render($$result, {}, {}, {})}</div>
 			<div class="${"title svelte-q3dcfc"}">${(0, import_index_277e1cdb.e)(page.title)}
 				${page.runtime ? `(${(0, import_index_277e1cdb.e)(page.runtime)})` : ``}</div>`}</div>
 </div>`;
@@ -110,26 +110,26 @@ const Main_content = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings
 						<div class="${"date svelte-1xdc4al"}">${(0, import_index_277e1cdb.e)((0, import_global_eadaa9b6.e)(page._createdAt))}</div>
 						
 						${page.people && page.people.length > 0 ? `<div class="${"authors svelte-1xdc4al"}">by ${(0, import_index_277e1cdb.d)(page.people, (person) => {
-    return `${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.a, "PersonLink").$$render($$result, { person }, {}, {})}`;
+    return `${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.a, "PersonLink").$$render($$result, { person }, {}, {})}`;
   })}</div>` : ``}` : ``}
 				${page._type == "press" || page._type == "news" ? `${page.source ? `<div class="${"published-by svelte-1xdc4al"}">Published by ${(0, import_index_277e1cdb.e)(page.source)}</div>
 						<div class="${"date svelte-1xdc4al"}">${(0, import_index_277e1cdb.e)((0, import_global_eadaa9b6.l)(page._createdAt))}</div>` : ``}
 						
 						${page.author ? `<div class="${"author svelte-1xdc4al"}">${(0, import_index_277e1cdb.e)(page.author)}</div>` : ``}
-			${page.externalLink ? `<a${(0, import_index_277e1cdb.a)("href", page.externalLink, 0)} class="${"button read-original svelte-1xdc4al"}" target="${"_blank"}">Read original article on ${(0, import_index_277e1cdb.e)(page.source)} ${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.E, "ExternalLink").$$render($$result, {}, {}, {})}</a>` : ``}` : ``}
+			${page.externalLink ? `<a${(0, import_index_277e1cdb.a)("href", page.externalLink, 0)} class="${"button read-original svelte-1xdc4al"}" target="${"_blank"}">Read original article on ${(0, import_index_277e1cdb.e)(page.source)} ${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.E, "ExternalLink").$$render($$result, {}, {}, {})}</a>` : ``}` : ``}
 
 					
-					${showIntroduction && (0, import_has.default)(page, "introduction.content", []) ? `<div>${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: page.introduction.content }, {}, {})}</div>` : ``}</div>
+					${showIntroduction && (0, import_has.default)(page, "introduction.content", []) ? `<div>${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page.introduction.content }, {}, {})}</div>` : ``}</div>
 
 				
 				${(0, import_has.default)(page, "mainImage.asset") ? `<figure class="${"image-container svelte-1xdc4al"}"><img class="${"main-image svelte-1xdc4al"}"${(0, import_index_277e1cdb.a)("alt", page.mainImage.alt, 0)}${(0, import_index_277e1cdb.a)("src", (0, import_sanity_bfd50d1d.u)(page.mainImage).quality(90).saturation(-100).width(400).url(), 0)}>
-						${(0, import_has.default)(page, "mainImage.caption.content") ? `<figcaption>${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: page.mainImage.caption.content }, {}, {})}</figcaption>` : ``}</figure>` : ``}</header>`}
+						${(0, import_has.default)(page, "mainImage.caption.content") ? `<figcaption>${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page.mainImage.caption.content }, {}, {})}</figcaption>` : ``}</figure>` : ``}</header>`}
 
 		
 		${page._type === "event" ? `<div class="${"event-info svelte-1xdc4al"}">${page.startDate ? `<div class="${"dates svelte-1xdc4al"}"><h3>Dates</h3>
 						${(0, import_index_277e1cdb.e)((0, import_global_eadaa9b6.l)(page.startDate))}</div>` : ``}
 				${(0, import_has.default)(page, "location.content") ? `<div class="${"location"}"><h3>Location</h3>
-						${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: page.location.content }, {}, {})}</div>` : ``}</div>` : ``}
+						${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page.location.content }, {}, {})}</div>` : ``}</div>` : ``}
 
 		
 		${page._type === "press" || page._type === "news" ? `
@@ -137,7 +137,7 @@ const Main_content = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings
 			
 			${page.people && page.people.length > 0 ? `<div class="${"including svelte-1xdc4al"}">Including:
 					${(0, import_index_277e1cdb.d)(page.people, (person) => {
-    return `${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.a, "PersonLink").$$render($$result, { person }, {}, {})}`;
+    return `${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.a, "PersonLink").$$render($$result, { person }, {}, {})}`;
   })}</div>` : ``}
 			
 			${page.pdfFile ? `<a href="${""}" class="${"button download-pdf svelte-1xdc4al"}">Download as PDF</a>` : ``}
@@ -145,14 +145,14 @@ const Main_content = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings
 
 		
 		${page.website ? `<div class="${"website svelte-1xdc4al"}" id="${"website"}"><h3>Website</h3>
-				<p><a${(0, import_index_277e1cdb.a)("href", page.website, 0)} target="${"_blank"}">${(0, import_index_277e1cdb.e)(page.website)} ${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.E, "ExternalLink").$$render($$result, {}, {}, {})}</a></p></div>` : ``}
+				<p><a${(0, import_index_277e1cdb.a)("href", page.website, 0)} target="${"_blank"}">${(0, import_index_277e1cdb.e)(page.website)} ${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.E, "ExternalLink").$$render($$result, {}, {}, {})}</a></p></div>` : ``}
 
 		
 		${(0, import_has.default)(page, "bio.content") ? `<div class="${"bio svelte-1xdc4al"}" id="${"bio"}"><h3>Bio</h3>
-				${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: page.bio.content }, {}, {})}</div>` : ``}
+				${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page.bio.content }, {}, {})}</div>` : ``}
 
 		
-		${(0, import_has.default)(page, "content.content") ? `${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}
+		${(0, import_has.default)(page, "content.content") ? `${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.B, "Blocks").$$render($$result, { blocks: page.content.content }, {}, {})}` : ``}
 
 		
 		${page.transcript && page.transcript.asset && page.transcript.asset._ref ? `<div class="${"transcript svelte-1xdc4al"}" id="${"transcript"}"><h2>Transcript</h2>
@@ -171,7 +171,7 @@ const Main_content = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings
 		${(0, import_get.default)(page, "connectedPosts", []).length > 0 ? `${(0, import_index_277e1cdb.v)(At_eyebeam, "AtEyebeam").$$render($$result, { posts: page.connectedPosts }, {}, {})}` : ``}
 
 		
-		${page.internalLinks || page.externalLinks ? `${(0, import_index_277e1cdb.v)(import_see_also_4afb53ce.S, "SeeAlso").$$render($$result, {
+		${page.internalLinks || page.externalLinks ? `${(0, import_index_277e1cdb.v)(import_see_also_47f32c41.S, "SeeAlso").$$render($$result, {
     externalLinks: page.externalLinks,
     internalLinks: page.internalLinks
   }, {}, {})}` : ``}</article>

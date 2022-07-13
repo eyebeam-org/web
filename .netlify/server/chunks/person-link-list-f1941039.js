@@ -21,7 +21,7 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_277e1cdb = require("./index-277e1cdb.js");
-var import_blocks_c7be9ebc = require("./blocks-c7be9ebc.js");
+var import_blocks_7ef65749 = require("./blocks-7ef65749.js");
 const Person_link_list = (0, import_index_277e1cdb.c)(($$result, $$props, $$bindings, slots) => {
   let { people = [] } = $$props;
   let { tiny = false } = $$props;
@@ -30,6 +30,6 @@ const Person_link_list = (0, import_index_277e1cdb.c)(($$result, $$props, $$bind
   if ($$props.tiny === void 0 && $$bindings.tiny && tiny !== void 0)
     $$bindings.tiny(tiny);
   return `${(0, import_index_277e1cdb.d)(people, (person, index) => {
-    return `${(0, import_index_277e1cdb.v)(import_blocks_c7be9ebc.a, "PersonLink").$$render($$result, { person, tiny }, {}, {})}${index == people.length - 2 ? `&amp;` : ``}`;
+    return `${(0, import_index_277e1cdb.v)(import_blocks_7ef65749.a, "PersonLink").$$render($$result, { person, tiny }, {}, {})}${index == people.length - 2 ? `&amp;` : ``}`;
   })}`;
 });
